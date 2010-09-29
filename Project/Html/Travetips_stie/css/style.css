@@ -1556,7 +1556,7 @@ ul.forms li.inputfield input{
 }
 ul.forms li.inputfield select{
 	width:241px;
-	height:20px;
+	height:24px;
 	background-image:url(../images/input_bar.gif);
 	background-repeat:repeat-x;
 	border:#cccccc solid 1px;
