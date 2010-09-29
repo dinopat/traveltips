@@ -1923,17 +1923,17 @@ a.bordrs {
 .categories {
 	width:100%;
 	float:left;
-	padding:10px 0px 20px 0px;
+	
 }
 .categories .cats{
-	width:244px;
-	height:257px;
-	padding:10px 20px;
+	width:138px;
+	height:180px;
 	background-repeat:no-repeat;
 	overflow:hidden;
 	float:left;
 	border:#c1c1c1 solid 3px;
-	margin-right:35px;
+	margin-right:10px;
+	margin-bottom:20px;
 	text-align:right;
 }
 .cats h2{
