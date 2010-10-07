@@ -1,0 +1,30 @@
+﻿body {
+}
+
+label.button {
+    background:url("../images/rightGreen.png") no-repeat scroll right top transparent;
+    color:#494949;
+    display:block;
+    float:left;
+    font:12px Arial,Helvetica,sans-serif;
+    height:24px;
+    margin-right:6px;
+    padding-right:9px;
+}
+
+label.button input {
+    height:inherit;
+    opacity:0;
+    position:absolute;
+    width:inherit;
+    z-index:2;
+}
+
+label.button span {
+background:url("../images/leftGreen.png") no-repeat scroll 0 0 transparent;
+display:block;
+line-height:14px;
+padding:5px 0 5px 6px;
+text-align:center;
+white-space:nowrap;
+}
