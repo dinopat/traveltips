@@ -3,7 +3,7 @@
 
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Estore 13</title>
+<title>Nhap menu</title>
 <!-- // Stylesheets // -->
 <link href="css/style.css" rel="stylesheet" type="text/css">
 <link href="css/style.css" rel="stylesheet" type="text/css" />
@@ -236,29 +236,73 @@
             <div class="listing_banner"><a href="#"></a></div>
  
             <div>
-        	<h3 class="heading colr">Đăng nhập</h3>
+        	<h3 class="heading colr">
+                Nhập menu</h3>
                         
             <div class="clear"></div>
             
                 <fieldset class="row1">
-                <legend>Thông tin đăng nhập
-                </legend>
+                <legend>Thông tin món ăn/thức uống&nbsp;</legend>
                 <p class="spaceBottom">
-                    <label class="lbLogin">Email *
+                    <label class="lbLogin">
+    Tên món ăn/thức uống *
                     </label>
-					<input type="text" class="long" id="txtEmail" value="vt2804@yahoo.com" name="txtEmail">                 
-                </p>
+    <select id="Select9" style="width: 189px">
+        <option selected="selected" value="0">Vit quay</option>
+        <option value="1">Qua quay</option>
+        <option></option>
+    </select>
+</p>
                 <p class="spaceBottom">
-                    <label class="lbLogin">Mật khẩu*
+                    <label class="lbLogin">
+    Thuộc nhóm *
                     </label>
-					<input type="password" class="long widthPass" id="txtPassword" value="123456" name="txtPassword">                  
-                </p>
+    <select id="Select1" style="width: 116px">
+        <option selected="selected">Cac mon an A'</option>
+        <option>+ Cac mon vit</option>
+        <option>+ Cac mon ga</option>
+        <option>Cac mon an Au</option>
+        <option>Thuc uong</option>
+    </select>
+</p>
                
+                  <p class="spaceBottom">
+                    <label class="lbLogin">
+      Giá *
+                    </label>
+      <input id="Text4" style="width: 86px" type="text" />
+      /
+      <input id="Text5" style="width: 281px" type="text" value="don vi vi du nhu /1 dia" /></p>
+     
+                    
                 
+                    <p class="spaceBottom">
+                    <label class="lbLogin">
+    Hình ảnh món ăn/thức uống *
+                    </label>
+    <input id="File1" type="file" /></p>
+                  
+                    <p class="spaceBottom">
+                    <label class="lbLogin">
+    Mô tả đầy đủ *
+                    </label>
+					<input  class="long widthPass" id="Password4"  name="txtPassword">                  
+                </p>      
+                
+                    <p class="spaceBottom">
+                    <label class="lbLogin">
+                        Mô tả ngắn gọn *
+                    </label>
+					<input  class="long widthPass" id="Password2"  name="txtPassword">                  
+                </p>  
+
+          
+                  
                 <div style="margin-left: 165px;">
 				    <label class="button">
 					    <input type="submit" onclick="return checkValidData();" class="buttonSubmit" id="btnSaveUser" value="" name="btnSaveUser">
-					    <span>Đăng nhập »</span>
+					    <span>
+                    Lưu »</span>
 				    </label>
 			    </div>
          
