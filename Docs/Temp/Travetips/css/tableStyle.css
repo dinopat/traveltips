@@ -1,0 +1,16 @@
+﻿body {
+}
+#gradient-style {
+border-collapse:collapse;
+font-family:"Lucida Sans Unicode","Lucida Grande",Sans-Serif;
+font-size:12px;
+margin:20px;
+text-align:left;
+width:480px;
+}#gradient-style td {
+background:url("http://media.smashingmagazine.com/cdn_smash/images/express-css-table-design/table-images/gradback.png") repeat-x scroll 0 0 #E8EDFF;
+border-bottom:1px solid #FFFFFF;
+border-top:1px solid #FFFFFF;
+color:#666699;
+padding:8px;
+}
