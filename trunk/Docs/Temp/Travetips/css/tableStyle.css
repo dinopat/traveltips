@@ -2,15 +2,31 @@
 }
 #gradient-style {
 border-collapse:collapse;
-font-family:"Lucida Sans Unicode","Lucida Grande",Sans-Serif;
+/*font-family:"Lucida Sans Unicode","Lucida Grande",Sans-Serif; */
 font-size:12px;
-margin:20px;
+margin:10px;
 text-align:left;
-width:480px;
-}#gradient-style td {
-background:url("http://media.smashingmagazine.com/cdn_smash/images/express-css-table-design/table-images/gradback.png") repeat-x scroll 0 0 #E8EDFF;
+/*width:480px;*/
+}
+#gradient-style td{
+/*background:url("http://media.smashingmagazine.com/cdn_smash/images/express-css-table-design/table-images/gradback.png") repeat-x scroll 0 0 #E8EDFF;*/
+background-color:#E8EDFF;
 border-bottom:1px solid #FFFFFF;
 border-top:1px solid #FFFFFF;
 color:#666699;
-padding:8px;
+padding:4px 4px 4px 8px;
+}
+
+
+#gradient-style td.white{
+/*background:url("http://media.smashingmagazine.com/cdn_smash/images/express-css-table-design/table-images/gradback.png") repeat-x scroll 0 0 #E8EDFF;*/
+background-color:White;
+border-bottom:1px solid #FFFFFF;
+border-top:1px solid #FFFFFF;
+color:#666699;
+padding:4px 4px 4px 8px;
+}
+#gradient-style td.padleft20
+{
+    padding-left:20px;
 }
