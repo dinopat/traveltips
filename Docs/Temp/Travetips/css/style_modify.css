@@ -1,0 +1,89 @@
+@charset "utf-8";
+/* CSS Document */
+
+/* DINOPAT */
+.khungnoi {
+-moz-box-shadow:0 0 10px #CCCCCC;
+background:none repeat scroll 0 0 #FFFFFF;
+border:1px solid #CCCBCA;
+margin:20px 10px 10px 10px;
+}
+
+.controldiv {
+padding:10px 10px 10px 20px;
+}
+
+.controldiv label span
+{
+color:#C42524;}
+
+h5 span
+{
+color:#C42524;}
+
+.group {
+border-right:1px solid #E6E4E2;
+float:left;
+padding:10px 15px;
+}
+
+.nutsubmit {
+border:medium none;
+cursor:pointer;
+height:21px;
+line-height:22px !important;
+margin:0;
+padding:0 16px 1px !important;
+vertical-align:middle;
+
+-moz-border-radius:11px 11px 11px 11px;
+background:url("../images/but-regular-bg.png") repeat-x scroll left top transparent;
+color:#FFFFFF;
+font-size:12px;
+font-weight:600;
+text-shadow:0 1px 1px #00263C;
+float: right;
+}
+.cell_ngang {
+border-right:1px solid #E6E4E2;
+float:left;
+padding:10px 15px;
+}
+.khung_vitri {
+background:url("../images/q-foot-bg.png") repeat-x scroll left top #F1EFEC;
+border-bottom:1px solid #CCCBCA;
+border-top:1px solid #CCCBCA;
+}
+.no-border {
+border:0 none !important;
+}
+
+.label_align {
+float:left;
+margin-right:6px;
+margin-top:2px;
+text-align:right;
+width:160px;
+font-size:12px;
+}
+
+.textformat_01 {
+	width:450px
+	}
+
+.smalltitle {
+color:#525452;
+float:left;
+line-height:11px;
+padding:5px 0 8px;
+	}
+	
+.submit_box
+{	
+background:url("/images/q-foot-bg.png") repeat-x scroll left top #F1EFEC;
+border-bottom:1px solid #CCCBCA;
+border-top:1px solid #CCCBCA;
+margin:20px 10px 10px 10px;
+padding: 10px 13px 30px 50px;
+	}
+
