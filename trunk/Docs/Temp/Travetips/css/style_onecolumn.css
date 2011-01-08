@@ -9,7 +9,8 @@
 	margin:0px;
 }
 body {
-	background-image:url(../images/bg.jpg);
+	/* background-image:url(../images/bg.jpg);*/
+	 background: url("images/bg1.jpg") repeat scroll 0 0 #3F3727;
 	font-family:Arial, Helvetica, sans-serif;
 	font-size:11px;
 	color:#666666;
