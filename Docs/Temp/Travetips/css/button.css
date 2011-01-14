@@ -3,7 +3,7 @@
 
 label.button {
    /* background:url("../images/rightGreen.png") no-repeat scroll right top transparent;*/
-    background:url("../images/rightBlue.gif") no-repeat scroll right top transparent;
+    background:url("../images/rightBlue1.gif") no-repeat scroll right top transparent;
     color:#494949;
     display:block;
     float:left;
@@ -25,7 +25,7 @@ label.button input {
 
 label.button span {
 /*background:url("../images/leftGreen.png") no-repeat scroll 0 0 transparent;*/
-background:url("../images/leftBlue.gif") no-repeat scroll 0 0 transparent;
+background:url("../images/leftBlue1.gif") no-repeat scroll 0 0 transparent;
 display:block;
 /*line-height:14px;*/
 padding:5px 0 5px 6px;
