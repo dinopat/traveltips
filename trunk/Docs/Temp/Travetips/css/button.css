@@ -17,6 +17,7 @@ label.button {
 label.button input {
 	height:0.229in;
 	opacity:0;
+	filter: alpha(opacity=0);/* opacity in IE8 */
 	position:absolute;
 	width:inherit;
 	z-index:2;
