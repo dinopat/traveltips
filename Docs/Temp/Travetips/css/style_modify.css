@@ -8,6 +8,16 @@ background:none repeat scroll 0 0 #FFFFFF;
 border:1px solid #CCCBCA;
 margin:20px 10px 10px 10px;
 }
+.loginform {
+	border:1px solid #CCCBCA;
+	height: 400px;
+	width: 780px;
+	background-image: url(../images/loginform.gif);
+	margin-top: 20px;
+	margin-right: 10px;
+	margin-bottom: 10px;
+	margin-left: 10px;
+}
 
 .controldiv {
 padding:10px 10px 10px 20px;
@@ -87,4 +97,3 @@ border-top:1px solid #CCCBCA;
 margin:20px 10px 10px 10px;
 padding: 10px 13px 30px 50px;
 	}
-
