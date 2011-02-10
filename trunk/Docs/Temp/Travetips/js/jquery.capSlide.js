@@ -42,7 +42,7 @@
 		caption_color	: 'white',
 		caption_bgcolor	: 'black',
 		overlay_bgcolor : 'blue',
-		border			: '1px solid #fff',
+	/*	border			: '1px solid #fff', */
 		showcaption	    : true
 	};
 })(jQuery);
