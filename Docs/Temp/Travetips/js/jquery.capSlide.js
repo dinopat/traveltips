@@ -18,6 +18,9 @@
 				function () {
 					if((navigator.appVersion).indexOf('MSIE 7.0') > 0)
 					$('.overlay',$(this)).show();
+					else if((navigator.appVersion).indexOf('MSIE 8.0') > 0)
+					$('.overlay',$(this)).show();
+					
 					else
 					$('.overlay',$(this)).fadeIn();
 					if(!o.showcaption)
@@ -28,6 +31,10 @@
 				function () {
 					if((navigator.appVersion).indexOf('MSIE 7.0') > 0)
 					$('.overlay',$(this)).hide();
+					
+					else if((navigator.appVersion).indexOf('MSIE 8.0') > 0)
+					$('.overlay',$(this)).hide();
+					
 					else
 					$('.overlay',$(this)).fadeOut();
 					if(!o.showcaption)
