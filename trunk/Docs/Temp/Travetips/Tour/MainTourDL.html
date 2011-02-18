@@ -31,6 +31,14 @@
 <script type="text/javascript" src="../js//jquery_003.js"></script>
 <script type="text/javascript" src="../js//lightbox.js"></script>
 <script src="Scripts/swfobject_modified.js" type="text/javascript"></script>
+<script type="text/javascript">
+<!--
+function MM_jumpMenu(targ,selObj,restore){ //v3.0
+  eval(targ+".location='"+selObj.options[selObj.selectedIndex].value+"'");
+  if (restore) selObj.selectedIndex=0;
+}
+//-->
+</script>
 </head><body><div style="left: 695.167px; top: 152px;" class="ddshadow toplevelshadow"></div><div style="left: 591.267px; top: 152px;" class="ddshadow toplevelshadow"></div><div style="left: 373.05px; top: 152px;" class="ddshadow toplevelshadow"></div>
 <a name="top"></a>
 <div id="wrapper_sec">
@@ -200,9 +208,77 @@
           <!-- Product Detail -->
           <div class="listing_banner">
           <img src="../images/TourDL_Banner.jpg" width="620" height="179" /></div>
-          
+          <div class="searchtour">
+		  	<div class="khungsearch">
+			  <div class="titlegroup">
+					<label class="whitetext">
+						TÌM KIẾM TOUR
+					</label>
+				</div>
+  <div>
+				  <p>
+				    <label>
+				      <input type="radio" name="loaitour" value="VN" id="loaitour_0" />
+				      Tour trong nước</label>
+				    <label>
+				      <input type="radio" name="loaitour" value="QT" id="loaitour_1" />
+				      Tour quốc tế</label>
+				    <br />
+			    </p>
+				</div>
+				<div>
+						Nơi đi <select name="cmbNoiDi" id="cmbNoiDi" onchange="MM_jumpMenu('parent',this,0)">
+					    <option>item1</option>
+					    <option>item2</option>
+					    <option>item3</option>
+					    <option>item4</option>
+			      </select>
+			    </div>
+				<div>
+						Nơi đến <select name="cmbNoiDi" id="cmbNoiDen" onchange="MM_jumpMenu('parent',this,0)">
+					    <option>item1</option>
+					    <option>item2</option>
+					    <option>item3</option>
+					    <option>item4</option>
+			      </select>
+			    </div>
+				<div>
+					Giá <input name="txtGia" type="text" />
+				</div>
+				<div>
+					Ngày đi 
+					    <select name="jumpMenu" id="jumpMenu" onchange="MM_jumpMenu('parent',this,0)">
+					      <option>Ngay</option>
+					      <option>item2</option>
+					      <option>item3</option>
+					      <option>item4</option>
+					      <option>item5</option>
+				        </select>
+						
+						 <select name="jumpMenu" id="jumpMenu" onchange="MM_jumpMenu('parent',this,0)">
+					      <option>Thang</option>
+					      <option>item2</option>
+					      <option>item3</option>
+					      <option>item4</option>
+					      <option>item5</option>
+				        </select>
+						
+						<select name="jumpMenu" id="jumpMenu" onchange="MM_jumpMenu('parent',this,0)">
+					      <option>Nam</option>
+					      <option>item2</option>
+					      <option>item3</option>
+					      <option>item4</option>
+					      <option>item5</option>
+				        </select>
+				</div>
+				<div>
+					Số ngày <input name="txtGia" type="text" />
+				</div>
+			
+		  	</div>
+		  </div>
             <div class="listing">
-        	<h3 class="heading colr">Công ty du lịch</h3>
+        	<h3 class="heading colr">Tour du lich trong nước</h3>
         	<ul>
             	<li class="shadow">
                 	<span class="sale">&nbsp;</span>
@@ -314,7 +390,7 @@
               
             </ul>
           
-          <h3 class="heading colr">Tour du lich (hap dan,..)</h3>
+          <h3 class="heading colr">Tour du lich nước ngoài</h3>
         	<ul>
             	<li>
                 	<span class="sale">&nbsp;</span>
