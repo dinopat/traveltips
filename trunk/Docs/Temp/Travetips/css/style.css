@@ -328,6 +328,20 @@ ul.search li input.go{
 	float:left;
 }
 
+.headerBanner
+{
+    width:100%;
+    height:180px;
+    float:left;
+}
+
+.headerBanner img
+{
+    width:100%;
+    height:180px;
+}
+
+
 .glossymenu1{
 	margin: 0px;
 	padding: 0;
@@ -370,7 +384,7 @@ ul.search li input.go{
     background: url("../images/statistic.png") no-repeat scroll 0 20% transparent;
 }
 
-.glossymenu1 .divLeftHeader span#supporter {
+.glossymenu1 .divLeftHeader span#supporter,span#faq {
     background: url("../images/supporter.png") no-repeat scroll 0 20% transparent;
 }
 
@@ -389,7 +403,49 @@ ul.search li input.go{
 .glossymenu1 .divLeftContent
 {
     padding-left:10px;
+    padding-bottom:5px;
+    padding-top:5px;
     background-color:#C7820C;
+}
+
+.glossymenu1 .divLeftContent1
+{
+    padding-bottom:5px;
+    padding-top:5px;
+    background-color:White;
+}
+
+
+.glossymenu1 .divLeftContent1 .divContentImage
+{
+    margin-bottom:5px;
+    background-color:White;
+}
+
+.glossymenu1 .divLeftContent span {
+    color: #FFFFFF;
+    display: block;
+    font-size: 12px;
+    margin-top: 5px;
+    padding-left: 25px;
+}
+
+.glossymenu1 .divLeftContent p.divLeftContentNews {
+    margin-bottom:5px;
+    margin-right:5px;
+}
+
+.glossymenu1 .divLeftContent p.divLeftContentNews a {
+    color: #FFFFFF;
+    
+}
+
+.glossymenu1 .divLeftContent span.spanContent {
+    background: url("../images/yahoo.png") no-repeat scroll 0 20% transparent;
+}
+
+.glossymenu1 .divLeftContent span.spanContentSkype {
+    background: url("../images/skype.png") no-repeat scroll 0 20% transparent;
 }
 
 .glossymenu2{
@@ -2238,22 +2294,4 @@ a.top:hover {
 .right_prod .detail {
 	float: left;
 	width: 160px;	
-}
-.searchtour {
-	margin-top: 10px;
-}
-.titlegroup {
-    display: block;
-    font-size: 13px;
-    margin: 0;
-    padding: 11px 20px 11px 7px;
-	background-color: #0D91C8;
-    outline: medium none;
-    text-decoration: none;
-}
-.whitetext {
-	color:#FFF
-}
-.khungsearch {
-	border:1px solid #CCCBCA;
 }
