@@ -328,6 +328,80 @@ ul.search li input.go{
 	float:left;
 }
 
+.glossymenu1{
+	margin: 0px;
+	padding: 0;
+	width: 170px;
+	float:left;
+	background-color:#0D91C8;
+	color:White
+}
+
+.glossymenu1 .divLeftHeader
+{
+    padding-left:10px;
+    height:30px;
+    line-height:24px;
+    color:#ffffff;
+    border-top:1px solid White;
+    border-bottom:1px solid White;
+    
+}
+
+.glossymenu1 .divLeftHeader span {
+    display: block;
+    height: 24px;
+    margin-left: -5px;
+    padding-left: 30px;
+    
+}
+
+.glossymenu1 .divLeftHeader span#category {
+    background: url("../images/category.png") no-repeat scroll 0 20% transparent;
+}
+
+.glossymenu1 .divLeftHeader span#advertisement, span#advertisement1{
+    background: url("../images/advertisement.png") no-repeat scroll 0 20% transparent;
+}
+
+
+
+.glossymenu1 .divLeftHeader span#statistic {
+    background: url("../images/statistic.png") no-repeat scroll 0 20% transparent;
+}
+
+.glossymenu1 .divLeftHeader span#supporter {
+    background: url("../images/supporter.png") no-repeat scroll 0 20% transparent;
+}
+
+.glossymenu1 .divLeftHeader span#news {
+    background: url("../images/news.png") no-repeat scroll 0 20% transparent;
+}
+
+.glossymenu1 .divLeftHeader span {
+    color: #FFFFFF;
+    display: block;
+    font-size: 12px;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+.glossymenu1 .divLeftContent
+{
+    padding-left:10px;
+    background-color:#C7820C;
+}
+
+.glossymenu2{
+	margin: 0px;
+	padding: 0;
+	width: 170px;
+	float:left;
+	background-color:Orange;
+	padding-left:10px;
+}
+
+
 .glossymenu a.menuitem{	
 	color: #666;
 	display: block;
