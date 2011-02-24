@@ -2295,3 +2295,22 @@ a.top:hover {
 	float: left;
 	width: 160px;	
 }
+
+.searchtour {
+	margin-top: 10px;
+}
+.titlegroup {
+    display: block;
+    font-size: 13px;
+    margin: 0;
+    padding: 11px 20px 11px 7px;
+	background-color: #0D91C8;
+    outline: medium none;
+    text-decoration: none;
+}
+.whitetext {
+	color:#FFF
+}
+.khungsearch {
+	border:1px solid #CCCBCA;
+}
