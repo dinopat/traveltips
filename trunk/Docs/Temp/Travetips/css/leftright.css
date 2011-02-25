@@ -1,0 +1,18 @@
+﻿h5.amthuc_categoryMenu {
+   /* border-bottom: 1px solid #DDDDDD;*/
+    color: #0D91C8 !important;
+    /*margin-bottom: 10px;*/
+    padding: 10px 0 8px 5px;
+    text-transform: uppercase;
+    width: 170px;
+}
+
+.headerLeftRight
+{
+    color: #0D91C8 !important;
+    text-transform: uppercase;
+    width: 165px;
+    padding: 10px 0 8px 5px;
+    display:block;
+    font-size:14px;
+}
