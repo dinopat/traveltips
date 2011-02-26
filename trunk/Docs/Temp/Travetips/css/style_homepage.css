@@ -350,28 +350,35 @@ ul.search li input.go{
 }
 
 .glossymenu a.menuitem:hover{
-	background-image: url(images/glossyback2.gif);
+	background-image: url(../images/glossyback2.gif);
 }
 
 .glossymenu div.submenu{ /*DIV that contains each sub menu*/
-	background: white;
+	/*background: white;*/
+	
 }
 
 .glossymenu div.submenu ul{ /*UL of each sub menu*/
 	list-style-type: none;
 	margin: 0;
-	padding: 10px 0px 10px 10px;
+	/*padding: 10px 0px 10px 10px;*/
+	padding: 0px 0px 10px 10px;
 	width:170px;
 	background-color:#dadada;
 }
 
-.glossymenu div.submenu ul li{
+
+
+
+.glossymenu div.submenu ul li
+{
+    
 }
 
 .glossymenu div.submenu ul li a{
 	color: #666;
 	display: block;
-	position: relative; /*To help in the anchoring of the ".statusicon" icon image*/
+	/* position: relative; To help in the anchoring of the ".statusicon" icon image*/
 	width: auto;
 	padding: 4px 0;
 	padding-left: 15px;
