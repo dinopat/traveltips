@@ -33,7 +33,7 @@ div.sdmenu div a {
 	background: #eee;
 	display: block;
 	border-bottom: 1px solid #ddd;
-	color: #066;
+/*	color: #066;    DINOPAT */
 }
 div.sdmenu div a.current {
 	background : #ccc;
