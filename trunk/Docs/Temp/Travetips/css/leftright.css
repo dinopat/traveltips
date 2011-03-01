@@ -9,11 +9,71 @@ h5.header {
     width: 170px;
 }
 
-p.left_right_content
-{
-    padding: 5px 0 0 10px;
-    width: 170px;
+h5.header_right {
+    border-bottom: 1px solid #DDDDDD;
+    color: #0D91C8 !important;
+    margin-bottom: 10px;
+    padding: 10px 0 4px 10px;
+    text-transform: uppercase;
+    width: 165px;
 }
+
+div.left_right_content
+{
+    /*padding: 5px 0 0 10px;*/
+    width: 170px;
+    text-align:center;
+    margin-bottom:7px;
+}
+
+div.left_right_content img
+{
+    width: 120px;
+    height: 108px;
+}
+
+div.left_right_content p a
+{
+    text-decoration:none;
+    color:Blue;
+}
+
+div.left_right_content p a:hover
+{
+    color:#FF3399;
+    cursor:pointer;
+    text-decoration:underline;
+}
+
+
+div.right_content
+{
+    /*padding: 5px 0 0 10px;*/
+    width: 170px;
+    text-align:left;
+    margin-bottom:7px;
+}
+
+div.right_content p
+{
+    background:url(../images/arrow.png) no-repeat scroll left 5px transparent;
+    padding-left:15px;
+    margin-left:10px
+}
+
+div._right_content p a
+{
+    text-decoration:none;
+    color:Blue;
+}
+
+div.right_content p a:hover
+{
+    color:#FF3399;
+    cursor:pointer;
+    text-decoration:underline;
+}
+
 
 .headerLeftRight
 {
