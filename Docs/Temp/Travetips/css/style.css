@@ -503,7 +503,7 @@ ul.search li input.go{
 .glossymenu div.submenu ul li a{
 	color: #666;
 	display: block;
-	position: relative; /*To help in the anchoring of the ".statusicon" icon image*/
+	/*position: relative; hung-edit /*To help in the anchoring of the ".statusicon" icon image*/
 	width: auto;
 	padding: 4px 0;
 	padding-left: 15px;
