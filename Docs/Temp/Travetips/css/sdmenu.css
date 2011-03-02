@@ -9,6 +9,7 @@ div.sdmenu {
 div.sdmenu div {
 	background: url(../images/title.gif) repeat-x;
 	overflow: hidden;
+    margin-bottom: 2px;
 }
 div.sdmenu div:first-child {
 	background: url(../images/toptitle.gif) no-repeat;
