@@ -15,6 +15,25 @@
     <link href="../css/leftright.css" rel="stylesheet" type="text/css">
     <!-- // Javascript // -->
 
+<script type="text/javascript" src="../js/jquery.min.js"></script>
+<script type="text/javascript">
+$(function() {
+	// Ẩn tất cả .advance_search trừ advance_search đầu tiên
+	$("#accordiondemo .advance_search:not(:first)").hide();
+	
+	$("#accordiondemo h5").click(function(){
+		$accordion = $(this).next();
+		if ($accordion.is(':hidden') === true) {
+			$("#accordiondemo .advance_search").slideUp();
+			$accordion.slideDown();
+		} else {
+			$accordion.slideUp();
+		}
+	});
+});
+</script>
+
+
     <script type="text/javascript" src="../js/jquery.min.js"></script>
 
     <script type="text/javascript" src="../js/jquery.min14.js"></script>
@@ -247,6 +266,11 @@
           
             <div class="listing">
             
+            
+         
+           	<div id="accordiondemo">
+	  <h5 class="headerSearch">Tìm kiếm món ăn</h5>
+            
             <div class="advance_search">
                 <table width="95%" border="0" cellspacing="1" cellpadding="1">
                     <tr>
@@ -292,6 +316,91 @@
                 </table>
             </div>
             
+            
+              <h5 class="headerSearch">Tìm kiếm nhà hàng/quán ăn</h5>
+            
+            <div class="advance_search">
+                <table width="95%" border="0" cellspacing="1" cellpadding="1">
+                    <tr>
+                        <td width="30%" class="leftTd"><p>Tên nhà hàng</p></td>
+                        <td width="70%" class="left1">
+                            <input id="Text4" type="text" class="left_next" /></td>
+                    </tr>
+                    
+                    <tr>
+                        <td width="30%" class="leftTd" ><p>Loại nhà hàng</p></td>
+                        <td width="70%" class="left1">
+                            <select class="left_next" id="Select2" style="width: 152px">
+                                <option selected="selected"></option>
+                            </select>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td width="30%" class="leftTd" ><p>Địa chỉ</p></td>
+                        <td width="70%" class="left1">
+                            <input class="left_next" id="Text6" type="text" /></td>
+                    </tr>
+
+                    <tr>
+                        <td width="30%" class="leftTd" ><p>Vị trí </p></td>
+                        <td width="70%" class="left1">
+                        Thành phố  <select style="width: 84px;" name="Select" id="Select3">
+  <option value="0" selected="selected">Đà Nẵng</option>
+  <option value="1">Hà Nội</option>
+  <option></option>
+</select>
+
+Quận
+<select name="Select" id="Select4">
+  <option value="0" selected="selected">Hải Châu</option>
+  <option value="1">Thanh Khê</option>
+  <option></option>
+</select>
+
+Đường
+<select id="Select5" name="Select">
+  <option value="0" selected="selected">Hoàng Diệu</option>
+  <option value="1">Duy Tân</option>
+  <option></option>
+</select>
+<br />
+Số
+<input type="text" id="Text5">
+
+Gần
+<select id="Select6" name="Select">
+  <option value="0" selected="selected">Biển</option>
+  <option value="1">Chợ</option>
+  <option></option>
+</select>
+
+
+</td>
+                    </tr>
+                    
+                                       <tr>
+                        <td width="30%" ></td>
+                        <td width="70%">
+                         
+		 
+				
+					                <div style="margin-left:5px;margin-top:5px">
+				    <label class="button">
+					    <input type="submit" name="btnSaveUser" value="" id="Submit1" class="buttonSubmit">
+					    <span>Tìm »</span>
+				    </label>
+			    </div>
+					
+                          </td>
+                           
+                    </tr>
+                                                            
+                </table>
+            </div>
+            
+            
+           </div>
            
 					
         	<h3 class="heading colr">Danh sách các nhà hàng</h3>
