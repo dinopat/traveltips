@@ -91,13 +91,35 @@ div.advance_search
 {
     margin:10px 0 10px 10px;
 }
-td.left {
+td.leftTd {
     background-color: #E8EDFF;
     border-bottom: 1px solid #FFFFFF;
-    border-top: 1px solid #FFFFFF;
+    /*border-top: 1px solid #FFFFFF;*/
     color: #666699;
-    padding: 2px 0px 2px 8px;
+    height:24px;
+    line-height:24px;
+    /*padding: 2px 0px 2px 8px;*/
 }
+
+td.leftTd p {
+    padding-right:5px;
+    padding-top:2px;
+    text-align:right;
+}
+
+.left_next
+{
+    height:18px;
+}
+
+td.left1
+{
+        background-color: #E8EDFF;
+            border-bottom: 1px solid #FFFFFF;
+    /*border-top: 1px solid #FFFFFF;*/
+    padding-left:5px;
+}
+
 
 td.right {
     padding-right:5px;
