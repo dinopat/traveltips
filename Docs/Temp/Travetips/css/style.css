@@ -100,6 +100,7 @@ a.simplebtn {
 	padding:3px 10px 0px 10px;
 	background-color:#0d91c8;
 	border:#d4d4d4 solid 2px;
+	font-size:11px; /*hung 03-Jan-2011 */
 }
 a.simplebtn:hover {
 	color:#fff;
@@ -2017,6 +2018,7 @@ a.bordrs {
 }
 .listing ul li p{
 	width:125px;
+	font-size:11px; /* hung 03-Jan-2011*/
 }
 .listing ul li a.add{
 	background-image:url(../images/add.gif);
