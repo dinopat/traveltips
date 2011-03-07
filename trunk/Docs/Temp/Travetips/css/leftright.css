@@ -177,3 +177,8 @@ div#divDetailFood h3
     color:Green;
     margin-bottom:10px;
 }
+
+tr.heightTR
+{
+    height:28px;
+}
