@@ -109,7 +109,7 @@ td.leftTd p {
 
 .left_next
 {
-    height:18px;
+    height:20px;
 }
 
 td.left1
@@ -117,7 +117,7 @@ td.left1
         background-color: #E8EDFF;
             border-bottom: 1px solid #FFFFFF;
     /*border-top: 1px solid #FFFFFF;*/
-    padding-left:5px;
+    padding:5px;
 }
 
 
@@ -180,5 +180,5 @@ div#divDetailFood h3
 
 tr.heightTR
 {
-    height:28px;
+    height:32px;
 }

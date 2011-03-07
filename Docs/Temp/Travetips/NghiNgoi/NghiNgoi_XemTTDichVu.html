@@ -4,34 +4,85 @@
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Danh sach cac dich vu khach san</title>
-<!-- // Stylesheets // -->
-<link href="../css/style.css" rel="stylesheet" type="text/css">
-<link href="../css/style.css" rel="stylesheet" type="text/css" />
-<link rel="stylesheet" type="text/css" href="../css/ddsmoothmenu.css">
-<link rel="stylesheet" href="../css/slider.css" type="text/css" media="screen">
-<link rel="stylesheet" type="text/css" href="../css/jquery.css">
-<link rel="stylesheet" type="text/css" href="../css/contentslider.css">
-    <link href="../css/menuAmThuc.css" rel="stylesheet" type="text/css" />
-<!-- // Javascript // -->
-<script type="text/javascript" src="../js/jquery_005.js"></script>
-<script type="text/javascript" src="../js/jquery_002.js"></script>
-<script type="text/javascript" src="../js/ddsmoothmenu.js"></script>
-<script type="text/javascript" src="../js/menu.js"></script>
-<script type="text/javascript" src="../js/jquery_004.js"></script>
-<script type="text/javascript" src="../js/jquery.js"></script>
-<script type="text/javascript" src="../js/anything.js"></script>
-<script type="text/javascript" src="../js/jcarousellite_1.js"></script>
-<script type="text/javascript" src="../js/scroll.js"></script>
-<script type="text/javascript" src="../js/ddaccordion.js"></script>
-<script type="text/javascript" src="../js/acordn.js"></script><style type="text/css">
-.submenu{display: none}
-</style>
-<script type="text/javascript" src="../js/cufon-yui.js"></script><style type="text/css">@media screen,projection{.cufon-canvas{display:inline;display:inline-block;position:relative;vertical-align:middle;font-size:1px;line-height:1px}.cufon-canvas .cufon-alt{display:none}.cufon-canvas canvas{position:relative}}@media print{.cufon-canvas{padding:0 !important}.cufon-canvas canvas{display:none}.cufon-canvas .cufon-alt{display:inline}}</style>
-<script type="text/javascript" src="../js/Trebuchet_MS_400-Trebuchet_MS_700-Trebuchet_MS_italic_700-Tre.js"></script>
-<script type="text/javascript" src="../js/cufon.js"></script>
-<script type="text/javascript" src="../js/contentslider.js"></script>
-<script type="text/javascript" src="../js/jquery_003.js"></script>
-<script type="text/javascript" src="../js/lightbox.js"></script>
+   <!-- // Stylesheets // -->
+    <link href="../css/style.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="../css/ddsmoothmenu.css">
+     <link rel="stylesheet" type="text/css" href="../css/button.css">
+    <link rel="stylesheet" href="../css/slider.css" type="text/css" media="screen">
+    <link rel="stylesheet" type="text/css" href="../css/contentslider.css">
+    <link rel="stylesheet" type="text/css" href="../css/JCapslide.css">
+    <link href="../css/jquery.fancybox-1.3.1.css" rel="stylesheet" type="text/css">
+    <link href="../css/leftright.css" rel="stylesheet" type="text/css">
+     <link href="../css/sdmenu.css" rel="stylesheet" type="text/css">
+     <link href="../css/menuAmThuc.css" rel="stylesheet" type="text/css">
+    <!-- // Javascript // -->
+
+<script type="text/javascript" src="../js/jquery.min.js"></script>
+<script type="text/javascript" src="../js/sdmenu.js"></script>     
+<script type="text/javascript">
+	// <![CDATA[
+	var myMenu;
+	window.onload = function() {
+		myMenu = new SDMenu("my_menu");
+		myMenu.init();
+	};
+	// ]]>
+	</script>
+	
+<script type="text/javascript">
+$(function() {
+	// Ẩn tất cả .advance_search trừ advance_search đầu tiên
+	$("#accordiondemo .advance_search:not(:first)").hide();
+	
+	$("#accordiondemo h5").click(function(){
+		$accordion = $(this).next();
+		if ($accordion.is(':hidden') === true) {
+			$("#accordiondemo .advance_search").slideUp();
+			$accordion.slideDown();
+		} else {
+			$accordion.slideUp();
+		}
+	});
+});
+	
+</script>
+
+
+    <script type="text/javascript" src="../js/jquery.min.js"></script>
+
+    <script type="text/javascript" src="../js/jquery.min14.js"></script>
+
+    <script type="text/javascript" src="../js/ddsmoothmenu.js"></script>
+
+    <script type="text/javascript" src="../js/menu.js"></script>
+
+    <script type="text/javascript" src="../js/jquery.easing.1.2.js"></script>
+
+    <script type="text/javascript" src="../js/jquery.anythingslider.js"></script>
+
+    <script type="text/javascript" src="../js/anything.js"></script>
+
+    <script type="text/javascript" src="../js/jcarousellite_1.0.1.js"></script>
+
+    <script type="text/javascript" src="../js/scroll.js"></script>
+
+    <script type="text/javascript" src="../js/ddaccordion.js"></script>
+
+    <script type="text/javascript" src="../js/acordn.js"></script>
+
+    <script type="text/javascript" src="../js/cufon-yui.js"></script>
+
+    <script type="text/javascript" src="../js/Trebuchet_MS_400-Trebuchet_MS_700-Trebuchet_MS_italic_700-Trebuchet_MS_italic_400.font.js"></script>
+
+    <script type="text/javascript" src="../js/cufon.js"></script>
+
+    <script type="text/javascript" src="../js/contentslider.js"></script>
+
+    <script type="text/javascript" src="../js/jquery.fancybox-1.3.1.js"></script>
+
+    <script type="text/javascript" src="../js/lightbox.js"></script>
+    
+     <script type="text/javascript" src="../js/jquery.capSlide.js"></script>
 </head>
 <body><div style="left: 695.167px; top: 152px;" class="ddshadow toplevelshadow"></div><div style="left: 591.267px; top: 152px;" class="ddshadow toplevelshadow"></div><div style="left: 373.05px; top: 152px;" class="ddshadow toplevelshadow"></div>
 <a name="top"></a>
@@ -52,7 +103,7 @@
                 </ul>
             	<ul class="search">
                 	<li><input value="Search" id="searchBox" name="s" onblur="if(this.value == '') { this.value = 'Search'; }" onfocus="if(this.value == 'Search') { this.value = ''; }" class="bar" type="text"></li>
-                    <li><input src="images/go.gif" class="go" type="image"></li>
+                    <li><input src="../images/go.gif" class="go" type="image"></li>
               	</ul>
             </div>
             <div class="clear"></div>
@@ -121,72 +172,71 @@
     	<!-- Column1 Section -->
     	<div class="col1">
         	    <!-- Categories -->
-                <div class="category">
-                    <div class="small_heading">
-                        <h5 class="colr"><span style="width: 71px; height: 14px;" class="cufon cufon-canvas"><span class="cufon-alt">Categories</span></span></h5>
+                  <div class="category" style="margin-top:20px;margin-left:5px;">
+                  
+                   <div style="float: left" id="my_menu" class="sdmenu">
+     
+     
+            <div>
+        <span>Danh mục</span>
+        <a href="#">Giới thiệu</a>
+        <a href="#">Phòng nghỉ</a>
+        <a href="#">Dịch vụ</a>
+        <a href="#">Tin tức/sự kiện</a>        
+        <a href="#">Gallery</a>
+        <a href="#">Liên hệ</a>
+      </div>
+          
+            
+           
+      </div>   
+      
+                    
+                      <h5 class="header">
+                        Mới cập nhật</h5>
+                    <div class="left_right_content">
+                        <img alt="" src="../images/nhahang01.jpg">
+                        <p>
+                            <a href="#">Khách sạn Bạch Đằng</a></p>
                     </div>
-                    <div class="glossymenu">
-                        <a  class="menuitem submenuheader" href="#"><span class="accordprefix"></span>Women’s<span class="accordsuffix"><img src="../images/plus.gif" class="statusicon" alt=""></span></a>
-                        <div style="display: none;"  class="submenu">
-                            <ul>
-                                <li><a href="http://chimpstudio.co.uk/themeforest/estore13/blue/listing.html">Rings</a></li>
-                                <li><a href="http://chimpstudio.co.uk/themeforest/estore13/blue/listing.html">Bracelet</a></li>
-                                <li><a href="http://chimpstudio.co.uk/themeforest/estore13/blue/listing.html">Charms</a></li>
-                                <li><a href="http://chimpstudio.co.uk/themeforest/estore13/blue/listing.html">Necklaces</a></li>
-                                <li><a href="http://chimpstudio.co.uk/themeforest/estore13/blue/listing.html">Bands</a></li>
-                            </ul>
-                        </div>
-                        <a  class="menuitem submenuheader" href="#"><span class="accordprefix"></span>Men’s<span class="accordsuffix"><img src="../images/plus.gif" class="statusicon" alt=""></span></a>
-                        <div style="display: none;"  class="submenu">
-                            <ul>
-                                <li><a href="http://chimpstudio.co.uk/themeforest/estore13/blue/listing.html">Rings</a></li>
-                                <li><a href="http://chimpstudio.co.uk/themeforest/estore13/blue/listing.html">Bracelet</a></li>
-                                <li><a href="http://chimpstudio.co.uk/themeforest/estore13/blue/listing.html">Charms</a></li>
-                                <li><a href="http://chimpstudio.co.uk/themeforest/estore13/blue/listing.html">Necklaces</a></li>
-                                <li><a href="http://chimpstudio.co.uk/themeforest/estore13/blue/listing.html">Bands</a></li>
-                            </ul>
-                        </div>
-                        <a class="menuitem submenuheader" href="#"><span class="accordprefix"></span>Diamonds<span class="accordsuffix"><img src="../images/plus.gif" class="statusicon" alt=""></span></a>
-                        <div style="display: none;"  class="submenu">
-                            <ul>
-                                <li><a href="http://chimpstudio.co.uk/themeforest/estore13/blue/listing.html">Rings</a></li>
-                                <li><a href="http://chimpstudio.co.uk/themeforest/estore13/blue/listing.html">Bracelet</a></li>
-                                <li><a href="http://chimpstudio.co.uk/themeforest/estore13/blue/listing.html">Charms</a></li>
-                                <li><a href="http://chimpstudio.co.uk/themeforest/estore13/blue/listing.html">Necklaces</a></li>
-                                <li><a href="http://chimpstudio.co.uk/themeforest/estore13/blue/listing.html">Bands</a></li>
-                            </ul>
-                        </div>
-                        <a  class="menuitem submenuheader" href="#"><span class="accordprefix"></span>Gold<span class="accordsuffix"><img src="../images/plus.gif" class="statusicon" alt=""></span></a>
-                        <div style="display: none;"  class="submenu">
-                            <ul>
-                                <li><a href="http://chimpstudio.co.uk/themeforest/estore13/blue/listing.html">Rings</a></li>
-                                <li><a href="http://chimpstudio.co.uk/themeforest/estore13/blue/listing.html">Bracelet</a></li>
-                                <li><a href="http://chimpstudio.co.uk/themeforest/estore13/blue/listing.html">Charms</a></li>
-                                <li><a href="http://chimpstudio.co.uk/themeforest/estore13/blue/listing.html">Necklaces</a></li>
-                                <li><a href="http://chimpstudio.co.uk/themeforest/estore13/blue/listing.html">Bands</a></li>
-                            </ul>
-                        </div>
-                        <a  class="menuitem submenuheader" href="#"><span class="accordprefix"></span>Engagement<span class="accordsuffix"><img src="../images/plus.gif" class="statusicon" alt=""></span></a>
-                        <div style="display: none;"  class="submenu">
-                            <ul>
-                                <li><a href="http://chimpstudio.co.uk/themeforest/estore13/blue/listing.html">Rings</a></li>
-                                <li><a href="http://chimpstudio.co.uk/themeforest/estore13/blue/listing.html">Bracelet</a></li>
-                                <li><a href="http://chimpstudio.co.uk/themeforest/estore13/blue/listing.html">Charms</a></li>
-                                <li><a href="http://chimpstudio.co.uk/themeforest/estore13/blue/listing.html">Necklaces</a></li>
-                                <li><a href="http://chimpstudio.co.uk/themeforest/estore13/blue/listing.html">Bands</a></li>
-                            </ul>
-                        </div>
-                        <a  class="menuitem submenuheader" href="#"><span class="accordprefix"></span>Silver<span class="accordsuffix"><img src="../images/plus.gif" class="statusicon" alt=""></span></a>
-                        <div style="display: none;" class="submenu">
-                            <ul>
-                                <li><a href="http://chimpstudio.co.uk/themeforest/estore13/blue/listing.html">Rings</a></li>
-                                <li><a href="http://chimpstudio.co.uk/themeforest/estore13/blue/listing.html">Bracelet</a></li>
-                                <li><a href="http://chimpstudio.co.uk/themeforest/estore13/blue/listing.html">Charms</a></li>
-                                <li><a href="http://chimpstudio.co.uk/themeforest/estore13/blue/listing.html">Necklaces</a></li>
-                                <li><a href="http://chimpstudio.co.uk/themeforest/estore13/blue/listing.html">Bands</a></li>
-                            </ul>
-                        </div>	
+                    <div class="left_right_content">
+                        <img alt="" src="../images/nhahang01.jpg">
+                        <p>
+                            <a href="#">Khách sạn Sheraton</a></p>
                     </div>
+                    <div class="left_right_content">
+                        <img alt="" src="../images/nhahang01.jpg">
+                        <p>
+                            <a href="#">Khách sạn Phương Đông</a></p>
+                    </div>
+                    <div class="left_right_content">
+                        <img alt="" src="../images/nhahang01.jpg">
+                        <p>
+                            <a href="#">Hoàng Đạt Resort</a></p>
+                    </div>
+                    <h5 class="header">
+                        Được quan tâm nhất</h5>
+                    <div class="left_right_content">
+                        <img alt="" src="../images/nhahang01.jpg">
+                        <p>
+                            <a href="#">Nhà hàng chay Saigon Vegan</a></p>
+                    </div>
+                    <div class="left_right_content">
+                        <img alt="" src="../images/nhahang01.jpg">
+                        <p>
+                            <a href="#">Bò tùng xẻo - Quán Chân mây</a></p>
+                    </div>
+                    <div class="left_right_content">
+                        <img alt="" src="../images/nhahang01.jpg">
+                        <p>
+                            <a href="#">NHÀ HÀNG THANH HỢI</a></p>
+                    </div>
+                    <div class="left_right_content">
+                        <img alt="" src="../images/nhahang01.jpg">
+                        <p>
+                            <a href="#">TOKYO DELI</a></p>
+                    </div>
+                    
                 </div>
                 
         </div>
@@ -293,110 +343,51 @@
     	<div class="col3">
         	    <!-- Categories -->
                 <div class="category">
-                    <div class="small_heading">
-                        <h5 class="colr"><span style="width: 71px; height: 14px;" class="cufon cufon-canvas"><span class="cufon-alt">Categories</span></span></h5>
-                    </div>
+                    <h5 class="header_right">Tin tức - Khuyến mãi</h5>
                     <div class="glossymenu">
-                        <a  class="menuitem submenuheader" href="#"><span class="accordprefix"></span>Women’s<span class="accordsuffix"><img src="../images/plus.gif" class="statusicon" alt=""></span></a>
-                        <div style="display: none;" class="submenu">
-                            <ul>
-                                <li><a href="http://chimpstudio.co.uk/themeforest/estore13/blue/listing.html">Rings</a></li>
-                                <li><a href="http://chimpstudio.co.uk/themeforest/estore13/blue/listing.html">Bracelet</a></li>
-                                <li><a href="http://chimpstudio.co.uk/themeforest/estore13/blue/listing.html">Charms</a></li>
-                                <li><a href="http://chimpstudio.co.uk/themeforest/estore13/blue/listing.html">Necklaces</a></li>
-                                <li><a href="http://chimpstudio.co.uk/themeforest/estore13/blue/listing.html">Bands</a></li>
-                            </ul>
-                        </div>
-                        <a  class="menuitem submenuheader" href="#"><span class="accordprefix"></span>Men’s<span class="accordsuffix"><img src="../images/plus.gif" class="statusicon" alt=""></span></a>
-                        <div style="display: none;" class="submenu">
-                            <ul>
-                                <li><a href="http://chimpstudio.co.uk/themeforest/estore13/blue/listing.html">Rings</a></li>
-                                <li><a href="http://chimpstudio.co.uk/themeforest/estore13/blue/listing.html">Bracelet</a></li>
-                                <li><a href="http://chimpstudio.co.uk/themeforest/estore13/blue/listing.html">Charms</a></li>
-                                <li><a href="http://chimpstudio.co.uk/themeforest/estore13/blue/listing.html">Necklaces</a></li>
-                                <li><a href="http://chimpstudio.co.uk/themeforest/estore13/blue/listing.html">Bands</a></li>
-                            </ul>
-                        </div>
-                        <a  class="menuitem submenuheader" href="#"><span class="accordprefix"></span>Diamonds<span class="accordsuffix"><img src="../images/plus.gif" class="statusicon" alt=""></span></a>
-                        <div style="display: none;"  class="submenu">
-                            <ul>
-                                <li><a href="http://chimpstudio.co.uk/themeforest/estore13/blue/listing.html">Rings</a></li>
-                                <li><a href="http://chimpstudio.co.uk/themeforest/estore13/blue/listing.html">Bracelet</a></li>
-                                <li><a href="http://chimpstudio.co.uk/themeforest/estore13/blue/listing.html">Charms</a></li>
-                                <li><a href="http://chimpstudio.co.uk/themeforest/estore13/blue/listing.html">Necklaces</a></li>
-                                <li><a href="http://chimpstudio.co.uk/themeforest/estore13/blue/listing.html">Bands</a></li>
-                            </ul>
-                        </div>
-                        <a  class="menuitem submenuheader" href="#"><span class="accordprefix"></span>Gold<span class="accordsuffix"><img src="../images/plus.gif" class="statusicon" alt=""></span></a>
-                        <div style="display: none;"  class="submenu">
-                            <ul>
-                                <li><a href="http://chimpstudio.co.uk/themeforest/estore13/blue/listing.html">Rings</a></li>
-                                <li><a href="http://chimpstudio.co.uk/themeforest/estore13/blue/listing.html">Bracelet</a></li>
-                                <li><a href="http://chimpstudio.co.uk/themeforest/estore13/blue/listing.html">Charms</a></li>
-                                <li><a href="http://chimpstudio.co.uk/themeforest/estore13/blue/listing.html">Necklaces</a></li>
-                                <li><a href="http://chimpstudio.co.uk/themeforest/estore13/blue/listing.html">Bands</a></li>
-                            </ul>
-                        </div>
-                        <a  class="menuitem submenuheader" href="#"><span class="accordprefix"></span>Engagement<span class="accordsuffix"><img src="../images/plus.gif" class="statusicon" alt=""></span></a>
-                        <div style="display: none;"  class="submenu">
-                            <ul>
-                                <li><a href="http://chimpstudio.co.uk/themeforest/estore13/blue/listing.html">Rings</a></li>
-                                <li><a href="http://chimpstudio.co.uk/themeforest/estore13/blue/listing.html">Bracelet</a></li>
-                                <li><a href="http://chimpstudio.co.uk/themeforest/estore13/blue/listing.html">Charms</a></li>
-                                <li><a href="http://chimpstudio.co.uk/themeforest/estore13/blue/listing.html">Necklaces</a></li>
-                                <li><a href="http://chimpstudio.co.uk/themeforest/estore13/blue/listing.html">Bands</a></li>
-                            </ul>
-                        </div>
-                        <a  class="menuitem submenuheader" href="#"><span class="accordprefix"></span>Silver<span class="accordsuffix"><img src="../images/plus.gif" class="statusicon" alt=""></span></a>
-                        <div style="display: none;"  class="submenu">
-                            <ul>
-                                <li><a href="http://chimpstudio.co.uk/themeforest/estore13/blue/listing.html">Rings</a></li>
-                                <li><a href="http://chimpstudio.co.uk/themeforest/estore13/blue/listing.html">Bracelet</a></li>
-                                <li><a href="http://chimpstudio.co.uk/themeforest/estore13/blue/listing.html">Charms</a></li>
-                                <li><a href="http://chimpstudio.co.uk/themeforest/estore13/blue/listing.html">Necklaces</a></li>
-                                <li><a href="http://chimpstudio.co.uk/themeforest/estore13/blue/listing.html">Bands</a></li>
-                            </ul>
-                        </div>	
+                    <div class="right_content">
+                       
+                        <p>
+                            <a href="#">tin khuyen mai 1</a>
+                        </p>
+                          <p>
+                            <a href="#">tin khuyen mai 2</a>
+                        </p>
+                          <p>
+                            <a href="#">tin khuyen mai 3</a>
+                        </p>
+                          <p>
+                            <a href="#">tin khuyen mai 4</a>
+                        </p>
+                        
+                    </div>
+                    
+                        <h5 class="header_right">
+                        Quảng cáo</h5>
+                    <div class="left_right_content">
+                        <img alt="" src="../images/nhahang01.jpg">
+                        <p>
+                            <a href="#">Nhà hàng chay Saigon Vegan</a></p>
+                    </div>
+                    <div class="left_right_content">
+                        <img alt="" src="../images/nhahang01.jpg">
+                        <p>
+                            <a href="#">Bò tùng xẻo - Quán Chân mây</a></p>
+                    </div>
+                    <div class="left_right_content">
+                        <img alt="" src="../images/nhahang01.jpg">
+                        <p>
+                            <a href="#">NHÀ HÀNG THANH HỢI</a></p>
+                    </div>
+                    <div class="left_right_content">
+                        <img alt="" src="../images/nhahang01.jpg">
+                        <p>
+                            <a href="#">TOKYO DELI</a></p>
+                    </div>
+                    
                     </div>
                 </div>
-                <!-- My Cart Products -->
-                 <!--<div class="mycart">
-                    <div class="small_heading">
-                        <h5 class="colr"><span style="width: 23px; height: 14px;" class="cufon cufon-canvas"><canvas style="top: 0px; left: 0px;" height="15" width="31"></canvas><span class="cufon-alt">My </span></span><span style="width: 29px; height: 14px;" class="cufon cufon-canvas"><canvas style="top: 0px; left: 0px;" height="15" width="36"></canvas><span class="cufon-alt">Cart</span></span></h5>
-                        <div class="clear"></div>
-                        <span class="veiwitems">(3) Items - <a href="http://chimpstudio.co.uk/themeforest/estore13/blue/cart.html" class="colr">View Cart</a></span>
-                    </div>
-                    <ul>
-                        <li>
-                            <p class="bold title">
-                                <a href="http://chimpstudio.co.uk/themeforest/estore13/blue/detail.html">Apple Ipad Special Edition 3rd generation</a>
-                            </p>
-                            <div class="grey">
-                                <p class="left">QTY: <span class="bold">3</span></p>
-                                <p class="right">Price: <span class="bold">$200</span></p>
-                            </div>
-                        </li>
-                        <li>
-                            <p class="bold title">
-                                <a href="http://chimpstudio.co.uk/themeforest/estore13/blue/detail.html">Apple Ipad Special Edition 3rd generation</a>
-                            </p>
-                            <div class="grey">
-                                <p class="left">QTY: <span class="bold">3</span></p>
-                                <p class="right">Price: <span class="bold">$200</span></p>
-                            </div>
-                        </li>
-                        <li>
-                            <p class="bold title">
-                                <a href="http://chimpstudio.co.uk/themeforest/estore13/blue/detail.html">Apple Ipad Special Edition 3rd generation</a>
-                            </p>
-                            <div class="grey">
-                                <p class="left">QTY: <span class="bold">3</span></p>
-                                <p class="right">Price: <span class="bold">$200</span></p>
-                            </div>
-                        </li>
-                    </ul>
-                    <a href="#" class="simplebtn"><span>Checkout</span></a>
-                </div> -->
+           
         </div>
     </div>
     <div class="clear"></div>
