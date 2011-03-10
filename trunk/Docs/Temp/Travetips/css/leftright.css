@@ -13,7 +13,7 @@ h5.header_right {
     border-bottom: 1px solid #DDDDDD;
     color: #0D91C8 !important;
     margin-bottom: 10px;
-    padding: 10px 0 4px 10px;
+    padding: 0px 0 4px 10px;
     text-transform: uppercase;
     width: 165px;
 }
@@ -23,19 +23,34 @@ div.left_right_content
     /*padding: 5px 0 0 10px;*/
     width: 170px;
     text-align:center;
-    margin-bottom:7px;
+    margin-bottom:15px;
 }
 
 div.left_right_content img
 {
-    width: 120px;
-    height: 108px;
+    width: 97px;
+    height: 80px;
 }
 
 div.left_right_content p a
 {
     text-decoration:none;
-    color:Blue;
+    color:#3B5998;
+    font-weight:bold;
+}
+
+p.description
+{
+       padding-left: 2px;
+    padding-right: 2px;
+
+}
+
+div.left_right_content p.description a
+{
+    text-decoration:none;
+    color:#666666;
+     font-weight:normal;
 }
 
 div.left_right_content p a:hover
@@ -92,8 +107,8 @@ div.advance_search
     margin:1px 0 10px 0px;
 }
 td.leftTd {
-    background-color: #E8EDFF;
-    border-bottom: 1px solid #FFFFFF;
+    /*background-color: #E8EDFF;*/
+    border-bottom: 1px solid #E8EDFF;
     /*border-top: 1px solid #FFFFFF;*/
     color: #666699;
     height:24px;
@@ -114,8 +129,8 @@ td.leftTd p {
 
 td.left1
 {
-        background-color: #E8EDFF;
-            border-bottom: 1px solid #FFFFFF;
+          /*background-color: #E8EDFF;*/
+    border-bottom: 1px solid #E8EDFF;
     /*border-top: 1px solid #FFFFFF;*/
     padding:5px;
 }
@@ -149,14 +164,29 @@ td.header
 
 /* end table style*/
 
+div#accordiondemo
+{
+    margin-top:10px;
+}
 
-	#accordiondemo h5.headerSearch {
-	    cursor: pointer;
-	  border: 1px solid #ccc;
-	  background: #EFEFEF;
-	  padding: 2px 10px;
-	  width:92%;
-	}
+#accordiondemo h5.headerSearch {
+    cursor: pointer;
+    border: 1px solid #ccc;
+    background: #7F9FBF;
+    padding: 2px 10px;
+    color:White;
+    
+    line-height:25px;
+    height:25px;
+}
+
+table.subTable
+{
+    padding-left:10px;
+    border:1px solid #E8EDFF;
+    background-color:Lavender;
+}
+
 	
 div#divDetailFood
 {
