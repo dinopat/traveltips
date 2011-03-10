@@ -29,23 +29,7 @@
 	// ]]>
 	</script>
 	
-<script type="text/javascript">
-$(function() {
-	// Ẩn tất cả .advance_search trừ advance_search đầu tiên
-	$("#accordiondemo .advance_search:not(:first)").hide();
-	
-	$("#accordiondemo h5").click(function(){
-		$accordion = $(this).next();
-		if ($accordion.is(':hidden') === true) {
-			$("#accordiondemo .advance_search").slideUp();
-			$accordion.slideDown();
-		} else {
-			$accordion.slideUp();
-		}
-	});
-});
-	
-</script>
+
 
 
     <script type="text/javascript" src="../js/jquery.min.js"></script>
@@ -191,52 +175,90 @@ $(function() {
             
            
       </div>    
-                   
-                                        <h5 class="header">
+                    
+                     <h5 class="header">
                         Mới cập nhật</h5>
                     <div class="left_right_content">
+                    <p>
+                            <a href="#">Nhà hàng chay Saigon Vegan</a></p>
                         <img alt="" src="../images/nhahang01.jpg">
-                        <p>
-                            <a href="#">Khách sạn Bạch Đằng</a></p>
+                        <p class="description">
+                            <a href="#">La soupe de maman ne guérit pas tous les maux. C’est pourquoi il y a la
+                                recherche en santé. Consultez notre Page et cliquez « J’aime ». </a>
+                        </p>
                     </div>
                     <div class="left_right_content">
+                     <p>
+                            <a href="#">Bò tùng xẻo - Quán Chân mây</a></p>
                         <img alt="" src="../images/nhahang01.jpg">
-                        <p>
-                            <a href="#">Khách sạn Sheraton</a></p>
+                       
+                            <p class="description">
+                            <a href="#">La soupe de maman ne guérit pas tous les maux. C’est pourquoi il y a la
+                                recherche en santé. Consultez notre Page et cliquez « J’aime ». </a>
+                        </p>
                     </div>
                     <div class="left_right_content">
+                    <p>
+                            <a href="#">NHÀ HÀNG THANH HỢI</a></p>
                         <img alt="" src="../images/nhahang01.jpg">
-                        <p>
-                            <a href="#">Khách sạn Phương Đông</a></p>
+                        
+                             <p class="description">
+                            <a href="#">La soupe de maman ne guérit pas tous les maux. C’est pourquoi il y a la
+                                recherche en santé. Consultez notre Page et cliquez « J’aime ». </a>
+                        </p>
                     </div>
                     <div class="left_right_content">
+                     <p>
+                            <a href="#">TOKYO DELI</a></p>
                         <img alt="" src="../images/nhahang01.jpg">
-                        <p>
-                            <a href="#">Hoàng Đạt Resort</a></p>
+                       
+                            <p class="description">
+                            <a href="#">La soupe de maman ne guérit pas tous les maux. C’est pourquoi il y a la
+                                recherche en santé. Consultez notre Page et cliquez « J’aime ». </a>
+                        </p>
                     </div>
                     <h5 class="header">
                         Được quan tâm nhất</h5>
                     <div class="left_right_content">
-                        <img alt="" src="../images/nhahang01.jpg">
-                        <p>
+                      <p>
                             <a href="#">Nhà hàng chay Saigon Vegan</a></p>
+                        <img alt="" src="../images/nhahang01.jpg">
+                      
+                            <p class="description">
+                            <a href="#">La soupe de maman ne guérit pas tous les maux. C’est pourquoi il y a la
+                                recherche en santé. Consultez notre Page et cliquez « J’aime ». </a>
+                        </p>
                     </div>
                     <div class="left_right_content">
-                        <img alt="" src="../images/nhahang01.jpg">
-                        <p>
+                     <p>
                             <a href="#">Bò tùng xẻo - Quán Chân mây</a></p>
+                        <img alt="" src="../images/nhahang01.jpg">
+                       
+                            <p class="description">
+                            <a href="#">La soupe de maman ne guérit pas tous les maux. C’est pourquoi il y a la
+                                recherche en santé. Consultez notre Page et cliquez « J’aime ». </a>
+                        </p>
                     </div>
                     <div class="left_right_content">
-                        <img alt="" src="../images/nhahang01.jpg">
-                        <p>
+                         <p>
                             <a href="#">NHÀ HÀNG THANH HỢI</a></p>
+                        <img alt="" src="../images/nhahang01.jpg">
+                   
+                            <p class="description">
+                            <a href="#">La soupe de maman ne guérit pas tous les maux. C’est pourquoi il y a la
+                                recherche en santé. Consultez notre Page et cliquez « J’aime ». </a>
+                        </p>
                     </div>
                     <div class="left_right_content">
-                        <img alt="" src="../images/nhahang01.jpg">
-                        <p>
+                      <p>
                             <a href="#">TOKYO DELI</a></p>
-                    </div> 
-                   
+                        <img alt="" src="../images/nhahang01.jpg">
+                      
+                            <p class="description">
+                            <a href="#">La soupe de maman ne guérit pas tous les maux. C’est pourquoi il y a la
+                                recherche en santé. Consultez notre Page et cliquez « J’aime ». </a>
+                        </p>
+                    </div>
                 </div>
                 
         </div>
@@ -245,205 +267,7 @@ $(function() {
         
           <!-- Product Detail -->
             <div class="listing_banner"><a href="#"><img style="width:600px;" src="../images/anhPhongKS.jpg" alt="" height="180" /></a></div>
-       	<div id="accordiondemo">
-	  <h5 class="headerSearch">Tìm kiếm phòng nghỉ</h5>
-            
-            <div class="advance_search">
-                <table width="95%" border="0" cellspacing="1" cellpadding="1">
-                    <tr class="heightTR">
-                        <td width="30%" class="leftTd"><p>
-                            Loại phòng</p></td>
-                        <td width="70%" class="left1">
-                            <select class="left_next" id="Select7" style="width: 152px" name="ddlLoaiphong">
-                                <option selected="selected" value="0">Deluxe</option>
-                                <option value="1">Super Deluxe</option>
-                                <option value="2">Imperior</option>
-                                <option></option>
-                            </select></td>
-                    </tr>
-
-                    <tr class="heightTR">
-                        <td width="30%" class="leftTd" style="vertical-align:middle;"><p>Giá cả</p></td>
-                        <td width="70%" class="left1">
-                            Từ
-                            <input class="left_next" id="Text2" type="text" />&nbsp; đến&nbsp;
-                            <input class="left_next" id="Text3" type="text" /></td>
-                    </tr>
-                    <tr class="heightTR">
-                         <td width="30%" class="leftTd" ><p>Diện tích phòng</p></td>
-                        <td width="70%" class="left1">
-                        
-                            <input class="left_next" id="Text1" type="text" />
-                        m2</tr>
-                    <tr class="heightTR">
-                         <td width="30%" class="leftTd" ><p>Số giường</p></td>
-                        <td width="70%" class="left1">
-                        
-                            <input class="left_next" id="Text7" type="text" />
-                            giường đơn
-                            <input class="left_next" id="Text10" type="text" />
-                        giường đôi</tr>
-                    
-                                                            <tr>
-                         <td width="30%" class="leftTd" ><p>Tiện nghi</p></td>
-                        <td width="70%" class="left1">
-                            &nbsp;<input id="Checkbox1" title="Wifi" type="checkbox" />
-                            Wifi
-                            <input id="Checkbox2" title="Wifi" type="checkbox" />
-                            Massage
-                            <input id="Checkbox3" title="Wifi" type="checkbox" />
-                            Sân tennis<br />
-                            &nbsp;<input id="Checkbox4" title="Wifi" type="checkbox" />
-                            Wifi
-                            <input id="Checkbox5" title="Wifi" type="checkbox" />
-                            Massage
-                            <input id="Checkbox6" title="Wifi" type="checkbox" />
-                                                                Sân tennis</tr>
-                    
-                                       <tr>
-                        <td width="30%" ></td>
-                        <td width="70%">
-                         
-		 
-				
-					                <div style="margin-left:5px;margin-top:5px">
-				    <label class="button">
-					    <input type="submit" name="btnSaveUser" value="" id="btnSaveUser" class="buttonSubmit">
-					    <span>Tìm »</span>
-				    </label>
-			    </div>
-					
-                          </td>
-                           
-                    </tr>
-                                                            
-                </table>
-            </div>
-            
-            
-              <h5 class="headerSearch">Tìm kiếm khách sạn/resort</h5>
-            
-            <div class="advance_search">
-                <table width="95%" border="0" cellspacing="1" cellpadding="1">
-                    <tr class="heightTR">
-                        <td width="30%" class="leftTd"><p>Tên địa điểm nghỉ ngơi</p></td>
-                        <td width="70%" class="left1">
-                            <input id="Text4" type="text" class="left_next" /></td>
-                    </tr>
-                    
-                    <tr class="heightTR">
-                        <td width="30%" class="leftTd" ><p>Loại</p></td>
-                        <td width="70%" class="left1">
-                            <select class="left_next" id="Select2" style="width: 152px">
-                                <option selected="selected" value="0">Resort</option>
-                                <option value="1">Khách sạn 5 sao</option>
-                                <option value="2">Khách sạn 4 sao</option>
-                                <option value="3">Khách sạn 3 sao</option>
-                                <option value="4">Khách sạn 2 sao</option>
-                                <option value="5">Khách sạn 1 sao</option>
-                                <option value="6">Nhà nghỉ</option>
-                                <option></option>
-                            </select>
-                        </td>
-                    </tr>
-
-                    <tr class="heightTR">
-                        <td width="30%" class="leftTd" ><p>Địa chỉ</p></td>
-                        <td width="70%" class="left1">
-                            <input class="left_next" id="Text6" type="text" /></td>
-                    </tr>
-
-                    <tr class="heightTR">
-                        <td width="30%" class="leftTd" ><p>Vị trí </p></td>
-                        <td width="70%" class="left1">
-                            <table width="98%" border="0" cellspacing="1">
-                                <tr style="height:28px;">
-                                    <td width="20%">
-                                        Thành phố
-                                    </td>
-                                    <td width="35%">
-                                        <select style="width: 100px;" name="Select" id="Select3">
-                                            <option value="0" selected="selected">Đà Nẵng</option>
-                                            <option value="1">Hà Nội</option>
-                                            <option></option>
-                                        </select>
-                                    </td>
-                                    <td width="10%">
-                                        Quận</td>
-                                    <td width="35%">
-                                        <select name="Select" id="Select4" style="width: 100px">
-                                            <option value="0" selected="selected">Hải Châu</option>
-                                            <option value="1">Thanh Khê</option>
-                                            <option></option>
-                                        </select>
-                                    </td>
-                                </tr>
-                                <tr style="height:28px;">
-                                    <td width="20%">
-                                        Đường</td>
-                                    <td width="35%">
-                                        <select id="Select5" name="Select" style="width: 100px">
-                                            <option value="0" selected="selected">Hoàng Diệu</option>
-                                            <option value="1">Duy Tân</option>
-                                            <option></option>
-                                        </select>
-                                    </td>
-                                    <td width="10%">
-                                        Số</td>
-                                    <td width="35%">
-                                        <input type="text" id="Text5" style="width: 100px;height:18px;"></td>
-                                </tr>
-                                <tr style="height:28px;">
-                                    <td width="20%">
-                                        Gần</td>
-                                    <td width="35%">
-                                        <select id="Select6" name="Select" style="width: 100px">
-                                            <option value="0" selected="selected">Biển</option>
-                                            <option value="1">Chợ</option>
-                                            <option></option>
-                                        </select>
-                                    </td>
-                                    <td width="10%">
-                                    </td>
-                                    <td width="35%">
-                                    </td>
-                                </tr>
-                            </table>
-                        
-
-
-
-
-
-
-
-
-
-</td>
-                    </tr>
-                    
-                                       <tr>
-                        <td width="30%" ></td>
-                        <td width="70%">
-                         
-		 
-				
-					                <div style="margin-left:5px;margin-top:5px">
-				    <label class="button">
-					    <input type="submit" name="btnSaveUser" value="" id="Submit1" class="buttonSubmit">
-					    <span>Tìm »</span>
-				    </label>
-			    </div>
-					
-                          </td>
-                           
-                    </tr>
-                                                            
-                </table>
-            </div>
-            
-            
-           </div>
+     
        
        <h4 class="amthuc_categoryMenu">
            Danh sách các loại phòng nghỉ của khách sạn     
@@ -558,32 +382,53 @@ $(function() {
                         
                     </div>
                     
-                        <h5 class="header_right">
+                          <h5 class="header_right">
                         Quảng cáo</h5>
+                     
                     <div class="left_right_content">
-                        <img alt="" src="../images/nhahang01.jpg">
-                        <p>
+                      <p>
                             <a href="#">Nhà hàng chay Saigon Vegan</a></p>
+                        <img alt="" src="../images/nhahang01.jpg">
+                      
+                               <p class="description">
+                            <a href="#">La soupe de maman ne guérit pas tous les maux. C’est pourquoi il y a la
+                                recherche en santé. Consultez notre Page et cliquez « J’aime ». </a>
+                        </p>
                     </div>
                     <div class="left_right_content">
-                        <img alt="" src="../images/nhahang01.jpg">
-                        <p>
+                     <p>
                             <a href="#">Bò tùng xẻo - Quán Chân mây</a></p>
+                        <img alt="" src="../images/nhahang01.jpg">
+                       
+                               <p class="description">
+                            <a href="#">La soupe de maman ne guérit pas tous les maux. C’est pourquoi il y a la
+                                recherche en santé. Consultez notre Page et cliquez « J’aime ». </a>
+                        </p>
                     </div>
                     <div class="left_right_content">
-                        <img alt="" src="../images/nhahang01.jpg">
-                        <p>
+                           <p>
                             <a href="#">NHÀ HÀNG THANH HỢI</a></p>
+                        <img alt="" src="../images/nhahang01.jpg">
+                 
+                               <p class="description">
+                            <a href="#">La soupe de maman ne guérit pas tous les maux. C’est pourquoi il y a la
+                                recherche en santé. Consultez notre Page et cliquez « J’aime ». </a>
+                        </p>
                     </div>
                     <div class="left_right_content">
-                        <img alt="" src="../images/nhahang01.jpg">
-                        <p>
+                    <p>
                             <a href="#">TOKYO DELI</a></p>
+                        <img alt="" src="../images/nhahang01.jpg">
+                        
+                               <p class="description">
+                            <a href="#">La soupe de maman ne guérit pas tous les maux. C’est pourquoi il y a la
+                                recherche en santé. Consultez notre Page et cliquez « J’aime ». </a>
+                        </p>
                     </div>
                     
                     </div>
                 </div>
-             
+           
         </div>
     </div>
     <div class="clear"></div>
