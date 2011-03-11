@@ -58,9 +58,30 @@ color:#0D91C8 !important;
     color:Red !important;
 }
 
-.amthuc_infoMenu p {
-padding:0 0 5px;
+.amthuc_infoMenu p.pDescription 
+{
+    padding:0 0 5px;
 }
+
+.amthuc_infoMenu p.pViewDetail
+{
+   float:right;
+   margin-right:10px;
+}
+
+.amthuc_infoMenu p.pViewDetail a
+{
+    color:Blue;
+    font-style:italic;
+    text-decoration:underline;
+}
+
+.amthuc_infoMenu p.pViewDetail a:hover
+{
+    cursor:pointer;
+    color:#FF3399;
+}
+
 .clear
 {
     clear:both;
