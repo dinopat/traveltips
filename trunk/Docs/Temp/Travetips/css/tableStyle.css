@@ -30,3 +30,72 @@ padding:4px 4px 4px 8px;
 {
     padding-left:20px;
 }
+
+
+#ver-zebra {
+    border-collapse: collapse;
+    font-family: "Lucida Sans Unicode","Lucida Grande",Sans-Serif;
+    font-size: 12px;
+    margin: 0 20px 20px;
+    text-align: left;
+    width: 480px;
+}
+
+#ver-zebra td {
+    border-left: 1px solid #FFFFFF;
+    border-right: 1px solid #FFFFFF;
+    color: #666699;
+    padding: 8px 15px;
+}
+
+#ver-zebra th {
+    border-left: 1px solid #FFFFFF;
+    border-right: 1px solid #FFFFFF;
+    color: #003399;
+    font-size: 14px;
+    font-weight: normal;
+    padding: 12px 15px;
+}
+
+#ver-zebra #vzebra-comedy, #ver-zebra #vzebra-action {
+    background: none repeat scroll 0 0 #DCE4FF;
+    border-bottom: 1px solid #D6DFFF;
+}
+
+#ver-zebra #vzebra-adventure, #ver-zebra #vzebra-children {
+    background: none repeat scroll 0 0 #D0DAFD;
+    border-bottom: 1px solid #C8D4FD;
+}
+
+.vzebra-odd {
+    background: none repeat scroll 0 0 #EFF2FF;
+}
+.vzebra-even {
+    background: none repeat scroll 0 0 #E8EDFF;
+}
+
+table#tableOwner tr.header
+{
+    background-color: #0D91C8;
+    color: White;
+}
+
+table#tableOwner tr
+{
+    height: 30px;
+        font-size: 12px;
+       
+}
+
+table#tableOwner td
+{
+    padding-left:10px;
+     padding-bottom:5px;
+      padding-top:5px;
+    vertical-align:middle;
+}
+
+table#tableOwner tr.alternative
+{
+    background-color: #E8EDFF;
+}
