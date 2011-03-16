@@ -2417,3 +2417,9 @@ tintuc {
     margin-left: 10px;
     padding-left: 15px;
 }
+
+.leftgroup {
+    border: 1px solid #CCCBCA;
+    margin-top: 10px;
+/*	background-color: #F3F3F3;*/
+}
