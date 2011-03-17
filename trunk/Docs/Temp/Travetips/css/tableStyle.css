@@ -74,20 +74,20 @@ padding:4px 4px 4px 8px;
     background: none repeat scroll 0 0 #E8EDFF;
 }
 
-table#tableOwner tr.header
+table.tableOwner tr.header
 {
     background-color: #0D91C8;
     color: White;
 }
 
-table#tableOwner tr
+table.tableOwner tr
 {
     height: 30px;
         font-size: 12px;
        
 }
 
-table#tableOwner td
+table.tableOwner td
 {
     padding-left:10px;
      padding-bottom:5px;
@@ -95,7 +95,18 @@ table#tableOwner td
     vertical-align:middle;
 }
 
-table#tableOwner tr.alternative
+table.tableOwner tr.alternative
 {
     background-color: #E8EDFF;
+}
+
+table.tableOwner td a
+{
+    color:Blue;
+    text-decoration:underline;
+}
+
+table.tableOwner td a:hover
+{
+    color:Purple;
 }
