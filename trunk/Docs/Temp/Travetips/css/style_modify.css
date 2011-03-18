@@ -115,5 +115,6 @@ padding: 10px 13px 30px 50px;
 .box-right {
     float: right;
     width: 305px;
+	margin-right:5px;
 /*	border:1px solid #CCCBCA;*/
 }
