@@ -1,0 +1,400 @@
+﻿
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{794327CE-DC0A-4381-89EE-4C00AFB08D5A}</ProjectGuid>
+    <ProjectType>Local</ProjectType>
+    <OutputType>Library</OutputType>
+    <ApplicationIcon>
+	</ApplicationIcon>
+    <AssemblyKeyContainerName>
+	</AssemblyKeyContainerName>
+    <AssemblyName>traveltips.Services</AssemblyName>
+    <AssemblyOriginatorKeyFile>..\traveltips.snk</AssemblyOriginatorKeyFile>
+	<SignAssembly>false</SignAssembly>
+    <DefaultClientScript>JScript</DefaultClientScript>
+    <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
+    <DefaultTargetSchema>IE50</DefaultTargetSchema>
+    <DelaySign>false</DelaySign>
+    <RootNamespace>traveltips.Services</RootNamespace>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <StartupObject></StartupObject>
+    <FileUpgradeFlags></FileUpgradeFlags>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DocumentationFile>traveltips.Services.xml</DocumentationFile>
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>TRACE</DefineConstants>
+    <DocumentationFile>traveltips.Services.xml</DocumentationFile>
+	 <DebugType>pdbonly</DebugType>
+    <DebugSymbols>false</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'GenerateDebug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DocumentationFile>traveltips.Services.xml</DocumentationFile>
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System"/>
+    <Reference Include="System.Web"/>
+    <Reference Include="System.Data"/>
+    <Reference Include="System.Design"/>
+    <Reference Include="System.Xml"/>
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Drawing" />
+	<Reference Include="Microsoft.Practices.EnterpriseLibrary.Common, Version=2.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\References\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
+    </Reference>    
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Caching, Version=2.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\References\Microsoft.Practices.EnterpriseLibrary.Caching.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Caching.Cryptography, Version=2.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\References\Microsoft.Practices.EnterpriseLibrary.Caching.Cryptography.dll</HintPath>
+    </Reference>
+	<Reference Include="Microsoft.Practices.ObjectBuilder, Version=2.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\References\Microsoft.Practices.ObjectBuilder.dll</HintPath>
+    </Reference>
+	<Reference Include="Microsoft.Practices.EnterpriseLibrary.Logging, Version=2.0.0.0, Culture=neutral, PublicKeyToken=null">
+		<SpecificVersion>False</SpecificVersion>
+		<HintPath>..\References\Microsoft.Practices.EnterpriseLibrary.Logging.dll</HintPath>
+	</Reference>
+	<Reference Include="Microsoft.Practices.EnterpriseLibrary.Logging.Database, Version=2.0.0.0, Culture=neutral, PublicKeyToken=null">
+		<SpecificVersion>False</SpecificVersion>
+		<HintPath>..\References\Microsoft.Practices.EnterpriseLibrary.Logging.Database.dll</HintPath>
+	</Reference>
+	<Reference Include="Microsoft.Practices.EnterpriseLibrary.ExceptionHandling, Version=2.0.0.0, Culture=neutral, PublicKeyToken=null">
+		<SpecificVersion>False</SpecificVersion>
+		<HintPath>..\References\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.dll</HintPath>
+	</Reference>
+	<Reference Include="Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.Logging, Version=2.0.0.0, Culture=neutral, PublicKeyToken=null">
+		<SpecificVersion>False</SpecificVersion>
+		<HintPath>..\References\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.Logging.dll</HintPath>
+	</Reference>	
+	<Reference Include="Microsoft.Practices.EnterpriseLibrary.Security, Version=2.0.0.0, Culture=neutral, PublicKeyToken=null">
+		<SpecificVersion>False</SpecificVersion>
+		<HintPath>..\References\Microsoft.Practices.EnterpriseLibrary.Security.dll</HintPath>
+	</Reference>	
+	<Reference Include="Microsoft.Practices.EnterpriseLibrary.Security.Cryptography, Version=2.0.0.0, Culture=neutral, PublicKeyToken=null">
+		<SpecificVersion>False</SpecificVersion>
+		<HintPath>..\References\Microsoft.Practices.EnterpriseLibrary.Security.Cryptography.dll</HintPath>
+	</Reference>
+     
+	<ProjectReference Include="..\traveltips.Entities\traveltips.Entities.csproj">
+      <Name>traveltips.Entities</Name>
+      <Project>{20E43088-4618-4F4A-B8AD-FC31B50D94CD}</Project>
+      <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
+    </ProjectReference>
+	
+	
+    <ProjectReference Include="..\traveltips.DAO\traveltips.DAO.csproj">
+        <Name>traveltips.DAO</Name>
+        <Project>{041C1BBE-0BFB-4D45-8125-9AB0BBC09A92}</Project>
+        <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"</Package>
+    </ProjectReference>
+	
+	
+    
+    	
+	
+	
+	
+	</ItemGroup>
+	
+		
+	<!-- Custom code folder: D:\My process\web_camnang\traveltips\Project\traveltips.Services\App_Code -->
+	<ItemGroup>	
+		<Folder Include="App_Code\" />
+        <Compile Include="App_Code\**\*.cs">
+          <SubType>Code</SubType>
+        </Compile>		
+	</ItemGroup>
+
+	<!-- Include any user files -->
+	<ItemGroup>	
+		<Compile Include="**\*.user.*" Exclude="**\*.csproj.user" >
+          <SubType>Code</SubType>
+        </Compile>		
+	</ItemGroup>
+	
+	<ItemGroup>
+		<Compile Include="AdminService.cs">
+		  <SubType>Code</SubType>
+		</Compile>
+		<Compile Include="AdminServiceBase.generated.cs">
+		  <DependentUpon>AdminService.cs</DependentUpon>
+		  <SubType>Code</SubType>
+		</Compile>	
+		<Compile Include="ChuCongTyService.cs">
+		  <SubType>Code</SubType>
+		</Compile>
+		<Compile Include="ChuCongTyServiceBase.generated.cs">
+		  <DependentUpon>ChuCongTyService.cs</DependentUpon>
+		  <SubType>Code</SubType>
+		</Compile>	
+		<Compile Include="CommentService.cs">
+		  <SubType>Code</SubType>
+		</Compile>
+		<Compile Include="CommentServiceBase.generated.cs">
+		  <DependentUpon>CommentService.cs</DependentUpon>
+		  <SubType>Code</SubType>
+		</Compile>	
+		<Compile Include="CongTyService.cs">
+		  <SubType>Code</SubType>
+		</Compile>
+		<Compile Include="CongTyServiceBase.generated.cs">
+		  <DependentUpon>CongTyService.cs</DependentUpon>
+		  <SubType>Code</SubType>
+		</Compile>	
+		<Compile Include="DanhMucService.cs">
+		  <SubType>Code</SubType>
+		</Compile>
+		<Compile Include="DanhMucServiceBase.generated.cs">
+		  <DependentUpon>DanhMucService.cs</DependentUpon>
+		  <SubType>Code</SubType>
+		</Compile>	
+		<Compile Include="DichVuService.cs">
+		  <SubType>Code</SubType>
+		</Compile>
+		<Compile Include="DichVuServiceBase.generated.cs">
+		  <DependentUpon>DichVuService.cs</DependentUpon>
+		  <SubType>Code</SubType>
+		</Compile>	
+		<Compile Include="DuongService.cs">
+		  <SubType>Code</SubType>
+		</Compile>
+		<Compile Include="DuongServiceBase.generated.cs">
+		  <DependentUpon>DuongService.cs</DependentUpon>
+		  <SubType>Code</SubType>
+		</Compile>	
+		<Compile Include="GalleryService.cs">
+		  <SubType>Code</SubType>
+		</Compile>
+		<Compile Include="GalleryServiceBase.generated.cs">
+		  <DependentUpon>GalleryService.cs</DependentUpon>
+		  <SubType>Code</SubType>
+		</Compile>	
+		<Compile Include="KhuVucService.cs">
+		  <SubType>Code</SubType>
+		</Compile>
+		<Compile Include="KhuVucServiceBase.generated.cs">
+		  <DependentUpon>KhuVucService.cs</DependentUpon>
+		  <SubType>Code</SubType>
+		</Compile>	
+		<Compile Include="LabelLanguageService.cs">
+		  <SubType>Code</SubType>
+		</Compile>
+		<Compile Include="LabelLanguageServiceBase.generated.cs">
+		  <DependentUpon>LabelLanguageService.cs</DependentUpon>
+		  <SubType>Code</SubType>
+		</Compile>	
+		<Compile Include="LabelNnService.cs">
+		  <SubType>Code</SubType>
+		</Compile>
+		<Compile Include="LabelNnServiceBase.generated.cs">
+		  <DependentUpon>LabelNnService.cs</DependentUpon>
+		  <SubType>Code</SubType>
+		</Compile>	
+		<Compile Include="LanguageService.cs">
+		  <SubType>Code</SubType>
+		</Compile>
+		<Compile Include="LanguageServiceBase.generated.cs">
+		  <DependentUpon>LanguageService.cs</DependentUpon>
+		  <SubType>Code</SubType>
+		</Compile>	
+		<Compile Include="LoaiSpService.cs">
+		  <SubType>Code</SubType>
+		</Compile>
+		<Compile Include="LoaiSpServiceBase.generated.cs">
+		  <DependentUpon>LoaiSpService.cs</DependentUpon>
+		  <SubType>Code</SubType>
+		</Compile>	
+		<Compile Include="QuanService.cs">
+		  <SubType>Code</SubType>
+		</Compile>
+		<Compile Include="QuanServiceBase.generated.cs">
+		  <DependentUpon>QuanService.cs</DependentUpon>
+		  <SubType>Code</SubType>
+		</Compile>	
+		<Compile Include="QuocGiaService.cs">
+		  <SubType>Code</SubType>
+		</Compile>
+		<Compile Include="QuocGiaServiceBase.generated.cs">
+		  <DependentUpon>QuocGiaService.cs</DependentUpon>
+		  <SubType>Code</SubType>
+		</Compile>	
+		<Compile Include="SanPhamService.cs">
+		  <SubType>Code</SubType>
+		</Compile>
+		<Compile Include="SanPhamServiceBase.generated.cs">
+		  <DependentUpon>SanPhamService.cs</DependentUpon>
+		  <SubType>Code</SubType>
+		</Compile>	
+		<Compile Include="ThanhPhoService.cs">
+		  <SubType>Code</SubType>
+		</Compile>
+		<Compile Include="ThanhPhoServiceBase.generated.cs">
+		  <DependentUpon>ThanhPhoService.cs</DependentUpon>
+		  <SubType>Code</SubType>
+		</Compile>	
+		<Compile Include="ThuocTinhService.cs">
+		  <SubType>Code</SubType>
+		</Compile>
+		<Compile Include="ThuocTinhServiceBase.generated.cs">
+		  <DependentUpon>ThuocTinhService.cs</DependentUpon>
+		  <SubType>Code</SubType>
+		</Compile>	
+		<Compile Include="ThuocTinhSanPhamService.cs">
+		  <SubType>Code</SubType>
+		</Compile>
+		<Compile Include="ThuocTinhSanPhamServiceBase.generated.cs">
+		  <DependentUpon>ThuocTinhSanPhamService.cs</DependentUpon>
+		  <SubType>Code</SubType>
+		</Compile>	
+		<Compile Include="TinTucService.cs">
+		  <SubType>Code</SubType>
+		</Compile>
+		<Compile Include="TinTucServiceBase.generated.cs">
+		  <DependentUpon>TinTucService.cs</DependentUpon>
+		  <SubType>Code</SubType>
+		</Compile>	
+		<Compile Include="TuDienService.cs">
+		  <SubType>Code</SubType>
+		</Compile>
+		<Compile Include="TuDienServiceBase.generated.cs">
+		  <DependentUpon>TuDienService.cs</DependentUpon>
+		  <SubType>Code</SubType>
+		</Compile>	
+		<Compile Include="UserService.cs">
+		  <SubType>Code</SubType>
+		</Compile>
+		<Compile Include="UserServiceBase.generated.cs">
+		  <DependentUpon>UserService.cs</DependentUpon>
+		  <SubType>Code</SubType>
+		</Compile>	
+		<Compile Include="..\AssemblyInfo.cs">
+		  <SubType>Code</SubType>
+		</Compile>
+			
+		<!-- 
+			<Compile Include="Processors\**\*.cs">
+			   <SubType>Code</SubType>
+			</Compile>		
+		 -->
+			<Compile Include="Processors\GenericProcessorResult.cs">
+			  <SubType>Code</SubType>
+			</Compile>		
+			<Compile Include="Processors\IProcessor.cs">
+			  <SubType>Code</SubType>
+			</Compile>		
+			<Compile Include="Processors\IProcessorResult.cs">
+			  <SubType>Code</SubType>
+			</Compile>		
+			<Compile Include="Processors\ProcessorBase.cs">
+			  <SubType>Code</SubType>
+			</Compile>		
+			
+			<Compile Include="SecurityContext.cs">
+			  <SubType>Code</SubType>
+			</Compile>		
+			<Compile Include="DomainUtil.cs">
+			  <SubType>Code</SubType>
+			</Compile>
+			<Compile Include="ConnectionScope.cs">
+			  <SubType>Code</SubType>
+			</Compile>
+			<Compile Include="ServiceResult.cs">
+			  <SubType>Code</SubType>
+			</Compile>
+			<Compile Include="ServiceBase.cs">
+			  <SubType>Code</SubType>
+			</Compile>
+			<Compile Include="ServiceBaseCore.generated.cs">
+			  <SubType>Code</SubType>
+			  <DependentUpon>ServiceBase.cs</DependentUpon>
+			</Compile>
+			<Compile Include="IComponentService.cs">
+			  <SubType>Code</SubType>
+			</Compile>		
+			<Compile Include="Views\ServiceViewBase.cs">
+			  <SubType>Code</SubType>
+			</Compile>
+			<Compile Include="Views\ServiceViewBaseCore.generated.cs">
+			  <SubType>Code</SubType>
+			  <DependentUpon>ServiceViewBase.cs</DependentUpon>
+			</Compile>
+
+		
+		
+		
+		
+		
+		 <AppDesigner Include="Properties\" />
+	</ItemGroup>
+	
+	
+	
+	
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSHARP.Targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+	<PostBuildEvent>
+	</PostBuildEvent>
+  </PropertyGroup>
+
+</Project>
