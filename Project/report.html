@@ -1,0 +1,1403 @@
+﻿<html>
+  <head>
+    <link href="http://nettiers.com/common/styles.css" rel="stylesheet" type="text/css" />
+    <style>
+				      span.executionTime {font-style: italic; color: #55AEED;}
+	            </style>
+  </head>
+  <body>
+    <table width="100%" border="0" cellspacing="2" cellpadding="2">
+      <tr>
+        <td width="700">
+          <a href="http://nettiers.com/download.aspx" target="_blank">
+            <img border="0" src="http://nettiers.com/img/netTiersLogo2.0_small.gif" alt=".netTiers 2.0" />
+          </a>
+          <hr />
+          <div>
+            <a href="http://nettiers.com/">Website</a>
+                                |    
+                             <a href="http://community.codesmithtools.com/forums/default.aspx?GroupID=11/">Forums</a>
+                                |    
+                             <a href="http://sourceforge.net/projects/nettiers/">Sourceforge</a>
+                                |    
+                             <a href="https://www.nettiers.com/download.aspx">Downloads</a></div>
+          <hr />
+          <h2>Generation Report</h2>
+          <div style="width:70%">
+            <span class="content">.netTiers is a set of open source code generation templates that
+                            simplify the tasks of creating customized Application Framework for your Microsoft.Net
+                            applications in just a few minutes. 
+                            <br /><br />
+                            This report shows you a list of all of your selected .net class that were generated.  This report
+                            also shows gives a quick start configuration instructions so that you can get started using .netTiers.
+                            If you need further documentation, please check out the documentation section of this report.
+                         </span>
+          </div>
+        </td>
+      </tr>
+    </table>
+    <table width="100%" border="0" cellspacing="2" cellpadding="2">
+      <tr>
+        <td>
+          <h2>Sections</h2>
+          <ol>
+            <li>
+              <a href="#summary">Summary</a>
+            </li>
+            <li>
+              <a href="#Configuration">Configuration</a>
+            </li>
+            <li>
+              <a href="#documentation">Documentation</a>
+            </li>
+            <li>
+              <a href="#details">Details - Generated Classes</a>
+            </li>
+          </ol>
+        </td>
+      </tr>
+      <tr>
+        <td valign="top" width="100%">
+          <div id="Summary" style="display:inline">
+            <a name="summary" />
+            <h3>Generation Summary <a href="#top" class="calloutlink">Top</a></h3>
+            <span class="docSubHeader">Generated Solution Found: </span>
+            <br />
+            <span class="content">
+              <ul>
+                <li>file:\\\D:\My process\web_camnang\traveltips\Project\traveltips.sln</li>
+              </ul>
+            </span>
+            <table>
+              <tr>
+                <td width="200">Total Object Created</td>
+                <td>349</td>
+              </tr>
+              <tr>
+                <td width="200">Total Errors / Warnings</td>
+                <td>0</td>
+              </tr>
+            </table>
+          </div>
+          <div id="Configuration" style="display:inline">
+            <a name="Configuration" />
+            <h3>.netTiers Quick Configuration <a href="#top" class="calloutlink">Top</a></h3>
+            <p> Below are the steps to to configure the .netTiers components.</p>
+            <p>To Configure your application to use .netTiers, add the following sections to your App / Web config files.
+			
+			 You can find more information on how to set this up at<br /><a href="http://docs.nettiers.com">.netTiers 2 Install and Configuration Document @ http://docs.netTiers.com</a></p>
+            <p>1. Add a new section to the configSettings</p>
+            <pre>
+  &lt;section name="netTiersService"
+		type="traveltips.DAO.Bases.NetTiersServiceSection, traveltips.DAO"
+		allowDefinition="MachineToApplication"
+		restartOnExternalChanges="true" /&gt;
+</pre>
+            <p>2.  Add an item to the ConnectionStrings Section</p>
+            <pre>
+&lt;connectionStrings&gt;
+  &lt;add name="netTiersConnectionString" connectionString="server=.;database=traveltips;uid=sa;pwd=12345;" /&gt;
+&lt;/connectionStrings&gt;
+</pre>
+            <p>3.  Add the netTierService configuration section to your configuration file. Comment / Uncomment which provider you plan on using / not using</p>
+            <pre>
+&lt;netTiersService defaultProvider="SqlNetTiersProvider"&gt;
+  &lt;providers&gt;
+    
+    &lt;add 
+	name="SqlNetTiersProvider" 
+	type="traveltips.DAO.SqlClient.SqlNetTiersProvider, traveltips.DAO.SqlClient"
+	connectionStringName="netTiersConnectionString"
+	providerInvariantName="System.Data.SqlClient" 
+	entityFactoryType="traveltips.Entities.EntityFactory"
+	useEntityFactory="true"
+	enableEntityTracking="false"
+	enableMethodAuthorization="false"
+	useStoredProcedure="false"
+  /&gt;
+    
+  &lt;/providers&gt;
+&lt;/netTiersService&gt;
+ </pre>
+          </div>
+          <div id="Documentation" style="display:inline">
+            <a name="documentation" />
+            <h3>Documentation <a href="#top" class="calloutlink">Top</a></h3>
+            <a href="http://wiki.nettiers.com">.netTiers 2.0 Getting Started</a>
+            <br />
+            <br />
+            <b>Sample API Usage</b>
+            <br />
+            <table style="border: 1px dashed rgb(255, 153, 0); background-color: rgb(255, 255, 223);" bgcolor="#ffffdf">
+              <tbody>
+                <tr>
+                  <td>
+                    <pre>
+                      <font color="black" face="Courier New" size="2">
+AccountService accountsService = <font color="blue">new</font> AccountsService();<font color="green">
+//GetAll()</font>
+TList&lt;Accounts&gt; accountList = accountsService.GetAll();
+
+<font color="green">//GetPagedl()</font>
+TList&lt;Accounts&gt; accountList = 
+accountsService.GetPaged("IsActive = 1 AND AccountName LIKE 'smi%'");
+
+<font color="green">//GetByFk()</font>
+TList&lt;Accounts&gt; accountList = accountsService.GetByCustomerId(25);
+
+<font color="green">//GetIX()</font>
+TList&lt;Accounts&gt; accountList = accountsService.GetByAccountCreatedDate(<font color="blue">new</font> DateTime("1/1/2006"));<br /><br /><font color="green">
+//Get()</font>
+entity.Entitykey;
+Accounts account = accountsService.Get(entity.EntityKey);
+
+<font color="green">//Insert()</font>
+Account accountEntity = <font color="blue">new</font> Account();
+accountEntity.AccountName = "MyAccountName";
+accountEntity.CreatedDate = DateTime.Now;
+
+accountsService.Insert(accountEntity);
+accountEntity.AccountId <font color="green">// is now populated</font><font color="green">
+//Delete()</font>
+bool result = accountsService.Delete(accountEntity);
+
+<font color="green">//Delete()</font>
+bool result = accountsService.Delete(23);
+
+<font color="green">//Update()</font>
+accountEntity.AccountName = "MyAccountName 2";
+accountsService.Update(accountEntity);
+        
+<font color="green">//GetByManyToManyl()</font>
+TList&lt;Customers&gt; accountList = accountsService.GetCustomers_From_AccountsReceivable();
+					            
+<font color="green">//GetCustomProcedureName()</font>
+TList&lt;Accounts&gt; accountList = accountsService.GetByAccountMaturationDate();
+    
+<font color="green">//DeepLoadByIdl() using PK</font>
+Account account = accountsService.DeepLoadByAccountId(id, <font color="blue">false</font>, DeepLoadType.IncludeChildren, typeof(Customers), typeof(TList&lt;ChartOfAccounts&gt;));<br /><br /><font color="green">//DeepLoadByIdl() using FK</font>
+TList&lt;Account&gt; account = accountsService.DeepLoadByCustomerId(id, <font color="blue">false</font>, DeepLoadType.IncludeChildren, typeof(Customers), typeof(TList&lt;ChartOfAccounts&gt;));<br /><br /><font color="green">//already instatiated objects</font><font color="green">//DeepLoad</font>
+accountsService.DeepLoad(myAccountEntity, <font color="blue">false</font>, DeepLoadType.IncludeChildren, typeof(Customers), typeof(TList&lt;ChartOfAccounts&gt;));<br /><br /><font color="green">
+Response.Write(accountsService.CustomerIdSource.LastName); <font color="green">// is now filled</font>
+Response.Write(accountsService.ChartOfAccountsCollection.Count); <font color="green">// is now filled</font>
+
+//DeepSave</font>
+accountsService.DeepSave(myAccountEntity, <font color="blue">false</font>, DeepSaveType.IncludeChildren, typeof(Customers), typeof(TList&lt;ChartOfAccounts&gt;));<br /><br /></font>
+                    </pre>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <br />
+          </div>
+          <div id="ReportDetails" style="display:inline">
+            <a name="details" />
+            <h3>Report Details <a href="#top" class="calloutlink">Top</a></h3>
+            <ul>
+              <li>
+                <h3>Initialization</h3>
+                <ul>
+                  <li>
+                    <span class="message0">Validating parameters.</span>
+                    <ul />
+                  </li>
+                  <li>
+                    <span class="message2">Generating .netTiers Entity Mapping</span>
+                    <ul />
+                  </li>
+                  <li>
+                    <span class="message0">Loading templates.</span>
+                    <ul />[00:00:02.0021145]<br /></li>
+                  <li>
+                    <span class="message0">Creating folders and copying dependencies.</span>
+                    <ul />
+                  </li>
+                </ul>
+			Execution time: <span class="executionTime">00:00:02.9361679</span><p /></li>
+              <li>
+                <h3>Common files</h3>
+                <ul>
+                  <li>
+                    <span class="file">ListBase.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">TList.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">VList.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">IEntity.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">IEntityId.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">IEntityKey.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">EntityFactory.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">EntityFactoryBase.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">IEntityFactory.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">IEntityCacheItem.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">EntityCache.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">EntityLocator.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">EntityManager.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">BrokenRule.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">BrokenRulesList.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">CommonRules.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">ValidationRuleArgs.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">ValidationRuleHandler.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">ValidationRuleInfo.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">ValidationRules.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">EntityBaseCore.generated.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">EntityBase.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">EntityKeyBaseCore.generated.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">EntityKeyBase.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">SecurityContext.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">IProcessor.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">IProcessorResult.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">ProcessorBase.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">GenericProcessorResult.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">DomainUtil.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">ConnectionScope.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">IComponentService.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">ServiceBase.cst.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">ServiceBaseCore.cst.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">ServiceViewBase.cst.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">ServiceViewBaseCore.cst.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">ServiceResult.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">EntityFilter.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">EntityPropertyComparer.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">GenericTypeConverter.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">StoredProcedures.sql</span>
+                  </li>
+                  <li>
+                    <span class="file">Utility.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">TransactionManager.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">DataRepository.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">IEntityProvider.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">IEntityViewProvider.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">EntityProviderBase.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">EntityProviderBaseCore.generated.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">EntityViewProviderBase.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">EntityViewProviderBaseCore.generated.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">NetTiersProvider.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">NetTiersProviderCollection.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">NetTiersServiceSection.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">ExpressionParserBase.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">SqlExpressionParser.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">SqlStringBuilder.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">SqlUtil.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">StringTokenizer.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">SqlClient\SqlNetTiersProvider.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">StoredProcedureProvider.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">BaseDataSource.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">BaseDataSourceDesigner.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">CustomDataSource.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">CustomDataSourceDesigner.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">CustomParameter.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">DataParameter.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">EntityDataSource.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">EntityDataSourceFilter.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">EntityRelationship.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">EntityRelationshipMember.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">EntityTransactionModule.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">ILinkedDataSource.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">ManyToManyListRelationship.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">ManyToManyViewRelationship.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">OneToManyGridRelationship.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">OneToOneViewRelationship.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">ProviderDataSource.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">ProviderDataSourceDesigner.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">ReadOnlyDataSource.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">ReadOnlyDataSourceDesigner.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">SqlParameter.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">QuocGiaDataSource.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">AdminDataSource.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">SanPhamDataSource.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">LoaiSpDataSource.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">ThanhPhoDataSource.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">ThuocTinhDataSource.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">TuDienDataSource.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">QuanDataSource.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">TinTucDataSource.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">ThuocTinhSanPhamDataSource.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">LanguageDataSource.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">LabelNnDataSource.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">DanhMucDataSource.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">ChuCongTyDataSource.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">CongTyDataSource.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">CommentDataSource.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">DichVuDataSource.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">LabelLanguageDataSource.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">DuongDataSource.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">KhuVucDataSource.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">UserDataSource.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">GalleryDataSource.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">FormUtil.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">FormUtilBase.generated.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">MultiBindableTemplate.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">MultiFormView.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">EntityGridView.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">EntityDropDownList.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">BoundEntityDropDownField.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">BoundRadioButtonField.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">GridViewSearchPanel.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">GridViewSearchPanelState.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">EntityLabel.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">HyperlinkField.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">QuocGiaRepeater.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">AdminRepeater.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">SanPhamRepeater.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">LoaiSpRepeater.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">ThanhPhoRepeater.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">ThuocTinhRepeater.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">TuDienRepeater.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">QuanRepeater.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">TinTucRepeater.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">ThuocTinhSanPhamRepeater.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">LanguageRepeater.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">LabelNnRepeater.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">DanhMucRepeater.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">ChuCongTyRepeater.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">CongTyRepeater.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">CommentRepeater.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">DichVuRepeater.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">LabelLanguageRepeater.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">DuongRepeater.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">KhuVucRepeater.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">UserRepeater.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">GalleryRepeater.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">Web.config</span>
+                  </li>
+                  <li>
+                    <span class="file">Enterprise Library v2 website configuration files</span>
+                  </li>
+                  <li>
+                    <span class="file">Default.aspx</span>
+                  </li>
+                  <li>
+                    <span class="file">Default.aspx.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">traveltips.sln</span>
+                  </li>
+                  <li>
+                    <span class="file">Services.csproj</span>
+                  </li>
+                  <li>
+                    <span class="file">traveltips.Entities.csproj</span>
+                  </li>
+                  <li>
+                    <span class="file">traveltips.DAO.DAO.csproj</span>
+                  </li>
+                  <li>
+                    <span class="file">traveltips.Entities.DAO.SqlClient.csproj</span>
+                  </li>
+                  <li>
+                    <span class="file">traveltips.Web.csproj</span>
+                  </li>
+                  <li>
+                    <span class="file">traveltips.build</span>
+                  </li>
+                  <li>
+                    <span class="file">EntityHelper.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">EntityUtil.cs</span>
+                  </li>
+                </ul>
+			Execution time: <span class="executionTime">00:00:02.5261445</span><p /></li>
+              <li>
+                <h3>tbl_Admin</h3>
+                <ul>
+                  <li>
+                    <span class="file">Admin.generated.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">IAdmin.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">Admin.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">AdminService.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">AdminServiceBase.generated.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">AdminProviderBase.generatedCore.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">AdminProviderBase.generated.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">SqlClient\SqlAdminProviderBase.generated.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">SqlClient\AdminTest.cs</span>
+                  </li>
+                </ul>
+			Execution time: <span class="executionTime">00:00:00.1160067</span><p /></li>
+              <li>
+                <h3>tbl_ChuCongTy</h3>
+                <ul>
+                  <li>
+                    <span class="file">ChuCongTy.generated.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">IChuCongTy.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">ChuCongTy.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">ChuCongTyService.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">ChuCongTyServiceBase.generated.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">ChuCongTyProviderBase.generatedCore.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">ChuCongTyProviderBase.generated.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">SqlClient\SqlChuCongTyProviderBase.generated.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">SqlClient\ChuCongTyTest.cs</span>
+                  </li>
+                </ul>
+			Execution time: <span class="executionTime">00:00:00.1350077</span><p /></li>
+              <li>
+                <h3>tbl_Comment</h3>
+                <ul>
+                  <li>
+                    <span class="file">Comment.generated.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">IComment.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">Comment.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">CommentService.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">CommentServiceBase.generated.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">CommentProviderBase.generatedCore.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">CommentProviderBase.generated.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">SqlClient\SqlCommentProviderBase.generated.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">SqlClient\CommentTest.cs</span>
+                  </li>
+                </ul>
+			Execution time: <span class="executionTime">00:00:00.1300074</span><p /></li>
+              <li>
+                <h3>tbl_CongTy</h3>
+                <ul>
+                  <li>
+                    <span class="file">CongTy.generated.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">ICongTy.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">CongTy.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">CongTyService.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">CongTyServiceBase.generated.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">CongTyProviderBase.generatedCore.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">CongTyProviderBase.generated.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">SqlClient\SqlCongTyProviderBase.generated.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">SqlClient\CongTyTest.cs</span>
+                  </li>
+                </ul>
+			Execution time: <span class="executionTime">00:00:00.2350135</span><p /></li>
+              <li>
+                <h3>tbl_DanhMuc</h3>
+                <ul>
+                  <li>
+                    <span class="file">DanhMuc.generated.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">IDanhMuc.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">DanhMuc.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">DanhMucService.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">DanhMucServiceBase.generated.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">DanhMucProviderBase.generatedCore.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">DanhMucProviderBase.generated.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">SqlClient\SqlDanhMucProviderBase.generated.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">SqlClient\DanhMucTest.cs</span>
+                  </li>
+                </ul>
+			Execution time: <span class="executionTime">00:00:00.1240070</span><p /></li>
+              <li>
+                <h3>tbl_DichVu</h3>
+                <ul>
+                  <li>
+                    <span class="file">DichVu.generated.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">IDichVu.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">DichVu.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">DichVuService.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">DichVuServiceBase.generated.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">DichVuProviderBase.generatedCore.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">DichVuProviderBase.generated.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">SqlClient\SqlDichVuProviderBase.generated.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">SqlClient\DichVuTest.cs</span>
+                  </li>
+                </ul>
+			Execution time: <span class="executionTime">00:00:00.2080119</span><p /></li>
+              <li>
+                <h3>tbl_Duong</h3>
+                <ul>
+                  <li>
+                    <span class="file">Duong.generated.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">IDuong.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">Duong.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">DuongService.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">DuongServiceBase.generated.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">DuongProviderBase.generatedCore.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">DuongProviderBase.generated.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">SqlClient\SqlDuongProviderBase.generated.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">SqlClient\DuongTest.cs</span>
+                  </li>
+                </ul>
+			Execution time: <span class="executionTime">00:00:00.2200126</span><p /></li>
+              <li>
+                <h3>tbl_Gallery</h3>
+                <ul>
+                  <li>
+                    <span class="file">Gallery.generated.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">IGallery.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">Gallery.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">GalleryService.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">GalleryServiceBase.generated.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">GalleryProviderBase.generatedCore.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">GalleryProviderBase.generated.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">SqlClient\SqlGalleryProviderBase.generated.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">SqlClient\GalleryTest.cs</span>
+                  </li>
+                </ul>
+			Execution time: <span class="executionTime">00:00:00.1480085</span><p /></li>
+              <li>
+                <h3>tbl_KhuVuc</h3>
+                <ul>
+                  <li>
+                    <span class="file">KhuVuc.generated.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">IKhuVuc.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">KhuVuc.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">KhuVucService.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">KhuVucServiceBase.generated.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">KhuVucProviderBase.generatedCore.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">KhuVucProviderBase.generated.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">SqlClient\SqlKhuVucProviderBase.generated.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">SqlClient\KhuVucTest.cs</span>
+                  </li>
+                </ul>
+			Execution time: <span class="executionTime">00:00:00.3360192</span><p /></li>
+              <li>
+                <h3>tbl_LabelLanguage</h3>
+                <ul>
+                  <li>
+                    <span class="file">LabelLanguage.generated.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">ILabelLanguage.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">LabelLanguage.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">LabelLanguageService.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">LabelLanguageServiceBase.generated.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">LabelLanguageProviderBase.generatedCore.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">LabelLanguageProviderBase.generated.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">SqlClient\SqlLabelLanguageProviderBase.generated.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">SqlClient\LabelLanguageTest.cs</span>
+                  </li>
+                </ul>
+			Execution time: <span class="executionTime">00:00:00.1480085</span><p /></li>
+              <li>
+                <h3>tbl_LabelNN</h3>
+                <ul>
+                  <li>
+                    <span class="file">LabelNn.generated.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">ILabelNn.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">LabelNn.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">LabelNnService.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">LabelNnServiceBase.generated.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">LabelNnProviderBase.generatedCore.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">LabelNnProviderBase.generated.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">SqlClient\SqlLabelNnProviderBase.generated.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">SqlClient\LabelNnTest.cs</span>
+                  </li>
+                </ul>
+			Execution time: <span class="executionTime">00:00:00.1490085</span><p /></li>
+              <li>
+                <h3>tbl_Language</h3>
+                <ul>
+                  <li>
+                    <span class="file">Language.generated.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">ILanguage.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">Language.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">LanguageService.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">LanguageServiceBase.generated.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">LanguageProviderBase.generatedCore.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">LanguageProviderBase.generated.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">SqlClient\SqlLanguageProviderBase.generated.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">SqlClient\LanguageTest.cs</span>
+                  </li>
+                </ul>
+			Execution time: <span class="executionTime">00:00:00.1270073</span><p /></li>
+              <li>
+                <h3>tbl_LoaiSP</h3>
+                <ul>
+                  <li>
+                    <span class="file">LoaiSp.generated.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">ILoaiSp.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">LoaiSp.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">LoaiSpService.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">LoaiSpServiceBase.generated.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">LoaiSpProviderBase.generatedCore.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">LoaiSpProviderBase.generated.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">SqlClient\SqlLoaiSpProviderBase.generated.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">SqlClient\LoaiSpTest.cs</span>
+                  </li>
+                </ul>
+			Execution time: <span class="executionTime">00:00:00.1360077</span><p /></li>
+              <li>
+                <h3>tbl_Quan</h3>
+                <ul>
+                  <li>
+                    <span class="file">Quan.generated.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">IQuan.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">Quan.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">QuanService.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">QuanServiceBase.generated.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">QuanProviderBase.generatedCore.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">QuanProviderBase.generated.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">SqlClient\SqlQuanProviderBase.generated.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">SqlClient\QuanTest.cs</span>
+                  </li>
+                </ul>
+			Execution time: <span class="executionTime">00:00:00.1520087</span><p /></li>
+              <li>
+                <h3>tbl_QuocGia</h3>
+                <ul>
+                  <li>
+                    <span class="file">QuocGia.generated.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">IQuocGia.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">QuocGia.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">QuocGiaService.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">QuocGiaServiceBase.generated.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">QuocGiaProviderBase.generatedCore.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">QuocGiaProviderBase.generated.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">SqlClient\SqlQuocGiaProviderBase.generated.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">SqlClient\QuocGiaTest.cs</span>
+                  </li>
+                </ul>
+			Execution time: <span class="executionTime">00:00:00.1690097</span><p /></li>
+              <li>
+                <h3>tbl_SanPham</h3>
+                <ul>
+                  <li>
+                    <span class="file">SanPham.generated.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">ISanPham.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">SanPham.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">SanPhamService.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">SanPhamServiceBase.generated.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">SanPhamProviderBase.generatedCore.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">SanPhamProviderBase.generated.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">SqlClient\SqlSanPhamProviderBase.generated.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">SqlClient\SanPhamTest.cs</span>
+                  </li>
+                </ul>
+			Execution time: <span class="executionTime">00:00:00.2910167</span><p /></li>
+              <li>
+                <h3>tbl_ThanhPho</h3>
+                <ul>
+                  <li>
+                    <span class="file">ThanhPho.generated.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">IThanhPho.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">ThanhPho.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">ThanhPhoService.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">ThanhPhoServiceBase.generated.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">ThanhPhoProviderBase.generatedCore.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">ThanhPhoProviderBase.generated.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">SqlClient\SqlThanhPhoProviderBase.generated.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">SqlClient\ThanhPhoTest.cs</span>
+                  </li>
+                </ul>
+			Execution time: <span class="executionTime">00:00:00.1490085</span><p /></li>
+              <li>
+                <h3>tbl_ThuocTinh</h3>
+                <ul>
+                  <li>
+                    <span class="file">ThuocTinh.generated.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">IThuocTinh.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">ThuocTinh.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">ThuocTinhService.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">ThuocTinhServiceBase.generated.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">ThuocTinhProviderBase.generatedCore.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">ThuocTinhProviderBase.generated.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">SqlClient\SqlThuocTinhProviderBase.generated.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">SqlClient\ThuocTinhTest.cs</span>
+                  </li>
+                </ul>
+			Execution time: <span class="executionTime">00:00:00.2460140</span><p /></li>
+              <li>
+                <h3>tbl_ThuocTinhSanPham</h3>
+                <ul>
+                  <li>
+                    <span class="file">ThuocTinhSanPham.generated.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">IThuocTinhSanPham.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">ThuocTinhSanPham.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">ThuocTinhSanPhamService.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">ThuocTinhSanPhamServiceBase.generated.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">ThuocTinhSanPhamProviderBase.generatedCore.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">ThuocTinhSanPhamProviderBase.generated.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">SqlClient\SqlThuocTinhSanPhamProviderBase.generated.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">SqlClient\ThuocTinhSanPhamTest.cs</span>
+                  </li>
+                </ul>
+			Execution time: <span class="executionTime">00:00:00.2280131</span><p /></li>
+              <li>
+                <h3>tbl_TinTuc</h3>
+                <ul>
+                  <li>
+                    <span class="file">TinTuc.generated.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">ITinTuc.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">TinTuc.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">TinTucService.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">TinTucServiceBase.generated.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">TinTucProviderBase.generatedCore.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">TinTucProviderBase.generated.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">SqlClient\SqlTinTucProviderBase.generated.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">SqlClient\TinTucTest.cs</span>
+                  </li>
+                </ul>
+			Execution time: <span class="executionTime">00:00:00.1350077</span><p /></li>
+              <li>
+                <h3>tbl_TuDien</h3>
+                <ul>
+                  <li>
+                    <span class="file">TuDien.generated.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">ITuDien.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">TuDien.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">TuDienService.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">TuDienServiceBase.generated.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">TuDienProviderBase.generatedCore.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">TuDienProviderBase.generated.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">SqlClient\SqlTuDienProviderBase.generated.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">SqlClient\TuDienTest.cs</span>
+                  </li>
+                </ul>
+			Execution time: <span class="executionTime">00:00:00.1550089</span><p /></li>
+              <li>
+                <h3>tbl_User</h3>
+                <ul>
+                  <li>
+                    <span class="file">User.generated.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">IUser.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">User.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">UserService.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">UserServiceBase.generated.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">UserProviderBase.generatedCore.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">UserProviderBase.generated.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">SqlClient\SqlUserProviderBase.generated.cs</span>
+                  </li>
+                  <li>
+                    <span class="file">SqlClient\UserTest.cs</span>
+                  </li>
+                </ul>
+			Execution time: <span class="executionTime">00:00:00.3030173</span><p /></li>
+              <li>
+                <h3>
+            Custom Stored Procedures
+         </h3>
+                <ul />
+              </li>
+            </ul>
+          </div>
+        </td>
+      </tr>
+    </table>
+    <hr noshade="noshade" />
+    <table width="100%" border="0" cellspacing="2" cellpadding="2">
+      <tr>
+        <td />
+        <td />
+      </tr>
+    </table>
+    <div align="center">
+			.netTiersOpen Source Group, 2007
+		</div>
+    <div align="center">
+      <a href="http://sourceforge.net">
+        <img src="http://sourceforge.net/sflogo.php?group_id=118735" width="88" height="31" border="0" alt="SourceForge Logo" />
+      </a>
+    </div>
+  </body>
+</html>
