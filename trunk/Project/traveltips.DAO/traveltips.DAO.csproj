@@ -1,0 +1,405 @@
+﻿
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{041C1BBE-0BFB-4D45-8125-9AB0BBC09A92}</ProjectGuid>
+    <ProjectType>Local</ProjectType>
+    <OutputType>Library</OutputType>
+    <ApplicationIcon>
+	</ApplicationIcon>
+    <AssemblyKeyContainerName>
+	</AssemblyKeyContainerName>
+    <AssemblyName>traveltips.DAO</AssemblyName>
+    <AssemblyOriginatorKeyFile>..\traveltips.snk</AssemblyOriginatorKeyFile>
+	<SignAssembly>false</SignAssembly>
+    <DefaultClientScript>JScript</DefaultClientScript>
+    <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
+    <DefaultTargetSchema>IE50</DefaultTargetSchema>
+    <DelaySign>false</DelaySign>
+    <RootNamespace>traveltips.DAO</RootNamespace>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <StartupObject></StartupObject>
+    <FileUpgradeFlags></FileUpgradeFlags>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DocumentationFile>traveltips.DAO.xml</DocumentationFile>
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>TRACE</DefineConstants>
+    <DocumentationFile>traveltips.DAO.xml</DocumentationFile>
+	 <DebugType>pdbonly</DebugType>
+    <DebugSymbols>false</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'GenerateDebug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DocumentationFile>traveltips.DAO.xml</DocumentationFile>
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System"/>
+    <Reference Include="System.Web"/>
+    <Reference Include="System.Data"/>
+    <Reference Include="System.Design"/>
+    <Reference Include="System.Xml"/>
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="EnvDTE, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="EnvDTE80, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common, Version=2.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\References\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
+    </Reference>    
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Data, Version=2.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\References\Microsoft.Practices.EnterpriseLibrary.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ObjectBuilder, Version=1.0.51206.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\References\Microsoft.Practices.ObjectBuilder.dll</HintPath>
+    </Reference>
+     
+	<ProjectReference Include="..\traveltips.Entities\traveltips.Entities.csproj">
+      <Name>traveltips.Entities</Name>
+      <Project>{20E43088-4618-4F4A-B8AD-FC31B50D94CD}</Project>
+      <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
+    </ProjectReference>
+	
+	
+	
+	
+    
+    	
+	
+	
+	
+	</ItemGroup>
+	
+		
+	<!-- Custom code folder: D:\My process\web_camnang\traveltips\Project\traveltips.DAO\App_Code -->
+	<ItemGroup>	
+		<Folder Include="App_Code\" />
+        <Compile Include="App_Code\**\*.cs">
+          <SubType>Code</SubType>
+        </Compile>		
+	</ItemGroup>
+
+	<!-- Include any user files -->
+	<ItemGroup>	
+		<Compile Include="**\*.user.*" Exclude="**\*.csproj.user" >
+          <SubType>Code</SubType>
+        </Compile>		
+	</ItemGroup>
+	
+	<ItemGroup>
+			<Compile Include="Bases\AdminProviderBase.cs">
+			  <SubType>Code</SubType>
+			</Compile>
+			
+			<Compile Include="Bases\AdminProviderBase.generatedCore.cs">
+			  <DependentUpon>AdminProviderBase.cs</DependentUpon>
+			  <SubType>Code</SubType>
+			</Compile>
+			<Compile Include="Bases\ChuCongTyProviderBase.cs">
+			  <SubType>Code</SubType>
+			</Compile>
+			
+			<Compile Include="Bases\ChuCongTyProviderBase.generatedCore.cs">
+			  <DependentUpon>ChuCongTyProviderBase.cs</DependentUpon>
+			  <SubType>Code</SubType>
+			</Compile>
+			<Compile Include="Bases\CommentProviderBase.cs">
+			  <SubType>Code</SubType>
+			</Compile>
+			
+			<Compile Include="Bases\CommentProviderBase.generatedCore.cs">
+			  <DependentUpon>CommentProviderBase.cs</DependentUpon>
+			  <SubType>Code</SubType>
+			</Compile>
+			<Compile Include="Bases\CongTyProviderBase.cs">
+			  <SubType>Code</SubType>
+			</Compile>
+			
+			<Compile Include="Bases\CongTyProviderBase.generatedCore.cs">
+			  <DependentUpon>CongTyProviderBase.cs</DependentUpon>
+			  <SubType>Code</SubType>
+			</Compile>
+			<Compile Include="Bases\DanhMucProviderBase.cs">
+			  <SubType>Code</SubType>
+			</Compile>
+			
+			<Compile Include="Bases\DanhMucProviderBase.generatedCore.cs">
+			  <DependentUpon>DanhMucProviderBase.cs</DependentUpon>
+			  <SubType>Code</SubType>
+			</Compile>
+			<Compile Include="Bases\DichVuProviderBase.cs">
+			  <SubType>Code</SubType>
+			</Compile>
+			
+			<Compile Include="Bases\DichVuProviderBase.generatedCore.cs">
+			  <DependentUpon>DichVuProviderBase.cs</DependentUpon>
+			  <SubType>Code</SubType>
+			</Compile>
+			<Compile Include="Bases\DuongProviderBase.cs">
+			  <SubType>Code</SubType>
+			</Compile>
+			
+			<Compile Include="Bases\DuongProviderBase.generatedCore.cs">
+			  <DependentUpon>DuongProviderBase.cs</DependentUpon>
+			  <SubType>Code</SubType>
+			</Compile>
+			<Compile Include="Bases\GalleryProviderBase.cs">
+			  <SubType>Code</SubType>
+			</Compile>
+			
+			<Compile Include="Bases\GalleryProviderBase.generatedCore.cs">
+			  <DependentUpon>GalleryProviderBase.cs</DependentUpon>
+			  <SubType>Code</SubType>
+			</Compile>
+			<Compile Include="Bases\KhuVucProviderBase.cs">
+			  <SubType>Code</SubType>
+			</Compile>
+			
+			<Compile Include="Bases\KhuVucProviderBase.generatedCore.cs">
+			  <DependentUpon>KhuVucProviderBase.cs</DependentUpon>
+			  <SubType>Code</SubType>
+			</Compile>
+			<Compile Include="Bases\LabelLanguageProviderBase.cs">
+			  <SubType>Code</SubType>
+			</Compile>
+			
+			<Compile Include="Bases\LabelLanguageProviderBase.generatedCore.cs">
+			  <DependentUpon>LabelLanguageProviderBase.cs</DependentUpon>
+			  <SubType>Code</SubType>
+			</Compile>
+			<Compile Include="Bases\LabelNnProviderBase.cs">
+			  <SubType>Code</SubType>
+			</Compile>
+			
+			<Compile Include="Bases\LabelNnProviderBase.generatedCore.cs">
+			  <DependentUpon>LabelNnProviderBase.cs</DependentUpon>
+			  <SubType>Code</SubType>
+			</Compile>
+			<Compile Include="Bases\LanguageProviderBase.cs">
+			  <SubType>Code</SubType>
+			</Compile>
+			
+			<Compile Include="Bases\LanguageProviderBase.generatedCore.cs">
+			  <DependentUpon>LanguageProviderBase.cs</DependentUpon>
+			  <SubType>Code</SubType>
+			</Compile>
+			<Compile Include="Bases\LoaiSpProviderBase.cs">
+			  <SubType>Code</SubType>
+			</Compile>
+			
+			<Compile Include="Bases\LoaiSpProviderBase.generatedCore.cs">
+			  <DependentUpon>LoaiSpProviderBase.cs</DependentUpon>
+			  <SubType>Code</SubType>
+			</Compile>
+			<Compile Include="Bases\QuanProviderBase.cs">
+			  <SubType>Code</SubType>
+			</Compile>
+			
+			<Compile Include="Bases\QuanProviderBase.generatedCore.cs">
+			  <DependentUpon>QuanProviderBase.cs</DependentUpon>
+			  <SubType>Code</SubType>
+			</Compile>
+			<Compile Include="Bases\QuocGiaProviderBase.cs">
+			  <SubType>Code</SubType>
+			</Compile>
+			
+			<Compile Include="Bases\QuocGiaProviderBase.generatedCore.cs">
+			  <DependentUpon>QuocGiaProviderBase.cs</DependentUpon>
+			  <SubType>Code</SubType>
+			</Compile>
+			<Compile Include="Bases\SanPhamProviderBase.cs">
+			  <SubType>Code</SubType>
+			</Compile>
+			
+			<Compile Include="Bases\SanPhamProviderBase.generatedCore.cs">
+			  <DependentUpon>SanPhamProviderBase.cs</DependentUpon>
+			  <SubType>Code</SubType>
+			</Compile>
+			<Compile Include="Bases\ThanhPhoProviderBase.cs">
+			  <SubType>Code</SubType>
+			</Compile>
+			
+			<Compile Include="Bases\ThanhPhoProviderBase.generatedCore.cs">
+			  <DependentUpon>ThanhPhoProviderBase.cs</DependentUpon>
+			  <SubType>Code</SubType>
+			</Compile>
+			<Compile Include="Bases\ThuocTinhProviderBase.cs">
+			  <SubType>Code</SubType>
+			</Compile>
+			
+			<Compile Include="Bases\ThuocTinhProviderBase.generatedCore.cs">
+			  <DependentUpon>ThuocTinhProviderBase.cs</DependentUpon>
+			  <SubType>Code</SubType>
+			</Compile>
+			<Compile Include="Bases\ThuocTinhSanPhamProviderBase.cs">
+			  <SubType>Code</SubType>
+			</Compile>
+			
+			<Compile Include="Bases\ThuocTinhSanPhamProviderBase.generatedCore.cs">
+			  <DependentUpon>ThuocTinhSanPhamProviderBase.cs</DependentUpon>
+			  <SubType>Code</SubType>
+			</Compile>
+			<Compile Include="Bases\TinTucProviderBase.cs">
+			  <SubType>Code</SubType>
+			</Compile>
+			
+			<Compile Include="Bases\TinTucProviderBase.generatedCore.cs">
+			  <DependentUpon>TinTucProviderBase.cs</DependentUpon>
+			  <SubType>Code</SubType>
+			</Compile>
+			<Compile Include="Bases\TuDienProviderBase.cs">
+			  <SubType>Code</SubType>
+			</Compile>
+			
+			<Compile Include="Bases\TuDienProviderBase.generatedCore.cs">
+			  <DependentUpon>TuDienProviderBase.cs</DependentUpon>
+			  <SubType>Code</SubType>
+			</Compile>
+			<Compile Include="Bases\UserProviderBase.cs">
+			  <SubType>Code</SubType>
+			</Compile>
+			
+			<Compile Include="Bases\UserProviderBase.generatedCore.cs">
+			  <DependentUpon>UserProviderBase.cs</DependentUpon>
+			  <SubType>Code</SubType>
+			</Compile>
+		<Compile Include="..\AssemblyInfo.cs">
+		  <SubType>Code</SubType>
+		</Compile>
+			
+
+			<Compile Include="DataRepository.cs">
+			  <SubType>Code</SubType>
+			</Compile>
+			
+			<Compile Include="Bases\NetTiersProvider.cs">
+			  <SubType>Code</SubType>
+			</Compile>
+			
+			<Compile Include="Bases\NetTiersProviderCollection.cs">
+			  <SubType>Code</SubType>
+			</Compile>
+			
+			<Compile Include="Bases\NetTiersServiceSection.cs">
+			  <SubType>Code</SubType>
+			</Compile>
+			
+			<Compile Include="Bases\EntityProviderBase.cs">
+			  <SubType>Code</SubType>
+			</Compile>
+			<Compile Include="Bases\EntityProviderBaseCore.generated.cs">
+			  <SubType>Code</SubType>
+			  <DependentUpon>EntityProviderBase.cs</DependentUpon>
+			</Compile>
+			
+			<Compile Include="Bases\EntityViewProviderBase.cs">
+			  <SubType>Code</SubType>
+			</Compile>
+			<Compile Include="Bases\EntityViewProviderBaseCore.generated.cs">
+			  <SubType>Code</SubType>
+			  <DependentUpon>EntityViewProviderBase.cs</DependentUpon>
+			</Compile>
+			
+			<Compile Include="Query\ExpressionParserBase.cs">
+			  <SubType>Code</SubType>
+			</Compile>
+			<Compile Include="Query\SqlExpressionParser.cs">
+			  <SubType>Code</SubType>
+			</Compile>
+			<Compile Include="Query\SqlStringBuilder.cs">
+			  <SubType>Code</SubType>
+			</Compile>
+			<Compile Include="Query\SqlUtil.cs">
+			  <SubType>Code</SubType>
+			</Compile>
+			<Compile Include="Query\StringTokenizer.cs">
+			  <SubType>Code</SubType>
+			</Compile>
+			
+			<Compile Include="Utility.cs">
+			  <SubType>Code</SubType>
+			</Compile>
+			<Compile Include="TransactionManager.cs">
+			  <SubType>Code</SubType>
+			</Compile>
+			<Compile Include="IEntityProvider.cs">
+			  <SubType>Code</SubType>
+			</Compile>
+			<Compile Include="IEntityViewProvider.cs">
+			  <SubType>Code</SubType>
+			</Compile>
+			
+		
+		
+		
+		
+		
+		 <AppDesigner Include="Properties\" />
+	</ItemGroup>
+	
+	
+	
+	
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSHARP.Targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+	<PostBuildEvent>
+	</PostBuildEvent>
+  </PropertyGroup>
+
+</Project>
