@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+  
+    <siteMapNode url="" title="Admin"  description="">
+        <siteMapNode url="~/Admin/Default.aspx" title="Admin"  description="Admin" />  
+	<siteMapNode url="~/Admin/Admin.aspx" title="Admin"  description="" />
+	<siteMapNode url="~/Admin/ChuCongTy.aspx" title="Chu Cong Ty"  description="" />
+	<siteMapNode url="~/Admin/Comment.aspx" title="Comment"  description="" />
+	<siteMapNode url="~/Admin/CongTy.aspx" title="Cong Ty"  description="" />
+	<siteMapNode url="~/Admin/DanhMuc.aspx" title="Danh Muc"  description="" />
+	<siteMapNode url="~/Admin/DichVu.aspx" title="Dich Vu"  description="" />
+	<siteMapNode url="~/Admin/Duong.aspx" title="Duong"  description="" />
+	<siteMapNode url="~/Admin/Gallery.aspx" title="Gallery"  description="" />
+	<siteMapNode url="~/Admin/KhuVuc.aspx" title="Khu Vuc"  description="" />
+	<siteMapNode url="~/Admin/LabelLanguage.aspx" title="Label Language"  description="" />
+	<siteMapNode url="~/Admin/LabelNn.aspx" title="Label Nn"  description="" />
+	<siteMapNode url="~/Admin/Language.aspx" title="Language"  description="" />
+	<siteMapNode url="~/Admin/LoaiSp.aspx" title="Loai Sp"  description="" />
+	<siteMapNode url="~/Admin/Quan.aspx" title="Quan"  description="" />
+	<siteMapNode url="~/Admin/QuocGia.aspx" title="Quoc Gia"  description="" />
+	<siteMapNode url="~/Admin/SanPham.aspx" title="San Pham"  description="" />
+	<siteMapNode url="~/Admin/ThanhPho.aspx" title="Thanh Pho"  description="" />
+	<siteMapNode url="~/Admin/ThuocTinh.aspx" title="Thuoc Tinh"  description="" />
+	<siteMapNode url="~/Admin/ThuocTinhSanPham.aspx" title="Thuoc Tinh San Pham"  description="" />
+	<siteMapNode url="~/Admin/TinTuc.aspx" title="Tin Tuc"  description="" />
+	<siteMapNode url="~/Admin/TuDien.aspx" title="Tu Dien"  description="" />
+	<siteMapNode url="~/Admin/User.aspx" title="User"  description="" />
+        </siteMapNode>              
+</siteMap>
