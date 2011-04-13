@@ -1,0 +1,15 @@
+D:\My process\web_camnang\traveltips\Project\traveltips.DAO\bin\Debug\traveltips.DAO.dll
+D:\My process\web_camnang\traveltips\Project\traveltips.DAO\bin\Debug\traveltips.DAO.pdb
+D:\My process\web_camnang\traveltips\Project\traveltips.DAO\bin\Debug\traveltips.DAO.xml
+D:\My process\web_camnang\traveltips\Project\traveltips.DAO\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
+D:\My process\web_camnang\traveltips\Project\traveltips.DAO\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.dll
+D:\My process\web_camnang\traveltips\Project\traveltips.DAO\bin\Debug\Microsoft.Practices.ObjectBuilder.dll
+D:\My process\web_camnang\traveltips\Project\traveltips.DAO\bin\Debug\traveltips.Entities.dll
+D:\My process\web_camnang\traveltips\Project\traveltips.DAO\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Security.Cryptography.dll
+D:\My process\web_camnang\traveltips\Project\traveltips.DAO\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Caching.dll
+D:\My process\web_camnang\traveltips\Project\traveltips.DAO\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Caching.Cryptography.dll
+D:\My process\web_camnang\traveltips\Project\traveltips.DAO\bin\Debug\traveltips.Entities.pdb
+D:\My process\web_camnang\traveltips\Project\traveltips.DAO\bin\Debug\traveltips.Entities.xml
+D:\My process\web_camnang\traveltips\Project\traveltips.DAO\obj\Debug\ResolveAssemblyReference.cache
+D:\My process\web_camnang\traveltips\Project\traveltips.DAO\obj\Debug\traveltips.DAO.dll
+D:\My process\web_camnang\traveltips\Project\traveltips.DAO\obj\Debug\traveltips.DAO.pdb
