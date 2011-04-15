@@ -1,0 +1,43 @@
+﻿
+ fieldset.row1 {
+    /* border:1px solid #F5F5F5; */
+     border:1px solid #E8EDFF;
+    margin-bottom:15px;
+    padding:5px;
+}
+
+ legend {
+    color:#ABDA0F;
+    font-size:14px;
+    font-weight:100;
+    margin-left:14px;
+    padding:2px;
+}
+
+ fieldset p.spaceBottom {
+    margin-bottom:10px;
+}
+
+p {
+    color:gray;
+    font-size:9pt;
+}
+
+fieldset.row1 label.lbLogin {
+    float:left;
+    margin-right:6px;
+    margin-top:2px;
+    text-align:right;
+    width:160px;
+}
+
+input.long {
+    color:#505050;
+    width:247px;
+    height:20px;
+}
+
+input[type="text"] {
+    border:1px solid #E1E1E1;
+    height:20px;
+}

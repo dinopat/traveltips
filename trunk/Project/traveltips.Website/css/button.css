@@ -1,0 +1,43 @@
+﻿
+label.button {
+   /* background:url("../images/rightGreen.png") no-repeat scroll right top transparent;*/
+    background:url("../images/rightBlue1.gif") no-repeat scroll right top transparent;
+    color:#494949;
+    display:block;
+    float:left;
+    font:12px Arial,Helvetica,sans-serif;
+   /* height:24px;*/
+  /* height:25px;*/
+    margin-right:6px;
+    padding-right:9px;
+}
+
+label.button input {
+	height:0.229in;
+	opacity:0;
+	filter: alpha(opacity=0);/* opacity in IE8 */
+	position:absolute;
+	width:inherit;
+	z-index:2;
+}
+
+label.button span {
+/*background:url("../images/leftGreen.png") no-repeat scroll 0 0 transparent;*/
+background:url("../images/leftBlue1.gif") no-repeat scroll 0 0 transparent;
+display:block;
+/*line-height:14px;*/
+padding:5px 0 5px 6px;
+text-align:center;
+white-space:nowrap;
+color:#ffffff;
+}
+
+label.button:hover, label.button:active {
+background-position: bottom right;
+color: #494949;
+outline: none; /* hide dotted outline in Firefox */
+}
+label.button:hover span, label.button:active span {
+background-position: bottom left;
+padding: 6px 0 4px 6px; /* push text down 1px */
+}
