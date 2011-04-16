@@ -14,6 +14,19 @@ public class Utility
     public Utility()
     {
     }
+
+    public static void SetErrorMessage(Label lblError, string errorMessage)
+    {
+        if (String.IsNullOrEmpty(lblError.Text.Trim()))
+        {
+            lblError.Text = "- " + errorMessage;
+        }
+        else
+        {
+            lblError.Text += "<br /> <br />" + "- " + errorMessage;
+        }
+    }
+
     public static bool CheckValidVNDate(string strInput)
     {
         //ValidationExpression="\d{2}\/\d{2}\/\d{4}"
