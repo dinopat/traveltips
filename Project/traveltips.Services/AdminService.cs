@@ -45,7 +45,12 @@ namespace traveltips.Services
                 throw ex;
             }
         }
-		
+
+        public bool isExistAdminAccount(string tenDangNhap)
+        {
+            object s = DataRepository.Provider.ExecuteScalar(CommandType.Text, "select * from");
+            return false;
+        }
 	}//End Class
 
 
