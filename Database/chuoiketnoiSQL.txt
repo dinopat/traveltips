@@ -1,0 +1,4 @@
+- chuoi ket noi sql server dung windows authentication ------
+server=.;database=traveltips;integrated security=SSPI;
+- chuoi ket noi sql server dung tai khoan ----------
+server=.;database=traveltips;uid=sa;pwd=12345;
