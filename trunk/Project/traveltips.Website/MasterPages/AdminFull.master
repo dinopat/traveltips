@@ -5,14 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" >
 <head runat="server">
     <title></title>
-    <!-- // Stylesheets // 
-    <link href="../css/style_onecolumn.css" rel="stylesheet" type="text/css"/> -->
-    <link href="../css/styleAdmin.css" rel="stylesheet" type="text/css"/>
-    <link rel="stylesheet" type="text/css" href="../css/ddsmoothmenu.css"/>
+
+    <link rel="stylesheet" type="text/css" href="../css/horizontal_menu.css"/>
     <link rel="stylesheet" href="../css/slider.css" type="text/css" media="screen"/>
     <link rel="stylesheet" type="text/css" href="../css/jquery.css"/>
     <link rel="stylesheet" type="text/css" href="../css/contentslider.css"/>
-
+    
+    <link href="../css/adminFullBody.css" rel="stylesheet" type="text/css" />     
     <link href="../css/formGUI.css" rel="stylesheet" type="text/css" />
     <link href="../css/button.css" rel="stylesheet" type="text/css" />
     <!-- // Javascript // -->
@@ -26,14 +25,17 @@
     <script type="text/javascript" src="../js/jcarousellite_1.js"></script>
     <script type="text/javascript" src="../js/scroll.js"></script>
     <script type="text/javascript" src="../js/ddaccordion.js"></script>
-    <script type="text/javascript" src="../js/Trebuchet_MS_400-Trebuchet_MS_700-Trebuchet_MS_italic_700-Tre.js"></script>
-    <script type="text/javascript" src="../js/cufon.js"></script>
+
     <script type="text/javascript" src="../js/contentslider.js"></script>
     <script type="text/javascript" src="../js/jquery_003.js"></script>
     <script type="text/javascript" src="../js/lightbox.js"></script>
 </head>
+
 <body>
-<body><div style="left: 695.167px; top: 152px;" class="ddshadow toplevelshadow"></div><div style="left: 591.267px; top: 152px;" class="ddshadow toplevelshadow"></div><div style="left: 373.05px; top: 152px;" class="ddshadow toplevelshadow"></div>
+<form id="frmAdminFullMaster" runat="server">
+<div style="left: 695.167px; top: 152px;" class="ddshadow toplevelshadow"></div>
+<div style="left: 591.267px; top: 152px;" class="ddshadow toplevelshadow"></div>
+<div style="left: 373.05px; top: 152px;" class="ddshadow toplevelshadow"></div>
 <a name="top"></a>
 <div id="wrapper_sec">
 	<!-- Header -->
@@ -99,23 +101,43 @@
     <!-- Bread Crumb Section -->
   
     <div class="clear"></div>
-    <!-- Content Section -->
-	<div id="content_sec">
-<!--    <form id="formMainMuaSam" runat="server"> -->
-    <div>
+
+ <div id="content_sec">
         <asp:contentplaceholder id="ContentPlaceHolder1" runat="server">
         </asp:contentplaceholder>
+ </div>       
+        
+ <div class="clear"></div>
+        <div id="footer">
     </div>
-<!--    </form> -->
-      </div>
-    <div class="clear"></div>
-   <!-- Footer Section -->
-	<div id="footer">
-    
-       
-     
-    </div>
+      
+ 
 </div>
-<div id="fancybox-tmp"></div><div id="fancybox-loading"><div style="left: 0px; top: 0px"></div></div><div id="fancybox-overlay"></div><div id="fancybox-wrap"><div id="fancybox-outer"><div class="fancy-bg" id="fancy-bg-n"></div><div class="fancy-bg" id="fancy-bg-ne"></div><div class="fancy-bg" id="fancy-bg-e"></div><div class="fancy-bg" id="fancy-bg-se"></div><div class="fancy-bg" id="fancy-bg-s"></div><div class="fancy-bg" id="fancy-bg-sw"></div><div class="fancy-bg" id="fancy-bg-w"></div><div class="fancy-bg" id="fancy-bg-nw"></div><div id="fancybox-inner"></div><a id="fancybox-close"></a><a href="javascript:;" id="fancybox-left"><span class="fancy-ico" id="fancybox-left-ico"></span></a><a href="javascript:;" id="fancybox-right"><span class="fancy-ico" id="fancybox-right-ico"></span></a></div></div></body>
+<div id="fancybox-tmp"></div>
+<div id="fancybox-loading">
+<div style="left: 0px; top: 0px"></div>
+</div>
+<div id="fancybox-overlay"></div>
+<div id="fancybox-wrap">
+<div id="fancybox-outer">
+<div class="fancy-bg" id="fancy-bg-n"></div>
+<div class="fancy-bg" id="fancy-bg-ne"></div>
+<div class="fancy-bg" id="fancy-bg-e"></div>
+<div class="fancy-bg" id="fancy-bg-se"></div>
+<div class="fancy-bg" id="fancy-bg-s"></div>
+<div class="fancy-bg" id="fancy-bg-sw"></div>
+<div class="fancy-bg" id="fancy-bg-w"></div>
+<div class="fancy-bg" id="fancy-bg-nw"></div>
+<div id="fancybox-inner"></div>
+<a id="fancybox-close"></a>
+<a href="javascript:;" id="fancybox-left">
+    <span class="fancy-ico" id="fancybox-left-ico"></span>
+</a>
+<a href="javascript:;" id="fancybox-right">
+    <span class="fancy-ico" id="fancybox-right-ico"></span>
+</a>
+</div>
+</div>
+</form>
 </body>
 </html>
