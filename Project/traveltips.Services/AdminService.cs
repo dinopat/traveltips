@@ -33,6 +33,18 @@ namespace traveltips.Services
 		public AdminService() : base()
 		{
 		}
+
+        public bool Insert(Admin adminEntity)
+        {
+            try
+            {
+                return DataRepository.AdminProvider.Insert(adminEntity);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
 		
 	}//End Class
 
