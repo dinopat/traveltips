@@ -55,11 +55,12 @@
                 </div>
                 <div class="submit_box">
                     <div style="margin-left: 127px;">
+                        
                         <label class="button">
-                            <input type="submit" class="buttonSubmit" id="btnSaveUser" value="" name="btnSaveUser">
+                            <asp:Button ID="btnSaveRegister" runat="server" OnClick="btnSaveRegister_Click" Text="Button" />
                             <span>Lưu »</span>
                         </label>
-                        <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Button" />
+                       
                     </div>
                 </div>
             </div>
