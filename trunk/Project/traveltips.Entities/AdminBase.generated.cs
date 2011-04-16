@@ -1529,7 +1529,7 @@ namespace traveltips.Entities
 		/// HoTen : 
 		/// </summary>
 		[EnumTextValue("HoTen")]
-		[ColumnEnum("HoTen", typeof(System.String), System.Data.DbType.AnsiString, false, false, true, 200)]
+		[ColumnEnum("HoTen", typeof(System.String), System.Data.DbType.String, false, false, true, 200)]
 		HoTen = 5,
 		/// <summary>
 		/// DienThoai : 
