@@ -12,6 +12,7 @@ using traveltips.Entities.Validation;
 
 using traveltips.DAO;
 using Microsoft.Practices.EnterpriseLibrary.Logging;
+using traveltips.DAO.Bases;
 
 #endregion
 
@@ -46,11 +47,84 @@ namespace traveltips.Services
             }
         }
 
-        public bool isExistAdminAccount(string tenDangNhap)
+        public bool IsExistEmailOfAdmin_Sp(string email)
         {
-            object s = DataRepository.Provider.ExecuteScalar(CommandType.Text, "select * from");
-            return false;
+            object[] paramObj = new object[1];
+            System.Data.SqlClient.SqlParameter param1 = new System.Data.SqlClient.SqlParameter();
+            param1.ParameterName = "@email";
+            param1.SqlDbType = SqlDbType.VarChar;
+            param1.Size = 50;
+            param1.Value = email;
+
+            paramObj[0] = param1.Value;
+            DataSet ds = DataRepository.Provider.ExecuteDataSet("sp_CheckExistAdminEmail", paramObj);
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                return true;
+            }
+            else return false;
         }
+
+        public bool IsExistAdminAccount_Sp(string tenDangNhap)
+        {
+            object[] paramObj = new object[1];
+            System.Data.SqlClient.SqlParameter param1 = new System.Data.SqlClient.SqlParameter();
+            param1.ParameterName = "@tenDangNhap";
+            param1.SqlDbType = SqlDbType.VarChar;
+            param1.Size = 50;
+            param1.Value = tenDangNhap;
+
+            paramObj[0] = param1.Value;
+            DataSet ds= DataRepository.Provider.ExecuteDataSet("sp_CheckExistAdminTenDangNhap", paramObj);
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                return true;
+            }
+            else return false;
+        }
+
+        public bool IsExistAdminAccount(string tenDangNhap)
+        {
+            bool isExistAdminAccount = false;
+            AdminParameterBuilder query1 = new AdminParameterBuilder();
+            query1.AppendEquals(AdminColumn.TenDangNhap, tenDangNhap);
+      
+            //SqlFilterParameter filterParam = new SqlFilterParameter(AdminColumn.TenDangNhap, tenDangNhap, 0);
+            //query1.Parameters.Add(filterParam);
+            
+
+
+            TList<Admin> list1 = DataRepository.AdminProvider.Find(query1.GetParameters());
+            if (list1.Count > 0)
+            {
+                isExistAdminAccount = true;
+            }
+            else
+            {
+                isExistAdminAccount = false;
+            }
+            return isExistAdminAccount;
+        }
+
+        public bool IsExistEmailOfAdmin(string email)
+        {
+            bool isExistEmailOfAdmin = false;
+            AdminParameterBuilder query1 = new AdminParameterBuilder();
+            SqlFilterParameter filterParam = new SqlFilterParameter(AdminColumn.Email, email, 0);
+            query1.Parameters.Add(filterParam);
+
+            TList<Admin> list1 = DataRepository.AdminProvider.Find(query1.GetParameters());
+            if (list1.Count > 0)
+            {
+                isExistEmailOfAdmin = true;
+            }
+            else
+            {
+                isExistEmailOfAdmin = false;
+            }
+            return isExistEmailOfAdmin;
+        }
+
 	}//End Class
 
 
