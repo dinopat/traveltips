@@ -2424,3 +2424,68 @@ tintuc {
     margin-top: 10px;
 /*	background-color: #F3F3F3;*/
 }
+
+
+/*
+=======================================================================
+	DINOPAT
+=======================================================================
+*/
+.controldiv {
+padding:10px 10px 10px 20px;
+}
+/*
+=======================================================================
+	LOGIN ADMIN
+=======================================================================
+*/
+.loginadmin {
+	height: 200px;
+/*	background-image: url(../images/loginadmin.jpg); 
+	border:1px solid #CCCBCA;
+*/
+	margin-top: 20px;
+	margin-right: 10px;
+	margin-bottom: 10px;
+	margin-left: 10px;
+}
+.loginadmin table tr td
+{padding: 0 0 3px 14px;
+	}
+	
+.html7magic {
+    padding-bottom: 3px;
+}
+.html7magic label {
+/*    color: #FFFFFF; */
+    padding-left: 1px;
+}
+.inputtext{
+    margin: 0;
+    border: 1px solid #BDC7D8;
+    font-family: "lucida grande",tahoma,verdana,arial,sans-serif;
+    font-size: 11px;
+    padding: 3px;
+    border-color: #1D2A5B;
+    width: 142px;
+}
+.inputcheckbox {
+    vertical-align: bottom;
+    width:20px;
+}
+.login_form_label_field {
+    padding-bottom: 3px;
+    padding-top: 1px;
+    vertical-align: bottom;
+}
+	
+.login_form_label_field a {
+    position: relative;
+    vertical-align: bottom;
+}
+
+a {
+    color: #3B5998;
+    cursor: pointer;
+    text-decoration: none;
+}
