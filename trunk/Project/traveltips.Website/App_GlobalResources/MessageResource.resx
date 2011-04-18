@@ -120,6 +120,9 @@
   <data name="createAdminSuccessfully" xml:space="preserve">
     <value>Tạo tài khoản Admin thành công</value>
   </data>
+  <data name="emailNotUsed" xml:space="preserve">
+    <value>Địa chỉ Email chưa được đăng ký sử dụng</value>
+  </data>
   <data name="emailOrPasswordNotOk" xml:space="preserve">
     <value>Email hoặc Password không đúng</value>
   </data>
