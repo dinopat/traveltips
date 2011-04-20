@@ -81,7 +81,6 @@ namespace traveltips.Entities
 		///<summary>
 		/// Creates a new <see cref="UserBase"/> instance.
 		///</summary>
-		///<param name="idUser"></param>
 		///<param name="tenDangNhap"></param>
 		///<param name="password"></param>
 		///<param name="hoTen"></param>
@@ -91,14 +90,13 @@ namespace traveltips.Entities
 		///<param name="website"></param>
 		///<param name="avatar"></param>
 		///<param name="flag"></param>
-		public UserBase(System.Int64 idUser, System.Byte[] tenDangNhap, System.String password, 
-			System.String hoTen, System.String email, System.String diaChi, System.Byte[] dienThoai, 
-			System.String website, System.String avatar, System.Byte? flag)
+		public UserBase(System.String tenDangNhap, System.String password, System.String hoTen, 
+			System.String email, System.String diaChi, System.String dienThoai, System.String website, 
+			System.String avatar, System.Byte? flag)
 		{
 			this.entityData = new UserEntityData();
 			this.backupData = null;
 
-			this.IdUser = idUser;
 			this.TenDangNhap = tenDangNhap;
 			this.Password = password;
 			this.HoTen = hoTen;
@@ -113,7 +111,6 @@ namespace traveltips.Entities
 		///<summary>
 		/// A simple factory method to create a new <see cref="User"/> instance.
 		///</summary>
-		///<param name="idUser"></param>
 		///<param name="tenDangNhap"></param>
 		///<param name="password"></param>
 		///<param name="hoTen"></param>
@@ -123,12 +120,11 @@ namespace traveltips.Entities
 		///<param name="website"></param>
 		///<param name="avatar"></param>
 		///<param name="flag"></param>
-		public static User CreateUser(System.Int64 idUser, System.Byte[] tenDangNhap, System.String password, 
-			System.String hoTen, System.String email, System.String diaChi, System.Byte[] dienThoai, 
-			System.String website, System.String avatar, System.Byte? flag)
+		public static User CreateUser(System.String tenDangNhap, System.String password, System.String hoTen, 
+			System.String email, System.String diaChi, System.String dienThoai, System.String website, 
+			System.String avatar, System.Byte? flag)
 		{
 			User newUser = new User();
-			newUser.IdUser = idUser;
 			newUser.TenDangNhap = tenDangNhap;
 			newUser.Password = password;
 			newUser.HoTen = hoTen;
@@ -154,8 +150,8 @@ namespace traveltips.Entities
 		/// <remarks>
 		/// This property can not be set to null. 
 		/// </remarks>
-		[DescriptionAttribute(""), System.ComponentModel.Bindable( System.ComponentModel.BindableSupport.Yes)]
-		[DataObjectField(true, false, false)]
+		[ReadOnlyAttribute(false)/*, XmlIgnoreAttribute()*/, DescriptionAttribute(""), System.ComponentModel.Bindable( System.ComponentModel.BindableSupport.Yes)]
+		[DataObjectField(true, true, false)]
 		public virtual System.Int64 IdUser
 		{
 			get
@@ -179,29 +175,16 @@ namespace traveltips.Entities
 		}
 		
 		/// <summary>
-		/// 	Get the original value of the id_User property.
-		///		
-		/// </summary>
-		/// <remarks>This is the original value of the id_User property.</remarks>
-		/// <value>This type is bigint</value>
-		[BrowsableAttribute(false)/*, XmlIgnoreAttribute()*/]
-		public  virtual System.Int64 OriginalIdUser
-		{
-			get { return this.entityData.OriginalIdUser; }
-			set { this.entityData.OriginalIdUser = value; }
-		}
-		
-		/// <summary>
 		/// 	Gets or sets the TenDangNhap property. 
 		///		
 		/// </summary>
-		/// <value>This type is varbinary.</value>
+		/// <value>This type is varchar.</value>
 		/// <remarks>
 		/// This property can be set to null. 
 		/// </remarks>
 		[DescriptionAttribute(""), System.ComponentModel.Bindable( System.ComponentModel.BindableSupport.Yes)]
-		[DataObjectField(false, false, true)]
-		public virtual System.Byte[] TenDangNhap
+		[DataObjectField(false, false, true, 50)]
+		public virtual System.String TenDangNhap
 		{
 			get
 			{
@@ -350,13 +333,13 @@ namespace traveltips.Entities
 		/// 	Gets or sets the DienThoai property. 
 		///		
 		/// </summary>
-		/// <value>This type is varbinary.</value>
+		/// <value>This type is varchar.</value>
 		/// <remarks>
 		/// This property can be set to null. 
 		/// </remarks>
 		[DescriptionAttribute(""), System.ComponentModel.Bindable( System.ComponentModel.BindableSupport.Yes)]
-		[DataObjectField(false, false, true)]
-		public virtual System.Byte[] DienThoai
+		[DataObjectField(false, false, true, 50)]
+		public virtual System.String DienThoai
 		{
 			get
 			{
@@ -381,7 +364,7 @@ namespace traveltips.Entities
 		/// 	Gets or sets the Website property. 
 		///		
 		/// </summary>
-		/// <value>This type is nvarchar.</value>
+		/// <value>This type is varchar.</value>
 		/// <remarks>
 		/// This property can be set to null. 
 		/// </remarks>
@@ -412,7 +395,7 @@ namespace traveltips.Entities
 		/// 	Gets or sets the Avatar property. 
 		///		
 		/// </summary>
-		/// <value>This type is varchar.</value>
+		/// <value>This type is nvarchar.</value>
 		/// <remarks>
 		/// This property can be set to null. 
 		/// </remarks>
@@ -505,6 +488,9 @@ namespace traveltips.Entities
 			//Validation rules based on database schema.
 			ValidationRules.AddRule(
 				Validation.CommonRules.StringMaxLength, 
+				new Validation.CommonRules.MaxLengthRuleArgs("TenDangNhap", "Ten Dang Nhap", 50));
+			ValidationRules.AddRule(
+				Validation.CommonRules.StringMaxLength, 
 				new Validation.CommonRules.MaxLengthRuleArgs("Password", "Password", 50));
 			ValidationRules.AddRule(
 				Validation.CommonRules.StringMaxLength, 
@@ -515,6 +501,9 @@ namespace traveltips.Entities
 			ValidationRules.AddRule(
 				Validation.CommonRules.StringMaxLength, 
 				new Validation.CommonRules.MaxLengthRuleArgs("DiaChi", "Dia Chi", 255));
+			ValidationRules.AddRule(
+				Validation.CommonRules.StringMaxLength, 
+				new Validation.CommonRules.MaxLengthRuleArgs("DienThoai", "Dien Thoai", 50));
 			ValidationRules.AddRule(
 				Validation.CommonRules.StringMaxLength, 
 				new Validation.CommonRules.MaxLengthRuleArgs("Website", "Website", 50));
@@ -684,7 +673,6 @@ namespace traveltips.Entities
 			User copy = new User();
 			copy.SuppressEntityEvents = true;
 			copy.IdUser = this.IdUser;
-			copy.OriginalIdUser = this.OriginalIdUser;
 			copy.TenDangNhap = this.TenDangNhap;
 			copy.Password = this.Password;
 			copy.HoTen = this.HoTen;
@@ -1027,6 +1015,10 @@ namespace traveltips.Entities
             		
             		                 
             	
+            	
+            	case UserColumn.TenDangNhap:
+            		return this.TenDangNhap.CompareTo(rhs.TenDangNhap);
+            		
             		                 
             	
             	
@@ -1053,6 +1045,10 @@ namespace traveltips.Entities
             		
             		                 
             	
+            	
+            	case UserColumn.DienThoai:
+            		return this.DienThoai.CompareTo(rhs.DienThoai);
+            		
             		                 
             	
             	
@@ -1245,11 +1241,6 @@ namespace traveltips.Entities
 			/// <remarks>Member of the primary key of the underlying table "tbl_User"</remarks>
 			public System.Int64 IdUser;
 				
-			/// <summary>
-			/// keep a copy of the original so it can be used for editable primary keys.
-			/// </summary>
-			public System.Int64 OriginalIdUser;
-			
 		#endregion
 		
 		#region Non Primary key(s)
@@ -1258,7 +1249,7 @@ namespace traveltips.Entities
 		/// <summary>
 		/// TenDangNhap : 
 		/// </summary>
-		public System.Byte[]		  TenDangNhap = null;
+		public System.String		  TenDangNhap = null;
 		
 		/// <summary>
 		/// Password : 
@@ -1283,7 +1274,7 @@ namespace traveltips.Entities
 		/// <summary>
 		/// DienThoai : 
 		/// </summary>
-		public System.Byte[]		  DienThoai = null;
+		public System.String		  DienThoai = null;
 		
 		/// <summary>
 		/// Website : 
@@ -1345,7 +1336,6 @@ namespace traveltips.Entities
 			UserEntityData _tmp = new UserEntityData();
 						
 			_tmp.IdUser = this.IdUser;
-			_tmp.OriginalIdUser = this.OriginalIdUser;
 			
 			_tmp.TenDangNhap = this.TenDangNhap;
 			_tmp.Password = this.Password;
@@ -1728,13 +1718,13 @@ namespace traveltips.Entities
 		/// IdUser : 
 		/// </summary>
 		[EnumTextValue("id_User")]
-		[ColumnEnum("id_User", typeof(System.Int64), System.Data.DbType.Int64, true, false, false)]
+		[ColumnEnum("id_User", typeof(System.Int64), System.Data.DbType.Int64, true, true, false)]
 		IdUser = 1,
 		/// <summary>
 		/// TenDangNhap : 
 		/// </summary>
 		[EnumTextValue("TenDangNhap")]
-		[ColumnEnum("TenDangNhap", typeof(System.Byte[]), System.Data.DbType.Binary, false, false, true)]
+		[ColumnEnum("TenDangNhap", typeof(System.String), System.Data.DbType.AnsiString, false, false, true, 50)]
 		TenDangNhap = 2,
 		/// <summary>
 		/// Password : 
@@ -1764,19 +1754,19 @@ namespace traveltips.Entities
 		/// DienThoai : 
 		/// </summary>
 		[EnumTextValue("DienThoai")]
-		[ColumnEnum("DienThoai", typeof(System.Byte[]), System.Data.DbType.Binary, false, false, true)]
+		[ColumnEnum("DienThoai", typeof(System.String), System.Data.DbType.AnsiString, false, false, true, 50)]
 		DienThoai = 7,
 		/// <summary>
 		/// Website : 
 		/// </summary>
 		[EnumTextValue("Website")]
-		[ColumnEnum("Website", typeof(System.String), System.Data.DbType.String, false, false, true, 50)]
+		[ColumnEnum("Website", typeof(System.String), System.Data.DbType.AnsiString, false, false, true, 50)]
 		Website = 8,
 		/// <summary>
 		/// Avatar : 
 		/// </summary>
 		[EnumTextValue("Avatar")]
-		[ColumnEnum("Avatar", typeof(System.String), System.Data.DbType.AnsiString, false, false, true, 500)]
+		[ColumnEnum("Avatar", typeof(System.String), System.Data.DbType.String, false, false, true, 500)]
 		Avatar = 9,
 		/// <summary>
 		/// Flag : 

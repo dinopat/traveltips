@@ -81,20 +81,17 @@ namespace traveltips.Entities
 		///<summary>
 		/// Creates a new <see cref="ThuocTinhSanPhamBase"/> instance.
 		///</summary>
-		///<param name="idTtsp"></param>
 		///<param name="idSanPham"></param>
 		///<param name="idThuocTinh"></param>
 		///<param name="value1"></param>
 		///<param name="value2"></param>
 		///<param name="flag"></param>
-		public ThuocTinhSanPhamBase(System.Int64 idTtsp, System.Int64? idSanPham, 
-			System.Int64? idThuocTinh, System.String value1, System.String value2, 
-			System.Byte? flag)
+		public ThuocTinhSanPhamBase(System.Int64? idSanPham, System.Int64? idThuocTinh, 
+			System.String value1, System.String value2, System.Byte? flag)
 		{
 			this.entityData = new ThuocTinhSanPhamEntityData();
 			this.backupData = null;
 
-			this.IdTtsp = idTtsp;
 			this.IdSanPham = idSanPham;
 			this.IdThuocTinh = idThuocTinh;
 			this.Value1 = value1;
@@ -105,18 +102,15 @@ namespace traveltips.Entities
 		///<summary>
 		/// A simple factory method to create a new <see cref="ThuocTinhSanPham"/> instance.
 		///</summary>
-		///<param name="idTtsp"></param>
 		///<param name="idSanPham"></param>
 		///<param name="idThuocTinh"></param>
 		///<param name="value1"></param>
 		///<param name="value2"></param>
 		///<param name="flag"></param>
-		public static ThuocTinhSanPham CreateThuocTinhSanPham(System.Int64 idTtsp, System.Int64? idSanPham, 
-			System.Int64? idThuocTinh, System.String value1, System.String value2, 
-			System.Byte? flag)
+		public static ThuocTinhSanPham CreateThuocTinhSanPham(System.Int64? idSanPham, System.Int64? idThuocTinh, 
+			System.String value1, System.String value2, System.Byte? flag)
 		{
 			ThuocTinhSanPham newThuocTinhSanPham = new ThuocTinhSanPham();
-			newThuocTinhSanPham.IdTtsp = idTtsp;
 			newThuocTinhSanPham.IdSanPham = idSanPham;
 			newThuocTinhSanPham.IdThuocTinh = idThuocTinh;
 			newThuocTinhSanPham.Value1 = value1;
@@ -138,8 +132,8 @@ namespace traveltips.Entities
 		/// <remarks>
 		/// This property can not be set to null. 
 		/// </remarks>
-		[DescriptionAttribute(""), System.ComponentModel.Bindable( System.ComponentModel.BindableSupport.Yes)]
-		[DataObjectField(true, false, false)]
+		[ReadOnlyAttribute(false)/*, XmlIgnoreAttribute()*/, DescriptionAttribute(""), System.ComponentModel.Bindable( System.ComponentModel.BindableSupport.Yes)]
+		[DataObjectField(true, true, false)]
 		public virtual System.Int64 IdTtsp
 		{
 			get
@@ -160,19 +154,6 @@ namespace traveltips.Entities
 				OnColumnChanged(ThuocTinhSanPhamColumn.IdTtsp, this.entityData.IdTtsp);
 				OnPropertyChanged("IdTtsp");
 			}
-		}
-		
-		/// <summary>
-		/// 	Get the original value of the id_TTSP property.
-		///		
-		/// </summary>
-		/// <remarks>This is the original value of the id_TTSP property.</remarks>
-		/// <value>This type is bigint</value>
-		[BrowsableAttribute(false)/*, XmlIgnoreAttribute()*/]
-		public  virtual System.Int64 OriginalIdTtsp
-		{
-			get { return this.entityData.OriginalIdTtsp; }
-			set { this.entityData.OriginalIdTtsp = value; }
 		}
 		
 		/// <summary>
@@ -341,17 +322,6 @@ namespace traveltips.Entities
 		#region Source Foreign Key Property
 				
 		/// <summary>
-		/// Gets or sets the source <see cref="ThuocTinh"/>.
-		/// </summary>
-		/// <value>The source ThuocTinh for IdThuocTinh.</value>
-        [XmlIgnore()]
-		[Browsable(false), System.ComponentModel.Bindable(System.ComponentModel.BindableSupport.Yes)]
-		public virtual ThuocTinh IdThuocTinhSource
-      	{
-            get { return entityData.IdThuocTinhSource; }
-            set { entityData.IdThuocTinhSource = value; }
-      	}
-		/// <summary>
 		/// Gets or sets the source <see cref="SanPham"/>.
 		/// </summary>
 		/// <value>The source SanPham for IdSanPham.</value>
@@ -361,6 +331,17 @@ namespace traveltips.Entities
       	{
             get { return entityData.IdSanPhamSource; }
             set { entityData.IdSanPhamSource = value; }
+      	}
+		/// <summary>
+		/// Gets or sets the source <see cref="ThuocTinh"/>.
+		/// </summary>
+		/// <value>The source ThuocTinh for IdThuocTinh.</value>
+        [XmlIgnore()]
+		[Browsable(false), System.ComponentModel.Bindable(System.ComponentModel.BindableSupport.Yes)]
+		public virtual ThuocTinh IdThuocTinhSource
+      	{
+            get { return entityData.IdThuocTinhSource; }
+            set { entityData.IdThuocTinhSource = value; }
       	}
 		#endregion
 		
@@ -547,15 +528,14 @@ namespace traveltips.Entities
 			ThuocTinhSanPham copy = new ThuocTinhSanPham();
 			copy.SuppressEntityEvents = true;
 			copy.IdTtsp = this.IdTtsp;
-			copy.OriginalIdTtsp = this.OriginalIdTtsp;
 			copy.IdSanPham = this.IdSanPham;
 			copy.IdThuocTinh = this.IdThuocTinh;
 			copy.Value1 = this.Value1;
 			copy.Value2 = this.Value2;
 			copy.Flag = this.Flag;
 			
-			copy.IdThuocTinhSource = MakeCopyOf(this.IdThuocTinhSource) as ThuocTinh;
 			copy.IdSanPhamSource = MakeCopyOf(this.IdSanPhamSource) as SanPham;
+			copy.IdThuocTinhSource = MakeCopyOf(this.IdThuocTinhSource) as ThuocTinh;
 		
 			copy.EntityState = this.EntityState;
 			copy.SuppressEntityEvents = false;
@@ -1032,11 +1012,6 @@ namespace traveltips.Entities
 			/// <remarks>Member of the primary key of the underlying table "tbl_ThuocTinhSanPham"</remarks>
 			public System.Int64 IdTtsp;
 				
-			/// <summary>
-			/// keep a copy of the original so it can be used for editable primary keys.
-			/// </summary>
-			public System.Int64 OriginalIdTtsp;
-			
 		#endregion
 		
 		#region Non Primary key(s)
@@ -1070,19 +1045,6 @@ namespace traveltips.Entities
 			
 		#region Source Foreign Key Property
 				
-		private ThuocTinh _idThuocTinhSource = null;
-		
-		/// <summary>
-		/// Gets or sets the source <see cref="ThuocTinh"/>.
-		/// </summary>
-		/// <value>The source ThuocTinh for IdThuocTinh.</value>
-        [XmlIgnore()]
-		[Browsable(false)]
-		public virtual ThuocTinh IdThuocTinhSource
-      	{
-            get { return this._idThuocTinhSource; }
-            set { this._idThuocTinhSource = value; }
-      	}
 		private SanPham _idSanPhamSource = null;
 		
 		/// <summary>
@@ -1095,6 +1057,19 @@ namespace traveltips.Entities
       	{
             get { return this._idSanPhamSource; }
             set { this._idSanPhamSource = value; }
+      	}
+		private ThuocTinh _idThuocTinhSource = null;
+		
+		/// <summary>
+		/// Gets or sets the source <see cref="ThuocTinh"/>.
+		/// </summary>
+		/// <value>The source ThuocTinh for IdThuocTinh.</value>
+        [XmlIgnore()]
+		[Browsable(false)]
+		public virtual ThuocTinh IdThuocTinhSource
+      	{
+            get { return this._idThuocTinhSource; }
+            set { this._idThuocTinhSource = value; }
       	}
 		#endregion
 		#endregion Variable Declarations
@@ -1114,7 +1089,6 @@ namespace traveltips.Entities
 			ThuocTinhSanPhamEntityData _tmp = new ThuocTinhSanPhamEntityData();
 						
 			_tmp.IdTtsp = this.IdTtsp;
-			_tmp.OriginalIdTtsp = this.OriginalIdTtsp;
 			
 			_tmp.IdSanPham = this.IdSanPham;
 			_tmp.IdThuocTinh = this.IdThuocTinh;
@@ -1123,10 +1097,10 @@ namespace traveltips.Entities
 			_tmp.Flag = this.Flag;
 			
 			#region Source Parent Composite Entities
-			if (this.IdThuocTinhSource != null)
-				_tmp.IdThuocTinhSource = MakeCopyOf(this.IdThuocTinhSource) as ThuocTinh;
 			if (this.IdSanPhamSource != null)
 				_tmp.IdSanPhamSource = MakeCopyOf(this.IdSanPhamSource) as SanPham;
+			if (this.IdThuocTinhSource != null)
+				_tmp.IdThuocTinhSource = MakeCopyOf(this.IdThuocTinhSource) as ThuocTinh;
 			#endregion
 		
 			#region Child Collections
@@ -1494,7 +1468,7 @@ namespace traveltips.Entities
 		/// IdTtsp : 
 		/// </summary>
 		[EnumTextValue("id_TTSP")]
-		[ColumnEnum("id_TTSP", typeof(System.Int64), System.Data.DbType.Int64, true, false, false)]
+		[ColumnEnum("id_TTSP", typeof(System.Int64), System.Data.DbType.Int64, true, true, false)]
 		IdTtsp = 1,
 		/// <summary>
 		/// IdSanPham : 

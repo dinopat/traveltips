@@ -17,11 +17,6 @@ namespace traveltips.Entities
 		/// <remarks>Member of the primary key of the underlying table "tbl_TuDien"</remarks>
 		System.Int64 IdTuDien { get; set; }
 				
-		/// <summary>
-		/// keep a copy of the original so it can be used for editable primary keys.
-		/// </summary>
-		System.Int64 OriginalIdTuDien { get; set; }
-			
 		
 		
 		/// <summary>

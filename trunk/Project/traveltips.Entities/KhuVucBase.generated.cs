@@ -81,18 +81,16 @@ namespace traveltips.Entities
 		///<summary>
 		/// Creates a new <see cref="KhuVucBase"/> instance.
 		///</summary>
-		///<param name="idKhuVuc"></param>
 		///<param name="tenKv"></param>
 		///<param name="maKv"></param>
 		///<param name="moTa"></param>
 		///<param name="flag"></param>
-		public KhuVucBase(System.Int64 idKhuVuc, System.String tenKv, System.Byte[] maKv, 
-			System.String moTa, System.Byte? flag)
+		public KhuVucBase(System.String tenKv, System.Byte[] maKv, System.String moTa, 
+			System.Byte? flag)
 		{
 			this.entityData = new KhuVucEntityData();
 			this.backupData = null;
 
-			this.IdKhuVuc = idKhuVuc;
 			this.TenKv = tenKv;
 			this.MaKv = maKv;
 			this.MoTa = moTa;
@@ -102,16 +100,14 @@ namespace traveltips.Entities
 		///<summary>
 		/// A simple factory method to create a new <see cref="KhuVuc"/> instance.
 		///</summary>
-		///<param name="idKhuVuc"></param>
 		///<param name="tenKv"></param>
 		///<param name="maKv"></param>
 		///<param name="moTa"></param>
 		///<param name="flag"></param>
-		public static KhuVuc CreateKhuVuc(System.Int64 idKhuVuc, System.String tenKv, System.Byte[] maKv, 
-			System.String moTa, System.Byte? flag)
+		public static KhuVuc CreateKhuVuc(System.String tenKv, System.Byte[] maKv, System.String moTa, 
+			System.Byte? flag)
 		{
 			KhuVuc newKhuVuc = new KhuVuc();
-			newKhuVuc.IdKhuVuc = idKhuVuc;
 			newKhuVuc.TenKv = tenKv;
 			newKhuVuc.MaKv = maKv;
 			newKhuVuc.MoTa = moTa;
@@ -132,8 +128,8 @@ namespace traveltips.Entities
 		/// <remarks>
 		/// This property can not be set to null. 
 		/// </remarks>
-		[DescriptionAttribute(""), System.ComponentModel.Bindable( System.ComponentModel.BindableSupport.Yes)]
-		[DataObjectField(true, false, false)]
+		[ReadOnlyAttribute(false)/*, XmlIgnoreAttribute()*/, DescriptionAttribute(""), System.ComponentModel.Bindable( System.ComponentModel.BindableSupport.Yes)]
+		[DataObjectField(true, true, false)]
 		public virtual System.Int64 IdKhuVuc
 		{
 			get
@@ -154,19 +150,6 @@ namespace traveltips.Entities
 				OnColumnChanged(KhuVucColumn.IdKhuVuc, this.entityData.IdKhuVuc);
 				OnPropertyChanged("IdKhuVuc");
 			}
-		}
-		
-		/// <summary>
-		/// 	Get the original value of the id_KhuVuc property.
-		///		
-		/// </summary>
-		/// <remarks>This is the original value of the id_KhuVuc property.</remarks>
-		/// <value>This type is bigint</value>
-		[BrowsableAttribute(false)/*, XmlIgnoreAttribute()*/]
-		public  virtual System.Int64 OriginalIdKhuVuc
-		{
-			get { return this.entityData.OriginalIdKhuVuc; }
-			set { this.entityData.OriginalIdKhuVuc = value; }
 		}
 		
 		/// <summary>
@@ -484,7 +467,6 @@ namespace traveltips.Entities
 			KhuVuc copy = new KhuVuc();
 			copy.SuppressEntityEvents = true;
 			copy.IdKhuVuc = this.IdKhuVuc;
-			copy.OriginalIdKhuVuc = this.OriginalIdKhuVuc;
 			copy.TenKv = this.TenKv;
 			copy.MaKv = this.MaKv;
 			copy.MoTa = this.MoTa;
@@ -942,11 +924,6 @@ namespace traveltips.Entities
 			/// <remarks>Member of the primary key of the underlying table "tbl_KhuVuc"</remarks>
 			public System.Int64 IdKhuVuc;
 				
-			/// <summary>
-			/// keep a copy of the original so it can be used for editable primary keys.
-			/// </summary>
-			public System.Int64 OriginalIdKhuVuc;
-			
 		#endregion
 		
 		#region Non Primary key(s)
@@ -993,7 +970,6 @@ namespace traveltips.Entities
 			KhuVucEntityData _tmp = new KhuVucEntityData();
 						
 			_tmp.IdKhuVuc = this.IdKhuVuc;
-			_tmp.OriginalIdKhuVuc = this.OriginalIdKhuVuc;
 			
 			_tmp.TenKv = this.TenKv;
 			_tmp.MaKv = this.MaKv;
@@ -1368,7 +1344,7 @@ namespace traveltips.Entities
 		/// IdKhuVuc : 
 		/// </summary>
 		[EnumTextValue("id_KhuVuc")]
-		[ColumnEnum("id_KhuVuc", typeof(System.Int64), System.Data.DbType.Int64, true, false, false)]
+		[ColumnEnum("id_KhuVuc", typeof(System.Int64), System.Data.DbType.Int64, true, true, false)]
 		IdKhuVuc = 1,
 		/// <summary>
 		/// TenKv : 

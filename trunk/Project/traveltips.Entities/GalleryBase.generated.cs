@@ -81,19 +81,17 @@ namespace traveltips.Entities
 		///<summary>
 		/// Creates a new <see cref="GalleryBase"/> instance.
 		///</summary>
-		///<param name="idGallery"></param>
 		///<param name="idCongTy"></param>
 		///<param name="tenAnh"></param>
 		///<param name="duongDan"></param>
 		///<param name="moTa"></param>
 		///<param name="flag"></param>
-		public GalleryBase(System.Int64 idGallery, System.Int64? idCongTy, System.String tenAnh, 
-			System.String duongDan, System.String moTa, System.Byte? flag)
+		public GalleryBase(System.Int64? idCongTy, System.String tenAnh, System.String duongDan, 
+			System.String moTa, System.Byte? flag)
 		{
 			this.entityData = new GalleryEntityData();
 			this.backupData = null;
 
-			this.IdGallery = idGallery;
 			this.IdCongTy = idCongTy;
 			this.TenAnh = tenAnh;
 			this.DuongDan = duongDan;
@@ -104,17 +102,15 @@ namespace traveltips.Entities
 		///<summary>
 		/// A simple factory method to create a new <see cref="Gallery"/> instance.
 		///</summary>
-		///<param name="idGallery"></param>
 		///<param name="idCongTy"></param>
 		///<param name="tenAnh"></param>
 		///<param name="duongDan"></param>
 		///<param name="moTa"></param>
 		///<param name="flag"></param>
-		public static Gallery CreateGallery(System.Int64 idGallery, System.Int64? idCongTy, System.String tenAnh, 
-			System.String duongDan, System.String moTa, System.Byte? flag)
+		public static Gallery CreateGallery(System.Int64? idCongTy, System.String tenAnh, System.String duongDan, 
+			System.String moTa, System.Byte? flag)
 		{
 			Gallery newGallery = new Gallery();
-			newGallery.IdGallery = idGallery;
 			newGallery.IdCongTy = idCongTy;
 			newGallery.TenAnh = tenAnh;
 			newGallery.DuongDan = duongDan;
@@ -136,8 +132,8 @@ namespace traveltips.Entities
 		/// <remarks>
 		/// This property can not be set to null. 
 		/// </remarks>
-		[DescriptionAttribute(""), System.ComponentModel.Bindable( System.ComponentModel.BindableSupport.Yes)]
-		[DataObjectField(true, false, false)]
+		[ReadOnlyAttribute(false)/*, XmlIgnoreAttribute()*/, DescriptionAttribute(""), System.ComponentModel.Bindable( System.ComponentModel.BindableSupport.Yes)]
+		[DataObjectField(true, true, false)]
 		public virtual System.Int64 IdGallery
 		{
 			get
@@ -158,19 +154,6 @@ namespace traveltips.Entities
 				OnColumnChanged(GalleryColumn.IdGallery, this.entityData.IdGallery);
 				OnPropertyChanged("IdGallery");
 			}
-		}
-		
-		/// <summary>
-		/// 	Get the original value of the id_Gallery property.
-		///		
-		/// </summary>
-		/// <remarks>This is the original value of the id_Gallery property.</remarks>
-		/// <value>This type is bigint</value>
-		[BrowsableAttribute(false)/*, XmlIgnoreAttribute()*/]
-		public  virtual System.Int64 OriginalIdGallery
-		{
-			get { return this.entityData.OriginalIdGallery; }
-			set { this.entityData.OriginalIdGallery = value; }
 		}
 		
 		/// <summary>
@@ -535,7 +518,6 @@ namespace traveltips.Entities
 			Gallery copy = new Gallery();
 			copy.SuppressEntityEvents = true;
 			copy.IdGallery = this.IdGallery;
-			copy.OriginalIdGallery = this.OriginalIdGallery;
 			copy.IdCongTy = this.IdCongTy;
 			copy.TenAnh = this.TenAnh;
 			copy.DuongDan = this.DuongDan;
@@ -1019,11 +1001,6 @@ namespace traveltips.Entities
 			/// <remarks>Member of the primary key of the underlying table "tbl_Gallery"</remarks>
 			public System.Int64 IdGallery;
 				
-			/// <summary>
-			/// keep a copy of the original so it can be used for editable primary keys.
-			/// </summary>
-			public System.Int64 OriginalIdGallery;
-			
 		#endregion
 		
 		#region Non Primary key(s)
@@ -1088,7 +1065,6 @@ namespace traveltips.Entities
 			GalleryEntityData _tmp = new GalleryEntityData();
 						
 			_tmp.IdGallery = this.IdGallery;
-			_tmp.OriginalIdGallery = this.OriginalIdGallery;
 			
 			_tmp.IdCongTy = this.IdCongTy;
 			_tmp.TenAnh = this.TenAnh;
@@ -1466,7 +1442,7 @@ namespace traveltips.Entities
 		/// IdGallery : 
 		/// </summary>
 		[EnumTextValue("id_Gallery")]
-		[ColumnEnum("id_Gallery", typeof(System.Int64), System.Data.DbType.Int64, true, false, false)]
+		[ColumnEnum("id_Gallery", typeof(System.Int64), System.Data.DbType.Int64, true, true, false)]
 		IdGallery = 1,
 		/// <summary>
 		/// IdCongTy : 

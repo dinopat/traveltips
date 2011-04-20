@@ -81,20 +81,18 @@ namespace traveltips.Entities
 		///<summary>
 		/// Creates a new <see cref="AdminBase"/> instance.
 		///</summary>
-		///<param name="idAdmin"></param>
 		///<param name="tenDangNhap"></param>
 		///<param name="email"></param>
 		///<param name="password"></param>
 		///<param name="hoTen"></param>
 		///<param name="dienThoai"></param>
 		///<param name="flag"></param>
-		public AdminBase(System.Int64 idAdmin, System.String tenDangNhap, System.String email, 
-			System.String password, System.String hoTen, System.String dienThoai, System.Byte? flag)
+		public AdminBase(System.String tenDangNhap, System.String email, System.String password, 
+			System.String hoTen, System.String dienThoai, System.Byte? flag)
 		{
 			this.entityData = new AdminEntityData();
 			this.backupData = null;
 
-			this.IdAdmin = idAdmin;
 			this.TenDangNhap = tenDangNhap;
 			this.Email = email;
 			this.Password = password;
@@ -106,18 +104,16 @@ namespace traveltips.Entities
 		///<summary>
 		/// A simple factory method to create a new <see cref="Admin"/> instance.
 		///</summary>
-		///<param name="idAdmin"></param>
 		///<param name="tenDangNhap"></param>
 		///<param name="email"></param>
 		///<param name="password"></param>
 		///<param name="hoTen"></param>
 		///<param name="dienThoai"></param>
 		///<param name="flag"></param>
-		public static Admin CreateAdmin(System.Int64 idAdmin, System.String tenDangNhap, System.String email, 
-			System.String password, System.String hoTen, System.String dienThoai, System.Byte? flag)
+		public static Admin CreateAdmin(System.String tenDangNhap, System.String email, System.String password, 
+			System.String hoTen, System.String dienThoai, System.Byte? flag)
 		{
 			Admin newAdmin = new Admin();
-			newAdmin.IdAdmin = idAdmin;
 			newAdmin.TenDangNhap = tenDangNhap;
 			newAdmin.Email = email;
 			newAdmin.Password = password;
@@ -140,8 +136,8 @@ namespace traveltips.Entities
 		/// <remarks>
 		/// This property can not be set to null. 
 		/// </remarks>
-		[DescriptionAttribute(""), System.ComponentModel.Bindable( System.ComponentModel.BindableSupport.Yes)]
-		[DataObjectField(true, false, false)]
+		[ReadOnlyAttribute(false)/*, XmlIgnoreAttribute()*/, DescriptionAttribute(""), System.ComponentModel.Bindable( System.ComponentModel.BindableSupport.Yes)]
+		[DataObjectField(true, true, false)]
 		public virtual System.Int64 IdAdmin
 		{
 			get
@@ -162,19 +158,6 @@ namespace traveltips.Entities
 				OnColumnChanged(AdminColumn.IdAdmin, this.entityData.IdAdmin);
 				OnPropertyChanged("IdAdmin");
 			}
-		}
-		
-		/// <summary>
-		/// 	Get the original value of the id_Admin property.
-		///		
-		/// </summary>
-		/// <remarks>This is the original value of the id_Admin property.</remarks>
-		/// <value>This type is bigint</value>
-		[BrowsableAttribute(false)/*, XmlIgnoreAttribute()*/]
-		public  virtual System.Int64 OriginalIdAdmin
-		{
-			get { return this.entityData.OriginalIdAdmin; }
-			set { this.entityData.OriginalIdAdmin = value; }
 		}
 		
 		/// <summary>
@@ -274,7 +257,7 @@ namespace traveltips.Entities
 		/// 	Gets or sets the HoTen property. 
 		///		
 		/// </summary>
-		/// <value>This type is varchar.</value>
+		/// <value>This type is nvarchar.</value>
 		/// <remarks>
 		/// This property can be set to null. 
 		/// </remarks>
@@ -563,7 +546,6 @@ namespace traveltips.Entities
 			Admin copy = new Admin();
 			copy.SuppressEntityEvents = true;
 			copy.IdAdmin = this.IdAdmin;
-			copy.OriginalIdAdmin = this.OriginalIdAdmin;
 			copy.TenDangNhap = this.TenDangNhap;
 			copy.Email = this.Email;
 			copy.Password = this.Password;
@@ -1067,11 +1049,6 @@ namespace traveltips.Entities
 			/// <remarks>Member of the primary key of the underlying table "tbl_Admin"</remarks>
 			public System.Int64 IdAdmin;
 				
-			/// <summary>
-			/// keep a copy of the original so it can be used for editable primary keys.
-			/// </summary>
-			public System.Int64 OriginalIdAdmin;
-			
 		#endregion
 		
 		#region Non Primary key(s)
@@ -1128,7 +1105,6 @@ namespace traveltips.Entities
 			AdminEntityData _tmp = new AdminEntityData();
 						
 			_tmp.IdAdmin = this.IdAdmin;
-			_tmp.OriginalIdAdmin = this.OriginalIdAdmin;
 			
 			_tmp.TenDangNhap = this.TenDangNhap;
 			_tmp.Email = this.Email;
@@ -1505,7 +1481,7 @@ namespace traveltips.Entities
 		/// IdAdmin : 
 		/// </summary>
 		[EnumTextValue("id_Admin")]
-		[ColumnEnum("id_Admin", typeof(System.Int64), System.Data.DbType.Int64, true, false, false)]
+		[ColumnEnum("id_Admin", typeof(System.Int64), System.Data.DbType.Int64, true, true, false)]
 		IdAdmin = 1,
 		/// <summary>
 		/// TenDangNhap : 

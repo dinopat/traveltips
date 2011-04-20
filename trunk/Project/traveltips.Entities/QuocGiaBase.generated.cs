@@ -81,18 +81,16 @@ namespace traveltips.Entities
 		///<summary>
 		/// Creates a new <see cref="QuocGiaBase"/> instance.
 		///</summary>
-		///<param name="idQuocGia"></param>
 		///<param name="tenQg"></param>
 		///<param name="maQg"></param>
 		///<param name="moTa"></param>
 		///<param name="flag"></param>
-		public QuocGiaBase(System.Int64 idQuocGia, System.String tenQg, System.String maQg, 
-			System.String moTa, System.Byte? flag)
+		public QuocGiaBase(System.String tenQg, System.String maQg, System.String moTa, 
+			System.Byte? flag)
 		{
 			this.entityData = new QuocGiaEntityData();
 			this.backupData = null;
 
-			this.IdQuocGia = idQuocGia;
 			this.TenQg = tenQg;
 			this.MaQg = maQg;
 			this.MoTa = moTa;
@@ -102,16 +100,14 @@ namespace traveltips.Entities
 		///<summary>
 		/// A simple factory method to create a new <see cref="QuocGia"/> instance.
 		///</summary>
-		///<param name="idQuocGia"></param>
 		///<param name="tenQg"></param>
 		///<param name="maQg"></param>
 		///<param name="moTa"></param>
 		///<param name="flag"></param>
-		public static QuocGia CreateQuocGia(System.Int64 idQuocGia, System.String tenQg, System.String maQg, 
-			System.String moTa, System.Byte? flag)
+		public static QuocGia CreateQuocGia(System.String tenQg, System.String maQg, System.String moTa, 
+			System.Byte? flag)
 		{
 			QuocGia newQuocGia = new QuocGia();
-			newQuocGia.IdQuocGia = idQuocGia;
 			newQuocGia.TenQg = tenQg;
 			newQuocGia.MaQg = maQg;
 			newQuocGia.MoTa = moTa;
@@ -132,8 +128,8 @@ namespace traveltips.Entities
 		/// <remarks>
 		/// This property can not be set to null. 
 		/// </remarks>
-		[DescriptionAttribute(""), System.ComponentModel.Bindable( System.ComponentModel.BindableSupport.Yes)]
-		[DataObjectField(true, false, false)]
+		[ReadOnlyAttribute(false)/*, XmlIgnoreAttribute()*/, DescriptionAttribute(""), System.ComponentModel.Bindable( System.ComponentModel.BindableSupport.Yes)]
+		[DataObjectField(true, true, false)]
 		public virtual System.Int64 IdQuocGia
 		{
 			get
@@ -154,19 +150,6 @@ namespace traveltips.Entities
 				OnColumnChanged(QuocGiaColumn.IdQuocGia, this.entityData.IdQuocGia);
 				OnPropertyChanged("IdQuocGia");
 			}
-		}
-		
-		/// <summary>
-		/// 	Get the original value of the id_QuocGia property.
-		///		
-		/// </summary>
-		/// <remarks>This is the original value of the id_QuocGia property.</remarks>
-		/// <value>This type is bigint</value>
-		[BrowsableAttribute(false)/*, XmlIgnoreAttribute()*/]
-		public  virtual System.Int64 OriginalIdQuocGia
-		{
-			get { return this.entityData.OriginalIdQuocGia; }
-			set { this.entityData.OriginalIdQuocGia = value; }
 		}
 		
 		/// <summary>
@@ -498,7 +481,6 @@ namespace traveltips.Entities
 			QuocGia copy = new QuocGia();
 			copy.SuppressEntityEvents = true;
 			copy.IdQuocGia = this.IdQuocGia;
-			copy.OriginalIdQuocGia = this.OriginalIdQuocGia;
 			copy.TenQg = this.TenQg;
 			copy.MaQg = this.MaQg;
 			copy.MoTa = this.MoTa;
@@ -962,11 +944,6 @@ namespace traveltips.Entities
 			/// <remarks>Member of the primary key of the underlying table "tbl_QuocGia"</remarks>
 			public System.Int64 IdQuocGia;
 				
-			/// <summary>
-			/// keep a copy of the original so it can be used for editable primary keys.
-			/// </summary>
-			public System.Int64 OriginalIdQuocGia;
-			
 		#endregion
 		
 		#region Non Primary key(s)
@@ -1037,7 +1014,6 @@ namespace traveltips.Entities
 			QuocGiaEntityData _tmp = new QuocGiaEntityData();
 						
 			_tmp.IdQuocGia = this.IdQuocGia;
-			_tmp.OriginalIdQuocGia = this.OriginalIdQuocGia;
 			
 			_tmp.TenQg = this.TenQg;
 			_tmp.MaQg = this.MaQg;
@@ -1415,7 +1391,7 @@ namespace traveltips.Entities
 		/// IdQuocGia : 
 		/// </summary>
 		[EnumTextValue("id_QuocGia")]
-		[ColumnEnum("id_QuocGia", typeof(System.Int64), System.Data.DbType.Int64, true, false, false)]
+		[ColumnEnum("id_QuocGia", typeof(System.Int64), System.Data.DbType.Int64, true, true, false)]
 		IdQuocGia = 1,
 		/// <summary>
 		/// TenQg : 

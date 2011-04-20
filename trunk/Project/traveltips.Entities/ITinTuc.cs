@@ -17,11 +17,6 @@ namespace traveltips.Entities
 		/// <remarks>Member of the primary key of the underlying table "tbl_TinTuc"</remarks>
 		System.Int64 IdTinTuc { get; set; }
 				
-		/// <summary>
-		/// keep a copy of the original so it can be used for editable primary keys.
-		/// </summary>
-		System.Int64 OriginalIdTinTuc { get; set; }
-			
 		
 		
 		/// <summary>

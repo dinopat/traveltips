@@ -17,11 +17,6 @@ namespace traveltips.Entities
 		/// <remarks>Member of the primary key of the underlying table "tbl_Language"</remarks>
 		System.Int32 IdLanguage { get; set; }
 				
-		/// <summary>
-		/// keep a copy of the original so it can be used for editable primary keys.
-		/// </summary>
-		System.Int32 OriginalIdLanguage { get; set; }
-			
 		
 		
 		/// <summary>
@@ -37,7 +32,7 @@ namespace traveltips.Entities
 		/// <summary>
 		/// Mota : 
 		/// </summary>
-		System.Byte[]  Mota  { get; set; }
+		System.String  Mota  { get; set; }
 		
 		/// <summary>
 		/// Flag : 

@@ -81,19 +81,17 @@ namespace traveltips.Entities
 		///<summary>
 		/// Creates a new <see cref="QuanBase"/> instance.
 		///</summary>
-		///<param name="idQuan"></param>
 		///<param name="idThanhPho"></param>
 		///<param name="tenQuan"></param>
 		///<param name="maQuan"></param>
 		///<param name="moTa"></param>
 		///<param name="flag"></param>
-		public QuanBase(System.Int64 idQuan, System.Int64? idThanhPho, System.String tenQuan, 
-			System.String maQuan, System.String moTa, System.Byte? flag)
+		public QuanBase(System.Int64? idThanhPho, System.String tenQuan, System.String maQuan, 
+			System.String moTa, System.Byte? flag)
 		{
 			this.entityData = new QuanEntityData();
 			this.backupData = null;
 
-			this.IdQuan = idQuan;
 			this.IdThanhPho = idThanhPho;
 			this.TenQuan = tenQuan;
 			this.MaQuan = maQuan;
@@ -104,17 +102,15 @@ namespace traveltips.Entities
 		///<summary>
 		/// A simple factory method to create a new <see cref="Quan"/> instance.
 		///</summary>
-		///<param name="idQuan"></param>
 		///<param name="idThanhPho"></param>
 		///<param name="tenQuan"></param>
 		///<param name="maQuan"></param>
 		///<param name="moTa"></param>
 		///<param name="flag"></param>
-		public static Quan CreateQuan(System.Int64 idQuan, System.Int64? idThanhPho, System.String tenQuan, 
-			System.String maQuan, System.String moTa, System.Byte? flag)
+		public static Quan CreateQuan(System.Int64? idThanhPho, System.String tenQuan, System.String maQuan, 
+			System.String moTa, System.Byte? flag)
 		{
 			Quan newQuan = new Quan();
-			newQuan.IdQuan = idQuan;
 			newQuan.IdThanhPho = idThanhPho;
 			newQuan.TenQuan = tenQuan;
 			newQuan.MaQuan = maQuan;
@@ -136,8 +132,8 @@ namespace traveltips.Entities
 		/// <remarks>
 		/// This property can not be set to null. 
 		/// </remarks>
-		[DescriptionAttribute(""), System.ComponentModel.Bindable( System.ComponentModel.BindableSupport.Yes)]
-		[DataObjectField(true, false, false)]
+		[ReadOnlyAttribute(false)/*, XmlIgnoreAttribute()*/, DescriptionAttribute(""), System.ComponentModel.Bindable( System.ComponentModel.BindableSupport.Yes)]
+		[DataObjectField(true, true, false)]
 		public virtual System.Int64 IdQuan
 		{
 			get
@@ -158,19 +154,6 @@ namespace traveltips.Entities
 				OnColumnChanged(QuanColumn.IdQuan, this.entityData.IdQuan);
 				OnPropertyChanged("IdQuan");
 			}
-		}
-		
-		/// <summary>
-		/// 	Get the original value of the id_Quan property.
-		///		
-		/// </summary>
-		/// <remarks>This is the original value of the id_Quan property.</remarks>
-		/// <value>This type is bigint</value>
-		[BrowsableAttribute(false)/*, XmlIgnoreAttribute()*/]
-		public  virtual System.Int64 OriginalIdQuan
-		{
-			get { return this.entityData.OriginalIdQuan; }
-			set { this.entityData.OriginalIdQuan = value; }
 		}
 		
 		/// <summary>
@@ -546,7 +529,6 @@ namespace traveltips.Entities
 			Quan copy = new Quan();
 			copy.SuppressEntityEvents = true;
 			copy.IdQuan = this.IdQuan;
-			copy.OriginalIdQuan = this.OriginalIdQuan;
 			copy.IdThanhPho = this.IdThanhPho;
 			copy.TenQuan = this.TenQuan;
 			copy.MaQuan = this.MaQuan;
@@ -1032,11 +1014,6 @@ namespace traveltips.Entities
 			/// <remarks>Member of the primary key of the underlying table "tbl_Quan"</remarks>
 			public System.Int64 IdQuan;
 				
-			/// <summary>
-			/// keep a copy of the original so it can be used for editable primary keys.
-			/// </summary>
-			public System.Int64 OriginalIdQuan;
-			
 		#endregion
 		
 		#region Non Primary key(s)
@@ -1125,7 +1102,6 @@ namespace traveltips.Entities
 			QuanEntityData _tmp = new QuanEntityData();
 						
 			_tmp.IdQuan = this.IdQuan;
-			_tmp.OriginalIdQuan = this.OriginalIdQuan;
 			
 			_tmp.IdThanhPho = this.IdThanhPho;
 			_tmp.TenQuan = this.TenQuan;
@@ -1506,7 +1482,7 @@ namespace traveltips.Entities
 		/// IdQuan : 
 		/// </summary>
 		[EnumTextValue("id_Quan")]
-		[ColumnEnum("id_Quan", typeof(System.Int64), System.Data.DbType.Int64, true, false, false)]
+		[ColumnEnum("id_Quan", typeof(System.Int64), System.Data.DbType.Int64, true, true, false)]
 		IdQuan = 1,
 		/// <summary>
 		/// IdThanhPho : 

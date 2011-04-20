@@ -81,7 +81,6 @@ namespace traveltips.Entities
 		///<summary>
 		/// Creates a new <see cref="CongTyBase"/> instance.
 		///</summary>
-		///<param name="idCongTy"></param>
 		///<param name="idChuCongTy"></param>
 		///<param name="idDanhMuc"></param>
 		///<param name="idQuocGia"></param>
@@ -102,17 +101,16 @@ namespace traveltips.Entities
 		///<param name="moTaNgan"></param>
 		///<param name="moTaChiTiet"></param>
 		///<param name="flag"></param>
-		public CongTyBase(System.Int64 idCongTy, System.Int64? idChuCongTy, System.Int64? idDanhMuc, 
-			System.Int64? idQuocGia, System.Int64? idThanhPho, System.Int64? idQuan, System.Int64? idDuong, 
-			System.Int64? idKhuVuc, System.String soNha, System.String dienThoaiCd, System.String dienThoaiDd, 
-			System.String fax, System.String email, System.String website, System.String hinhThucTt, 
-			System.String thoiGianPv, System.String anhMinhHoa, System.String ghiChu, System.String moTaNgan, 
-			System.String moTaChiTiet, System.Byte? flag)
+		public CongTyBase(System.Int64? idChuCongTy, System.Int64? idDanhMuc, System.Int64? idQuocGia, 
+			System.Int64? idThanhPho, System.Int64? idQuan, System.Int64? idDuong, System.Int64? idKhuVuc, 
+			System.String soNha, System.String dienThoaiCd, System.String dienThoaiDd, System.String fax, 
+			System.String email, System.String website, System.String hinhThucTt, System.String thoiGianPv, 
+			System.String anhMinhHoa, System.String ghiChu, System.String moTaNgan, System.String moTaChiTiet, 
+			System.Byte? flag)
 		{
 			this.entityData = new CongTyEntityData();
 			this.backupData = null;
 
-			this.IdCongTy = idCongTy;
 			this.IdChuCongTy = idChuCongTy;
 			this.IdDanhMuc = idDanhMuc;
 			this.IdQuocGia = idQuocGia;
@@ -138,7 +136,6 @@ namespace traveltips.Entities
 		///<summary>
 		/// A simple factory method to create a new <see cref="CongTy"/> instance.
 		///</summary>
-		///<param name="idCongTy"></param>
 		///<param name="idChuCongTy"></param>
 		///<param name="idDanhMuc"></param>
 		///<param name="idQuocGia"></param>
@@ -159,15 +156,14 @@ namespace traveltips.Entities
 		///<param name="moTaNgan"></param>
 		///<param name="moTaChiTiet"></param>
 		///<param name="flag"></param>
-		public static CongTy CreateCongTy(System.Int64 idCongTy, System.Int64? idChuCongTy, System.Int64? idDanhMuc, 
-			System.Int64? idQuocGia, System.Int64? idThanhPho, System.Int64? idQuan, System.Int64? idDuong, 
-			System.Int64? idKhuVuc, System.String soNha, System.String dienThoaiCd, System.String dienThoaiDd, 
-			System.String fax, System.String email, System.String website, System.String hinhThucTt, 
-			System.String thoiGianPv, System.String anhMinhHoa, System.String ghiChu, System.String moTaNgan, 
-			System.String moTaChiTiet, System.Byte? flag)
+		public static CongTy CreateCongTy(System.Int64? idChuCongTy, System.Int64? idDanhMuc, System.Int64? idQuocGia, 
+			System.Int64? idThanhPho, System.Int64? idQuan, System.Int64? idDuong, System.Int64? idKhuVuc, 
+			System.String soNha, System.String dienThoaiCd, System.String dienThoaiDd, System.String fax, 
+			System.String email, System.String website, System.String hinhThucTt, System.String thoiGianPv, 
+			System.String anhMinhHoa, System.String ghiChu, System.String moTaNgan, System.String moTaChiTiet, 
+			System.Byte? flag)
 		{
 			CongTy newCongTy = new CongTy();
-			newCongTy.IdCongTy = idCongTy;
 			newCongTy.IdChuCongTy = idChuCongTy;
 			newCongTy.IdDanhMuc = idDanhMuc;
 			newCongTy.IdQuocGia = idQuocGia;
@@ -204,8 +200,8 @@ namespace traveltips.Entities
 		/// <remarks>
 		/// This property can not be set to null. 
 		/// </remarks>
-		[DescriptionAttribute(""), System.ComponentModel.Bindable( System.ComponentModel.BindableSupport.Yes)]
-		[DataObjectField(true, false, false)]
+		[ReadOnlyAttribute(false)/*, XmlIgnoreAttribute()*/, DescriptionAttribute(""), System.ComponentModel.Bindable( System.ComponentModel.BindableSupport.Yes)]
+		[DataObjectField(true, true, false)]
 		public virtual System.Int64 IdCongTy
 		{
 			get
@@ -226,19 +222,6 @@ namespace traveltips.Entities
 				OnColumnChanged(CongTyColumn.IdCongTy, this.entityData.IdCongTy);
 				OnPropertyChanged("IdCongTy");
 			}
-		}
-		
-		/// <summary>
-		/// 	Get the original value of the id_CongTy property.
-		///		
-		/// </summary>
-		/// <remarks>This is the original value of the id_CongTy property.</remarks>
-		/// <value>This type is bigint</value>
-		[BrowsableAttribute(false)/*, XmlIgnoreAttribute()*/]
-		public  virtual System.Int64 OriginalIdCongTy
-		{
-			get { return this.entityData.OriginalIdCongTy; }
-			set { this.entityData.OriginalIdCongTy = value; }
 		}
 		
 		/// <summary>
@@ -662,12 +645,12 @@ namespace traveltips.Entities
 		/// 	Gets or sets the HinhThucTt property. 
 		///		
 		/// </summary>
-		/// <value>This type is varchar.</value>
+		/// <value>This type is nvarchar.</value>
 		/// <remarks>
 		/// This property can be set to null. 
 		/// </remarks>
 		[DescriptionAttribute(""), System.ComponentModel.Bindable( System.ComponentModel.BindableSupport.Yes)]
-		[DataObjectField(false, false, true, 50)]
+		[DataObjectField(false, false, true, 200)]
 		public virtual System.String HinhThucTt
 		{
 			get
@@ -693,7 +676,7 @@ namespace traveltips.Entities
 		/// 	Gets or sets the ThoiGianPv property. 
 		///		Luu duoi dang: Tu;den
 		/// </summary>
-		/// <value>This type is varchar.</value>
+		/// <value>This type is nvarchar.</value>
 		/// <remarks>
 		/// This property can be set to null. 
 		/// </remarks>
@@ -930,6 +913,17 @@ namespace traveltips.Entities
 		}
 
 		/// <summary>
+		///	Holds a SanPham object
+		///	which is related to this object through the relation SanPham
+		/// </summary>
+		[System.ComponentModel.Bindable(System.ComponentModel.BindableSupport.Yes)]
+		public virtual SanPham SanPham
+		{
+			get { return entityData.SanPham; }
+			set { entityData.SanPham = value; }	
+		}
+
+		/// <summary>
 		///	Holds a DichVu object
 		///	which is related to this object through the relation DichVu
 		/// </summary>
@@ -949,17 +943,6 @@ namespace traveltips.Entities
 		{
 			get { return entityData.CommentCollection; }
 			set { entityData.CommentCollection = value; }	
-		}
-
-		/// <summary>
-		///	Holds a SanPham object
-		///	which is related to this object through the relation SanPham
-		/// </summary>
-		[System.ComponentModel.Bindable(System.ComponentModel.BindableSupport.Yes)]
-		public virtual SanPham SanPham
-		{
-			get { return entityData.SanPham; }
-			set { entityData.SanPham = value; }	
 		}
 		#endregion Children Collections
 		
@@ -994,7 +977,7 @@ namespace traveltips.Entities
 				new Validation.CommonRules.MaxLengthRuleArgs("Website", "Website", 50));
 			ValidationRules.AddRule(
 				Validation.CommonRules.StringMaxLength, 
-				new Validation.CommonRules.MaxLengthRuleArgs("HinhThucTt", "Hinh Thuc Tt", 50));
+				new Validation.CommonRules.MaxLengthRuleArgs("HinhThucTt", "Hinh Thuc Tt", 200));
 			ValidationRules.AddRule(
 				Validation.CommonRules.StringMaxLength, 
 				new Validation.CommonRules.MaxLengthRuleArgs("ThoiGianPv", "Thoi Gian Pv", 50));
@@ -1170,7 +1153,6 @@ namespace traveltips.Entities
 			CongTy copy = new CongTy();
 			copy.SuppressEntityEvents = true;
 			copy.IdCongTy = this.IdCongTy;
-			copy.OriginalIdCongTy = this.OriginalIdCongTy;
 			copy.IdChuCongTy = this.IdChuCongTy;
 			copy.IdDanhMuc = this.IdDanhMuc;
 			copy.IdQuocGia = this.IdQuocGia;
@@ -1198,9 +1180,9 @@ namespace traveltips.Entities
 			//deep copy nested objects
 			copy.GalleryCollection = (TList<Gallery>) MakeCopyOf(this.GalleryCollection); 
 			copy.TinTucCollection = (TList<TinTuc>) MakeCopyOf(this.TinTucCollection); 
+			copy.SanPham = (SanPham) MakeCopyOf(this.SanPham); 
 			copy.DichVu = (DichVu) MakeCopyOf(this.DichVu); 
 			copy.CommentCollection = (TList<Comment>) MakeCopyOf(this.CommentCollection); 
-			copy.SanPham = (SanPham) MakeCopyOf(this.SanPham); 
 			copy.EntityState = this.EntityState;
 			copy.SuppressEntityEvents = false;
 			return copy;
@@ -1976,11 +1958,6 @@ namespace traveltips.Entities
 			/// <remarks>Member of the primary key of the underlying table "tbl_CongTy"</remarks>
 			public System.Int64 IdCongTy;
 				
-			/// <summary>
-			/// keep a copy of the original so it can be used for editable primary keys.
-			/// </summary>
-			public System.Int64 OriginalIdCongTy;
-			
 		#endregion
 		
 		#region Non Primary key(s)
@@ -2168,6 +2145,22 @@ namespace traveltips.Entities
 		
 		#endregion
 
+		#region SanPham
+		
+		private SanPham sanPhamIdSanPham;
+		
+		/// <summary>
+		///	Holds a  SanPham entity object
+		///	which is related to this object through the relation sanPhamIdSanPham
+		/// </summary>
+		public SanPham SanPham
+		{
+			get {		return sanPhamIdSanPham;		}
+			set { 	sanPhamIdSanPham = value; 	}
+		}
+		
+		#endregion 
+
 		#region DichVu
 		
 		private DichVu dichVuIdDichVu;
@@ -2208,22 +2201,6 @@ namespace traveltips.Entities
 		
 		#endregion
 
-		#region SanPham
-		
-		private SanPham sanPhamIdSanPham;
-		
-		/// <summary>
-		///	Holds a  SanPham entity object
-		///	which is related to this object through the relation sanPhamIdSanPham
-		/// </summary>
-		public SanPham SanPham
-		{
-			get {		return sanPhamIdSanPham;		}
-			set { 	sanPhamIdSanPham = value; 	}
-		}
-		
-		#endregion 
-
 		#endregion Data Properties
 		
 		#region Clone Method
@@ -2237,7 +2214,6 @@ namespace traveltips.Entities
 			CongTyEntityData _tmp = new CongTyEntityData();
 						
 			_tmp.IdCongTy = this.IdCongTy;
-			_tmp.OriginalIdCongTy = this.OriginalIdCongTy;
 			
 			_tmp.IdChuCongTy = this.IdChuCongTy;
 			_tmp.IdDanhMuc = this.IdDanhMuc;
@@ -2273,12 +2249,12 @@ namespace traveltips.Entities
 				_tmp.GalleryCollection = (TList<Gallery>) MakeCopyOf(this.GalleryCollection); 
 			if (this.tinTucIdCongTy != null)
 				_tmp.TinTucCollection = (TList<TinTuc>) MakeCopyOf(this.TinTucCollection); 
+			if (this.sanPhamIdSanPham != null)
+				_tmp.SanPham = (SanPham) MakeCopyOf(this.SanPham); 
 			if (this.dichVuIdDichVu != null)
 				_tmp.DichVu = (DichVu) MakeCopyOf(this.DichVu); 
 			if (this.commentIdCongty != null)
 				_tmp.CommentCollection = (TList<Comment>) MakeCopyOf(this.CommentCollection); 
-			if (this.sanPhamIdSanPham != null)
-				_tmp.SanPham = (SanPham) MakeCopyOf(this.SanPham); 
 			#endregion Child Collections
 			
 			//EntityState
@@ -2643,7 +2619,7 @@ namespace traveltips.Entities
 		/// IdCongTy : 
 		/// </summary>
 		[EnumTextValue("id_CongTy")]
-		[ColumnEnum("id_CongTy", typeof(System.Int64), System.Data.DbType.Int64, true, false, false)]
+		[ColumnEnum("id_CongTy", typeof(System.Int64), System.Data.DbType.Int64, true, true, false)]
 		IdCongTy = 1,
 		/// <summary>
 		/// IdChuCongTy : 
@@ -2727,13 +2703,13 @@ namespace traveltips.Entities
 		/// HinhThucTt : 
 		/// </summary>
 		[EnumTextValue("HinhThucTT")]
-		[ColumnEnum("HinhThucTT", typeof(System.String), System.Data.DbType.AnsiString, false, false, true, 50)]
+		[ColumnEnum("HinhThucTT", typeof(System.String), System.Data.DbType.String, false, false, true, 200)]
 		HinhThucTt = 15,
 		/// <summary>
 		/// ThoiGianPv : Luu duoi dang: Tu;den
 		/// </summary>
 		[EnumTextValue("ThoiGianPV")]
-		[ColumnEnum("ThoiGianPV", typeof(System.String), System.Data.DbType.AnsiString, false, false, true, 50)]
+		[ColumnEnum("ThoiGianPV", typeof(System.String), System.Data.DbType.String, false, false, true, 50)]
 		ThoiGianPv = 16,
 		/// <summary>
 		/// AnhMinhHoa : 

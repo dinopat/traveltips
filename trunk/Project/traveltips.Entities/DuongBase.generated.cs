@@ -81,19 +81,17 @@ namespace traveltips.Entities
 		///<summary>
 		/// Creates a new <see cref="DuongBase"/> instance.
 		///</summary>
-		///<param name="idDuong"></param>
 		///<param name="idQuan"></param>
 		///<param name="tenDuong"></param>
 		///<param name="maDuong"></param>
 		///<param name="moTa"></param>
 		///<param name="flag"></param>
-		public DuongBase(System.Int64 idDuong, System.Int64? idQuan, System.String tenDuong, 
-			System.Byte[] maDuong, System.String moTa, System.Byte? flag)
+		public DuongBase(System.Int64? idQuan, System.String tenDuong, System.Byte[] maDuong, 
+			System.String moTa, System.Byte? flag)
 		{
 			this.entityData = new DuongEntityData();
 			this.backupData = null;
 
-			this.IdDuong = idDuong;
 			this.IdQuan = idQuan;
 			this.TenDuong = tenDuong;
 			this.MaDuong = maDuong;
@@ -104,17 +102,15 @@ namespace traveltips.Entities
 		///<summary>
 		/// A simple factory method to create a new <see cref="Duong"/> instance.
 		///</summary>
-		///<param name="idDuong"></param>
 		///<param name="idQuan"></param>
 		///<param name="tenDuong"></param>
 		///<param name="maDuong"></param>
 		///<param name="moTa"></param>
 		///<param name="flag"></param>
-		public static Duong CreateDuong(System.Int64 idDuong, System.Int64? idQuan, System.String tenDuong, 
-			System.Byte[] maDuong, System.String moTa, System.Byte? flag)
+		public static Duong CreateDuong(System.Int64? idQuan, System.String tenDuong, System.Byte[] maDuong, 
+			System.String moTa, System.Byte? flag)
 		{
 			Duong newDuong = new Duong();
-			newDuong.IdDuong = idDuong;
 			newDuong.IdQuan = idQuan;
 			newDuong.TenDuong = tenDuong;
 			newDuong.MaDuong = maDuong;
@@ -136,8 +132,8 @@ namespace traveltips.Entities
 		/// <remarks>
 		/// This property can not be set to null. 
 		/// </remarks>
-		[DescriptionAttribute(""), System.ComponentModel.Bindable( System.ComponentModel.BindableSupport.Yes)]
-		[DataObjectField(true, false, false)]
+		[ReadOnlyAttribute(false)/*, XmlIgnoreAttribute()*/, DescriptionAttribute(""), System.ComponentModel.Bindable( System.ComponentModel.BindableSupport.Yes)]
+		[DataObjectField(true, true, false)]
 		public virtual System.Int64 IdDuong
 		{
 			get
@@ -158,19 +154,6 @@ namespace traveltips.Entities
 				OnColumnChanged(DuongColumn.IdDuong, this.entityData.IdDuong);
 				OnPropertyChanged("IdDuong");
 			}
-		}
-		
-		/// <summary>
-		/// 	Get the original value of the id_Duong property.
-		///		
-		/// </summary>
-		/// <remarks>This is the original value of the id_Duong property.</remarks>
-		/// <value>This type is bigint</value>
-		[BrowsableAttribute(false)/*, XmlIgnoreAttribute()*/]
-		public  virtual System.Int64 OriginalIdDuong
-		{
-			get { return this.entityData.OriginalIdDuong; }
-			set { this.entityData.OriginalIdDuong = value; }
 		}
 		
 		/// <summary>
@@ -532,7 +515,6 @@ namespace traveltips.Entities
 			Duong copy = new Duong();
 			copy.SuppressEntityEvents = true;
 			copy.IdDuong = this.IdDuong;
-			copy.OriginalIdDuong = this.OriginalIdDuong;
 			copy.IdQuan = this.IdQuan;
 			copy.TenDuong = this.TenDuong;
 			copy.MaDuong = this.MaDuong;
@@ -1012,11 +994,6 @@ namespace traveltips.Entities
 			/// <remarks>Member of the primary key of the underlying table "tbl_Duong"</remarks>
 			public System.Int64 IdDuong;
 				
-			/// <summary>
-			/// keep a copy of the original so it can be used for editable primary keys.
-			/// </summary>
-			public System.Int64 OriginalIdDuong;
-			
 		#endregion
 		
 		#region Non Primary key(s)
@@ -1081,7 +1058,6 @@ namespace traveltips.Entities
 			DuongEntityData _tmp = new DuongEntityData();
 						
 			_tmp.IdDuong = this.IdDuong;
-			_tmp.OriginalIdDuong = this.OriginalIdDuong;
 			
 			_tmp.IdQuan = this.IdQuan;
 			_tmp.TenDuong = this.TenDuong;
@@ -1459,7 +1435,7 @@ namespace traveltips.Entities
 		/// IdDuong : 
 		/// </summary>
 		[EnumTextValue("id_Duong")]
-		[ColumnEnum("id_Duong", typeof(System.Int64), System.Data.DbType.Int64, true, false, false)]
+		[ColumnEnum("id_Duong", typeof(System.Int64), System.Data.DbType.Int64, true, true, false)]
 		IdDuong = 1,
 		/// <summary>
 		/// IdQuan : 

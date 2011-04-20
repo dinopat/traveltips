@@ -81,7 +81,6 @@ namespace traveltips.Entities
 		///<summary>
 		/// Creates a new <see cref="SanPhamBase"/> instance.
 		///</summary>
-		///<param name="idSanPham"></param>
 		///<param name="idCongTy"></param>
 		///<param name="idLoaiSp"></param>
 		///<param name="idTuDien">MaSP, TenSP duoc lay tu bang Tu Dien</param>
@@ -92,14 +91,13 @@ namespace traveltips.Entities
 		///<param name="moTaChiTiet"></param>
 		///<param name="anhMinhHoa"></param>
 		///<param name="flag"></param>
-		public SanPhamBase(System.Int64 idSanPham, System.Int64? idCongTy, System.Int64? idLoaiSp, 
-			System.Int64? idTuDien, System.String tenSp, System.String maSp, System.Decimal? gia, 
-			System.String moTaNgan, System.String moTaChiTiet, System.Byte[] anhMinhHoa, System.Byte? flag)
+		public SanPhamBase(System.Int64? idCongTy, System.Int64? idLoaiSp, System.Int64? idTuDien, 
+			System.String tenSp, System.String maSp, System.Decimal? gia, System.String moTaNgan, 
+			System.String moTaChiTiet, System.Byte[] anhMinhHoa, System.Byte? flag)
 		{
 			this.entityData = new SanPhamEntityData();
 			this.backupData = null;
 
-			this.IdSanPham = idSanPham;
 			this.IdCongTy = idCongTy;
 			this.IdLoaiSp = idLoaiSp;
 			this.IdTuDien = idTuDien;
@@ -115,7 +113,6 @@ namespace traveltips.Entities
 		///<summary>
 		/// A simple factory method to create a new <see cref="SanPham"/> instance.
 		///</summary>
-		///<param name="idSanPham"></param>
 		///<param name="idCongTy"></param>
 		///<param name="idLoaiSp"></param>
 		///<param name="idTuDien">MaSP, TenSP duoc lay tu bang Tu Dien</param>
@@ -126,12 +123,11 @@ namespace traveltips.Entities
 		///<param name="moTaChiTiet"></param>
 		///<param name="anhMinhHoa"></param>
 		///<param name="flag"></param>
-		public static SanPham CreateSanPham(System.Int64 idSanPham, System.Int64? idCongTy, System.Int64? idLoaiSp, 
-			System.Int64? idTuDien, System.String tenSp, System.String maSp, System.Decimal? gia, 
-			System.String moTaNgan, System.String moTaChiTiet, System.Byte[] anhMinhHoa, System.Byte? flag)
+		public static SanPham CreateSanPham(System.Int64? idCongTy, System.Int64? idLoaiSp, System.Int64? idTuDien, 
+			System.String tenSp, System.String maSp, System.Decimal? gia, System.String moTaNgan, 
+			System.String moTaChiTiet, System.Byte[] anhMinhHoa, System.Byte? flag)
 		{
 			SanPham newSanPham = new SanPham();
-			newSanPham.IdSanPham = idSanPham;
 			newSanPham.IdCongTy = idCongTy;
 			newSanPham.IdLoaiSp = idLoaiSp;
 			newSanPham.IdTuDien = idTuDien;
@@ -158,8 +154,8 @@ namespace traveltips.Entities
 		/// <remarks>
 		/// This property can not be set to null. 
 		/// </remarks>
-		[DescriptionAttribute(""), System.ComponentModel.Bindable( System.ComponentModel.BindableSupport.Yes)]
-		[DataObjectField(true, false, false)]
+		[ReadOnlyAttribute(false)/*, XmlIgnoreAttribute()*/, DescriptionAttribute(""), System.ComponentModel.Bindable( System.ComponentModel.BindableSupport.Yes)]
+		[DataObjectField(true, true, false)]
 		public virtual System.Int64 IdSanPham
 		{
 			get
@@ -180,19 +176,6 @@ namespace traveltips.Entities
 				OnColumnChanged(SanPhamColumn.IdSanPham, this.entityData.IdSanPham);
 				OnPropertyChanged("IdSanPham");
 			}
-		}
-		
-		/// <summary>
-		/// 	Get the original value of the id_SanPham property.
-		///		
-		/// </summary>
-		/// <remarks>This is the original value of the id_SanPham property.</remarks>
-		/// <value>This type is bigint</value>
-		[BrowsableAttribute(false)/*, XmlIgnoreAttribute()*/]
-		public  virtual System.Int64 OriginalIdSanPham
-		{
-			get { return this.entityData.OriginalIdSanPham; }
-			set { this.entityData.OriginalIdSanPham = value; }
 		}
 		
 		/// <summary>
@@ -740,7 +723,6 @@ namespace traveltips.Entities
 			SanPham copy = new SanPham();
 			copy.SuppressEntityEvents = true;
 			copy.IdSanPham = this.IdSanPham;
-			copy.OriginalIdSanPham = this.OriginalIdSanPham;
 			copy.IdCongTy = this.IdCongTy;
 			copy.IdLoaiSp = this.IdLoaiSp;
 			copy.IdTuDien = this.IdTuDien;
@@ -1328,11 +1310,6 @@ namespace traveltips.Entities
 			/// <remarks>Member of the primary key of the underlying table "tbl_SanPham"</remarks>
 			public System.Int64 IdSanPham;
 				
-			/// <summary>
-			/// keep a copy of the original so it can be used for editable primary keys.
-			/// </summary>
-			public System.Int64 OriginalIdSanPham;
-			
 		#endregion
 		
 		#region Non Primary key(s)
@@ -1459,7 +1436,6 @@ namespace traveltips.Entities
 			SanPhamEntityData _tmp = new SanPhamEntityData();
 						
 			_tmp.IdSanPham = this.IdSanPham;
-			_tmp.OriginalIdSanPham = this.OriginalIdSanPham;
 			
 			_tmp.IdCongTy = this.IdCongTy;
 			_tmp.IdLoaiSp = this.IdLoaiSp;
@@ -1847,7 +1823,7 @@ namespace traveltips.Entities
 		/// IdSanPham : 
 		/// </summary>
 		[EnumTextValue("id_SanPham")]
-		[ColumnEnum("id_SanPham", typeof(System.Int64), System.Data.DbType.Int64, true, false, false)]
+		[ColumnEnum("id_SanPham", typeof(System.Int64), System.Data.DbType.Int64, true, true, false)]
 		IdSanPham = 1,
 		/// <summary>
 		/// IdCongTy : 

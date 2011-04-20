@@ -17,11 +17,6 @@ namespace traveltips.Entities
 		/// <remarks>Member of the primary key of the underlying table "tbl_QuocGia"</remarks>
 		System.Int64 IdQuocGia { get; set; }
 				
-		/// <summary>
-		/// keep a copy of the original so it can be used for editable primary keys.
-		/// </summary>
-		System.Int64 OriginalIdQuocGia { get; set; }
-			
 		
 		
 		/// <summary>

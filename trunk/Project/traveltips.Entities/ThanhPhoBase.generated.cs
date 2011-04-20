@@ -81,19 +81,17 @@ namespace traveltips.Entities
 		///<summary>
 		/// Creates a new <see cref="ThanhPhoBase"/> instance.
 		///</summary>
-		///<param name="idThanhPho"></param>
 		///<param name="idQuocGia"></param>
 		///<param name="tenTp"></param>
 		///<param name="maTp"></param>
 		///<param name="mota"></param>
 		///<param name="flag"></param>
-		public ThanhPhoBase(System.Int64 idThanhPho, System.Int64? idQuocGia, System.String tenTp, 
-			System.String maTp, System.String mota, System.Byte? flag)
+		public ThanhPhoBase(System.Int64? idQuocGia, System.String tenTp, System.String maTp, 
+			System.String mota, System.Byte? flag)
 		{
 			this.entityData = new ThanhPhoEntityData();
 			this.backupData = null;
 
-			this.IdThanhPho = idThanhPho;
 			this.IdQuocGia = idQuocGia;
 			this.TenTp = tenTp;
 			this.MaTp = maTp;
@@ -104,17 +102,15 @@ namespace traveltips.Entities
 		///<summary>
 		/// A simple factory method to create a new <see cref="ThanhPho"/> instance.
 		///</summary>
-		///<param name="idThanhPho"></param>
 		///<param name="idQuocGia"></param>
 		///<param name="tenTp"></param>
 		///<param name="maTp"></param>
 		///<param name="mota"></param>
 		///<param name="flag"></param>
-		public static ThanhPho CreateThanhPho(System.Int64 idThanhPho, System.Int64? idQuocGia, System.String tenTp, 
-			System.String maTp, System.String mota, System.Byte? flag)
+		public static ThanhPho CreateThanhPho(System.Int64? idQuocGia, System.String tenTp, System.String maTp, 
+			System.String mota, System.Byte? flag)
 		{
 			ThanhPho newThanhPho = new ThanhPho();
-			newThanhPho.IdThanhPho = idThanhPho;
 			newThanhPho.IdQuocGia = idQuocGia;
 			newThanhPho.TenTp = tenTp;
 			newThanhPho.MaTp = maTp;
@@ -136,8 +132,8 @@ namespace traveltips.Entities
 		/// <remarks>
 		/// This property can not be set to null. 
 		/// </remarks>
-		[DescriptionAttribute(""), System.ComponentModel.Bindable( System.ComponentModel.BindableSupport.Yes)]
-		[DataObjectField(true, false, false)]
+		[ReadOnlyAttribute(false)/*, XmlIgnoreAttribute()*/, DescriptionAttribute(""), System.ComponentModel.Bindable( System.ComponentModel.BindableSupport.Yes)]
+		[DataObjectField(true, true, false)]
 		public virtual System.Int64 IdThanhPho
 		{
 			get
@@ -158,19 +154,6 @@ namespace traveltips.Entities
 				OnColumnChanged(ThanhPhoColumn.IdThanhPho, this.entityData.IdThanhPho);
 				OnPropertyChanged("IdThanhPho");
 			}
-		}
-		
-		/// <summary>
-		/// 	Get the original value of the id_ThanhPho property.
-		///		
-		/// </summary>
-		/// <remarks>This is the original value of the id_ThanhPho property.</remarks>
-		/// <value>This type is bigint</value>
-		[BrowsableAttribute(false)/*, XmlIgnoreAttribute()*/]
-		public  virtual System.Int64 OriginalIdThanhPho
-		{
-			get { return this.entityData.OriginalIdThanhPho; }
-			set { this.entityData.OriginalIdThanhPho = value; }
 		}
 		
 		/// <summary>
@@ -546,7 +529,6 @@ namespace traveltips.Entities
 			ThanhPho copy = new ThanhPho();
 			copy.SuppressEntityEvents = true;
 			copy.IdThanhPho = this.IdThanhPho;
-			copy.OriginalIdThanhPho = this.OriginalIdThanhPho;
 			copy.IdQuocGia = this.IdQuocGia;
 			copy.TenTp = this.TenTp;
 			copy.MaTp = this.MaTp;
@@ -1032,11 +1014,6 @@ namespace traveltips.Entities
 			/// <remarks>Member of the primary key of the underlying table "tbl_ThanhPho"</remarks>
 			public System.Int64 IdThanhPho;
 				
-			/// <summary>
-			/// keep a copy of the original so it can be used for editable primary keys.
-			/// </summary>
-			public System.Int64 OriginalIdThanhPho;
-			
 		#endregion
 		
 		#region Non Primary key(s)
@@ -1125,7 +1102,6 @@ namespace traveltips.Entities
 			ThanhPhoEntityData _tmp = new ThanhPhoEntityData();
 						
 			_tmp.IdThanhPho = this.IdThanhPho;
-			_tmp.OriginalIdThanhPho = this.OriginalIdThanhPho;
 			
 			_tmp.IdQuocGia = this.IdQuocGia;
 			_tmp.TenTp = this.TenTp;
@@ -1506,7 +1482,7 @@ namespace traveltips.Entities
 		/// IdThanhPho : 
 		/// </summary>
 		[EnumTextValue("id_ThanhPho")]
-		[ColumnEnum("id_ThanhPho", typeof(System.Int64), System.Data.DbType.Int64, true, false, false)]
+		[ColumnEnum("id_ThanhPho", typeof(System.Int64), System.Data.DbType.Int64, true, true, false)]
 		IdThanhPho = 1,
 		/// <summary>
 		/// IdQuocGia : 
