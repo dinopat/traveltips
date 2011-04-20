@@ -267,11 +267,10 @@
              Creates a new <see cref="T:traveltips.Entities.ThanhPho"/> instance .
             </summary>
         </member>
-        <member name="M:traveltips.Services.ThanhPhoServiceBase.CreateThanhPho(System.Int64,System.Nullable{System.Int64},System.String,System.String,System.String,System.Nullable{System.Byte})">
+        <member name="M:traveltips.Services.ThanhPhoServiceBase.CreateThanhPho(System.Nullable{System.Int64},System.String,System.String,System.String,System.Nullable{System.Byte})">
             <summary>
              A simple factory method to create a new <see cref="T:traveltips.Entities.ThanhPho"/> instance.
             </summary>
-            <param name="idThanhPho"></param>
             <param name="idQuocGia"></param>
             <param name="tenTp"></param>
             <param name="maTp"></param>
@@ -836,11 +835,10 @@
              Creates a new <see cref="T:traveltips.Entities.LabelNn"/> instance .
             </summary>
         </member>
-        <member name="M:traveltips.Services.LabelNnServiceBase.CreateLabelNn(System.Int64,System.String,System.String,System.String,System.Nullable{System.Byte})">
+        <member name="M:traveltips.Services.LabelNnServiceBase.CreateLabelNn(System.String,System.String,System.String,System.Nullable{System.Byte})">
             <summary>
              A simple factory method to create a new <see cref="T:traveltips.Entities.LabelNn"/> instance.
             </summary>
-            <param name="idLabel"></param>
             <param name="maLabel"></param>
             <param name="tenLabel"></param>
             <param name="moTa"></param>
@@ -1388,11 +1386,10 @@
              Creates a new <see cref="T:traveltips.Entities.DanhMuc"/> instance .
             </summary>
         </member>
-        <member name="M:traveltips.Services.DanhMucServiceBase.CreateDanhMuc(System.Int64,System.Nullable{System.Int64},System.String,System.String,System.String,System.Nullable{System.Byte})">
+        <member name="M:traveltips.Services.DanhMucServiceBase.CreateDanhMuc(System.Nullable{System.Int64},System.String,System.String,System.String,System.Nullable{System.Byte})">
             <summary>
              A simple factory method to create a new <see cref="T:traveltips.Entities.DanhMuc"/> instance.
             </summary>
-            <param name="idDanhMuc"></param>
             <param name="idDmCha"></param>
             <param name="tenDanhMuc"></param>
             <param name="maDanhMuc"></param>
@@ -1946,11 +1943,10 @@
              Creates a new <see cref="T:traveltips.Entities.Quan"/> instance .
             </summary>
         </member>
-        <member name="M:traveltips.Services.QuanServiceBase.CreateQuan(System.Int64,System.Nullable{System.Int64},System.String,System.String,System.String,System.Nullable{System.Byte})">
+        <member name="M:traveltips.Services.QuanServiceBase.CreateQuan(System.Nullable{System.Int64},System.String,System.String,System.String,System.Nullable{System.Byte})">
             <summary>
              A simple factory method to create a new <see cref="T:traveltips.Entities.Quan"/> instance.
             </summary>
-            <param name="idQuan"></param>
             <param name="idThanhPho"></param>
             <param name="tenQuan"></param>
             <param name="maQuan"></param>
@@ -2515,11 +2511,10 @@
              Creates a new <see cref="T:traveltips.Entities.Comment"/> instance .
             </summary>
         </member>
-        <member name="M:traveltips.Services.CommentServiceBase.CreateComment(System.Int64,System.Nullable{System.Int64},System.Nullable{System.Int64},System.String,System.String,System.Nullable{System.Byte})">
+        <member name="M:traveltips.Services.CommentServiceBase.CreateComment(System.Nullable{System.Int64},System.Nullable{System.Int64},System.String,System.String,System.Nullable{System.Byte})">
             <summary>
              A simple factory method to create a new <see cref="T:traveltips.Entities.Comment"/> instance.
             </summary>
-            <param name="idComment"></param>
             <param name="idUser"></param>
             <param name="idCongty"></param>
             <param name="tieuDe">Id trong table Label</param>
@@ -3111,11 +3106,10 @@
              Creates a new <see cref="T:traveltips.Entities.DichVu"/> instance .
             </summary>
         </member>
-        <member name="M:traveltips.Services.DichVuServiceBase.CreateDichVu(System.Int64,System.String,System.String,System.String,System.String,System.String,System.Nullable{System.Byte})">
+        <member name="M:traveltips.Services.DichVuServiceBase.CreateDichVu(System.Nullable{System.Int64},System.String,System.String,System.String,System.String,System.Nullable{System.Byte})">
             <summary>
              A simple factory method to create a new <see cref="T:traveltips.Entities.DichVu"/> instance.
             </summary>
-            <param name="idDichVu"></param>
             <param name="idCongTy"></param>
             <param name="tenDv"></param>
             <param name="maDv"></param>
@@ -3696,11 +3690,10 @@
              Creates a new <see cref="T:traveltips.Entities.TuDien"/> instance .
             </summary>
         </member>
-        <member name="M:traveltips.Services.TuDienServiceBase.CreateTuDien(System.Int64,System.Nullable{System.Int64},System.String,System.String,System.String,System.String,System.Nullable{System.Byte})">
+        <member name="M:traveltips.Services.TuDienServiceBase.CreateTuDien(System.Nullable{System.Int64},System.String,System.String,System.String,System.String,System.Nullable{System.Byte})">
             <summary>
              A simple factory method to create a new <see cref="T:traveltips.Entities.TuDien"/> instance.
             </summary>
-            <param name="idTuDien"></param>
             <param name="idDanhMuc"></param>
             <param name="tenTu"></param>
             <param name="maTu"></param>
@@ -4247,11 +4240,10 @@
              Creates a new <see cref="T:traveltips.Entities.QuocGia"/> instance .
             </summary>
         </member>
-        <member name="M:traveltips.Services.QuocGiaServiceBase.CreateQuocGia(System.Int64,System.String,System.String,System.String,System.Nullable{System.Byte})">
+        <member name="M:traveltips.Services.QuocGiaServiceBase.CreateQuocGia(System.String,System.String,System.String,System.Nullable{System.Byte})">
             <summary>
              A simple factory method to create a new <see cref="T:traveltips.Entities.QuocGia"/> instance.
             </summary>
-            <param name="idQuocGia"></param>
             <param name="tenQg"></param>
             <param name="maQg"></param>
             <param name="moTa"></param>
@@ -4791,11 +4783,10 @@
              Creates a new <see cref="T:traveltips.Entities.Gallery"/> instance .
             </summary>
         </member>
-        <member name="M:traveltips.Services.GalleryServiceBase.CreateGallery(System.Int64,System.Nullable{System.Int64},System.String,System.String,System.String,System.Nullable{System.Byte})">
+        <member name="M:traveltips.Services.GalleryServiceBase.CreateGallery(System.Nullable{System.Int64},System.String,System.String,System.String,System.Nullable{System.Byte})">
             <summary>
              A simple factory method to create a new <see cref="T:traveltips.Entities.Gallery"/> instance.
             </summary>
-            <param name="idGallery"></param>
             <param name="idCongTy"></param>
             <param name="tenAnh"></param>
             <param name="duongDan"></param>
@@ -5466,11 +5457,10 @@
              Creates a new <see cref="T:traveltips.Entities.CongTy"/> instance .
             </summary>
         </member>
-        <member name="M:traveltips.Services.CongTyServiceBase.CreateCongTy(System.Int64,System.Nullable{System.Int64},System.Nullable{System.Int64},System.Nullable{System.Int64},System.Nullable{System.Int64},System.Nullable{System.Int64},System.Nullable{System.Int64},System.Nullable{System.Int64},System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Nullable{System.Byte})">
+        <member name="M:traveltips.Services.CongTyServiceBase.CreateCongTy(System.Nullable{System.Int64},System.Nullable{System.Int64},System.Nullable{System.Int64},System.Nullable{System.Int64},System.Nullable{System.Int64},System.Nullable{System.Int64},System.Nullable{System.Int64},System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Nullable{System.Byte})">
             <summary>
              A simple factory method to create a new <see cref="T:traveltips.Entities.CongTy"/> instance.
             </summary>
-            <param name="idCongTy"></param>
             <param name="idChuCongTy"></param>
             <param name="idDanhMuc"></param>
             <param name="idQuocGia"></param>
@@ -6064,11 +6054,10 @@
              Creates a new <see cref="T:traveltips.Entities.LoaiSp"/> instance .
             </summary>
         </member>
-        <member name="M:traveltips.Services.LoaiSpServiceBase.CreateLoaiSp(System.Int64,System.Nullable{System.Int64},System.String,System.String,System.String,System.Nullable{System.Byte})">
+        <member name="M:traveltips.Services.LoaiSpServiceBase.CreateLoaiSp(System.Nullable{System.Int64},System.String,System.String,System.String,System.Nullable{System.Byte})">
             <summary>
              A simple factory method to create a new <see cref="T:traveltips.Entities.LoaiSp"/> instance.
             </summary>
-            <param name="idLoaiSp"></param>
             <param name="idLoaiSpCha"></param>
             <param name="tenLoaiSp"></param>
             <param name="maLoaiSp"></param>
@@ -6786,11 +6775,10 @@
              Creates a new <see cref="T:traveltips.Entities.User"/> instance .
             </summary>
         </member>
-        <member name="M:traveltips.Services.UserServiceBase.CreateUser(System.Int64,System.Byte[],System.String,System.String,System.String,System.String,System.Byte[],System.String,System.String,System.Nullable{System.Byte})">
+        <member name="M:traveltips.Services.UserServiceBase.CreateUser(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Nullable{System.Byte})">
             <summary>
              A simple factory method to create a new <see cref="T:traveltips.Entities.User"/> instance.
             </summary>
-            <param name="idUser"></param>
             <param name="tenDangNhap"></param>
             <param name="password"></param>
             <param name="hoTen"></param>
@@ -7340,11 +7328,10 @@
              Creates a new <see cref="T:traveltips.Entities.SanPham"/> instance .
             </summary>
         </member>
-        <member name="M:traveltips.Services.SanPhamServiceBase.CreateSanPham(System.Int64,System.Nullable{System.Int64},System.Nullable{System.Int64},System.Nullable{System.Int64},System.String,System.String,System.Nullable{System.Decimal},System.String,System.String,System.Byte[],System.Nullable{System.Byte})">
+        <member name="M:traveltips.Services.SanPhamServiceBase.CreateSanPham(System.Nullable{System.Int64},System.Nullable{System.Int64},System.Nullable{System.Int64},System.String,System.String,System.Nullable{System.Decimal},System.String,System.String,System.Byte[],System.Nullable{System.Byte})">
             <summary>
              A simple factory method to create a new <see cref="T:traveltips.Entities.SanPham"/> instance.
             </summary>
-            <param name="idSanPham"></param>
             <param name="idCongTy"></param>
             <param name="idLoaiSp"></param>
             <param name="idTuDien">MaSP, TenSP duoc lay tu bang Tu Dien</param>
@@ -7922,35 +7909,15 @@
              Creates a new <see cref="T:traveltips.Entities.ThuocTinhSanPham"/> instance .
             </summary>
         </member>
-        <member name="M:traveltips.Services.ThuocTinhSanPhamServiceBase.CreateThuocTinhSanPham(System.Int64,System.Nullable{System.Int64},System.Nullable{System.Int64},System.String,System.String,System.Nullable{System.Byte})">
+        <member name="M:traveltips.Services.ThuocTinhSanPhamServiceBase.CreateThuocTinhSanPham(System.Nullable{System.Int64},System.Nullable{System.Int64},System.String,System.String,System.Nullable{System.Byte})">
             <summary>
              A simple factory method to create a new <see cref="T:traveltips.Entities.ThuocTinhSanPham"/> instance.
             </summary>
-            <param name="idTtsp"></param>
             <param name="idSanPham"></param>
             <param name="idThuocTinh"></param>
             <param name="value1"></param>
             <param name="value2"></param>
             <param name="flag"></param>
-        </member>
-        <member name="M:traveltips.Services.ThuocTinhSanPhamServiceBase.GetByIdThuocTinh(System.Nullable{System.Int64})">
-            <summary>
-            	public virtual method that Gets rows in a <see cref="T:traveltips.Entities.TList`1"/> from the datasource based on the FK_tbl_ThuocTinhSanPham_tbl_ThuocTinh key.
-            	FK_tbl_ThuocTinhSanPham_tbl_ThuocTinh Description: 
-            </summary>
-            <param name="idThuocTinh"></param>
-            <returns>Returns a generic collection of ThuocTinhSanPham objects.</returns>
-        </member>
-        <member name="M:traveltips.Services.ThuocTinhSanPhamServiceBase.GetByIdThuocTinh(System.Nullable{System.Int64},System.Int32,System.Int32,System.Int32@)">
-            <summary>
-            	public virtual method that Gets rows in a <see cref="T:traveltips.Entities.TList`1"/> from the datasource based on the FK_tbl_ThuocTinhSanPham_tbl_ThuocTinh key.
-            	FK_tbl_ThuocTinhSanPham_tbl_ThuocTinh Description: 
-            </summary>
-            <param name="idThuocTinh"></param>
-            <param name="start">Row number at which to start reading.</param>
-            <param name="pageLength">Page length of records you would like to retrieve</param>
-            <param name="totalCount">Out parameter, number of total rows in given query.</param>
-            <returns>Returns a collection <see cref="T:traveltips.Entities.TList`1"/> of <c>ThuocTinhSanPham</c> objects.</returns>
         </member>
         <member name="M:traveltips.Services.ThuocTinhSanPhamServiceBase.GetByIdSanPham(System.Nullable{System.Int64})">
             <summary>
@@ -7966,6 +7933,25 @@
             	FK_tbl_ThuocTinhSanPham_tbl_SanPham Description: 
             </summary>
             <param name="idSanPham"></param>
+            <param name="start">Row number at which to start reading.</param>
+            <param name="pageLength">Page length of records you would like to retrieve</param>
+            <param name="totalCount">Out parameter, number of total rows in given query.</param>
+            <returns>Returns a collection <see cref="T:traveltips.Entities.TList`1"/> of <c>ThuocTinhSanPham</c> objects.</returns>
+        </member>
+        <member name="M:traveltips.Services.ThuocTinhSanPhamServiceBase.GetByIdThuocTinh(System.Nullable{System.Int64})">
+            <summary>
+            	public virtual method that Gets rows in a <see cref="T:traveltips.Entities.TList`1"/> from the datasource based on the FK_tbl_ThuocTinhSanPham_tbl_ThuocTinh key.
+            	FK_tbl_ThuocTinhSanPham_tbl_ThuocTinh Description: 
+            </summary>
+            <param name="idThuocTinh"></param>
+            <returns>Returns a generic collection of ThuocTinhSanPham objects.</returns>
+        </member>
+        <member name="M:traveltips.Services.ThuocTinhSanPhamServiceBase.GetByIdThuocTinh(System.Nullable{System.Int64},System.Int32,System.Int32,System.Int32@)">
+            <summary>
+            	public virtual method that Gets rows in a <see cref="T:traveltips.Entities.TList`1"/> from the datasource based on the FK_tbl_ThuocTinhSanPham_tbl_ThuocTinh key.
+            	FK_tbl_ThuocTinhSanPham_tbl_ThuocTinh Description: 
+            </summary>
+            <param name="idThuocTinh"></param>
             <param name="start">Row number at which to start reading.</param>
             <param name="pageLength">Page length of records you would like to retrieve</param>
             <param name="totalCount">Out parameter, number of total rows in given query.</param>
@@ -8513,11 +8499,10 @@
              Creates a new <see cref="T:traveltips.Entities.ThuocTinh"/> instance .
             </summary>
         </member>
-        <member name="M:traveltips.Services.ThuocTinhServiceBase.CreateThuocTinh(System.Int64,System.String,System.String,System.Nullable{System.Byte})">
+        <member name="M:traveltips.Services.ThuocTinhServiceBase.CreateThuocTinh(System.String,System.String,System.Nullable{System.Byte})">
             <summary>
              A simple factory method to create a new <see cref="T:traveltips.Entities.ThuocTinh"/> instance.
             </summary>
-            <param name="idThuocTinh"></param>
             <param name="tenThuocTinh"></param>
             <param name="maThuocTinh"></param>
             <param name="flag"></param>
@@ -9082,11 +9067,10 @@
              Creates a new <see cref="T:traveltips.Entities.Duong"/> instance .
             </summary>
         </member>
-        <member name="M:traveltips.Services.DuongServiceBase.CreateDuong(System.Int64,System.Nullable{System.Int64},System.String,System.Byte[],System.String,System.Nullable{System.Byte})">
+        <member name="M:traveltips.Services.DuongServiceBase.CreateDuong(System.Nullable{System.Int64},System.String,System.Byte[],System.String,System.Nullable{System.Byte})">
             <summary>
              A simple factory method to create a new <see cref="T:traveltips.Entities.Duong"/> instance.
             </summary>
-            <param name="idDuong"></param>
             <param name="idQuan"></param>
             <param name="tenDuong"></param>
             <param name="maDuong"></param>
@@ -9659,11 +9643,10 @@
              Creates a new <see cref="T:traveltips.Entities.ChuCongTy"/> instance .
             </summary>
         </member>
-        <member name="M:traveltips.Services.ChuCongTyServiceBase.CreateChuCongTy(System.Int64,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{System.Byte})">
+        <member name="M:traveltips.Services.ChuCongTyServiceBase.CreateChuCongTy(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{System.Byte})">
             <summary>
              A simple factory method to create a new <see cref="T:traveltips.Entities.ChuCongTy"/> instance.
             </summary>
-            <param name="idChuCongTy"></param>
             <param name="tenChuCongTy"></param>
             <param name="tenCongTy"></param>
             <param name="tenDangNhap"></param>
@@ -10384,11 +10367,10 @@
              Creates a new <see cref="T:traveltips.Entities.TinTuc"/> instance .
             </summary>
         </member>
-        <member name="M:traveltips.Services.TinTucServiceBase.CreateTinTuc(System.Int64,System.Nullable{System.Int64},System.String,System.String,System.String,System.Nullable{System.Boolean},System.Nullable{System.Byte})">
+        <member name="M:traveltips.Services.TinTucServiceBase.CreateTinTuc(System.Nullable{System.Int64},System.String,System.String,System.String,System.Nullable{System.Boolean},System.Nullable{System.Byte})">
             <summary>
              A simple factory method to create a new <see cref="T:traveltips.Entities.TinTuc"/> instance.
             </summary>
-            <param name="idTinTuc"></param>
             <param name="idCongTy"></param>
             <param name="tieuDe"></param>
             <param name="moTaNgan"></param>
@@ -11115,11 +11097,10 @@
              Creates a new <see cref="T:traveltips.Entities.LabelLanguage"/> instance .
             </summary>
         </member>
-        <member name="M:traveltips.Services.LabelLanguageServiceBase.CreateLabelLanguage(System.Int64,System.Nullable{System.Int32},System.Nullable{System.Int64},System.String,System.Nullable{System.Byte})">
+        <member name="M:traveltips.Services.LabelLanguageServiceBase.CreateLabelLanguage(System.Nullable{System.Int32},System.Nullable{System.Int64},System.String,System.Nullable{System.Byte})">
             <summary>
              A simple factory method to create a new <see cref="T:traveltips.Entities.LabelLanguage"/> instance.
             </summary>
-            <param name="idLabelLanguage"></param>
             <param name="idLanguage"></param>
             <param name="idLabel"></param>
             <param name="noiDung"></param>
@@ -11702,11 +11683,10 @@
              Creates a new <see cref="T:traveltips.Entities.Admin"/> instance .
             </summary>
         </member>
-        <member name="M:traveltips.Services.AdminServiceBase.CreateAdmin(System.Int64,System.String,System.String,System.String,System.String,System.String,System.Nullable{System.Byte})">
+        <member name="M:traveltips.Services.AdminServiceBase.CreateAdmin(System.String,System.String,System.String,System.String,System.String,System.Nullable{System.Byte})">
             <summary>
              A simple factory method to create a new <see cref="T:traveltips.Entities.Admin"/> instance.
             </summary>
-            <param name="idAdmin"></param>
             <param name="tenDangNhap"></param>
             <param name="email"></param>
             <param name="password"></param>
@@ -12346,11 +12326,10 @@
              Creates a new <see cref="T:traveltips.Entities.Language"/> instance .
             </summary>
         </member>
-        <member name="M:traveltips.Services.LanguageServiceBase.CreateLanguage(System.Int32,System.String,System.String,System.Byte[],System.Nullable{System.Byte})">
+        <member name="M:traveltips.Services.LanguageServiceBase.CreateLanguage(System.String,System.String,System.String,System.Nullable{System.Byte})">
             <summary>
              A simple factory method to create a new <see cref="T:traveltips.Entities.Language"/> instance.
             </summary>
-            <param name="idLanguage"></param>
             <param name="tenNn"></param>
             <param name="maNn"></param>
             <param name="mota"></param>
@@ -12890,11 +12869,10 @@
              Creates a new <see cref="T:traveltips.Entities.KhuVuc"/> instance .
             </summary>
         </member>
-        <member name="M:traveltips.Services.KhuVucServiceBase.CreateKhuVuc(System.Int64,System.String,System.Byte[],System.String,System.Nullable{System.Byte})">
+        <member name="M:traveltips.Services.KhuVucServiceBase.CreateKhuVuc(System.String,System.Byte[],System.String,System.Nullable{System.Byte})">
             <summary>
              A simple factory method to create a new <see cref="T:traveltips.Entities.KhuVuc"/> instance.
             </summary>
-            <param name="idKhuVuc"></param>
             <param name="tenKv"></param>
             <param name="maKv"></param>
             <param name="moTa"></param>

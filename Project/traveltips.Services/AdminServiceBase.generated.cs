@@ -52,17 +52,15 @@ namespace traveltips.Services
 		///<summary>
 		/// A simple factory method to create a new <see cref="Admin"/> instance.
 		///</summary>
-		///<param name="idAdmin"></param>
 		///<param name="tenDangNhap"></param>
 		///<param name="email"></param>
 		///<param name="password"></param>
 		///<param name="hoTen"></param>
 		///<param name="dienThoai"></param>
 		///<param name="flag"></param>
-		public static Admin CreateAdmin(System.Int64 idAdmin, System.String tenDangNhap, System.String email, System.String password, System.String hoTen, System.String dienThoai, System.Byte? flag)
+		public static Admin CreateAdmin(System.String tenDangNhap, System.String email, System.String password, System.String hoTen, System.String dienThoai, System.Byte? flag)
 		{
 			Admin newEntityAdmin = new Admin();
-			newEntityAdmin.IdAdmin  = idAdmin;
 			newEntityAdmin.TenDangNhap  = tenDangNhap;
 			newEntityAdmin.Email  = email;
 			newEntityAdmin.Password  = password;

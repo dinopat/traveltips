@@ -52,17 +52,15 @@ namespace traveltips.Services
 		///<summary>
 		/// A simple factory method to create a new <see cref="TuDien"/> instance.
 		///</summary>
-		///<param name="idTuDien"></param>
 		///<param name="idDanhMuc"></param>
 		///<param name="tenTu"></param>
 		///<param name="maTu"></param>
 		///<param name="nhomTu">NhomTu: Dai dien cho mot nhom nhat dinh phai co tu dien (phuc vu cho viec Load len theo nhom). Vi du: Mon An, Thuc Uong, Quoc Gia, Tinh, Thanh Pho,......</param>
 		///<param name="moTa"></param>
 		///<param name="flag"></param>
-		public static TuDien CreateTuDien(System.Int64 idTuDien, System.Int64? idDanhMuc, System.String tenTu, System.String maTu, System.String nhomTu, System.String moTa, System.Byte? flag)
+		public static TuDien CreateTuDien(System.Int64? idDanhMuc, System.String tenTu, System.String maTu, System.String nhomTu, System.String moTa, System.Byte? flag)
 		{
 			TuDien newEntityTuDien = new TuDien();
-			newEntityTuDien.IdTuDien  = idTuDien;
 			newEntityTuDien.IdDanhMuc  = idDanhMuc;
 			newEntityTuDien.TenTu  = tenTu;
 			newEntityTuDien.MaTu  = maTu;

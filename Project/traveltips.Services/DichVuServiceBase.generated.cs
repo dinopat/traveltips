@@ -52,17 +52,15 @@ namespace traveltips.Services
 		///<summary>
 		/// A simple factory method to create a new <see cref="DichVu"/> instance.
 		///</summary>
-		///<param name="idDichVu"></param>
 		///<param name="idCongTy"></param>
 		///<param name="tenDv"></param>
 		///<param name="maDv"></param>
 		///<param name="motaNgan"></param>
 		///<param name="motaChiTiet"></param>
 		///<param name="flag"></param>
-		public static DichVu CreateDichVu(System.Int64 idDichVu, System.String idCongTy, System.String tenDv, System.String maDv, System.String motaNgan, System.String motaChiTiet, System.Byte? flag)
+		public static DichVu CreateDichVu(System.Int64? idCongTy, System.String tenDv, System.String maDv, System.String motaNgan, System.String motaChiTiet, System.Byte? flag)
 		{
 			DichVu newEntityDichVu = new DichVu();
-			newEntityDichVu.IdDichVu  = idDichVu;
 			newEntityDichVu.IdCongTy  = idCongTy;
 			newEntityDichVu.TenDv  = tenDv;
 			newEntityDichVu.MaDv  = maDv;

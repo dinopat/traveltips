@@ -52,16 +52,14 @@ namespace traveltips.Services
 		///<summary>
 		/// A simple factory method to create a new <see cref="Quan"/> instance.
 		///</summary>
-		///<param name="idQuan"></param>
 		///<param name="idThanhPho"></param>
 		///<param name="tenQuan"></param>
 		///<param name="maQuan"></param>
 		///<param name="moTa"></param>
 		///<param name="flag"></param>
-		public static Quan CreateQuan(System.Int64 idQuan, System.Int64? idThanhPho, System.String tenQuan, System.String maQuan, System.String moTa, System.Byte? flag)
+		public static Quan CreateQuan(System.Int64? idThanhPho, System.String tenQuan, System.String maQuan, System.String moTa, System.Byte? flag)
 		{
 			Quan newEntityQuan = new Quan();
-			newEntityQuan.IdQuan  = idQuan;
 			newEntityQuan.IdThanhPho  = idThanhPho;
 			newEntityQuan.TenQuan  = tenQuan;
 			newEntityQuan.MaQuan  = maQuan;

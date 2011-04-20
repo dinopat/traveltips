@@ -52,16 +52,14 @@ namespace traveltips.Services
 		///<summary>
 		/// A simple factory method to create a new <see cref="Gallery"/> instance.
 		///</summary>
-		///<param name="idGallery"></param>
 		///<param name="idCongTy"></param>
 		///<param name="tenAnh"></param>
 		///<param name="duongDan"></param>
 		///<param name="moTa"></param>
 		///<param name="flag"></param>
-		public static Gallery CreateGallery(System.Int64 idGallery, System.Int64? idCongTy, System.String tenAnh, System.String duongDan, System.String moTa, System.Byte? flag)
+		public static Gallery CreateGallery(System.Int64? idCongTy, System.String tenAnh, System.String duongDan, System.String moTa, System.Byte? flag)
 		{
 			Gallery newEntityGallery = new Gallery();
-			newEntityGallery.IdGallery  = idGallery;
 			newEntityGallery.IdCongTy  = idCongTy;
 			newEntityGallery.TenAnh  = tenAnh;
 			newEntityGallery.DuongDan  = duongDan;

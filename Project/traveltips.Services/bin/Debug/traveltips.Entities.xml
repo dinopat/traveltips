@@ -360,11 +360,6 @@
             </summary>
             <remarks>Member of the primary key of the underlying table "tbl_TinTuc"</remarks>
         </member>
-        <member name="P:traveltips.Entities.ITinTuc.OriginalIdTinTuc">
-            <summary>
-            keep a copy of the original so it can be used for editable primary keys.
-            </summary>
-        </member>
         <member name="P:traveltips.Entities.ITinTuc.IdCongTy">
             <summary>
             id_CongTy : 
@@ -440,11 +435,10 @@
              Creates a new <see cref="T:traveltips.Entities.TinTucBase"/> instance.
             </summary>
         </member>
-        <member name="M:traveltips.Entities.TinTucBase.#ctor(System.Int64,System.Nullable{System.Int64},System.String,System.String,System.String,System.Nullable{System.Boolean},System.Nullable{System.Byte})">
+        <member name="M:traveltips.Entities.TinTucBase.#ctor(System.Nullable{System.Int64},System.String,System.String,System.String,System.Nullable{System.Boolean},System.Nullable{System.Byte})">
             <summary>
              Creates a new <see cref="T:traveltips.Entities.TinTucBase"/> instance.
             </summary>
-            <param name="idTinTuc"></param>
             <param name="idCongTy"></param>
             <param name="tieuDe"></param>
             <param name="moTaNgan"></param>
@@ -452,11 +446,10 @@
             <param name="khuyenMai"></param>
             <param name="flag"></param>
         </member>
-        <member name="M:traveltips.Entities.TinTucBase.CreateTinTuc(System.Int64,System.Nullable{System.Int64},System.String,System.String,System.String,System.Nullable{System.Boolean},System.Nullable{System.Byte})">
+        <member name="M:traveltips.Entities.TinTucBase.CreateTinTuc(System.Nullable{System.Int64},System.String,System.String,System.String,System.Nullable{System.Boolean},System.Nullable{System.Byte})">
             <summary>
              A simple factory method to create a new <see cref="T:traveltips.Entities.TinTuc"/> instance.
             </summary>
-            <param name="idTinTuc"></param>
             <param name="idCongTy"></param>
             <param name="tieuDe"></param>
             <param name="moTaNgan"></param>
@@ -643,14 +636,6 @@
             This property can not be set to null. 
             </remarks>
         </member>
-        <member name="P:traveltips.Entities.TinTucBase.OriginalIdTinTuc">
-            <summary>
-            	Get the original value of the id_TinTuc property.
-            	
-            </summary>
-            <remarks>This is the original value of the id_TinTuc property.</remarks>
-            <value>This type is bigint</value>
-        </member>
         <member name="P:traveltips.Entities.TinTucBase.IdCongTy">
             <summary>
             	Gets or sets the IdCongTy property. 
@@ -791,11 +776,6 @@
             </summary>
             <remarks>Member of the primary key of the underlying table "tbl_TinTuc"</remarks>
         </member>
-        <member name="F:traveltips.Entities.TinTucBase.TinTucEntityData.OriginalIdTinTuc">
-            <summary>
-            keep a copy of the original so it can be used for editable primary keys.
-            </summary>
-        </member>
         <member name="F:traveltips.Entities.TinTucBase.TinTucEntityData.IdCongTy">
             <summary>
             id_CongTy : 
@@ -868,11 +848,6 @@
             id_SanPham : 
             </summary>
             <remarks>Member of the primary key of the underlying table "tbl_SanPham"</remarks>
-        </member>
-        <member name="P:traveltips.Entities.ISanPham.OriginalIdSanPham">
-            <summary>
-            keep a copy of the original so it can be used for editable primary keys.
-            </summary>
         </member>
         <member name="P:traveltips.Entities.ISanPham.IdCongTy">
             <summary>
@@ -963,11 +938,6 @@
             </summary>
             <remarks>Member of the primary key of the underlying table "tbl_LoaiSP"</remarks>
         </member>
-        <member name="P:traveltips.Entities.ILoaiSp.OriginalIdLoaiSp">
-            <summary>
-            keep a copy of the original so it can be used for editable primary keys.
-            </summary>
-        </member>
         <member name="P:traveltips.Entities.ILoaiSp.IdLoaiSpCha">
             <summary>
             id_LoaiSPCha : 
@@ -1030,22 +1000,20 @@
              Creates a new <see cref="T:traveltips.Entities.LoaiSpBase"/> instance.
             </summary>
         </member>
-        <member name="M:traveltips.Entities.LoaiSpBase.#ctor(System.Int64,System.Nullable{System.Int64},System.String,System.String,System.String,System.Nullable{System.Byte})">
+        <member name="M:traveltips.Entities.LoaiSpBase.#ctor(System.Nullable{System.Int64},System.String,System.String,System.String,System.Nullable{System.Byte})">
             <summary>
              Creates a new <see cref="T:traveltips.Entities.LoaiSpBase"/> instance.
             </summary>
-            <param name="idLoaiSp"></param>
             <param name="idLoaiSpCha"></param>
             <param name="tenLoaiSp"></param>
             <param name="maLoaiSp"></param>
             <param name="moTa"></param>
             <param name="flag"></param>
         </member>
-        <member name="M:traveltips.Entities.LoaiSpBase.CreateLoaiSp(System.Int64,System.Nullable{System.Int64},System.String,System.String,System.String,System.Nullable{System.Byte})">
+        <member name="M:traveltips.Entities.LoaiSpBase.CreateLoaiSp(System.Nullable{System.Int64},System.String,System.String,System.String,System.Nullable{System.Byte})">
             <summary>
              A simple factory method to create a new <see cref="T:traveltips.Entities.LoaiSp"/> instance.
             </summary>
-            <param name="idLoaiSp"></param>
             <param name="idLoaiSpCha"></param>
             <param name="tenLoaiSp"></param>
             <param name="maLoaiSp"></param>
@@ -1231,14 +1199,6 @@
             This property can not be set to null. 
             </remarks>
         </member>
-        <member name="P:traveltips.Entities.LoaiSpBase.OriginalIdLoaiSp">
-            <summary>
-            	Get the original value of the id_LoaiSP property.
-            	
-            </summary>
-            <remarks>This is the original value of the id_LoaiSP property.</remarks>
-            <value>This type is bigint</value>
-        </member>
         <member name="P:traveltips.Entities.LoaiSpBase.IdLoaiSpCha">
             <summary>
             	Gets or sets the IdLoaiSpCha property. 
@@ -1367,11 +1327,6 @@
             </summary>
             <remarks>Member of the primary key of the underlying table "tbl_LoaiSP"</remarks>
         </member>
-        <member name="F:traveltips.Entities.LoaiSpBase.LoaiSpEntityData.OriginalIdLoaiSp">
-            <summary>
-            keep a copy of the original so it can be used for editable primary keys.
-            </summary>
-        </member>
         <member name="F:traveltips.Entities.LoaiSpBase.LoaiSpEntityData.IdLoaiSpCha">
             <summary>
             id_LoaiSPCha : 
@@ -1440,11 +1395,6 @@
             </summary>
             <remarks>Member of the primary key of the underlying table "tbl_KhuVuc"</remarks>
         </member>
-        <member name="P:traveltips.Entities.IKhuVuc.OriginalIdKhuVuc">
-            <summary>
-            keep a copy of the original so it can be used for editable primary keys.
-            </summary>
-        </member>
         <member name="P:traveltips.Entities.IKhuVuc.TenKv">
             <summary>
             TenKV : 
@@ -1497,11 +1447,6 @@
             id_Gallery : 
             </summary>
             <remarks>Member of the primary key of the underlying table "tbl_Gallery"</remarks>
-        </member>
-        <member name="P:traveltips.Entities.IGallery.OriginalIdGallery">
-            <summary>
-            keep a copy of the original so it can be used for editable primary keys.
-            </summary>
         </member>
         <member name="P:traveltips.Entities.IGallery.IdCongTy">
             <summary>
@@ -1559,22 +1504,20 @@
              Creates a new <see cref="T:traveltips.Entities.GalleryBase"/> instance.
             </summary>
         </member>
-        <member name="M:traveltips.Entities.GalleryBase.#ctor(System.Int64,System.Nullable{System.Int64},System.String,System.String,System.String,System.Nullable{System.Byte})">
+        <member name="M:traveltips.Entities.GalleryBase.#ctor(System.Nullable{System.Int64},System.String,System.String,System.String,System.Nullable{System.Byte})">
             <summary>
              Creates a new <see cref="T:traveltips.Entities.GalleryBase"/> instance.
             </summary>
-            <param name="idGallery"></param>
             <param name="idCongTy"></param>
             <param name="tenAnh"></param>
             <param name="duongDan"></param>
             <param name="moTa"></param>
             <param name="flag"></param>
         </member>
-        <member name="M:traveltips.Entities.GalleryBase.CreateGallery(System.Int64,System.Nullable{System.Int64},System.String,System.String,System.String,System.Nullable{System.Byte})">
+        <member name="M:traveltips.Entities.GalleryBase.CreateGallery(System.Nullable{System.Int64},System.String,System.String,System.String,System.Nullable{System.Byte})">
             <summary>
              A simple factory method to create a new <see cref="T:traveltips.Entities.Gallery"/> instance.
             </summary>
-            <param name="idGallery"></param>
             <param name="idCongTy"></param>
             <param name="tenAnh"></param>
             <param name="duongDan"></param>
@@ -1760,14 +1703,6 @@
             This property can not be set to null. 
             </remarks>
         </member>
-        <member name="P:traveltips.Entities.GalleryBase.OriginalIdGallery">
-            <summary>
-            	Get the original value of the id_Gallery property.
-            	
-            </summary>
-            <remarks>This is the original value of the id_Gallery property.</remarks>
-            <value>This type is bigint</value>
-        </member>
         <member name="P:traveltips.Entities.GalleryBase.IdCongTy">
             <summary>
             	Gets or sets the IdCongTy property. 
@@ -1896,11 +1831,6 @@
             </summary>
             <remarks>Member of the primary key of the underlying table "tbl_Gallery"</remarks>
         </member>
-        <member name="F:traveltips.Entities.GalleryBase.GalleryEntityData.OriginalIdGallery">
-            <summary>
-            keep a copy of the original so it can be used for editable primary keys.
-            </summary>
-        </member>
         <member name="F:traveltips.Entities.GalleryBase.GalleryEntityData.IdCongTy">
             <summary>
             id_CongTy : 
@@ -1981,11 +1911,6 @@
             id_CongTy : 
             </summary>
             <remarks>Member of the primary key of the underlying table "tbl_CongTy"</remarks>
-        </member>
-        <member name="P:traveltips.Entities.ICongTy.OriginalIdCongTy">
-            <summary>
-            keep a copy of the original so it can be used for editable primary keys.
-            </summary>
         </member>
         <member name="P:traveltips.Entities.ICongTy.IdChuCongTy">
             <summary>
@@ -2099,6 +2024,12 @@
             which are related to this object through the relation tinTucIdCongTy
             </summary>	
         </member>
+        <member name="P:traveltips.Entities.ICongTy.SanPham">
+            <summary>
+            Holds a  SanPham entity object
+            which is related to this object through the relation sanPhamIdSanPham
+            </summary>
+        </member>
         <member name="P:traveltips.Entities.ICongTy.DichVu">
             <summary>
             Holds a  DichVu entity object
@@ -2110,12 +2041,6 @@
             Holds a collection of entity objects
             which are related to this object through the relation commentIdCongty
             </summary>	
-        </member>
-        <member name="P:traveltips.Entities.ICongTy.SanPham">
-            <summary>
-            Holds a  SanPham entity object
-            which is related to this object through the relation sanPhamIdSanPham
-            </summary>
         </member>
         <member name="F:traveltips.Entities.CongTyBase.entityData">
             <summary>
@@ -2148,11 +2073,10 @@
              Creates a new <see cref="T:traveltips.Entities.CongTyBase"/> instance.
             </summary>
         </member>
-        <member name="M:traveltips.Entities.CongTyBase.#ctor(System.Int64,System.Nullable{System.Int64},System.Nullable{System.Int64},System.Nullable{System.Int64},System.Nullable{System.Int64},System.Nullable{System.Int64},System.Nullable{System.Int64},System.Nullable{System.Int64},System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Nullable{System.Byte})">
+        <member name="M:traveltips.Entities.CongTyBase.#ctor(System.Nullable{System.Int64},System.Nullable{System.Int64},System.Nullable{System.Int64},System.Nullable{System.Int64},System.Nullable{System.Int64},System.Nullable{System.Int64},System.Nullable{System.Int64},System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Nullable{System.Byte})">
             <summary>
              Creates a new <see cref="T:traveltips.Entities.CongTyBase"/> instance.
             </summary>
-            <param name="idCongTy"></param>
             <param name="idChuCongTy"></param>
             <param name="idDanhMuc"></param>
             <param name="idQuocGia"></param>
@@ -2174,11 +2098,10 @@
             <param name="moTaChiTiet"></param>
             <param name="flag"></param>
         </member>
-        <member name="M:traveltips.Entities.CongTyBase.CreateCongTy(System.Int64,System.Nullable{System.Int64},System.Nullable{System.Int64},System.Nullable{System.Int64},System.Nullable{System.Int64},System.Nullable{System.Int64},System.Nullable{System.Int64},System.Nullable{System.Int64},System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Nullable{System.Byte})">
+        <member name="M:traveltips.Entities.CongTyBase.CreateCongTy(System.Nullable{System.Int64},System.Nullable{System.Int64},System.Nullable{System.Int64},System.Nullable{System.Int64},System.Nullable{System.Int64},System.Nullable{System.Int64},System.Nullable{System.Int64},System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Nullable{System.Byte})">
             <summary>
              A simple factory method to create a new <see cref="T:traveltips.Entities.CongTy"/> instance.
             </summary>
-            <param name="idCongTy"></param>
             <param name="idChuCongTy"></param>
             <param name="idDanhMuc"></param>
             <param name="idQuocGia"></param>
@@ -2379,14 +2302,6 @@
             This property can not be set to null. 
             </remarks>
         </member>
-        <member name="P:traveltips.Entities.CongTyBase.OriginalIdCongTy">
-            <summary>
-            	Get the original value of the id_CongTy property.
-            	
-            </summary>
-            <remarks>This is the original value of the id_CongTy property.</remarks>
-            <value>This type is bigint</value>
-        </member>
         <member name="P:traveltips.Entities.CongTyBase.IdChuCongTy">
             <summary>
             	Gets or sets the IdChuCongTy property. 
@@ -2536,7 +2451,7 @@
             	Gets or sets the HinhThucTt property. 
             	
             </summary>
-            <value>This type is varchar.</value>
+            <value>This type is nvarchar.</value>
             <remarks>
             This property can be set to null. 
             </remarks>
@@ -2546,7 +2461,7 @@
             	Gets or sets the ThoiGianPv property. 
             	Luu duoi dang: Tu;den
             </summary>
-            <value>This type is varchar.</value>
+            <value>This type is nvarchar.</value>
             <remarks>
             This property can be set to null. 
             </remarks>
@@ -2627,6 +2542,12 @@
             which are related to this object through the relation FK_tbl_TinTuc_tbl_CongTy
             </summary>	
         </member>
+        <member name="P:traveltips.Entities.CongTyBase.SanPham">
+            <summary>
+            Holds a SanPham object
+            which is related to this object through the relation SanPham
+            </summary>
+        </member>
         <member name="P:traveltips.Entities.CongTyBase.DichVu">
             <summary>
             Holds a DichVu object
@@ -2638,12 +2559,6 @@
             Holds a collection of Comment objects
             which are related to this object through the relation FK_tbl_Comment_tbl_CongTy
             </summary>	
-        </member>
-        <member name="P:traveltips.Entities.CongTyBase.SanPham">
-            <summary>
-            Holds a SanPham object
-            which is related to this object through the relation SanPham
-            </summary>
         </member>
         <member name="P:traveltips.Entities.CongTyBase.TableName">
             <summary>
@@ -2712,11 +2627,6 @@
             id_CongTy : 
             </summary>
             <remarks>Member of the primary key of the underlying table "tbl_CongTy"</remarks>
-        </member>
-        <member name="F:traveltips.Entities.CongTyBase.CongTyEntityData.OriginalIdCongTy">
-            <summary>
-            keep a copy of the original so it can be used for editable primary keys.
-            </summary>
         </member>
         <member name="F:traveltips.Entities.CongTyBase.CongTyEntityData.IdChuCongTy">
             <summary>
@@ -2848,6 +2758,12 @@
             which are related to this object through the relation tinTucIdCongTy
             </summary>	
         </member>
+        <member name="P:traveltips.Entities.CongTyBase.CongTyEntityData.SanPham">
+            <summary>
+            Holds a  SanPham entity object
+            which is related to this object through the relation sanPhamIdSanPham
+            </summary>
+        </member>
         <member name="P:traveltips.Entities.CongTyBase.CongTyEntityData.DichVu">
             <summary>
             Holds a  DichVu entity object
@@ -2859,12 +2775,6 @@
             Holds a collection of entity objects
             which are related to this object through the relation commentIdCongty
             </summary>	
-        </member>
-        <member name="P:traveltips.Entities.CongTyBase.CongTyEntityData.SanPham">
-            <summary>
-            Holds a  SanPham entity object
-            which is related to this object through the relation sanPhamIdSanPham
-            </summary>
         </member>
         <member name="P:traveltips.Entities.CongTyBase.CongTyEntityData.EntityState">
             <summary>
@@ -2901,11 +2811,6 @@
             id_Comment : 
             </summary>
             <remarks>Member of the primary key of the underlying table "tbl_Comment"</remarks>
-        </member>
-        <member name="P:traveltips.Entities.IComment.OriginalIdComment">
-            <summary>
-            keep a copy of the original so it can be used for editable primary keys.
-            </summary>
         </member>
         <member name="P:traveltips.Entities.IComment.IdUser">
             <summary>
@@ -2963,22 +2868,20 @@
              Creates a new <see cref="T:traveltips.Entities.CommentBase"/> instance.
             </summary>
         </member>
-        <member name="M:traveltips.Entities.CommentBase.#ctor(System.Int64,System.Nullable{System.Int64},System.Nullable{System.Int64},System.String,System.String,System.Nullable{System.Byte})">
+        <member name="M:traveltips.Entities.CommentBase.#ctor(System.Nullable{System.Int64},System.Nullable{System.Int64},System.String,System.String,System.Nullable{System.Byte})">
             <summary>
              Creates a new <see cref="T:traveltips.Entities.CommentBase"/> instance.
             </summary>
-            <param name="idComment"></param>
             <param name="idUser"></param>
             <param name="idCongty"></param>
             <param name="tieuDe">Id trong table Label</param>
             <param name="noiDung">id truy xuat trong bang Label</param>
             <param name="flag"></param>
         </member>
-        <member name="M:traveltips.Entities.CommentBase.CreateComment(System.Int64,System.Nullable{System.Int64},System.Nullable{System.Int64},System.String,System.String,System.Nullable{System.Byte})">
+        <member name="M:traveltips.Entities.CommentBase.CreateComment(System.Nullable{System.Int64},System.Nullable{System.Int64},System.String,System.String,System.Nullable{System.Byte})">
             <summary>
              A simple factory method to create a new <see cref="T:traveltips.Entities.Comment"/> instance.
             </summary>
-            <param name="idComment"></param>
             <param name="idUser"></param>
             <param name="idCongty"></param>
             <param name="tieuDe">Id trong table Label</param>
@@ -3164,14 +3067,6 @@
             This property can not be set to null. 
             </remarks>
         </member>
-        <member name="P:traveltips.Entities.CommentBase.OriginalIdComment">
-            <summary>
-            	Get the original value of the id_Comment property.
-            	
-            </summary>
-            <remarks>This is the original value of the id_Comment property.</remarks>
-            <value>This type is bigint</value>
-        </member>
         <member name="P:traveltips.Entities.CommentBase.IdUser">
             <summary>
             	Gets or sets the IdUser property. 
@@ -3201,7 +3096,7 @@
             	Gets or sets the TieuDe property. 
             	Id trong table Label
             </summary>
-            <value>This type is varchar.</value>
+            <value>This type is nvarchar.</value>
             <remarks>
             This property can be set to null. 
             </remarks>
@@ -3211,7 +3106,7 @@
             	Gets or sets the NoiDung property. 
             	id truy xuat trong bang Label
             </summary>
-            <value>This type is varchar.</value>
+            <value>This type is nvarchar.</value>
             <remarks>
             This property can be set to null. 
             </remarks>
@@ -3307,11 +3202,6 @@
             id_Comment : 
             </summary>
             <remarks>Member of the primary key of the underlying table "tbl_Comment"</remarks>
-        </member>
-        <member name="F:traveltips.Entities.CommentBase.CommentEntityData.OriginalIdComment">
-            <summary>
-            keep a copy of the original so it can be used for editable primary keys.
-            </summary>
         </member>
         <member name="F:traveltips.Entities.CommentBase.CommentEntityData.IdUser">
             <summary>
@@ -3611,11 +3501,6 @@
             </summary>
             <remarks>Member of the primary key of the underlying table "tbl_Admin"</remarks>
         </member>
-        <member name="P:traveltips.Entities.IAdmin.OriginalIdAdmin">
-            <summary>
-            keep a copy of the original so it can be used for editable primary keys.
-            </summary>
-        </member>
         <member name="P:traveltips.Entities.IAdmin.TenDangNhap">
             <summary>
             TenDangNhap : 
@@ -3665,11 +3550,6 @@
             id_ThuocTinh : 
             </summary>
             <remarks>Member of the primary key of the underlying table "tbl_ThuocTinh"</remarks>
-        </member>
-        <member name="P:traveltips.Entities.IThuocTinh.OriginalIdThuocTinh">
-            <summary>
-            keep a copy of the original so it can be used for editable primary keys.
-            </summary>
         </member>
         <member name="P:traveltips.Entities.IThuocTinh.TenThuocTinh">
             <summary>
@@ -3728,20 +3608,18 @@
              Creates a new <see cref="T:traveltips.Entities.ThuocTinhBase"/> instance.
             </summary>
         </member>
-        <member name="M:traveltips.Entities.ThuocTinhBase.#ctor(System.Int64,System.String,System.String,System.Nullable{System.Byte})">
+        <member name="M:traveltips.Entities.ThuocTinhBase.#ctor(System.String,System.String,System.Nullable{System.Byte})">
             <summary>
              Creates a new <see cref="T:traveltips.Entities.ThuocTinhBase"/> instance.
             </summary>
-            <param name="idThuocTinh"></param>
             <param name="tenThuocTinh"></param>
             <param name="maThuocTinh"></param>
             <param name="flag"></param>
         </member>
-        <member name="M:traveltips.Entities.ThuocTinhBase.CreateThuocTinh(System.Int64,System.String,System.String,System.Nullable{System.Byte})">
+        <member name="M:traveltips.Entities.ThuocTinhBase.CreateThuocTinh(System.String,System.String,System.Nullable{System.Byte})">
             <summary>
              A simple factory method to create a new <see cref="T:traveltips.Entities.ThuocTinh"/> instance.
             </summary>
-            <param name="idThuocTinh"></param>
             <param name="tenThuocTinh"></param>
             <param name="maThuocTinh"></param>
             <param name="flag"></param>
@@ -3925,14 +3803,6 @@
             This property can not be set to null. 
             </remarks>
         </member>
-        <member name="P:traveltips.Entities.ThuocTinhBase.OriginalIdThuocTinh">
-            <summary>
-            	Get the original value of the id_ThuocTinh property.
-            	
-            </summary>
-            <remarks>This is the original value of the id_ThuocTinh property.</remarks>
-            <value>This type is bigint</value>
-        </member>
         <member name="P:traveltips.Entities.ThuocTinhBase.TenThuocTinh">
             <summary>
             	Gets or sets the TenThuocTinh property. 
@@ -4038,11 +3908,6 @@
             id_ThuocTinh : 
             </summary>
             <remarks>Member of the primary key of the underlying table "tbl_ThuocTinh"</remarks>
-        </member>
-        <member name="F:traveltips.Entities.ThuocTinhBase.ThuocTinhEntityData.OriginalIdThuocTinh">
-            <summary>
-            keep a copy of the original so it can be used for editable primary keys.
-            </summary>
         </member>
         <member name="F:traveltips.Entities.ThuocTinhBase.ThuocTinhEntityData.TenThuocTinh">
             <summary>
@@ -4258,11 +4123,6 @@
             </summary>
             <remarks>Member of the primary key of the underlying table "tbl_QuocGia"</remarks>
         </member>
-        <member name="P:traveltips.Entities.IQuocGia.OriginalIdQuocGia">
-            <summary>
-            keep a copy of the original so it can be used for editable primary keys.
-            </summary>
-        </member>
         <member name="P:traveltips.Entities.IQuocGia.TenQg">
             <summary>
             TenQG : 
@@ -4320,21 +4180,19 @@
              Creates a new <see cref="T:traveltips.Entities.QuocGiaBase"/> instance.
             </summary>
         </member>
-        <member name="M:traveltips.Entities.QuocGiaBase.#ctor(System.Int64,System.String,System.String,System.String,System.Nullable{System.Byte})">
+        <member name="M:traveltips.Entities.QuocGiaBase.#ctor(System.String,System.String,System.String,System.Nullable{System.Byte})">
             <summary>
              Creates a new <see cref="T:traveltips.Entities.QuocGiaBase"/> instance.
             </summary>
-            <param name="idQuocGia"></param>
             <param name="tenQg"></param>
             <param name="maQg"></param>
             <param name="moTa"></param>
             <param name="flag"></param>
         </member>
-        <member name="M:traveltips.Entities.QuocGiaBase.CreateQuocGia(System.Int64,System.String,System.String,System.String,System.Nullable{System.Byte})">
+        <member name="M:traveltips.Entities.QuocGiaBase.CreateQuocGia(System.String,System.String,System.String,System.Nullable{System.Byte})">
             <summary>
              A simple factory method to create a new <see cref="T:traveltips.Entities.QuocGia"/> instance.
             </summary>
-            <param name="idQuocGia"></param>
             <param name="tenQg"></param>
             <param name="maQg"></param>
             <param name="moTa"></param>
@@ -4519,14 +4377,6 @@
             This property can not be set to null. 
             </remarks>
         </member>
-        <member name="P:traveltips.Entities.QuocGiaBase.OriginalIdQuocGia">
-            <summary>
-            	Get the original value of the id_QuocGia property.
-            	
-            </summary>
-            <remarks>This is the original value of the id_QuocGia property.</remarks>
-            <value>This type is bigint</value>
-        </member>
         <member name="P:traveltips.Entities.QuocGiaBase.TenQg">
             <summary>
             	Gets or sets the TenQg property. 
@@ -4642,11 +4492,6 @@
             id_QuocGia : 
             </summary>
             <remarks>Member of the primary key of the underlying table "tbl_QuocGia"</remarks>
-        </member>
-        <member name="F:traveltips.Entities.QuocGiaBase.QuocGiaEntityData.OriginalIdQuocGia">
-            <summary>
-            keep a copy of the original so it can be used for editable primary keys.
-            </summary>
         </member>
         <member name="F:traveltips.Entities.QuocGiaBase.QuocGiaEntityData.TenQg">
             <summary>
@@ -4867,11 +4712,6 @@
             </summary>
             <remarks>Member of the primary key of the underlying table "tbl_Language"</remarks>
         </member>
-        <member name="P:traveltips.Entities.ILanguage.OriginalIdLanguage">
-            <summary>
-            keep a copy of the original so it can be used for editable primary keys.
-            </summary>
-        </member>
         <member name="P:traveltips.Entities.ILanguage.TenNn">
             <summary>
             TenNN : 
@@ -4942,21 +4782,19 @@
              Creates a new <see cref="T:traveltips.Entities.LanguageBase"/> instance.
             </summary>
         </member>
-        <member name="M:traveltips.Entities.LanguageBase.#ctor(System.Int32,System.String,System.String,System.Byte[],System.Nullable{System.Byte})">
+        <member name="M:traveltips.Entities.LanguageBase.#ctor(System.String,System.String,System.String,System.Nullable{System.Byte})">
             <summary>
              Creates a new <see cref="T:traveltips.Entities.LanguageBase"/> instance.
             </summary>
-            <param name="idLanguage"></param>
             <param name="tenNn"></param>
             <param name="maNn"></param>
             <param name="mota"></param>
             <param name="flag"></param>
         </member>
-        <member name="M:traveltips.Entities.LanguageBase.CreateLanguage(System.Int32,System.String,System.String,System.Byte[],System.Nullable{System.Byte})">
+        <member name="M:traveltips.Entities.LanguageBase.CreateLanguage(System.String,System.String,System.String,System.Nullable{System.Byte})">
             <summary>
              A simple factory method to create a new <see cref="T:traveltips.Entities.Language"/> instance.
             </summary>
-            <param name="idLanguage"></param>
             <param name="tenNn"></param>
             <param name="maNn"></param>
             <param name="mota"></param>
@@ -5141,14 +4979,6 @@
             This property can not be set to null. 
             </remarks>
         </member>
-        <member name="P:traveltips.Entities.LanguageBase.OriginalIdLanguage">
-            <summary>
-            	Get the original value of the id_Language property.
-            	
-            </summary>
-            <remarks>This is the original value of the id_Language property.</remarks>
-            <value>This type is int</value>
-        </member>
         <member name="P:traveltips.Entities.LanguageBase.TenNn">
             <summary>
             	Gets or sets the TenNn property. 
@@ -5174,7 +5004,7 @@
             	Gets or sets the Mota property. 
             	
             </summary>
-            <value>This type is varbinary.</value>
+            <value>This type is varchar.</value>
             <remarks>
             This property can be set to null. 
             </remarks>
@@ -5265,11 +5095,6 @@
             </summary>
             <remarks>Member of the primary key of the underlying table "tbl_Language"</remarks>
         </member>
-        <member name="F:traveltips.Entities.LanguageBase.LanguageEntityData.OriginalIdLanguage">
-            <summary>
-            keep a copy of the original so it can be used for editable primary keys.
-            </summary>
-        </member>
         <member name="F:traveltips.Entities.LanguageBase.LanguageEntityData.TenNn">
             <summary>
             TenNN : 
@@ -5338,11 +5163,6 @@
             </summary>
             <remarks>Member of the primary key of the underlying table "tbl_ThuocTinhSanPham"</remarks>
         </member>
-        <member name="P:traveltips.Entities.IThuocTinhSanPham.OriginalIdTtsp">
-            <summary>
-            keep a copy of the original so it can be used for editable primary keys.
-            </summary>
-        </member>
         <member name="P:traveltips.Entities.IThuocTinhSanPham.IdSanPham">
             <summary>
             id_SanPham : 
@@ -5399,22 +5219,20 @@
              Creates a new <see cref="T:traveltips.Entities.ThuocTinhSanPhamBase"/> instance.
             </summary>
         </member>
-        <member name="M:traveltips.Entities.ThuocTinhSanPhamBase.#ctor(System.Int64,System.Nullable{System.Int64},System.Nullable{System.Int64},System.String,System.String,System.Nullable{System.Byte})">
+        <member name="M:traveltips.Entities.ThuocTinhSanPhamBase.#ctor(System.Nullable{System.Int64},System.Nullable{System.Int64},System.String,System.String,System.Nullable{System.Byte})">
             <summary>
              Creates a new <see cref="T:traveltips.Entities.ThuocTinhSanPhamBase"/> instance.
             </summary>
-            <param name="idTtsp"></param>
             <param name="idSanPham"></param>
             <param name="idThuocTinh"></param>
             <param name="value1"></param>
             <param name="value2"></param>
             <param name="flag"></param>
         </member>
-        <member name="M:traveltips.Entities.ThuocTinhSanPhamBase.CreateThuocTinhSanPham(System.Int64,System.Nullable{System.Int64},System.Nullable{System.Int64},System.String,System.String,System.Nullable{System.Byte})">
+        <member name="M:traveltips.Entities.ThuocTinhSanPhamBase.CreateThuocTinhSanPham(System.Nullable{System.Int64},System.Nullable{System.Int64},System.String,System.String,System.Nullable{System.Byte})">
             <summary>
              A simple factory method to create a new <see cref="T:traveltips.Entities.ThuocTinhSanPham"/> instance.
             </summary>
-            <param name="idTtsp"></param>
             <param name="idSanPham"></param>
             <param name="idThuocTinh"></param>
             <param name="value1"></param>
@@ -5600,14 +5418,6 @@
             This property can not be set to null. 
             </remarks>
         </member>
-        <member name="P:traveltips.Entities.ThuocTinhSanPhamBase.OriginalIdTtsp">
-            <summary>
-            	Get the original value of the id_TTSP property.
-            	
-            </summary>
-            <remarks>This is the original value of the id_TTSP property.</remarks>
-            <value>This type is bigint</value>
-        </member>
         <member name="P:traveltips.Entities.ThuocTinhSanPhamBase.IdSanPham">
             <summary>
             	Gets or sets the IdSanPham property. 
@@ -5664,17 +5474,17 @@
             to check the value of IsFlagNull() and perform business logic appropriately.
             </remarks>
         </member>
-        <member name="P:traveltips.Entities.ThuocTinhSanPhamBase.IdThuocTinhSource">
-            <summary>
-            Gets or sets the source <see cref="T:traveltips.Entities.ThuocTinh"/>.
-            </summary>
-            <value>The source ThuocTinh for IdThuocTinh.</value>
-        </member>
         <member name="P:traveltips.Entities.ThuocTinhSanPhamBase.IdSanPhamSource">
             <summary>
             Gets or sets the source <see cref="T:traveltips.Entities.SanPham"/>.
             </summary>
             <value>The source SanPham for IdSanPham.</value>
+        </member>
+        <member name="P:traveltips.Entities.ThuocTinhSanPhamBase.IdThuocTinhSource">
+            <summary>
+            Gets or sets the source <see cref="T:traveltips.Entities.ThuocTinh"/>.
+            </summary>
+            <value>The source ThuocTinh for IdThuocTinh.</value>
         </member>
         <member name="P:traveltips.Entities.ThuocTinhSanPhamBase.TableName">
             <summary>
@@ -5744,11 +5554,6 @@
             </summary>
             <remarks>Member of the primary key of the underlying table "tbl_ThuocTinhSanPham"</remarks>
         </member>
-        <member name="F:traveltips.Entities.ThuocTinhSanPhamBase.ThuocTinhSanPhamEntityData.OriginalIdTtsp">
-            <summary>
-            keep a copy of the original so it can be used for editable primary keys.
-            </summary>
-        </member>
         <member name="F:traveltips.Entities.ThuocTinhSanPhamBase.ThuocTinhSanPhamEntityData.IdSanPham">
             <summary>
             id_SanPham : 
@@ -5780,17 +5585,17 @@
             </summary>
             <returns>A new object that is a copy of this instance.</returns>
         </member>
-        <member name="P:traveltips.Entities.ThuocTinhSanPhamBase.ThuocTinhSanPhamEntityData.IdThuocTinhSource">
-            <summary>
-            Gets or sets the source <see cref="T:traveltips.Entities.ThuocTinh"/>.
-            </summary>
-            <value>The source ThuocTinh for IdThuocTinh.</value>
-        </member>
         <member name="P:traveltips.Entities.ThuocTinhSanPhamBase.ThuocTinhSanPhamEntityData.IdSanPhamSource">
             <summary>
             Gets or sets the source <see cref="T:traveltips.Entities.SanPham"/>.
             </summary>
             <value>The source SanPham for IdSanPham.</value>
+        </member>
+        <member name="P:traveltips.Entities.ThuocTinhSanPhamBase.ThuocTinhSanPhamEntityData.IdThuocTinhSource">
+            <summary>
+            Gets or sets the source <see cref="T:traveltips.Entities.ThuocTinh"/>.
+            </summary>
+            <value>The source ThuocTinh for IdThuocTinh.</value>
         </member>
         <member name="P:traveltips.Entities.ThuocTinhSanPhamBase.ThuocTinhSanPhamEntityData.EntityState">
             <summary>
@@ -6371,11 +6176,6 @@
             </summary>
             <remarks>Member of the primary key of the underlying table "tbl_TuDien"</remarks>
         </member>
-        <member name="P:traveltips.Entities.ITuDien.OriginalIdTuDien">
-            <summary>
-            keep a copy of the original so it can be used for editable primary keys.
-            </summary>
-        </member>
         <member name="P:traveltips.Entities.ITuDien.IdDanhMuc">
             <summary>
             id_DanhMuc : 
@@ -6437,11 +6237,10 @@
              Creates a new <see cref="T:traveltips.Entities.TuDienBase"/> instance.
             </summary>
         </member>
-        <member name="M:traveltips.Entities.TuDienBase.#ctor(System.Int64,System.Nullable{System.Int64},System.String,System.String,System.String,System.String,System.Nullable{System.Byte})">
+        <member name="M:traveltips.Entities.TuDienBase.#ctor(System.Nullable{System.Int64},System.String,System.String,System.String,System.String,System.Nullable{System.Byte})">
             <summary>
              Creates a new <see cref="T:traveltips.Entities.TuDienBase"/> instance.
             </summary>
-            <param name="idTuDien"></param>
             <param name="idDanhMuc"></param>
             <param name="tenTu"></param>
             <param name="maTu"></param>
@@ -6449,11 +6248,10 @@
             <param name="moTa"></param>
             <param name="flag"></param>
         </member>
-        <member name="M:traveltips.Entities.TuDienBase.CreateTuDien(System.Int64,System.Nullable{System.Int64},System.String,System.String,System.String,System.String,System.Nullable{System.Byte})">
+        <member name="M:traveltips.Entities.TuDienBase.CreateTuDien(System.Nullable{System.Int64},System.String,System.String,System.String,System.String,System.Nullable{System.Byte})">
             <summary>
              A simple factory method to create a new <see cref="T:traveltips.Entities.TuDien"/> instance.
             </summary>
-            <param name="idTuDien"></param>
             <param name="idDanhMuc"></param>
             <param name="tenTu"></param>
             <param name="maTu"></param>
@@ -6640,14 +6438,6 @@
             This property can not be set to null. 
             </remarks>
         </member>
-        <member name="P:traveltips.Entities.TuDienBase.OriginalIdTuDien">
-            <summary>
-            	Get the original value of the id_TuDien property.
-            	
-            </summary>
-            <remarks>This is the original value of the id_TuDien property.</remarks>
-            <value>This type is bigint</value>
-        </member>
         <member name="P:traveltips.Entities.TuDienBase.IdDanhMuc">
             <summary>
             	Gets or sets the IdDanhMuc property. 
@@ -6675,7 +6465,7 @@
             	Gets or sets the MaTu property. 
             	
             </summary>
-            <value>This type is nchar.</value>
+            <value>This type is varchar.</value>
             <remarks>
             This property can be set to null. 
             </remarks>
@@ -6779,11 +6569,6 @@
             id_TuDien : 
             </summary>
             <remarks>Member of the primary key of the underlying table "tbl_TuDien"</remarks>
-        </member>
-        <member name="F:traveltips.Entities.TuDienBase.TuDienEntityData.OriginalIdTuDien">
-            <summary>
-            keep a copy of the original so it can be used for editable primary keys.
-            </summary>
         </member>
         <member name="F:traveltips.Entities.TuDienBase.TuDienEntityData.IdDanhMuc">
             <summary>
@@ -7189,11 +6974,6 @@
             </summary>
             <remarks>Member of the primary key of the underlying table "tbl_DichVu"</remarks>
         </member>
-        <member name="P:traveltips.Entities.IDichVu.OriginalIdDichVu">
-            <summary>
-            keep a copy of the original so it can be used for editable primary keys.
-            </summary>
-        </member>
         <member name="P:traveltips.Entities.IDichVu.IdCongTy">
             <summary>
             id_CongTy : 
@@ -7255,11 +7035,10 @@
              Creates a new <see cref="T:traveltips.Entities.DichVuBase"/> instance.
             </summary>
         </member>
-        <member name="M:traveltips.Entities.DichVuBase.#ctor(System.Int64,System.String,System.String,System.String,System.String,System.String,System.Nullable{System.Byte})">
+        <member name="M:traveltips.Entities.DichVuBase.#ctor(System.Nullable{System.Int64},System.String,System.String,System.String,System.String,System.Nullable{System.Byte})">
             <summary>
              Creates a new <see cref="T:traveltips.Entities.DichVuBase"/> instance.
             </summary>
-            <param name="idDichVu"></param>
             <param name="idCongTy"></param>
             <param name="tenDv"></param>
             <param name="maDv"></param>
@@ -7267,11 +7046,10 @@
             <param name="motaChiTiet"></param>
             <param name="flag"></param>
         </member>
-        <member name="M:traveltips.Entities.DichVuBase.CreateDichVu(System.Int64,System.String,System.String,System.String,System.String,System.String,System.Nullable{System.Byte})">
+        <member name="M:traveltips.Entities.DichVuBase.CreateDichVu(System.Nullable{System.Int64},System.String,System.String,System.String,System.String,System.Nullable{System.Byte})">
             <summary>
              A simple factory method to create a new <see cref="T:traveltips.Entities.DichVu"/> instance.
             </summary>
-            <param name="idDichVu"></param>
             <param name="idCongTy"></param>
             <param name="tenDv"></param>
             <param name="maDv"></param>
@@ -7458,22 +7236,16 @@
             This property can not be set to null. 
             </remarks>
         </member>
-        <member name="P:traveltips.Entities.DichVuBase.OriginalIdDichVu">
-            <summary>
-            	Get the original value of the id_DichVu property.
-            	
-            </summary>
-            <remarks>This is the original value of the id_DichVu property.</remarks>
-            <value>This type is bigint</value>
-        </member>
         <member name="P:traveltips.Entities.DichVuBase.IdCongTy">
             <summary>
             	Gets or sets the IdCongTy property. 
             	
             </summary>
-            <value>This type is nchar.</value>
+            <value>This type is bigint.</value>
             <remarks>
             This property can be set to null. 
+            If this column is null, this property will return (long)0. It is up to the developer
+            to check the value of IsIdCongTyNull() and perform business logic appropriately.
             </remarks>
         </member>
         <member name="P:traveltips.Entities.DichVuBase.TenDv">
@@ -7601,11 +7373,6 @@
             id_DichVu : 
             </summary>
             <remarks>Member of the primary key of the underlying table "tbl_DichVu"</remarks>
-        </member>
-        <member name="F:traveltips.Entities.DichVuBase.DichVuEntityData.OriginalIdDichVu">
-            <summary>
-            keep a copy of the original so it can be used for editable primary keys.
-            </summary>
         </member>
         <member name="F:traveltips.Entities.DichVuBase.DichVuEntityData.IdCongTy">
             <summary>
@@ -7870,11 +7637,10 @@
              Creates a new <see cref="T:traveltips.Entities.AdminBase"/> instance.
             </summary>
         </member>
-        <member name="M:traveltips.Entities.AdminBase.#ctor(System.Int64,System.String,System.String,System.String,System.String,System.String,System.Nullable{System.Byte})">
+        <member name="M:traveltips.Entities.AdminBase.#ctor(System.String,System.String,System.String,System.String,System.String,System.Nullable{System.Byte})">
             <summary>
              Creates a new <see cref="T:traveltips.Entities.AdminBase"/> instance.
             </summary>
-            <param name="idAdmin"></param>
             <param name="tenDangNhap"></param>
             <param name="email"></param>
             <param name="password"></param>
@@ -7882,11 +7648,10 @@
             <param name="dienThoai"></param>
             <param name="flag"></param>
         </member>
-        <member name="M:traveltips.Entities.AdminBase.CreateAdmin(System.Int64,System.String,System.String,System.String,System.String,System.String,System.Nullable{System.Byte})">
+        <member name="M:traveltips.Entities.AdminBase.CreateAdmin(System.String,System.String,System.String,System.String,System.String,System.Nullable{System.Byte})">
             <summary>
              A simple factory method to create a new <see cref="T:traveltips.Entities.Admin"/> instance.
             </summary>
-            <param name="idAdmin"></param>
             <param name="tenDangNhap"></param>
             <param name="email"></param>
             <param name="password"></param>
@@ -8073,14 +7838,6 @@
             This property can not be set to null. 
             </remarks>
         </member>
-        <member name="P:traveltips.Entities.AdminBase.OriginalIdAdmin">
-            <summary>
-            	Get the original value of the id_Admin property.
-            	
-            </summary>
-            <remarks>This is the original value of the id_Admin property.</remarks>
-            <value>This type is bigint</value>
-        </member>
         <member name="P:traveltips.Entities.AdminBase.TenDangNhap">
             <summary>
             	Gets or sets the TenDangNhap property. 
@@ -8116,7 +7873,7 @@
             	Gets or sets the HoTen property. 
             	
             </summary>
-            <value>This type is varchar.</value>
+            <value>This type is nvarchar.</value>
             <remarks>
             This property can be set to null. 
             </remarks>
@@ -8211,11 +7968,6 @@
             </summary>
             <remarks>Member of the primary key of the underlying table "tbl_Admin"</remarks>
         </member>
-        <member name="F:traveltips.Entities.AdminBase.AdminEntityData.OriginalIdAdmin">
-            <summary>
-            keep a copy of the original so it can be used for editable primary keys.
-            </summary>
-        </member>
         <member name="F:traveltips.Entities.AdminBase.AdminEntityData.TenDangNhap">
             <summary>
             TenDangNhap : 
@@ -8296,11 +8048,6 @@
             </summary>
             <remarks>Member of the primary key of the underlying table "tbl_Quan"</remarks>
         </member>
-        <member name="P:traveltips.Entities.IQuan.OriginalIdQuan">
-            <summary>
-            keep a copy of the original so it can be used for editable primary keys.
-            </summary>
-        </member>
         <member name="P:traveltips.Entities.IQuan.IdThanhPho">
             <summary>
             id_ThanhPho : 
@@ -8363,22 +8110,20 @@
              Creates a new <see cref="T:traveltips.Entities.QuanBase"/> instance.
             </summary>
         </member>
-        <member name="M:traveltips.Entities.QuanBase.#ctor(System.Int64,System.Nullable{System.Int64},System.String,System.String,System.String,System.Nullable{System.Byte})">
+        <member name="M:traveltips.Entities.QuanBase.#ctor(System.Nullable{System.Int64},System.String,System.String,System.String,System.Nullable{System.Byte})">
             <summary>
              Creates a new <see cref="T:traveltips.Entities.QuanBase"/> instance.
             </summary>
-            <param name="idQuan"></param>
             <param name="idThanhPho"></param>
             <param name="tenQuan"></param>
             <param name="maQuan"></param>
             <param name="moTa"></param>
             <param name="flag"></param>
         </member>
-        <member name="M:traveltips.Entities.QuanBase.CreateQuan(System.Int64,System.Nullable{System.Int64},System.String,System.String,System.String,System.Nullable{System.Byte})">
+        <member name="M:traveltips.Entities.QuanBase.CreateQuan(System.Nullable{System.Int64},System.String,System.String,System.String,System.Nullable{System.Byte})">
             <summary>
              A simple factory method to create a new <see cref="T:traveltips.Entities.Quan"/> instance.
             </summary>
-            <param name="idQuan"></param>
             <param name="idThanhPho"></param>
             <param name="tenQuan"></param>
             <param name="maQuan"></param>
@@ -8564,14 +8309,6 @@
             This property can not be set to null. 
             </remarks>
         </member>
-        <member name="P:traveltips.Entities.QuanBase.OriginalIdQuan">
-            <summary>
-            	Get the original value of the id_Quan property.
-            	
-            </summary>
-            <remarks>This is the original value of the id_Quan property.</remarks>
-            <value>This type is bigint</value>
-        </member>
         <member name="P:traveltips.Entities.QuanBase.IdThanhPho">
             <summary>
             	Gets or sets the IdThanhPho property. 
@@ -8706,11 +8443,6 @@
             </summary>
             <remarks>Member of the primary key of the underlying table "tbl_Quan"</remarks>
         </member>
-        <member name="F:traveltips.Entities.QuanBase.QuanEntityData.OriginalIdQuan">
-            <summary>
-            keep a copy of the original so it can be used for editable primary keys.
-            </summary>
-        </member>
         <member name="F:traveltips.Entities.QuanBase.QuanEntityData.IdThanhPho">
             <summary>
             id_ThanhPho : 
@@ -8784,11 +8516,6 @@
             id_ChuCongTy : 
             </summary>
             <remarks>Member of the primary key of the underlying table "tbl_ChuCongTy"</remarks>
-        </member>
-        <member name="P:traveltips.Entities.IChuCongTy.OriginalIdChuCongTy">
-            <summary>
-            keep a copy of the original so it can be used for editable primary keys.
-            </summary>
         </member>
         <member name="P:traveltips.Entities.IChuCongTy.TenChuCongTy">
             <summary>
@@ -9917,11 +9644,6 @@
             </summary>
             <remarks>Member of the primary key of the underlying table "tbl_Duong"</remarks>
         </member>
-        <member name="P:traveltips.Entities.IDuong.OriginalIdDuong">
-            <summary>
-            keep a copy of the original so it can be used for editable primary keys.
-            </summary>
-        </member>
         <member name="P:traveltips.Entities.IDuong.IdQuan">
             <summary>
             id_Quan : 
@@ -9999,11 +9721,6 @@
             </summary>
             <remarks>Member of the primary key of the underlying table "tbl_LabelLanguage"</remarks>
         </member>
-        <member name="P:traveltips.Entities.ILabelLanguage.OriginalIdLabelLanguage">
-            <summary>
-            keep a copy of the original so it can be used for editable primary keys.
-            </summary>
-        </member>
         <member name="P:traveltips.Entities.ILabelLanguage.IdLanguage">
             <summary>
             id_Language : 
@@ -10060,21 +9777,19 @@
              Creates a new <see cref="T:traveltips.Entities.KhuVucBase"/> instance.
             </summary>
         </member>
-        <member name="M:traveltips.Entities.KhuVucBase.#ctor(System.Int64,System.String,System.Byte[],System.String,System.Nullable{System.Byte})">
+        <member name="M:traveltips.Entities.KhuVucBase.#ctor(System.String,System.Byte[],System.String,System.Nullable{System.Byte})">
             <summary>
              Creates a new <see cref="T:traveltips.Entities.KhuVucBase"/> instance.
             </summary>
-            <param name="idKhuVuc"></param>
             <param name="tenKv"></param>
             <param name="maKv"></param>
             <param name="moTa"></param>
             <param name="flag"></param>
         </member>
-        <member name="M:traveltips.Entities.KhuVucBase.CreateKhuVuc(System.Int64,System.String,System.Byte[],System.String,System.Nullable{System.Byte})">
+        <member name="M:traveltips.Entities.KhuVucBase.CreateKhuVuc(System.String,System.Byte[],System.String,System.Nullable{System.Byte})">
             <summary>
              A simple factory method to create a new <see cref="T:traveltips.Entities.KhuVuc"/> instance.
             </summary>
-            <param name="idKhuVuc"></param>
             <param name="tenKv"></param>
             <param name="maKv"></param>
             <param name="moTa"></param>
@@ -10259,14 +9974,6 @@
             This property can not be set to null. 
             </remarks>
         </member>
-        <member name="P:traveltips.Entities.KhuVucBase.OriginalIdKhuVuc">
-            <summary>
-            	Get the original value of the id_KhuVuc property.
-            	
-            </summary>
-            <remarks>This is the original value of the id_KhuVuc property.</remarks>
-            <value>This type is bigint</value>
-        </member>
         <member name="P:traveltips.Entities.KhuVucBase.TenKv">
             <summary>
             	Gets or sets the TenKv property. 
@@ -10376,11 +10083,6 @@
             id_KhuVuc : 
             </summary>
             <remarks>Member of the primary key of the underlying table "tbl_KhuVuc"</remarks>
-        </member>
-        <member name="F:traveltips.Entities.KhuVucBase.KhuVucEntityData.OriginalIdKhuVuc">
-            <summary>
-            keep a copy of the original so it can be used for editable primary keys.
-            </summary>
         </member>
         <member name="F:traveltips.Entities.KhuVucBase.KhuVucEntityData.TenKv">
             <summary>
@@ -11029,21 +10731,19 @@
              Creates a new <see cref="T:traveltips.Entities.LabelLanguageBase"/> instance.
             </summary>
         </member>
-        <member name="M:traveltips.Entities.LabelLanguageBase.#ctor(System.Int64,System.Nullable{System.Int32},System.Nullable{System.Int64},System.String,System.Nullable{System.Byte})">
+        <member name="M:traveltips.Entities.LabelLanguageBase.#ctor(System.Nullable{System.Int32},System.Nullable{System.Int64},System.String,System.Nullable{System.Byte})">
             <summary>
              Creates a new <see cref="T:traveltips.Entities.LabelLanguageBase"/> instance.
             </summary>
-            <param name="idLabelLanguage"></param>
             <param name="idLanguage"></param>
             <param name="idLabel"></param>
             <param name="noiDung"></param>
             <param name="flag"></param>
         </member>
-        <member name="M:traveltips.Entities.LabelLanguageBase.CreateLabelLanguage(System.Int64,System.Nullable{System.Int32},System.Nullable{System.Int64},System.String,System.Nullable{System.Byte})">
+        <member name="M:traveltips.Entities.LabelLanguageBase.CreateLabelLanguage(System.Nullable{System.Int32},System.Nullable{System.Int64},System.String,System.Nullable{System.Byte})">
             <summary>
              A simple factory method to create a new <see cref="T:traveltips.Entities.LabelLanguage"/> instance.
             </summary>
-            <param name="idLabelLanguage"></param>
             <param name="idLanguage"></param>
             <param name="idLabel"></param>
             <param name="noiDung"></param>
@@ -11228,14 +10928,6 @@
             This property can not be set to null. 
             </remarks>
         </member>
-        <member name="P:traveltips.Entities.LabelLanguageBase.OriginalIdLabelLanguage">
-            <summary>
-            	Get the original value of the id_LabelLanguage property.
-            	
-            </summary>
-            <remarks>This is the original value of the id_LabelLanguage property.</remarks>
-            <value>This type is bigint</value>
-        </member>
         <member name="P:traveltips.Entities.LabelLanguageBase.IdLanguage">
             <summary>
             	Gets or sets the IdLanguage property. 
@@ -11361,11 +11053,6 @@
             id_LabelLanguage : 
             </summary>
             <remarks>Member of the primary key of the underlying table "tbl_LabelLanguage"</remarks>
-        </member>
-        <member name="F:traveltips.Entities.LabelLanguageBase.LabelLanguageEntityData.OriginalIdLabelLanguage">
-            <summary>
-            keep a copy of the original so it can be used for editable primary keys.
-            </summary>
         </member>
         <member name="F:traveltips.Entities.LabelLanguageBase.LabelLanguageEntityData.IdLanguage">
             <summary>
@@ -11816,11 +11503,6 @@
             </summary>
             <remarks>Member of the primary key of the underlying table "tbl_User"</remarks>
         </member>
-        <member name="P:traveltips.Entities.IUser.OriginalIdUser">
-            <summary>
-            keep a copy of the original so it can be used for editable primary keys.
-            </summary>
-        </member>
         <member name="P:traveltips.Entities.IUser.TenDangNhap">
             <summary>
             TenDangNhap : 
@@ -11903,11 +11585,10 @@
              Creates a new <see cref="T:traveltips.Entities.UserBase"/> instance.
             </summary>
         </member>
-        <member name="M:traveltips.Entities.UserBase.#ctor(System.Int64,System.Byte[],System.String,System.String,System.String,System.String,System.Byte[],System.String,System.String,System.Nullable{System.Byte})">
+        <member name="M:traveltips.Entities.UserBase.#ctor(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Nullable{System.Byte})">
             <summary>
              Creates a new <see cref="T:traveltips.Entities.UserBase"/> instance.
             </summary>
-            <param name="idUser"></param>
             <param name="tenDangNhap"></param>
             <param name="password"></param>
             <param name="hoTen"></param>
@@ -11918,11 +11599,10 @@
             <param name="avatar"></param>
             <param name="flag"></param>
         </member>
-        <member name="M:traveltips.Entities.UserBase.CreateUser(System.Int64,System.Byte[],System.String,System.String,System.String,System.String,System.Byte[],System.String,System.String,System.Nullable{System.Byte})">
+        <member name="M:traveltips.Entities.UserBase.CreateUser(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Nullable{System.Byte})">
             <summary>
              A simple factory method to create a new <see cref="T:traveltips.Entities.User"/> instance.
             </summary>
-            <param name="idUser"></param>
             <param name="tenDangNhap"></param>
             <param name="password"></param>
             <param name="hoTen"></param>
@@ -12112,20 +11792,12 @@
             This property can not be set to null. 
             </remarks>
         </member>
-        <member name="P:traveltips.Entities.UserBase.OriginalIdUser">
-            <summary>
-            	Get the original value of the id_User property.
-            	
-            </summary>
-            <remarks>This is the original value of the id_User property.</remarks>
-            <value>This type is bigint</value>
-        </member>
         <member name="P:traveltips.Entities.UserBase.TenDangNhap">
             <summary>
             	Gets or sets the TenDangNhap property. 
             	
             </summary>
-            <value>This type is varbinary.</value>
+            <value>This type is varchar.</value>
             <remarks>
             This property can be set to null. 
             </remarks>
@@ -12175,7 +11847,7 @@
             	Gets or sets the DienThoai property. 
             	
             </summary>
-            <value>This type is varbinary.</value>
+            <value>This type is varchar.</value>
             <remarks>
             This property can be set to null. 
             </remarks>
@@ -12185,7 +11857,7 @@
             	Gets or sets the Website property. 
             	
             </summary>
-            <value>This type is nvarchar.</value>
+            <value>This type is varchar.</value>
             <remarks>
             This property can be set to null. 
             </remarks>
@@ -12195,7 +11867,7 @@
             	Gets or sets the Avatar property. 
             	
             </summary>
-            <value>This type is varchar.</value>
+            <value>This type is nvarchar.</value>
             <remarks>
             This property can be set to null. 
             </remarks>
@@ -12285,11 +11957,6 @@
             id_User : 
             </summary>
             <remarks>Member of the primary key of the underlying table "tbl_User"</remarks>
-        </member>
-        <member name="F:traveltips.Entities.UserBase.UserEntityData.OriginalIdUser">
-            <summary>
-            keep a copy of the original so it can be used for editable primary keys.
-            </summary>
         </member>
         <member name="F:traveltips.Entities.UserBase.UserEntityData.TenDangNhap">
             <summary>
@@ -12395,11 +12062,10 @@
              Creates a new <see cref="T:traveltips.Entities.SanPhamBase"/> instance.
             </summary>
         </member>
-        <member name="M:traveltips.Entities.SanPhamBase.#ctor(System.Int64,System.Nullable{System.Int64},System.Nullable{System.Int64},System.Nullable{System.Int64},System.String,System.String,System.Nullable{System.Decimal},System.String,System.String,System.Byte[],System.Nullable{System.Byte})">
+        <member name="M:traveltips.Entities.SanPhamBase.#ctor(System.Nullable{System.Int64},System.Nullable{System.Int64},System.Nullable{System.Int64},System.String,System.String,System.Nullable{System.Decimal},System.String,System.String,System.Byte[],System.Nullable{System.Byte})">
             <summary>
              Creates a new <see cref="T:traveltips.Entities.SanPhamBase"/> instance.
             </summary>
-            <param name="idSanPham"></param>
             <param name="idCongTy"></param>
             <param name="idLoaiSp"></param>
             <param name="idTuDien">MaSP, TenSP duoc lay tu bang Tu Dien</param>
@@ -12411,11 +12077,10 @@
             <param name="anhMinhHoa"></param>
             <param name="flag"></param>
         </member>
-        <member name="M:traveltips.Entities.SanPhamBase.CreateSanPham(System.Int64,System.Nullable{System.Int64},System.Nullable{System.Int64},System.Nullable{System.Int64},System.String,System.String,System.Nullable{System.Decimal},System.String,System.String,System.Byte[],System.Nullable{System.Byte})">
+        <member name="M:traveltips.Entities.SanPhamBase.CreateSanPham(System.Nullable{System.Int64},System.Nullable{System.Int64},System.Nullable{System.Int64},System.String,System.String,System.Nullable{System.Decimal},System.String,System.String,System.Byte[],System.Nullable{System.Byte})">
             <summary>
              A simple factory method to create a new <see cref="T:traveltips.Entities.SanPham"/> instance.
             </summary>
-            <param name="idSanPham"></param>
             <param name="idCongTy"></param>
             <param name="idLoaiSp"></param>
             <param name="idTuDien">MaSP, TenSP duoc lay tu bang Tu Dien</param>
@@ -12605,14 +12270,6 @@
             <remarks>
             This property can not be set to null. 
             </remarks>
-        </member>
-        <member name="P:traveltips.Entities.SanPhamBase.OriginalIdSanPham">
-            <summary>
-            	Get the original value of the id_SanPham property.
-            	
-            </summary>
-            <remarks>This is the original value of the id_SanPham property.</remarks>
-            <value>This type is bigint</value>
         </member>
         <member name="P:traveltips.Entities.SanPhamBase.IdCongTy">
             <summary>
@@ -12809,11 +12466,6 @@
             id_SanPham : 
             </summary>
             <remarks>Member of the primary key of the underlying table "tbl_SanPham"</remarks>
-        </member>
-        <member name="F:traveltips.Entities.SanPhamBase.SanPhamEntityData.OriginalIdSanPham">
-            <summary>
-            keep a copy of the original so it can be used for editable primary keys.
-            </summary>
         </member>
         <member name="F:traveltips.Entities.SanPhamBase.SanPhamEntityData.IdCongTy">
             <summary>
@@ -13111,11 +12763,6 @@
             </summary>
             <remarks>Member of the primary key of the underlying table "tbl_LabelNN"</remarks>
         </member>
-        <member name="P:traveltips.Entities.ILabelNn.OriginalIdLabel">
-            <summary>
-            keep a copy of the original so it can be used for editable primary keys.
-            </summary>
-        </member>
         <member name="P:traveltips.Entities.ILabelNn.MaLabel">
             <summary>
             MaLabel : 
@@ -13173,21 +12820,19 @@
              Creates a new <see cref="T:traveltips.Entities.LabelNnBase"/> instance.
             </summary>
         </member>
-        <member name="M:traveltips.Entities.LabelNnBase.#ctor(System.Int64,System.String,System.String,System.String,System.Nullable{System.Byte})">
+        <member name="M:traveltips.Entities.LabelNnBase.#ctor(System.String,System.String,System.String,System.Nullable{System.Byte})">
             <summary>
              Creates a new <see cref="T:traveltips.Entities.LabelNnBase"/> instance.
             </summary>
-            <param name="idLabel"></param>
             <param name="maLabel"></param>
             <param name="tenLabel"></param>
             <param name="moTa"></param>
             <param name="flag"></param>
         </member>
-        <member name="M:traveltips.Entities.LabelNnBase.CreateLabelNn(System.Int64,System.String,System.String,System.String,System.Nullable{System.Byte})">
+        <member name="M:traveltips.Entities.LabelNnBase.CreateLabelNn(System.String,System.String,System.String,System.Nullable{System.Byte})">
             <summary>
              A simple factory method to create a new <see cref="T:traveltips.Entities.LabelNn"/> instance.
             </summary>
-            <param name="idLabel"></param>
             <param name="maLabel"></param>
             <param name="tenLabel"></param>
             <param name="moTa"></param>
@@ -13372,14 +13017,6 @@
             This property can not be set to null. 
             </remarks>
         </member>
-        <member name="P:traveltips.Entities.LabelNnBase.OriginalIdLabel">
-            <summary>
-            	Get the original value of the id_Label property.
-            	
-            </summary>
-            <remarks>This is the original value of the id_Label property.</remarks>
-            <value>This type is bigint</value>
-        </member>
         <member name="P:traveltips.Entities.LabelNnBase.MaLabel">
             <summary>
             	Gets or sets the MaLabel property. 
@@ -13495,11 +13132,6 @@
             id_Label : 
             </summary>
             <remarks>Member of the primary key of the underlying table "tbl_LabelNN"</remarks>
-        </member>
-        <member name="F:traveltips.Entities.LabelNnBase.LabelNnEntityData.OriginalIdLabel">
-            <summary>
-            keep a copy of the original so it can be used for editable primary keys.
-            </summary>
         </member>
         <member name="F:traveltips.Entities.LabelNnBase.LabelNnEntityData.MaLabel">
             <summary>
@@ -13744,11 +13376,10 @@
              Creates a new <see cref="T:traveltips.Entities.ChuCongTyBase"/> instance.
             </summary>
         </member>
-        <member name="M:traveltips.Entities.ChuCongTyBase.#ctor(System.Int64,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{System.Byte})">
+        <member name="M:traveltips.Entities.ChuCongTyBase.#ctor(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{System.Byte})">
             <summary>
              Creates a new <see cref="T:traveltips.Entities.ChuCongTyBase"/> instance.
             </summary>
-            <param name="idChuCongTy"></param>
             <param name="tenChuCongTy"></param>
             <param name="tenCongTy"></param>
             <param name="tenDangNhap"></param>
@@ -13760,11 +13391,10 @@
             <param name="ngayKetThuc"></param>
             <param name="flag"></param>
         </member>
-        <member name="M:traveltips.Entities.ChuCongTyBase.CreateChuCongTy(System.Int64,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{System.Byte})">
+        <member name="M:traveltips.Entities.ChuCongTyBase.CreateChuCongTy(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{System.Byte})">
             <summary>
              A simple factory method to create a new <see cref="T:traveltips.Entities.ChuCongTy"/> instance.
             </summary>
-            <param name="idChuCongTy"></param>
             <param name="tenChuCongTy"></param>
             <param name="tenCongTy"></param>
             <param name="tenDangNhap"></param>
@@ -13955,14 +13585,6 @@
             This property can not be set to null. 
             </remarks>
         </member>
-        <member name="P:traveltips.Entities.ChuCongTyBase.OriginalIdChuCongTy">
-            <summary>
-            	Get the original value of the id_ChuCongTy property.
-            	
-            </summary>
-            <remarks>This is the original value of the id_ChuCongTy property.</remarks>
-            <value>This type is bigint</value>
-        </member>
         <member name="P:traveltips.Entities.ChuCongTyBase.TenChuCongTy">
             <summary>
             	Gets or sets the TenChuCongTy property. 
@@ -14143,11 +13765,6 @@
             </summary>
             <remarks>Member of the primary key of the underlying table "tbl_ChuCongTy"</remarks>
         </member>
-        <member name="F:traveltips.Entities.ChuCongTyBase.ChuCongTyEntityData.OriginalIdChuCongTy">
-            <summary>
-            keep a copy of the original so it can be used for editable primary keys.
-            </summary>
-        </member>
         <member name="F:traveltips.Entities.ChuCongTyBase.ChuCongTyEntityData.TenChuCongTy">
             <summary>
             TenChuCongTy : 
@@ -14312,22 +13929,20 @@
              Creates a new <see cref="T:traveltips.Entities.DuongBase"/> instance.
             </summary>
         </member>
-        <member name="M:traveltips.Entities.DuongBase.#ctor(System.Int64,System.Nullable{System.Int64},System.String,System.Byte[],System.String,System.Nullable{System.Byte})">
+        <member name="M:traveltips.Entities.DuongBase.#ctor(System.Nullable{System.Int64},System.String,System.Byte[],System.String,System.Nullable{System.Byte})">
             <summary>
              Creates a new <see cref="T:traveltips.Entities.DuongBase"/> instance.
             </summary>
-            <param name="idDuong"></param>
             <param name="idQuan"></param>
             <param name="tenDuong"></param>
             <param name="maDuong"></param>
             <param name="moTa"></param>
             <param name="flag"></param>
         </member>
-        <member name="M:traveltips.Entities.DuongBase.CreateDuong(System.Int64,System.Nullable{System.Int64},System.String,System.Byte[],System.String,System.Nullable{System.Byte})">
+        <member name="M:traveltips.Entities.DuongBase.CreateDuong(System.Nullable{System.Int64},System.String,System.Byte[],System.String,System.Nullable{System.Byte})">
             <summary>
              A simple factory method to create a new <see cref="T:traveltips.Entities.Duong"/> instance.
             </summary>
-            <param name="idDuong"></param>
             <param name="idQuan"></param>
             <param name="tenDuong"></param>
             <param name="maDuong"></param>
@@ -14513,14 +14128,6 @@
             This property can not be set to null. 
             </remarks>
         </member>
-        <member name="P:traveltips.Entities.DuongBase.OriginalIdDuong">
-            <summary>
-            	Get the original value of the id_Duong property.
-            	
-            </summary>
-            <remarks>This is the original value of the id_Duong property.</remarks>
-            <value>This type is bigint</value>
-        </member>
         <member name="P:traveltips.Entities.DuongBase.IdQuan">
             <summary>
             	Gets or sets the IdQuan property. 
@@ -14649,11 +14256,6 @@
             </summary>
             <remarks>Member of the primary key of the underlying table "tbl_Duong"</remarks>
         </member>
-        <member name="F:traveltips.Entities.DuongBase.DuongEntityData.OriginalIdDuong">
-            <summary>
-            keep a copy of the original so it can be used for editable primary keys.
-            </summary>
-        </member>
         <member name="F:traveltips.Entities.DuongBase.DuongEntityData.IdQuan">
             <summary>
             id_Quan : 
@@ -14727,11 +14329,6 @@
             </summary>
             <remarks>Member of the primary key of the underlying table "tbl_ThanhPho"</remarks>
         </member>
-        <member name="P:traveltips.Entities.IThanhPho.OriginalIdThanhPho">
-            <summary>
-            keep a copy of the original so it can be used for editable primary keys.
-            </summary>
-        </member>
         <member name="P:traveltips.Entities.IThanhPho.IdQuocGia">
             <summary>
             id_QuocGia : 
@@ -14794,22 +14391,20 @@
              Creates a new <see cref="T:traveltips.Entities.ThanhPhoBase"/> instance.
             </summary>
         </member>
-        <member name="M:traveltips.Entities.ThanhPhoBase.#ctor(System.Int64,System.Nullable{System.Int64},System.String,System.String,System.String,System.Nullable{System.Byte})">
+        <member name="M:traveltips.Entities.ThanhPhoBase.#ctor(System.Nullable{System.Int64},System.String,System.String,System.String,System.Nullable{System.Byte})">
             <summary>
              Creates a new <see cref="T:traveltips.Entities.ThanhPhoBase"/> instance.
             </summary>
-            <param name="idThanhPho"></param>
             <param name="idQuocGia"></param>
             <param name="tenTp"></param>
             <param name="maTp"></param>
             <param name="mota"></param>
             <param name="flag"></param>
         </member>
-        <member name="M:traveltips.Entities.ThanhPhoBase.CreateThanhPho(System.Int64,System.Nullable{System.Int64},System.String,System.String,System.String,System.Nullable{System.Byte})">
+        <member name="M:traveltips.Entities.ThanhPhoBase.CreateThanhPho(System.Nullable{System.Int64},System.String,System.String,System.String,System.Nullable{System.Byte})">
             <summary>
              A simple factory method to create a new <see cref="T:traveltips.Entities.ThanhPho"/> instance.
             </summary>
-            <param name="idThanhPho"></param>
             <param name="idQuocGia"></param>
             <param name="tenTp"></param>
             <param name="maTp"></param>
@@ -14995,14 +14590,6 @@
             This property can not be set to null. 
             </remarks>
         </member>
-        <member name="P:traveltips.Entities.ThanhPhoBase.OriginalIdThanhPho">
-            <summary>
-            	Get the original value of the id_ThanhPho property.
-            	
-            </summary>
-            <remarks>This is the original value of the id_ThanhPho property.</remarks>
-            <value>This type is bigint</value>
-        </member>
         <member name="P:traveltips.Entities.ThanhPhoBase.IdQuocGia">
             <summary>
             	Gets or sets the IdQuocGia property. 
@@ -15136,11 +14723,6 @@
             id_ThanhPho : 
             </summary>
             <remarks>Member of the primary key of the underlying table "tbl_ThanhPho"</remarks>
-        </member>
-        <member name="F:traveltips.Entities.ThanhPhoBase.ThanhPhoEntityData.OriginalIdThanhPho">
-            <summary>
-            keep a copy of the original so it can be used for editable primary keys.
-            </summary>
         </member>
         <member name="F:traveltips.Entities.ThanhPhoBase.ThanhPhoEntityData.IdQuocGia">
             <summary>
@@ -16161,11 +15743,6 @@
             </summary>
             <remarks>Member of the primary key of the underlying table "tbl_DanhMuc"</remarks>
         </member>
-        <member name="P:traveltips.Entities.IDanhMuc.OriginalIdDanhMuc">
-            <summary>
-            keep a copy of the original so it can be used for editable primary keys.
-            </summary>
-        </member>
         <member name="P:traveltips.Entities.IDanhMuc.IdDmCha">
             <summary>
             id_DMCha : 
@@ -16241,22 +15818,20 @@
              Creates a new <see cref="T:traveltips.Entities.DanhMucBase"/> instance.
             </summary>
         </member>
-        <member name="M:traveltips.Entities.DanhMucBase.#ctor(System.Int64,System.Nullable{System.Int64},System.String,System.String,System.String,System.Nullable{System.Byte})">
+        <member name="M:traveltips.Entities.DanhMucBase.#ctor(System.Nullable{System.Int64},System.String,System.String,System.String,System.Nullable{System.Byte})">
             <summary>
              Creates a new <see cref="T:traveltips.Entities.DanhMucBase"/> instance.
             </summary>
-            <param name="idDanhMuc"></param>
             <param name="idDmCha"></param>
             <param name="tenDanhMuc"></param>
             <param name="maDanhMuc"></param>
             <param name="moTa"></param>
             <param name="flag"></param>
         </member>
-        <member name="M:traveltips.Entities.DanhMucBase.CreateDanhMuc(System.Int64,System.Nullable{System.Int64},System.String,System.String,System.String,System.Nullable{System.Byte})">
+        <member name="M:traveltips.Entities.DanhMucBase.CreateDanhMuc(System.Nullable{System.Int64},System.String,System.String,System.String,System.Nullable{System.Byte})">
             <summary>
              A simple factory method to create a new <see cref="T:traveltips.Entities.DanhMuc"/> instance.
             </summary>
-            <param name="idDanhMuc"></param>
             <param name="idDmCha"></param>
             <param name="tenDanhMuc"></param>
             <param name="maDanhMuc"></param>
@@ -16442,14 +16017,6 @@
             This property can not be set to null. 
             </remarks>
         </member>
-        <member name="P:traveltips.Entities.DanhMucBase.OriginalIdDanhMuc">
-            <summary>
-            	Get the original value of the id_DanhMuc property.
-            	
-            </summary>
-            <remarks>This is the original value of the id_DanhMuc property.</remarks>
-            <value>This type is bigint</value>
-        </member>
         <member name="P:traveltips.Entities.DanhMucBase.IdDmCha">
             <summary>
             	Gets or sets the IdDmCha property. 
@@ -16577,11 +16144,6 @@
             id_DanhMuc : 
             </summary>
             <remarks>Member of the primary key of the underlying table "tbl_DanhMuc"</remarks>
-        </member>
-        <member name="F:traveltips.Entities.DanhMucBase.DanhMucEntityData.OriginalIdDanhMuc">
-            <summary>
-            keep a copy of the original so it can be used for editable primary keys.
-            </summary>
         </member>
         <member name="F:traveltips.Entities.DanhMucBase.DanhMucEntityData.IdDmCha">
             <summary>

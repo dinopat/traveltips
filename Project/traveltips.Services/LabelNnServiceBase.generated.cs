@@ -52,15 +52,13 @@ namespace traveltips.Services
 		///<summary>
 		/// A simple factory method to create a new <see cref="LabelNn"/> instance.
 		///</summary>
-		///<param name="idLabel"></param>
 		///<param name="maLabel"></param>
 		///<param name="tenLabel"></param>
 		///<param name="moTa"></param>
 		///<param name="flag"></param>
-		public static LabelNn CreateLabelNn(System.Int64 idLabel, System.String maLabel, System.String tenLabel, System.String moTa, System.Byte? flag)
+		public static LabelNn CreateLabelNn(System.String maLabel, System.String tenLabel, System.String moTa, System.Byte? flag)
 		{
 			LabelNn newEntityLabelNn = new LabelNn();
-			newEntityLabelNn.IdLabel  = idLabel;
 			newEntityLabelNn.MaLabel  = maLabel;
 			newEntityLabelNn.TenLabel  = tenLabel;
 			newEntityLabelNn.MoTa  = moTa;

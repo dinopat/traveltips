@@ -52,15 +52,13 @@ namespace traveltips.Services
 		///<summary>
 		/// A simple factory method to create a new <see cref="KhuVuc"/> instance.
 		///</summary>
-		///<param name="idKhuVuc"></param>
 		///<param name="tenKv"></param>
 		///<param name="maKv"></param>
 		///<param name="moTa"></param>
 		///<param name="flag"></param>
-		public static KhuVuc CreateKhuVuc(System.Int64 idKhuVuc, System.String tenKv, System.Byte[] maKv, System.String moTa, System.Byte? flag)
+		public static KhuVuc CreateKhuVuc(System.String tenKv, System.Byte[] maKv, System.String moTa, System.Byte? flag)
 		{
 			KhuVuc newEntityKhuVuc = new KhuVuc();
-			newEntityKhuVuc.IdKhuVuc  = idKhuVuc;
 			newEntityKhuVuc.TenKv  = tenKv;
 			newEntityKhuVuc.MaKv  = maKv;
 			newEntityKhuVuc.MoTa  = moTa;

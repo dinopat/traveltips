@@ -52,15 +52,13 @@ namespace traveltips.Services
 		///<summary>
 		/// A simple factory method to create a new <see cref="QuocGia"/> instance.
 		///</summary>
-		///<param name="idQuocGia"></param>
 		///<param name="tenQg"></param>
 		///<param name="maQg"></param>
 		///<param name="moTa"></param>
 		///<param name="flag"></param>
-		public static QuocGia CreateQuocGia(System.Int64 idQuocGia, System.String tenQg, System.String maQg, System.String moTa, System.Byte? flag)
+		public static QuocGia CreateQuocGia(System.String tenQg, System.String maQg, System.String moTa, System.Byte? flag)
 		{
 			QuocGia newEntityQuocGia = new QuocGia();
-			newEntityQuocGia.IdQuocGia  = idQuocGia;
 			newEntityQuocGia.TenQg  = tenQg;
 			newEntityQuocGia.MaQg  = maQg;
 			newEntityQuocGia.MoTa  = moTa;

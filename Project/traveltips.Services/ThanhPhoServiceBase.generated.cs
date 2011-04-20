@@ -52,16 +52,14 @@ namespace traveltips.Services
 		///<summary>
 		/// A simple factory method to create a new <see cref="ThanhPho"/> instance.
 		///</summary>
-		///<param name="idThanhPho"></param>
 		///<param name="idQuocGia"></param>
 		///<param name="tenTp"></param>
 		///<param name="maTp"></param>
 		///<param name="mota"></param>
 		///<param name="flag"></param>
-		public static ThanhPho CreateThanhPho(System.Int64 idThanhPho, System.Int64? idQuocGia, System.String tenTp, System.String maTp, System.String mota, System.Byte? flag)
+		public static ThanhPho CreateThanhPho(System.Int64? idQuocGia, System.String tenTp, System.String maTp, System.String mota, System.Byte? flag)
 		{
 			ThanhPho newEntityThanhPho = new ThanhPho();
-			newEntityThanhPho.IdThanhPho  = idThanhPho;
 			newEntityThanhPho.IdQuocGia  = idQuocGia;
 			newEntityThanhPho.TenTp  = tenTp;
 			newEntityThanhPho.MaTp  = maTp;

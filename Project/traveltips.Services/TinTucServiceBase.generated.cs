@@ -52,17 +52,15 @@ namespace traveltips.Services
 		///<summary>
 		/// A simple factory method to create a new <see cref="TinTuc"/> instance.
 		///</summary>
-		///<param name="idTinTuc"></param>
 		///<param name="idCongTy"></param>
 		///<param name="tieuDe"></param>
 		///<param name="moTaNgan"></param>
 		///<param name="moTaChiTiet"></param>
 		///<param name="khuyenMai"></param>
 		///<param name="flag"></param>
-		public static TinTuc CreateTinTuc(System.Int64 idTinTuc, System.Int64? idCongTy, System.String tieuDe, System.String moTaNgan, System.String moTaChiTiet, System.Boolean? khuyenMai, System.Byte? flag)
+		public static TinTuc CreateTinTuc(System.Int64? idCongTy, System.String tieuDe, System.String moTaNgan, System.String moTaChiTiet, System.Boolean? khuyenMai, System.Byte? flag)
 		{
 			TinTuc newEntityTinTuc = new TinTuc();
-			newEntityTinTuc.IdTinTuc  = idTinTuc;
 			newEntityTinTuc.IdCongTy  = idCongTy;
 			newEntityTinTuc.TieuDe  = tieuDe;
 			newEntityTinTuc.MoTaNgan  = moTaNgan;

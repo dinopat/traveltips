@@ -125,7 +125,39 @@ namespace traveltips.Services
             return isExistEmailOfAdmin;
         }
 
-	}//End Class
+        #region DINOPAT
+        /*
+         * Lay Passưord theo Email
+         */
+        public string GetPassWordByEmail(string email)
+        {
+            string pw;
+            try
+            {
+                Object[] _paramvalues = new Object[1];
+                _paramvalues[0] = email;
+                object pass = DataRepository.Provider.ExecuteScalar("sp_AdminGetPassByEmail", _paramvalues);
+                pw = pass.ToString();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return pw;
+        }
+
+        /*
+        * Lay object Admin theo ID
+        */
+        public Admin GetByIdAdmin(long idAdmin)
+        {
+            return DataRepository.AdminProvider.GetByIdAdmin(idAdmin);
+        }
+
+        #endregion 
+
+
+    }//End Class
 
 
 } // end namespace

@@ -52,16 +52,14 @@ namespace traveltips.Services
 		///<summary>
 		/// A simple factory method to create a new <see cref="Comment"/> instance.
 		///</summary>
-		///<param name="idComment"></param>
 		///<param name="idUser"></param>
 		///<param name="idCongty"></param>
 		///<param name="tieuDe">Id trong table Label</param>
 		///<param name="noiDung">id truy xuat trong bang Label</param>
 		///<param name="flag"></param>
-		public static Comment CreateComment(System.Int64 idComment, System.Int64? idUser, System.Int64? idCongty, System.String tieuDe, System.String noiDung, System.Byte? flag)
+		public static Comment CreateComment(System.Int64? idUser, System.Int64? idCongty, System.String tieuDe, System.String noiDung, System.Byte? flag)
 		{
 			Comment newEntityComment = new Comment();
-			newEntityComment.IdComment  = idComment;
 			newEntityComment.IdUser  = idUser;
 			newEntityComment.IdCongty  = idCongty;
 			newEntityComment.TieuDe  = tieuDe;
