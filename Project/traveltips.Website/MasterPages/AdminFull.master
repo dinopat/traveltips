@@ -11,7 +11,9 @@
     <link rel="stylesheet" type="text/css" href="../css/jquery.css"/>
     <link rel="stylesheet" type="text/css" href="../css/contentslider.css"/>
     
-    <link href="../css/adminFullBody.css" rel="stylesheet" type="text/css" />     
+    <link href="../css/adminFullBody.css" rel="stylesheet" type="text/css" />   
+    <link href="../css/styleAdmin.css" rel="stylesheet" type="text/css" />     
+     
     <link href="../css/formGUI.css" rel="stylesheet" type="text/css" />
     <link href="../css/button.css" rel="stylesheet" type="text/css" />
     <!-- // Javascript // -->
