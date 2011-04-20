@@ -36,6 +36,14 @@ a img {
 .black {
 	color:#000;
 }
+
+.left {
+	float:left !important;
+}
+.right {
+	float:right !important;
+}
+/*
 h1 {
 	font-size:22px;
 	font-weight:normal;
@@ -44,10 +52,7 @@ h2 {
 	font-size:20px;
 	font-weight:normal;
 }
-h3 {
-	font-size:18px;
-	font-weight:normal;
-}
+
 h4 {
 	font-size:16px;
 	font-weight:normal;
@@ -68,11 +73,9 @@ h6 {
 p {
 	line-height:18px;
 }
-.left {
-	float:left !important;
-}
-.right {
-	float:right !important;
+h3 {
+	font-size:18px;
+	font-weight:normal;
 }
 .heading {
 
@@ -81,8 +84,9 @@ p {
 	margin-bottom:10px;
 	text-transform:uppercase;
 }
+*/
 input {
-	font-size:11px;
+	font-size:12px;
 }
 .itlc {
 	font-style:italic;
@@ -2488,4 +2492,15 @@ a {
     color: #3B5998;
     cursor: pointer;
     text-decoration: none;
+}
+.box-right {
+    float: right;
+    width: 350px;
+	margin-right:5px;
+/*	border:1px solid #CCCBCA;*/
+}
+.box-left {
+    float: left;
+    width: 600px;
+/*	border:1px solid #CCCBCA;*/
 }
