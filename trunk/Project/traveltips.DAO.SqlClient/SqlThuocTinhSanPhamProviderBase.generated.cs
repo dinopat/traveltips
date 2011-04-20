@@ -507,70 +507,6 @@ namespace traveltips.DAO.SqlClient
 		
 		#region Get By Foreign Key Functions
 
-		#region GetByIdThuocTinh
-		/// <summary>
-		/// 	Gets rows from the datasource based on the FK_tbl_ThuocTinhSanPham_tbl_ThuocTinh key.
-		///		FK_tbl_ThuocTinhSanPham_tbl_ThuocTinh Description: 
-		/// </summary>
-		/// <param name="start">Row number at which to start reading.</param>
-		/// <param name="pageLength">Number of rows to return.</param>
-		/// <param name="transactionManager"><see cref="TransactionManager"/> object</param>
-		/// <param name="idThuocTinh"></param>
-		/// <param name="count">out parameter to get total records for query</param>
-		/// <remarks></remarks>
-		/// <returns>Returns a typed collection of traveltips.Entities.ThuocTinhSanPham objects.</returns>
-        /// <exception cref="System.Exception">The command could not be executed.</exception>
-        /// <exception cref="System.Data.DataException">The <paramref name="transactionManager"/> is not open.</exception>
-        /// <exception cref="System.Data.Common.DbException">The command could not be executed.</exception>
-		public override traveltips.Entities.TList<ThuocTinhSanPham> GetByIdThuocTinh(TransactionManager transactionManager, System.Int64? idThuocTinh, int start, int pageLength, out int count)
-		{
-			SqlDatabase database = new SqlDatabase(this._connectionString);
-			DbCommand commandWrapper = StoredProcedureProvider.GetCommandWrapper(database, "dbo.tbl_ThuocTinhSanPham_GetByIdThuocTinh", _useStoredProcedure);
-			
-				database.AddInParameter(commandWrapper, "@IdThuocTinh", DbType.Int64, idThuocTinh);
-			
-			IDataReader reader = null;
-			traveltips.Entities.TList<ThuocTinhSanPham> rows = new traveltips.Entities.TList<ThuocTinhSanPham>();
-			try
-			{
-				//Provider Data Requesting Command Event
-				OnDataRequesting(new CommandEventArgs(commandWrapper, "GetByIdThuocTinh", rows)); 
-
-				if (transactionManager != null)
-				{
-					reader = Utility.ExecuteReader(transactionManager, commandWrapper);
-				}
-				else
-				{
-					reader = Utility.ExecuteReader(database, commandWrapper);
-				}
-			
-				//Create Collection
-				Fill(reader, rows, start, pageLength);
-				count = -1;
-				if(reader.NextResult())
-				{
-					if(reader.Read())
-					{
-						count = reader.GetInt32(0);
-					}
-				}
-				
-				//Provider Data Requested Command Event
-				OnDataRequested(new CommandEventArgs(commandWrapper, "GetByIdThuocTinh", rows)); 
-			}
-			finally
-			{
-				if (reader != null) 
-					reader.Close();
-					
-				commandWrapper = null;
-			}
-			return rows;
-		}	
-		#endregion
-	
-
 		#region GetByIdSanPham
 		/// <summary>
 		/// 	Gets rows from the datasource based on the FK_tbl_ThuocTinhSanPham_tbl_SanPham key.
@@ -622,6 +558,70 @@ namespace traveltips.DAO.SqlClient
 				
 				//Provider Data Requested Command Event
 				OnDataRequested(new CommandEventArgs(commandWrapper, "GetByIdSanPham", rows)); 
+			}
+			finally
+			{
+				if (reader != null) 
+					reader.Close();
+					
+				commandWrapper = null;
+			}
+			return rows;
+		}	
+		#endregion
+	
+
+		#region GetByIdThuocTinh
+		/// <summary>
+		/// 	Gets rows from the datasource based on the FK_tbl_ThuocTinhSanPham_tbl_ThuocTinh key.
+		///		FK_tbl_ThuocTinhSanPham_tbl_ThuocTinh Description: 
+		/// </summary>
+		/// <param name="start">Row number at which to start reading.</param>
+		/// <param name="pageLength">Number of rows to return.</param>
+		/// <param name="transactionManager"><see cref="TransactionManager"/> object</param>
+		/// <param name="idThuocTinh"></param>
+		/// <param name="count">out parameter to get total records for query</param>
+		/// <remarks></remarks>
+		/// <returns>Returns a typed collection of traveltips.Entities.ThuocTinhSanPham objects.</returns>
+        /// <exception cref="System.Exception">The command could not be executed.</exception>
+        /// <exception cref="System.Data.DataException">The <paramref name="transactionManager"/> is not open.</exception>
+        /// <exception cref="System.Data.Common.DbException">The command could not be executed.</exception>
+		public override traveltips.Entities.TList<ThuocTinhSanPham> GetByIdThuocTinh(TransactionManager transactionManager, System.Int64? idThuocTinh, int start, int pageLength, out int count)
+		{
+			SqlDatabase database = new SqlDatabase(this._connectionString);
+			DbCommand commandWrapper = StoredProcedureProvider.GetCommandWrapper(database, "dbo.tbl_ThuocTinhSanPham_GetByIdThuocTinh", _useStoredProcedure);
+			
+				database.AddInParameter(commandWrapper, "@IdThuocTinh", DbType.Int64, idThuocTinh);
+			
+			IDataReader reader = null;
+			traveltips.Entities.TList<ThuocTinhSanPham> rows = new traveltips.Entities.TList<ThuocTinhSanPham>();
+			try
+			{
+				//Provider Data Requesting Command Event
+				OnDataRequesting(new CommandEventArgs(commandWrapper, "GetByIdThuocTinh", rows)); 
+
+				if (transactionManager != null)
+				{
+					reader = Utility.ExecuteReader(transactionManager, commandWrapper);
+				}
+				else
+				{
+					reader = Utility.ExecuteReader(database, commandWrapper);
+				}
+			
+				//Create Collection
+				Fill(reader, rows, start, pageLength);
+				count = -1;
+				if(reader.NextResult())
+				{
+					if(reader.Read())
+					{
+						count = reader.GetInt32(0);
+					}
+				}
+				
+				//Provider Data Requested Command Event
+				OnDataRequested(new CommandEventArgs(commandWrapper, "GetByIdThuocTinh", rows)); 
 			}
 			finally
 			{
@@ -828,7 +828,7 @@ namespace traveltips.DAO.SqlClient
 			SqlDatabase database = new SqlDatabase(this._connectionString);
 			DbCommand commandWrapper = StoredProcedureProvider.GetCommandWrapper(database, "dbo.tbl_ThuocTinhSanPham_Insert", _useStoredProcedure);
 			
-			database.AddInParameter(commandWrapper, "@IdTtsp", DbType.Int64, entity.IdTtsp );
+			database.AddOutParameter(commandWrapper, "@IdTtsp", DbType.Int64, 8);
 			database.AddInParameter(commandWrapper, "@IdSanPham", DbType.Int64, (entity.IdSanPham.HasValue ? (object) entity.IdSanPham  : System.DBNull.Value));
 			database.AddInParameter(commandWrapper, "@IdThuocTinh", DbType.Int64, (entity.IdThuocTinh.HasValue ? (object) entity.IdThuocTinh  : System.DBNull.Value));
 			database.AddInParameter(commandWrapper, "@Value1", DbType.String, entity.Value1 );
@@ -849,8 +849,9 @@ namespace traveltips.DAO.SqlClient
 				results = Utility.ExecuteNonQuery(database,commandWrapper);
 			}
 					
+
+			entity.IdTtsp = (System.Int64) database.GetParameterValue(commandWrapper, "@IdTtsp");						
 			
-			entity.OriginalIdTtsp = entity.IdTtsp;
 			
 			entity.AcceptChanges();
 	
@@ -882,7 +883,6 @@ namespace traveltips.DAO.SqlClient
 			DbCommand commandWrapper = StoredProcedureProvider.GetCommandWrapper(database, "dbo.tbl_ThuocTinhSanPham_Update", _useStoredProcedure);
 			
 			database.AddInParameter(commandWrapper, "@IdTtsp", DbType.Int64, entity.IdTtsp );
-			database.AddInParameter(commandWrapper, "@OriginalIdTtsp", DbType.Int64, entity.OriginalIdTtsp);
 			database.AddInParameter(commandWrapper, "@IdSanPham", DbType.Int64, (entity.IdSanPham.HasValue ? (object) entity.IdSanPham : System.DBNull.Value) );
 			database.AddInParameter(commandWrapper, "@IdThuocTinh", DbType.Int64, (entity.IdThuocTinh.HasValue ? (object) entity.IdThuocTinh : System.DBNull.Value) );
 			database.AddInParameter(commandWrapper, "@Value1", DbType.String, entity.Value1 );
@@ -907,7 +907,6 @@ namespace traveltips.DAO.SqlClient
 			if (DataRepository.Provider.EnableEntityTracking)
 				EntityManager.StopTracking(entity.EntityTrackingKey);
 			
-			entity.OriginalIdTtsp = entity.IdTtsp;
 			
 			entity.AcceptChanges();
 			

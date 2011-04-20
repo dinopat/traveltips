@@ -687,7 +687,7 @@ namespace traveltips.DAO.SqlClient
 			SqlDatabase database = new SqlDatabase(this._connectionString);
 			DbCommand commandWrapper = StoredProcedureProvider.GetCommandWrapper(database, "dbo.tbl_KhuVuc_Insert", _useStoredProcedure);
 			
-			database.AddInParameter(commandWrapper, "@IdKhuVuc", DbType.Int64, entity.IdKhuVuc );
+			database.AddOutParameter(commandWrapper, "@IdKhuVuc", DbType.Int64, 8);
 			database.AddInParameter(commandWrapper, "@TenKv", DbType.String, entity.TenKv );
 			database.AddInParameter(commandWrapper, "@MaKv", DbType.Binary, entity.MaKv );
 			database.AddInParameter(commandWrapper, "@MoTa", DbType.String, entity.MoTa );
@@ -707,8 +707,9 @@ namespace traveltips.DAO.SqlClient
 				results = Utility.ExecuteNonQuery(database,commandWrapper);
 			}
 					
+
+			entity.IdKhuVuc = (System.Int64) database.GetParameterValue(commandWrapper, "@IdKhuVuc");						
 			
-			entity.OriginalIdKhuVuc = entity.IdKhuVuc;
 			
 			entity.AcceptChanges();
 	
@@ -740,7 +741,6 @@ namespace traveltips.DAO.SqlClient
 			DbCommand commandWrapper = StoredProcedureProvider.GetCommandWrapper(database, "dbo.tbl_KhuVuc_Update", _useStoredProcedure);
 			
 			database.AddInParameter(commandWrapper, "@IdKhuVuc", DbType.Int64, entity.IdKhuVuc );
-			database.AddInParameter(commandWrapper, "@OriginalIdKhuVuc", DbType.Int64, entity.OriginalIdKhuVuc);
 			database.AddInParameter(commandWrapper, "@TenKv", DbType.String, entity.TenKv );
 			database.AddInParameter(commandWrapper, "@MaKv", DbType.Binary, entity.MaKv );
 			database.AddInParameter(commandWrapper, "@MoTa", DbType.String, entity.MoTa );
@@ -764,7 +764,6 @@ namespace traveltips.DAO.SqlClient
 			if (DataRepository.Provider.EnableEntityTracking)
 				EntityManager.StopTracking(entity.EntityTrackingKey);
 			
-			entity.OriginalIdKhuVuc = entity.IdKhuVuc;
 			
 			entity.AcceptChanges();
 			

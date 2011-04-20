@@ -1843,22 +1843,6 @@
             <remarks></remarks>
             <returns>Returns a typed collection of traveltips.Entities.ThuocTinhSanPham objects.</returns>
         </member>
-        <member name="M:traveltips.DAO.SqlClient.SqlThuocTinhSanPhamProviderBase.GetByIdThuocTinh(traveltips.DAO.TransactionManager,System.Nullable{System.Int64},System.Int32,System.Int32,System.Int32@)">
-            <summary>
-            	Gets rows from the datasource based on the FK_tbl_ThuocTinhSanPham_tbl_ThuocTinh key.
-            	FK_tbl_ThuocTinhSanPham_tbl_ThuocTinh Description: 
-            </summary>
-            <param name="start">Row number at which to start reading.</param>
-            <param name="pageLength">Number of rows to return.</param>
-            <param name="transactionManager"><see cref="T:traveltips.DAO.TransactionManager"/> object</param>
-            <param name="idThuocTinh"></param>
-            <param name="count">out parameter to get total records for query</param>
-            <remarks></remarks>
-            <returns>Returns a typed collection of traveltips.Entities.ThuocTinhSanPham objects.</returns>
-            <exception cref="T:System.Exception">The command could not be executed.</exception>
-            <exception cref="T:System.Data.DataException">The <paramref name="transactionManager"/> is not open.</exception>
-            <exception cref="T:System.Data.Common.DbException">The command could not be executed.</exception>
-        </member>
         <member name="M:traveltips.DAO.SqlClient.SqlThuocTinhSanPhamProviderBase.GetByIdSanPham(traveltips.DAO.TransactionManager,System.Nullable{System.Int64},System.Int32,System.Int32,System.Int32@)">
             <summary>
             	Gets rows from the datasource based on the FK_tbl_ThuocTinhSanPham_tbl_SanPham key.
@@ -1868,6 +1852,22 @@
             <param name="pageLength">Number of rows to return.</param>
             <param name="transactionManager"><see cref="T:traveltips.DAO.TransactionManager"/> object</param>
             <param name="idSanPham"></param>
+            <param name="count">out parameter to get total records for query</param>
+            <remarks></remarks>
+            <returns>Returns a typed collection of traveltips.Entities.ThuocTinhSanPham objects.</returns>
+            <exception cref="T:System.Exception">The command could not be executed.</exception>
+            <exception cref="T:System.Data.DataException">The <paramref name="transactionManager"/> is not open.</exception>
+            <exception cref="T:System.Data.Common.DbException">The command could not be executed.</exception>
+        </member>
+        <member name="M:traveltips.DAO.SqlClient.SqlThuocTinhSanPhamProviderBase.GetByIdThuocTinh(traveltips.DAO.TransactionManager,System.Nullable{System.Int64},System.Int32,System.Int32,System.Int32@)">
+            <summary>
+            	Gets rows from the datasource based on the FK_tbl_ThuocTinhSanPham_tbl_ThuocTinh key.
+            	FK_tbl_ThuocTinhSanPham_tbl_ThuocTinh Description: 
+            </summary>
+            <param name="start">Row number at which to start reading.</param>
+            <param name="pageLength">Number of rows to return.</param>
+            <param name="transactionManager"><see cref="T:traveltips.DAO.TransactionManager"/> object</param>
+            <param name="idThuocTinh"></param>
             <param name="count">out parameter to get total records for query</param>
             <remarks></remarks>
             <returns>Returns a typed collection of traveltips.Entities.ThuocTinhSanPham objects.</returns>

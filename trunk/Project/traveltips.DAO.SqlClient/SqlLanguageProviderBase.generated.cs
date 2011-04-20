@@ -183,7 +183,7 @@ namespace traveltips.DAO.SqlClient
 		database.AddInParameter(commandWrapper, "@IdLanguage", DbType.Int32, DBNull.Value);
 		database.AddInParameter(commandWrapper, "@TenNn", DbType.AnsiString, DBNull.Value);
 		database.AddInParameter(commandWrapper, "@MaNn", DbType.AnsiString, DBNull.Value);
-		database.AddInParameter(commandWrapper, "@Mota", DbType.Binary, DBNull.Value);
+		database.AddInParameter(commandWrapper, "@Mota", DbType.AnsiString, DBNull.Value);
 		database.AddInParameter(commandWrapper, "@Flag", DbType.Byte, DBNull.Value);
 	
 			// replace all instances of 'AND' and 'OR' because we already set searchUsingOR
@@ -620,7 +620,7 @@ namespace traveltips.DAO.SqlClient
 			col1.AllowDBNull = true;		
 			DataColumn col2 = dataTable.Columns.Add("MaNN", typeof(System.String));
 			col2.AllowDBNull = true;		
-			DataColumn col3 = dataTable.Columns.Add("Mota", typeof(System.Byte[]));
+			DataColumn col3 = dataTable.Columns.Add("Mota", typeof(System.String));
 			col3.AllowDBNull = true;		
 			DataColumn col4 = dataTable.Columns.Add("Flag", typeof(System.Byte));
 			col4.AllowDBNull = true;		
@@ -687,10 +687,10 @@ namespace traveltips.DAO.SqlClient
 			SqlDatabase database = new SqlDatabase(this._connectionString);
 			DbCommand commandWrapper = StoredProcedureProvider.GetCommandWrapper(database, "dbo.tbl_Language_Insert", _useStoredProcedure);
 			
-			database.AddInParameter(commandWrapper, "@IdLanguage", DbType.Int32, entity.IdLanguage );
+			database.AddOutParameter(commandWrapper, "@IdLanguage", DbType.Int32, 4);
 			database.AddInParameter(commandWrapper, "@TenNn", DbType.AnsiString, entity.TenNn );
 			database.AddInParameter(commandWrapper, "@MaNn", DbType.AnsiString, entity.MaNn );
-			database.AddInParameter(commandWrapper, "@Mota", DbType.Binary, entity.Mota );
+			database.AddInParameter(commandWrapper, "@Mota", DbType.AnsiString, entity.Mota );
 			database.AddInParameter(commandWrapper, "@Flag", DbType.Byte, (entity.Flag.HasValue ? (object) entity.Flag  : System.DBNull.Value));
 			
 			int results = 0;
@@ -707,8 +707,9 @@ namespace traveltips.DAO.SqlClient
 				results = Utility.ExecuteNonQuery(database,commandWrapper);
 			}
 					
+
+			entity.IdLanguage = (System.Int32) database.GetParameterValue(commandWrapper, "@IdLanguage");						
 			
-			entity.OriginalIdLanguage = entity.IdLanguage;
 			
 			entity.AcceptChanges();
 	
@@ -740,10 +741,9 @@ namespace traveltips.DAO.SqlClient
 			DbCommand commandWrapper = StoredProcedureProvider.GetCommandWrapper(database, "dbo.tbl_Language_Update", _useStoredProcedure);
 			
 			database.AddInParameter(commandWrapper, "@IdLanguage", DbType.Int32, entity.IdLanguage );
-			database.AddInParameter(commandWrapper, "@OriginalIdLanguage", DbType.Int32, entity.OriginalIdLanguage);
 			database.AddInParameter(commandWrapper, "@TenNn", DbType.AnsiString, entity.TenNn );
 			database.AddInParameter(commandWrapper, "@MaNn", DbType.AnsiString, entity.MaNn );
-			database.AddInParameter(commandWrapper, "@Mota", DbType.Binary, entity.Mota );
+			database.AddInParameter(commandWrapper, "@Mota", DbType.AnsiString, entity.Mota );
 			database.AddInParameter(commandWrapper, "@Flag", DbType.Byte, (entity.Flag.HasValue ? (object) entity.Flag : System.DBNull.Value) );
 			
 			int results = 0;
@@ -764,7 +764,6 @@ namespace traveltips.DAO.SqlClient
 			if (DataRepository.Provider.EnableEntityTracking)
 				EntityManager.StopTracking(entity.EntityTrackingKey);
 			
-			entity.OriginalIdLanguage = entity.IdLanguage;
 			
 			entity.AcceptChanges();
 			

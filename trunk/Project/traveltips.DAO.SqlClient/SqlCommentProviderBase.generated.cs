@@ -183,8 +183,8 @@ namespace traveltips.DAO.SqlClient
 		database.AddInParameter(commandWrapper, "@IdComment", DbType.Int64, DBNull.Value);
 		database.AddInParameter(commandWrapper, "@IdUser", DbType.Int64, DBNull.Value);
 		database.AddInParameter(commandWrapper, "@IdCongty", DbType.Int64, DBNull.Value);
-		database.AddInParameter(commandWrapper, "@TieuDe", DbType.AnsiString, DBNull.Value);
-		database.AddInParameter(commandWrapper, "@NoiDung", DbType.AnsiString, DBNull.Value);
+		database.AddInParameter(commandWrapper, "@TieuDe", DbType.String, DBNull.Value);
+		database.AddInParameter(commandWrapper, "@NoiDung", DbType.String, DBNull.Value);
 		database.AddInParameter(commandWrapper, "@Flag", DbType.Byte, DBNull.Value);
 	
 			// replace all instances of 'AND' and 'OR' because we already set searchUsingOR
@@ -828,11 +828,11 @@ namespace traveltips.DAO.SqlClient
 			SqlDatabase database = new SqlDatabase(this._connectionString);
 			DbCommand commandWrapper = StoredProcedureProvider.GetCommandWrapper(database, "dbo.tbl_Comment_Insert", _useStoredProcedure);
 			
-			database.AddInParameter(commandWrapper, "@IdComment", DbType.Int64, entity.IdComment );
+			database.AddOutParameter(commandWrapper, "@IdComment", DbType.Int64, 8);
 			database.AddInParameter(commandWrapper, "@IdUser", DbType.Int64, (entity.IdUser.HasValue ? (object) entity.IdUser  : System.DBNull.Value));
 			database.AddInParameter(commandWrapper, "@IdCongty", DbType.Int64, (entity.IdCongty.HasValue ? (object) entity.IdCongty  : System.DBNull.Value));
-			database.AddInParameter(commandWrapper, "@TieuDe", DbType.AnsiString, entity.TieuDe );
-			database.AddInParameter(commandWrapper, "@NoiDung", DbType.AnsiString, entity.NoiDung );
+			database.AddInParameter(commandWrapper, "@TieuDe", DbType.String, entity.TieuDe );
+			database.AddInParameter(commandWrapper, "@NoiDung", DbType.String, entity.NoiDung );
 			database.AddInParameter(commandWrapper, "@Flag", DbType.Byte, (entity.Flag.HasValue ? (object) entity.Flag  : System.DBNull.Value));
 			
 			int results = 0;
@@ -849,8 +849,9 @@ namespace traveltips.DAO.SqlClient
 				results = Utility.ExecuteNonQuery(database,commandWrapper);
 			}
 					
+
+			entity.IdComment = (System.Int64) database.GetParameterValue(commandWrapper, "@IdComment");						
 			
-			entity.OriginalIdComment = entity.IdComment;
 			
 			entity.AcceptChanges();
 	
@@ -882,11 +883,10 @@ namespace traveltips.DAO.SqlClient
 			DbCommand commandWrapper = StoredProcedureProvider.GetCommandWrapper(database, "dbo.tbl_Comment_Update", _useStoredProcedure);
 			
 			database.AddInParameter(commandWrapper, "@IdComment", DbType.Int64, entity.IdComment );
-			database.AddInParameter(commandWrapper, "@OriginalIdComment", DbType.Int64, entity.OriginalIdComment);
 			database.AddInParameter(commandWrapper, "@IdUser", DbType.Int64, (entity.IdUser.HasValue ? (object) entity.IdUser : System.DBNull.Value) );
 			database.AddInParameter(commandWrapper, "@IdCongty", DbType.Int64, (entity.IdCongty.HasValue ? (object) entity.IdCongty : System.DBNull.Value) );
-			database.AddInParameter(commandWrapper, "@TieuDe", DbType.AnsiString, entity.TieuDe );
-			database.AddInParameter(commandWrapper, "@NoiDung", DbType.AnsiString, entity.NoiDung );
+			database.AddInParameter(commandWrapper, "@TieuDe", DbType.String, entity.TieuDe );
+			database.AddInParameter(commandWrapper, "@NoiDung", DbType.String, entity.NoiDung );
 			database.AddInParameter(commandWrapper, "@Flag", DbType.Byte, (entity.Flag.HasValue ? (object) entity.Flag : System.DBNull.Value) );
 			
 			int results = 0;
@@ -907,7 +907,6 @@ namespace traveltips.DAO.SqlClient
 			if (DataRepository.Provider.EnableEntityTracking)
 				EntityManager.StopTracking(entity.EntityTrackingKey);
 			
-			entity.OriginalIdComment = entity.IdComment;
 			
 			entity.AcceptChanges();
 			

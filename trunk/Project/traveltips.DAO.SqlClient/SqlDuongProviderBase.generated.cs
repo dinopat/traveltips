@@ -764,7 +764,7 @@ namespace traveltips.DAO.SqlClient
 			SqlDatabase database = new SqlDatabase(this._connectionString);
 			DbCommand commandWrapper = StoredProcedureProvider.GetCommandWrapper(database, "dbo.tbl_Duong_Insert", _useStoredProcedure);
 			
-			database.AddInParameter(commandWrapper, "@IdDuong", DbType.Int64, entity.IdDuong );
+			database.AddOutParameter(commandWrapper, "@IdDuong", DbType.Int64, 8);
 			database.AddInParameter(commandWrapper, "@IdQuan", DbType.Int64, (entity.IdQuan.HasValue ? (object) entity.IdQuan  : System.DBNull.Value));
 			database.AddInParameter(commandWrapper, "@TenDuong", DbType.String, entity.TenDuong );
 			database.AddInParameter(commandWrapper, "@MaDuong", DbType.Binary, entity.MaDuong );
@@ -785,8 +785,9 @@ namespace traveltips.DAO.SqlClient
 				results = Utility.ExecuteNonQuery(database,commandWrapper);
 			}
 					
+
+			entity.IdDuong = (System.Int64) database.GetParameterValue(commandWrapper, "@IdDuong");						
 			
-			entity.OriginalIdDuong = entity.IdDuong;
 			
 			entity.AcceptChanges();
 	
@@ -818,7 +819,6 @@ namespace traveltips.DAO.SqlClient
 			DbCommand commandWrapper = StoredProcedureProvider.GetCommandWrapper(database, "dbo.tbl_Duong_Update", _useStoredProcedure);
 			
 			database.AddInParameter(commandWrapper, "@IdDuong", DbType.Int64, entity.IdDuong );
-			database.AddInParameter(commandWrapper, "@OriginalIdDuong", DbType.Int64, entity.OriginalIdDuong);
 			database.AddInParameter(commandWrapper, "@IdQuan", DbType.Int64, (entity.IdQuan.HasValue ? (object) entity.IdQuan : System.DBNull.Value) );
 			database.AddInParameter(commandWrapper, "@TenDuong", DbType.String, entity.TenDuong );
 			database.AddInParameter(commandWrapper, "@MaDuong", DbType.Binary, entity.MaDuong );
@@ -843,7 +843,6 @@ namespace traveltips.DAO.SqlClient
 			if (DataRepository.Provider.EnableEntityTracking)
 				EntityManager.StopTracking(entity.EntityTrackingKey);
 			
-			entity.OriginalIdDuong = entity.IdDuong;
 			
 			entity.AcceptChanges();
 			

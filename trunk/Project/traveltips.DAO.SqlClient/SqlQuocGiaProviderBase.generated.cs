@@ -687,7 +687,7 @@ namespace traveltips.DAO.SqlClient
 			SqlDatabase database = new SqlDatabase(this._connectionString);
 			DbCommand commandWrapper = StoredProcedureProvider.GetCommandWrapper(database, "dbo.tbl_QuocGia_Insert", _useStoredProcedure);
 			
-			database.AddInParameter(commandWrapper, "@IdQuocGia", DbType.Int64, entity.IdQuocGia );
+			database.AddOutParameter(commandWrapper, "@IdQuocGia", DbType.Int64, 8);
 			database.AddInParameter(commandWrapper, "@TenQg", DbType.String, entity.TenQg );
 			database.AddInParameter(commandWrapper, "@MaQg", DbType.AnsiString, entity.MaQg );
 			database.AddInParameter(commandWrapper, "@MoTa", DbType.String, entity.MoTa );
@@ -707,8 +707,9 @@ namespace traveltips.DAO.SqlClient
 				results = Utility.ExecuteNonQuery(database,commandWrapper);
 			}
 					
+
+			entity.IdQuocGia = (System.Int64) database.GetParameterValue(commandWrapper, "@IdQuocGia");						
 			
-			entity.OriginalIdQuocGia = entity.IdQuocGia;
 			
 			entity.AcceptChanges();
 	
@@ -740,7 +741,6 @@ namespace traveltips.DAO.SqlClient
 			DbCommand commandWrapper = StoredProcedureProvider.GetCommandWrapper(database, "dbo.tbl_QuocGia_Update", _useStoredProcedure);
 			
 			database.AddInParameter(commandWrapper, "@IdQuocGia", DbType.Int64, entity.IdQuocGia );
-			database.AddInParameter(commandWrapper, "@OriginalIdQuocGia", DbType.Int64, entity.OriginalIdQuocGia);
 			database.AddInParameter(commandWrapper, "@TenQg", DbType.String, entity.TenQg );
 			database.AddInParameter(commandWrapper, "@MaQg", DbType.AnsiString, entity.MaQg );
 			database.AddInParameter(commandWrapper, "@MoTa", DbType.String, entity.MoTa );
@@ -764,7 +764,6 @@ namespace traveltips.DAO.SqlClient
 			if (DataRepository.Provider.EnableEntityTracking)
 				EntityManager.StopTracking(entity.EntityTrackingKey);
 			
-			entity.OriginalIdQuocGia = entity.IdQuocGia;
 			
 			entity.AcceptChanges();
 			

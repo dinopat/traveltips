@@ -765,7 +765,7 @@ namespace traveltips.DAO.SqlClient
 			SqlDatabase database = new SqlDatabase(this._connectionString);
 			DbCommand commandWrapper = StoredProcedureProvider.GetCommandWrapper(database, "dbo.tbl_ChuCongTy_Insert", _useStoredProcedure);
 			
-			database.AddInParameter(commandWrapper, "@IdChuCongTy", DbType.Int64, entity.IdChuCongTy );
+			database.AddOutParameter(commandWrapper, "@IdChuCongTy", DbType.Int64, 8);
 			database.AddInParameter(commandWrapper, "@TenChuCongTy", DbType.String, entity.TenChuCongTy );
 			database.AddInParameter(commandWrapper, "@TenCongTy", DbType.String, entity.TenCongTy );
 			database.AddInParameter(commandWrapper, "@TenDangNhap", DbType.AnsiString, entity.TenDangNhap );
@@ -791,8 +791,9 @@ namespace traveltips.DAO.SqlClient
 				results = Utility.ExecuteNonQuery(database,commandWrapper);
 			}
 					
+
+			entity.IdChuCongTy = (System.Int64) database.GetParameterValue(commandWrapper, "@IdChuCongTy");						
 			
-			entity.OriginalIdChuCongTy = entity.IdChuCongTy;
 			
 			entity.AcceptChanges();
 	
@@ -824,7 +825,6 @@ namespace traveltips.DAO.SqlClient
 			DbCommand commandWrapper = StoredProcedureProvider.GetCommandWrapper(database, "dbo.tbl_ChuCongTy_Update", _useStoredProcedure);
 			
 			database.AddInParameter(commandWrapper, "@IdChuCongTy", DbType.Int64, entity.IdChuCongTy );
-			database.AddInParameter(commandWrapper, "@OriginalIdChuCongTy", DbType.Int64, entity.OriginalIdChuCongTy);
 			database.AddInParameter(commandWrapper, "@TenChuCongTy", DbType.String, entity.TenChuCongTy );
 			database.AddInParameter(commandWrapper, "@TenCongTy", DbType.String, entity.TenCongTy );
 			database.AddInParameter(commandWrapper, "@TenDangNhap", DbType.AnsiString, entity.TenDangNhap );
@@ -854,7 +854,6 @@ namespace traveltips.DAO.SqlClient
 			if (DataRepository.Provider.EnableEntityTracking)
 				EntityManager.StopTracking(entity.EntityTrackingKey);
 			
-			entity.OriginalIdChuCongTy = entity.IdChuCongTy;
 			
 			entity.AcceptChanges();
 			

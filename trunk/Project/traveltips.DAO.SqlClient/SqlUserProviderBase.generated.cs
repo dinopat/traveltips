@@ -181,14 +181,14 @@ namespace traveltips.DAO.SqlClient
 		database.AddInParameter(commandWrapper, "@SearchUsingOR", DbType.Boolean, searchUsingOR);
 		
 		database.AddInParameter(commandWrapper, "@IdUser", DbType.Int64, DBNull.Value);
-		database.AddInParameter(commandWrapper, "@TenDangNhap", DbType.Binary, DBNull.Value);
+		database.AddInParameter(commandWrapper, "@TenDangNhap", DbType.AnsiString, DBNull.Value);
 		database.AddInParameter(commandWrapper, "@Password", DbType.String, DBNull.Value);
 		database.AddInParameter(commandWrapper, "@HoTen", DbType.String, DBNull.Value);
 		database.AddInParameter(commandWrapper, "@Email", DbType.String, DBNull.Value);
 		database.AddInParameter(commandWrapper, "@DiaChi", DbType.String, DBNull.Value);
-		database.AddInParameter(commandWrapper, "@DienThoai", DbType.Binary, DBNull.Value);
-		database.AddInParameter(commandWrapper, "@Website", DbType.String, DBNull.Value);
-		database.AddInParameter(commandWrapper, "@Avatar", DbType.AnsiString, DBNull.Value);
+		database.AddInParameter(commandWrapper, "@DienThoai", DbType.AnsiString, DBNull.Value);
+		database.AddInParameter(commandWrapper, "@Website", DbType.AnsiString, DBNull.Value);
+		database.AddInParameter(commandWrapper, "@Avatar", DbType.String, DBNull.Value);
 		database.AddInParameter(commandWrapper, "@Flag", DbType.Byte, DBNull.Value);
 	
 			// replace all instances of 'AND' and 'OR' because we already set searchUsingOR
@@ -651,7 +651,7 @@ namespace traveltips.DAO.SqlClient
 			DataTable dataTable = new DataTable();
 			DataColumn col0 = dataTable.Columns.Add("id_User", typeof(System.Int64));
 			col0.AllowDBNull = false;		
-			DataColumn col1 = dataTable.Columns.Add("TenDangNhap", typeof(System.Byte[]));
+			DataColumn col1 = dataTable.Columns.Add("TenDangNhap", typeof(System.String));
 			col1.AllowDBNull = true;		
 			DataColumn col2 = dataTable.Columns.Add("Password", typeof(System.String));
 			col2.AllowDBNull = true;		
@@ -661,7 +661,7 @@ namespace traveltips.DAO.SqlClient
 			col4.AllowDBNull = true;		
 			DataColumn col5 = dataTable.Columns.Add("DiaChi", typeof(System.String));
 			col5.AllowDBNull = true;		
-			DataColumn col6 = dataTable.Columns.Add("DienThoai", typeof(System.Byte[]));
+			DataColumn col6 = dataTable.Columns.Add("DienThoai", typeof(System.String));
 			col6.AllowDBNull = true;		
 			DataColumn col7 = dataTable.Columns.Add("Website", typeof(System.String));
 			col7.AllowDBNull = true;		
@@ -752,15 +752,15 @@ namespace traveltips.DAO.SqlClient
 			SqlDatabase database = new SqlDatabase(this._connectionString);
 			DbCommand commandWrapper = StoredProcedureProvider.GetCommandWrapper(database, "dbo.tbl_User_Insert", _useStoredProcedure);
 			
-			database.AddInParameter(commandWrapper, "@IdUser", DbType.Int64, entity.IdUser );
-			database.AddInParameter(commandWrapper, "@TenDangNhap", DbType.Binary, entity.TenDangNhap );
+			database.AddOutParameter(commandWrapper, "@IdUser", DbType.Int64, 8);
+			database.AddInParameter(commandWrapper, "@TenDangNhap", DbType.AnsiString, entity.TenDangNhap );
 			database.AddInParameter(commandWrapper, "@Password", DbType.String, entity.Password );
 			database.AddInParameter(commandWrapper, "@HoTen", DbType.String, entity.HoTen );
 			database.AddInParameter(commandWrapper, "@Email", DbType.String, entity.Email );
 			database.AddInParameter(commandWrapper, "@DiaChi", DbType.String, entity.DiaChi );
-			database.AddInParameter(commandWrapper, "@DienThoai", DbType.Binary, entity.DienThoai );
-			database.AddInParameter(commandWrapper, "@Website", DbType.String, entity.Website );
-			database.AddInParameter(commandWrapper, "@Avatar", DbType.AnsiString, entity.Avatar );
+			database.AddInParameter(commandWrapper, "@DienThoai", DbType.AnsiString, entity.DienThoai );
+			database.AddInParameter(commandWrapper, "@Website", DbType.AnsiString, entity.Website );
+			database.AddInParameter(commandWrapper, "@Avatar", DbType.String, entity.Avatar );
 			database.AddInParameter(commandWrapper, "@Flag", DbType.Byte, (entity.Flag.HasValue ? (object) entity.Flag  : System.DBNull.Value));
 			
 			int results = 0;
@@ -777,8 +777,9 @@ namespace traveltips.DAO.SqlClient
 				results = Utility.ExecuteNonQuery(database,commandWrapper);
 			}
 					
+
+			entity.IdUser = (System.Int64) database.GetParameterValue(commandWrapper, "@IdUser");						
 			
-			entity.OriginalIdUser = entity.IdUser;
 			
 			entity.AcceptChanges();
 	
@@ -810,15 +811,14 @@ namespace traveltips.DAO.SqlClient
 			DbCommand commandWrapper = StoredProcedureProvider.GetCommandWrapper(database, "dbo.tbl_User_Update", _useStoredProcedure);
 			
 			database.AddInParameter(commandWrapper, "@IdUser", DbType.Int64, entity.IdUser );
-			database.AddInParameter(commandWrapper, "@OriginalIdUser", DbType.Int64, entity.OriginalIdUser);
-			database.AddInParameter(commandWrapper, "@TenDangNhap", DbType.Binary, entity.TenDangNhap );
+			database.AddInParameter(commandWrapper, "@TenDangNhap", DbType.AnsiString, entity.TenDangNhap );
 			database.AddInParameter(commandWrapper, "@Password", DbType.String, entity.Password );
 			database.AddInParameter(commandWrapper, "@HoTen", DbType.String, entity.HoTen );
 			database.AddInParameter(commandWrapper, "@Email", DbType.String, entity.Email );
 			database.AddInParameter(commandWrapper, "@DiaChi", DbType.String, entity.DiaChi );
-			database.AddInParameter(commandWrapper, "@DienThoai", DbType.Binary, entity.DienThoai );
-			database.AddInParameter(commandWrapper, "@Website", DbType.String, entity.Website );
-			database.AddInParameter(commandWrapper, "@Avatar", DbType.AnsiString, entity.Avatar );
+			database.AddInParameter(commandWrapper, "@DienThoai", DbType.AnsiString, entity.DienThoai );
+			database.AddInParameter(commandWrapper, "@Website", DbType.AnsiString, entity.Website );
+			database.AddInParameter(commandWrapper, "@Avatar", DbType.String, entity.Avatar );
 			database.AddInParameter(commandWrapper, "@Flag", DbType.Byte, (entity.Flag.HasValue ? (object) entity.Flag : System.DBNull.Value) );
 			
 			int results = 0;
@@ -839,7 +839,6 @@ namespace traveltips.DAO.SqlClient
 			if (DataRepository.Provider.EnableEntityTracking)
 				EntityManager.StopTracking(entity.EntityTrackingKey);
 			
-			entity.OriginalIdUser = entity.IdUser;
 			
 			entity.AcceptChanges();
 			
