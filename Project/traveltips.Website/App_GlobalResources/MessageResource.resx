@@ -117,8 +117,20 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="blockOwnerFailure" xml:space="preserve">
+    <value>Có lỗi trong quá trình block chủ công ty</value>
+  </data>
+  <data name="blockOwnerSuccessfully" xml:space="preserve">
+    <value>Đã block chủ công ty</value>
+  </data>
   <data name="createAdminSuccessfully" xml:space="preserve">
     <value>Tạo tài khoản Admin thành công</value>
+  </data>
+  <data name="createOwnerFailure" xml:space="preserve">
+    <value>Có lỗi trong quá trình tạo mới chủ công ty</value>
+  </data>
+  <data name="createOwnerSuccessfully" xml:space="preserve">
+    <value>Đã tạo mới chủ công ty</value>
   </data>
   <data name="emailNotUsed" xml:space="preserve">
     <value>Địa chỉ Email chưa được đăng ký sử dụng</value>
@@ -143,5 +155,11 @@
   </data>
   <data name="telephoneMustBeNumber" xml:space="preserve">
     <value>Điện thoại phải là số</value>
+  </data>
+  <data name="updateOwnerFailure" xml:space="preserve">
+    <value>Có lỗi trong quá trình cập nhật thông tin chủ công ty</value>
+  </data>
+  <data name="updateOwnerSuccessfully" xml:space="preserve">
+    <value>Đã cập nhật thông tin chủ công ty </value>
   </data>
 </root>
