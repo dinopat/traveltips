@@ -295,7 +295,6 @@ namespace traveltips.DAO.Bases
 						{
 			c.SuppressEntityEvents = true;
 			c.IdGallery = (System.Int64)reader["id_Gallery"];
-			c.OriginalIdGallery = c.IdGallery;
 			c.IdCongTy = reader.IsDBNull(reader.GetOrdinal("id_CongTy")) ? null : (System.Int64?)reader["id_CongTy"];
 			c.TenAnh = reader.IsDBNull(reader.GetOrdinal("TenAnh")) ? null : (System.String)reader["TenAnh"];
 			c.DuongDan = reader.IsDBNull(reader.GetOrdinal("DuongDan")) ? null : (System.String)reader["DuongDan"];
@@ -319,7 +318,6 @@ namespace traveltips.DAO.Bases
 			if (!reader.Read()) return;
 			
 			entity.IdGallery = (System.Int64)reader["id_Gallery"];
-			entity.OriginalIdGallery = (System.Int64)reader["id_Gallery"];
 			entity.IdCongTy = reader.IsDBNull(reader.GetOrdinal("id_CongTy")) ? null : (System.Int64?)reader["id_CongTy"];
 			entity.TenAnh = reader.IsDBNull(reader.GetOrdinal("TenAnh")) ? null : (System.String)reader["TenAnh"];
 			entity.DuongDan = reader.IsDBNull(reader.GetOrdinal("DuongDan")) ? null : (System.String)reader["DuongDan"];
@@ -338,7 +336,6 @@ namespace traveltips.DAO.Bases
 			DataRow dataRow = dataSet.Tables[0].Rows[0];
 			
 			entity.IdGallery = (System.Int64)dataRow["id_Gallery"];
-			entity.OriginalIdGallery = (System.Int64)dataRow["id_Gallery"];
 			entity.IdCongTy = Convert.IsDBNull(dataRow["id_CongTy"]) ? null : (System.Int64?)dataRow["id_CongTy"];
 			entity.TenAnh = Convert.IsDBNull(dataRow["TenAnh"]) ? null : (System.String)dataRow["TenAnh"];
 			entity.DuongDan = Convert.IsDBNull(dataRow["DuongDan"]) ? null : (System.String)dataRow["DuongDan"];

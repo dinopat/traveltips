@@ -210,7 +210,6 @@ namespace traveltips.DAO.Bases
 						{
 			c.SuppressEntityEvents = true;
 			c.IdLabel = (System.Int64)reader["id_Label"];
-			c.OriginalIdLabel = c.IdLabel;
 			c.MaLabel = reader.IsDBNull(reader.GetOrdinal("MaLabel")) ? null : (System.String)reader["MaLabel"];
 			c.TenLabel = reader.IsDBNull(reader.GetOrdinal("TenLabel")) ? null : (System.String)reader["TenLabel"];
 			c.MoTa = reader.IsDBNull(reader.GetOrdinal("MoTa")) ? null : (System.String)reader["MoTa"];
@@ -233,7 +232,6 @@ namespace traveltips.DAO.Bases
 			if (!reader.Read()) return;
 			
 			entity.IdLabel = (System.Int64)reader["id_Label"];
-			entity.OriginalIdLabel = (System.Int64)reader["id_Label"];
 			entity.MaLabel = reader.IsDBNull(reader.GetOrdinal("MaLabel")) ? null : (System.String)reader["MaLabel"];
 			entity.TenLabel = reader.IsDBNull(reader.GetOrdinal("TenLabel")) ? null : (System.String)reader["TenLabel"];
 			entity.MoTa = reader.IsDBNull(reader.GetOrdinal("MoTa")) ? null : (System.String)reader["MoTa"];
@@ -251,7 +249,6 @@ namespace traveltips.DAO.Bases
 			DataRow dataRow = dataSet.Tables[0].Rows[0];
 			
 			entity.IdLabel = (System.Int64)dataRow["id_Label"];
-			entity.OriginalIdLabel = (System.Int64)dataRow["id_Label"];
 			entity.MaLabel = Convert.IsDBNull(dataRow["MaLabel"]) ? null : (System.String)dataRow["MaLabel"];
 			entity.TenLabel = Convert.IsDBNull(dataRow["TenLabel"]) ? null : (System.String)dataRow["TenLabel"];
 			entity.MoTa = Convert.IsDBNull(dataRow["MoTa"]) ? null : (System.String)dataRow["MoTa"];

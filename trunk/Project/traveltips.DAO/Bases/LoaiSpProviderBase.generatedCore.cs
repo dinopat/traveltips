@@ -210,7 +210,6 @@ namespace traveltips.DAO.Bases
 						{
 			c.SuppressEntityEvents = true;
 			c.IdLoaiSp = (System.Int64)reader["id_LoaiSP"];
-			c.OriginalIdLoaiSp = c.IdLoaiSp;
 			c.IdLoaiSpCha = reader.IsDBNull(reader.GetOrdinal("id_LoaiSPCha")) ? null : (System.Int64?)reader["id_LoaiSPCha"];
 			c.TenLoaiSp = reader.IsDBNull(reader.GetOrdinal("TenLoaiSP")) ? null : (System.String)reader["TenLoaiSP"];
 			c.MaLoaiSp = reader.IsDBNull(reader.GetOrdinal("MaLoaiSP")) ? null : (System.String)reader["MaLoaiSP"];
@@ -234,7 +233,6 @@ namespace traveltips.DAO.Bases
 			if (!reader.Read()) return;
 			
 			entity.IdLoaiSp = (System.Int64)reader["id_LoaiSP"];
-			entity.OriginalIdLoaiSp = (System.Int64)reader["id_LoaiSP"];
 			entity.IdLoaiSpCha = reader.IsDBNull(reader.GetOrdinal("id_LoaiSPCha")) ? null : (System.Int64?)reader["id_LoaiSPCha"];
 			entity.TenLoaiSp = reader.IsDBNull(reader.GetOrdinal("TenLoaiSP")) ? null : (System.String)reader["TenLoaiSP"];
 			entity.MaLoaiSp = reader.IsDBNull(reader.GetOrdinal("MaLoaiSP")) ? null : (System.String)reader["MaLoaiSP"];
@@ -253,7 +251,6 @@ namespace traveltips.DAO.Bases
 			DataRow dataRow = dataSet.Tables[0].Rows[0];
 			
 			entity.IdLoaiSp = (System.Int64)dataRow["id_LoaiSP"];
-			entity.OriginalIdLoaiSp = (System.Int64)dataRow["id_LoaiSP"];
 			entity.IdLoaiSpCha = Convert.IsDBNull(dataRow["id_LoaiSPCha"]) ? null : (System.Int64?)dataRow["id_LoaiSPCha"];
 			entity.TenLoaiSp = Convert.IsDBNull(dataRow["TenLoaiSP"]) ? null : (System.String)dataRow["TenLoaiSP"];
 			entity.MaLoaiSp = Convert.IsDBNull(dataRow["MaLoaiSP"]) ? null : (System.String)dataRow["MaLoaiSP"];

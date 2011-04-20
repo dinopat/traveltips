@@ -210,7 +210,6 @@ namespace traveltips.DAO.Bases
 						{
 			c.SuppressEntityEvents = true;
 			c.IdDanhMuc = (System.Int64)reader["id_DanhMuc"];
-			c.OriginalIdDanhMuc = c.IdDanhMuc;
 			c.IdDmCha = reader.IsDBNull(reader.GetOrdinal("id_DMCha")) ? null : (System.Int64?)reader["id_DMCha"];
 			c.TenDanhMuc = reader.IsDBNull(reader.GetOrdinal("TenDanhMuc")) ? null : (System.String)reader["TenDanhMuc"];
 			c.MaDanhMuc = reader.IsDBNull(reader.GetOrdinal("MaDanhMuc")) ? null : (System.String)reader["MaDanhMuc"];
@@ -234,7 +233,6 @@ namespace traveltips.DAO.Bases
 			if (!reader.Read()) return;
 			
 			entity.IdDanhMuc = (System.Int64)reader["id_DanhMuc"];
-			entity.OriginalIdDanhMuc = (System.Int64)reader["id_DanhMuc"];
 			entity.IdDmCha = reader.IsDBNull(reader.GetOrdinal("id_DMCha")) ? null : (System.Int64?)reader["id_DMCha"];
 			entity.TenDanhMuc = reader.IsDBNull(reader.GetOrdinal("TenDanhMuc")) ? null : (System.String)reader["TenDanhMuc"];
 			entity.MaDanhMuc = reader.IsDBNull(reader.GetOrdinal("MaDanhMuc")) ? null : (System.String)reader["MaDanhMuc"];
@@ -253,7 +251,6 @@ namespace traveltips.DAO.Bases
 			DataRow dataRow = dataSet.Tables[0].Rows[0];
 			
 			entity.IdDanhMuc = (System.Int64)dataRow["id_DanhMuc"];
-			entity.OriginalIdDanhMuc = (System.Int64)dataRow["id_DanhMuc"];
 			entity.IdDmCha = Convert.IsDBNull(dataRow["id_DMCha"]) ? null : (System.Int64?)dataRow["id_DMCha"];
 			entity.TenDanhMuc = Convert.IsDBNull(dataRow["TenDanhMuc"]) ? null : (System.String)dataRow["TenDanhMuc"];
 			entity.MaDanhMuc = Convert.IsDBNull(dataRow["MaDanhMuc"]) ? null : (System.String)dataRow["MaDanhMuc"];

@@ -210,7 +210,6 @@ namespace traveltips.DAO.Bases
 						{
 			c.SuppressEntityEvents = true;
 			c.IdAdmin = (System.Int64)reader["id_Admin"];
-			c.OriginalIdAdmin = c.IdAdmin;
 			c.TenDangNhap = reader.IsDBNull(reader.GetOrdinal("TenDangNhap")) ? null : (System.String)reader["TenDangNhap"];
 			c.Email = reader.IsDBNull(reader.GetOrdinal("Email")) ? null : (System.String)reader["Email"];
 			c.Password = reader.IsDBNull(reader.GetOrdinal("Password")) ? null : (System.String)reader["Password"];
@@ -235,7 +234,6 @@ namespace traveltips.DAO.Bases
 			if (!reader.Read()) return;
 			
 			entity.IdAdmin = (System.Int64)reader["id_Admin"];
-			entity.OriginalIdAdmin = (System.Int64)reader["id_Admin"];
 			entity.TenDangNhap = reader.IsDBNull(reader.GetOrdinal("TenDangNhap")) ? null : (System.String)reader["TenDangNhap"];
 			entity.Email = reader.IsDBNull(reader.GetOrdinal("Email")) ? null : (System.String)reader["Email"];
 			entity.Password = reader.IsDBNull(reader.GetOrdinal("Password")) ? null : (System.String)reader["Password"];
@@ -255,7 +253,6 @@ namespace traveltips.DAO.Bases
 			DataRow dataRow = dataSet.Tables[0].Rows[0];
 			
 			entity.IdAdmin = (System.Int64)dataRow["id_Admin"];
-			entity.OriginalIdAdmin = (System.Int64)dataRow["id_Admin"];
 			entity.TenDangNhap = Convert.IsDBNull(dataRow["TenDangNhap"]) ? null : (System.String)dataRow["TenDangNhap"];
 			entity.Email = Convert.IsDBNull(dataRow["Email"]) ? null : (System.String)dataRow["Email"];
 			entity.Password = Convert.IsDBNull(dataRow["Password"]) ? null : (System.String)dataRow["Password"];

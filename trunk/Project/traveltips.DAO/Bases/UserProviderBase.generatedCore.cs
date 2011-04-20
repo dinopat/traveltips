@@ -210,13 +210,12 @@ namespace traveltips.DAO.Bases
 						{
 			c.SuppressEntityEvents = true;
 			c.IdUser = (System.Int64)reader["id_User"];
-			c.OriginalIdUser = c.IdUser;
-			c.TenDangNhap = reader.IsDBNull(reader.GetOrdinal("TenDangNhap")) ? null : (System.Byte[])reader["TenDangNhap"];
+			c.TenDangNhap = reader.IsDBNull(reader.GetOrdinal("TenDangNhap")) ? null : (System.String)reader["TenDangNhap"];
 			c.Password = reader.IsDBNull(reader.GetOrdinal("Password")) ? null : (System.String)reader["Password"];
 			c.HoTen = reader.IsDBNull(reader.GetOrdinal("HoTen")) ? null : (System.String)reader["HoTen"];
 			c.Email = reader.IsDBNull(reader.GetOrdinal("Email")) ? null : (System.String)reader["Email"];
 			c.DiaChi = reader.IsDBNull(reader.GetOrdinal("DiaChi")) ? null : (System.String)reader["DiaChi"];
-			c.DienThoai = reader.IsDBNull(reader.GetOrdinal("DienThoai")) ? null : (System.Byte[])reader["DienThoai"];
+			c.DienThoai = reader.IsDBNull(reader.GetOrdinal("DienThoai")) ? null : (System.String)reader["DienThoai"];
 			c.Website = reader.IsDBNull(reader.GetOrdinal("Website")) ? null : (System.String)reader["Website"];
 			c.Avatar = reader.IsDBNull(reader.GetOrdinal("Avatar")) ? null : (System.String)reader["Avatar"];
 			c.Flag = reader.IsDBNull(reader.GetOrdinal("Flag")) ? null : (System.Byte?)reader["Flag"];
@@ -238,13 +237,12 @@ namespace traveltips.DAO.Bases
 			if (!reader.Read()) return;
 			
 			entity.IdUser = (System.Int64)reader["id_User"];
-			entity.OriginalIdUser = (System.Int64)reader["id_User"];
-			entity.TenDangNhap = reader.IsDBNull(reader.GetOrdinal("TenDangNhap")) ? null : (System.Byte[])reader["TenDangNhap"];
+			entity.TenDangNhap = reader.IsDBNull(reader.GetOrdinal("TenDangNhap")) ? null : (System.String)reader["TenDangNhap"];
 			entity.Password = reader.IsDBNull(reader.GetOrdinal("Password")) ? null : (System.String)reader["Password"];
 			entity.HoTen = reader.IsDBNull(reader.GetOrdinal("HoTen")) ? null : (System.String)reader["HoTen"];
 			entity.Email = reader.IsDBNull(reader.GetOrdinal("Email")) ? null : (System.String)reader["Email"];
 			entity.DiaChi = reader.IsDBNull(reader.GetOrdinal("DiaChi")) ? null : (System.String)reader["DiaChi"];
-			entity.DienThoai = reader.IsDBNull(reader.GetOrdinal("DienThoai")) ? null : (System.Byte[])reader["DienThoai"];
+			entity.DienThoai = reader.IsDBNull(reader.GetOrdinal("DienThoai")) ? null : (System.String)reader["DienThoai"];
 			entity.Website = reader.IsDBNull(reader.GetOrdinal("Website")) ? null : (System.String)reader["Website"];
 			entity.Avatar = reader.IsDBNull(reader.GetOrdinal("Avatar")) ? null : (System.String)reader["Avatar"];
 			entity.Flag = reader.IsDBNull(reader.GetOrdinal("Flag")) ? null : (System.Byte?)reader["Flag"];
@@ -261,13 +259,12 @@ namespace traveltips.DAO.Bases
 			DataRow dataRow = dataSet.Tables[0].Rows[0];
 			
 			entity.IdUser = (System.Int64)dataRow["id_User"];
-			entity.OriginalIdUser = (System.Int64)dataRow["id_User"];
-			entity.TenDangNhap = Convert.IsDBNull(dataRow["TenDangNhap"]) ? null : (System.Byte[])dataRow["TenDangNhap"];
+			entity.TenDangNhap = Convert.IsDBNull(dataRow["TenDangNhap"]) ? null : (System.String)dataRow["TenDangNhap"];
 			entity.Password = Convert.IsDBNull(dataRow["Password"]) ? null : (System.String)dataRow["Password"];
 			entity.HoTen = Convert.IsDBNull(dataRow["HoTen"]) ? null : (System.String)dataRow["HoTen"];
 			entity.Email = Convert.IsDBNull(dataRow["Email"]) ? null : (System.String)dataRow["Email"];
 			entity.DiaChi = Convert.IsDBNull(dataRow["DiaChi"]) ? null : (System.String)dataRow["DiaChi"];
-			entity.DienThoai = Convert.IsDBNull(dataRow["DienThoai"]) ? null : (System.Byte[])dataRow["DienThoai"];
+			entity.DienThoai = Convert.IsDBNull(dataRow["DienThoai"]) ? null : (System.String)dataRow["DienThoai"];
 			entity.Website = Convert.IsDBNull(dataRow["Website"]) ? null : (System.String)dataRow["Website"];
 			entity.Avatar = Convert.IsDBNull(dataRow["Avatar"]) ? null : (System.String)dataRow["Avatar"];
 			entity.Flag = Convert.IsDBNull(dataRow["Flag"]) ? null : (System.Byte?)dataRow["Flag"];

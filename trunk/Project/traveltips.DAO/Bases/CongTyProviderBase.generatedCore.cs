@@ -380,7 +380,6 @@ namespace traveltips.DAO.Bases
 						{
 			c.SuppressEntityEvents = true;
 			c.IdCongTy = (System.Int64)reader["id_CongTy"];
-			c.OriginalIdCongTy = c.IdCongTy;
 			c.IdChuCongTy = reader.IsDBNull(reader.GetOrdinal("id_ChuCongTy")) ? null : (System.Int64?)reader["id_ChuCongTy"];
 			c.IdDanhMuc = reader.IsDBNull(reader.GetOrdinal("id_DanhMuc")) ? null : (System.Int64?)reader["id_DanhMuc"];
 			c.IdQuocGia = reader.IsDBNull(reader.GetOrdinal("id_QuocGia")) ? null : (System.Int64?)reader["id_QuocGia"];
@@ -419,7 +418,6 @@ namespace traveltips.DAO.Bases
 			if (!reader.Read()) return;
 			
 			entity.IdCongTy = (System.Int64)reader["id_CongTy"];
-			entity.OriginalIdCongTy = (System.Int64)reader["id_CongTy"];
 			entity.IdChuCongTy = reader.IsDBNull(reader.GetOrdinal("id_ChuCongTy")) ? null : (System.Int64?)reader["id_ChuCongTy"];
 			entity.IdDanhMuc = reader.IsDBNull(reader.GetOrdinal("id_DanhMuc")) ? null : (System.Int64?)reader["id_DanhMuc"];
 			entity.IdQuocGia = reader.IsDBNull(reader.GetOrdinal("id_QuocGia")) ? null : (System.Int64?)reader["id_QuocGia"];
@@ -453,7 +451,6 @@ namespace traveltips.DAO.Bases
 			DataRow dataRow = dataSet.Tables[0].Rows[0];
 			
 			entity.IdCongTy = (System.Int64)dataRow["id_CongTy"];
-			entity.OriginalIdCongTy = (System.Int64)dataRow["id_CongTy"];
 			entity.IdChuCongTy = Convert.IsDBNull(dataRow["id_ChuCongTy"]) ? null : (System.Int64?)dataRow["id_ChuCongTy"];
 			entity.IdDanhMuc = Convert.IsDBNull(dataRow["id_DanhMuc"]) ? null : (System.Int64?)dataRow["id_DanhMuc"];
 			entity.IdQuocGia = Convert.IsDBNull(dataRow["id_QuocGia"]) ? null : (System.Int64?)dataRow["id_QuocGia"];
@@ -597,6 +594,27 @@ namespace traveltips.DAO.Bases
 			#endregion 
 			
 			
+			#region SanPham
+			// RelationshipType.OneToOne
+			if (CanDeepLoad(entity, "SanPham|SanPham", deepLoadType, innerList))
+			{
+				entity.SanPham = DataRepository.SanPhamProvider.GetByIdSanPham(transactionManager, entity.IdCongTy);
+				#if NETTIERS_DEBUG
+				System.Diagnostics.Debug.WriteLine("- property 'SanPham' loaded. key " + entity.EntityTrackingKey);
+				#endif 
+
+				if (deep && entity.SanPham != null)
+				{
+					deepHandles.Add("SanPham",
+						new KeyValuePair<Delegate, object>((DeepLoadSingleHandle< SanPham >) DataRepository.SanPhamProvider.DeepLoad,
+						new object[] { transactionManager, entity.SanPham, deep, deepLoadType, childTypes, innerList }
+					));
+				}
+			}
+			#endregion 
+			
+			
+			
 			#region DichVu
 			// RelationshipType.OneToOne
 			if (CanDeepLoad(entity, "DichVu|DichVu", deepLoadType, innerList))
@@ -637,27 +655,6 @@ namespace traveltips.DAO.Bases
 				}
 			}		
 			#endregion 
-			
-			
-			#region SanPham
-			// RelationshipType.OneToOne
-			if (CanDeepLoad(entity, "SanPham|SanPham", deepLoadType, innerList))
-			{
-				entity.SanPham = DataRepository.SanPhamProvider.GetByIdSanPham(transactionManager, entity.IdCongTy);
-				#if NETTIERS_DEBUG
-				System.Diagnostics.Debug.WriteLine("- property 'SanPham' loaded. key " + entity.EntityTrackingKey);
-				#endif 
-
-				if (deep && entity.SanPham != null)
-				{
-					deepHandles.Add("SanPham",
-						new KeyValuePair<Delegate, object>((DeepLoadSingleHandle< SanPham >) DataRepository.SanPhamProvider.DeepLoad,
-						new object[] { transactionManager, entity.SanPham, deep, deepLoadType, childTypes, innerList }
-					));
-				}
-			}
-			#endregion 
-			
 			
 			
 			//Fire all DeepLoad Items
@@ -716,24 +713,6 @@ namespace traveltips.DAO.Bases
 			//used to hold DeepSave method delegates and fire after all the local children have been saved.
 			Dictionary<Delegate, object> deepHandles = new Dictionary<Delegate, object>();
 
-			#region DichVu
-			if (CanDeepSave(entity.DichVu, "DichVu|DichVu", deepSaveType, innerList))
-			{
-
-				if (entity.DichVu != null)
-				{
-					// update each child parent id with the real parent id (mostly used on insert)
-
-					entity.DichVu.IdDichVu = entity.IdCongTy;
-					DataRepository.DichVuProvider.Save(transactionManager, entity.DichVu);
-					deepHandles.Add(
-						(DeepSaveSingleHandle< DichVu >) DataRepository.DichVuProvider.DeepSave,
-						new object[] { transactionManager, entity.DichVu, deepSaveType, childTypes, innerList }
-					);
-				}
-			} 
-			#endregion 
-
 			#region SanPham
 			if (CanDeepSave(entity.SanPham, "SanPham|SanPham", deepSaveType, innerList))
 			{
@@ -747,6 +726,24 @@ namespace traveltips.DAO.Bases
 					deepHandles.Add(
 						(DeepSaveSingleHandle< SanPham >) DataRepository.SanPhamProvider.DeepSave,
 						new object[] { transactionManager, entity.SanPham, deepSaveType, childTypes, innerList }
+					);
+				}
+			} 
+			#endregion 
+
+			#region DichVu
+			if (CanDeepSave(entity.DichVu, "DichVu|DichVu", deepSaveType, innerList))
+			{
+
+				if (entity.DichVu != null)
+				{
+					// update each child parent id with the real parent id (mostly used on insert)
+
+					entity.DichVu.IdDichVu = entity.IdCongTy;
+					DataRepository.DichVuProvider.Save(transactionManager, entity.DichVu);
+					deepHandles.Add(
+						(DeepSaveSingleHandle< DichVu >) DataRepository.DichVuProvider.DeepSave,
+						new object[] { transactionManager, entity.DichVu, deepSaveType, childTypes, innerList }
 					);
 				}
 			} 
@@ -880,6 +877,11 @@ namespace traveltips.DAO.Bases
 		[ChildEntityType(typeof(TList<TinTuc>))]
 		TinTucCollection,
 		///<summary>
+		/// Entity <c>SanPham</c> as OneToOne for SanPham
+		///</summary>
+		[ChildEntityType(typeof(SanPham))]
+		SanPham,
+		///<summary>
 		/// Entity <c>DichVu</c> as OneToOne for DichVu
 		///</summary>
 		[ChildEntityType(typeof(DichVu))]
@@ -890,11 +892,6 @@ namespace traveltips.DAO.Bases
 		///</summary>
 		[ChildEntityType(typeof(TList<Comment>))]
 		CommentCollection,
-		///<summary>
-		/// Entity <c>SanPham</c> as OneToOne for SanPham
-		///</summary>
-		[ChildEntityType(typeof(SanPham))]
-		SanPham,
 	}
 	
 	#endregion CongTyChildEntityTypes

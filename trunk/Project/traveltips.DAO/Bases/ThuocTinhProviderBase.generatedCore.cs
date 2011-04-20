@@ -210,7 +210,6 @@ namespace traveltips.DAO.Bases
 						{
 			c.SuppressEntityEvents = true;
 			c.IdThuocTinh = (System.Int64)reader["id_ThuocTinh"];
-			c.OriginalIdThuocTinh = c.IdThuocTinh;
 			c.TenThuocTinh = reader.IsDBNull(reader.GetOrdinal("TenThuocTinh")) ? null : (System.String)reader["TenThuocTinh"];
 			c.MaThuocTinh = reader.IsDBNull(reader.GetOrdinal("MaThuocTinh")) ? null : (System.String)reader["MaThuocTinh"];
 			c.Flag = reader.IsDBNull(reader.GetOrdinal("Flag")) ? null : (System.Byte?)reader["Flag"];
@@ -232,7 +231,6 @@ namespace traveltips.DAO.Bases
 			if (!reader.Read()) return;
 			
 			entity.IdThuocTinh = (System.Int64)reader["id_ThuocTinh"];
-			entity.OriginalIdThuocTinh = (System.Int64)reader["id_ThuocTinh"];
 			entity.TenThuocTinh = reader.IsDBNull(reader.GetOrdinal("TenThuocTinh")) ? null : (System.String)reader["TenThuocTinh"];
 			entity.MaThuocTinh = reader.IsDBNull(reader.GetOrdinal("MaThuocTinh")) ? null : (System.String)reader["MaThuocTinh"];
 			entity.Flag = reader.IsDBNull(reader.GetOrdinal("Flag")) ? null : (System.Byte?)reader["Flag"];
@@ -249,7 +247,6 @@ namespace traveltips.DAO.Bases
 			DataRow dataRow = dataSet.Tables[0].Rows[0];
 			
 			entity.IdThuocTinh = (System.Int64)dataRow["id_ThuocTinh"];
-			entity.OriginalIdThuocTinh = (System.Int64)dataRow["id_ThuocTinh"];
 			entity.TenThuocTinh = Convert.IsDBNull(dataRow["TenThuocTinh"]) ? null : (System.String)dataRow["TenThuocTinh"];
 			entity.MaThuocTinh = Convert.IsDBNull(dataRow["MaThuocTinh"]) ? null : (System.String)dataRow["MaThuocTinh"];
 			entity.Flag = Convert.IsDBNull(dataRow["Flag"]) ? null : (System.Byte?)dataRow["Flag"];
