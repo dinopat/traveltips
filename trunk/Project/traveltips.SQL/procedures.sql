@@ -162,7 +162,7 @@ GO
 CREATE PROCEDURE dbo.tbl_QuocGia_Insert
 (
 
-	@IdQuocGia bigint   ,
+	@IdQuocGia bigint    OUTPUT,
 
 	@TenQg nvarchar (100)  ,
 
@@ -178,21 +178,21 @@ AS
 					
 				INSERT INTO [dbo].[tbl_QuocGia]
 					(
-					[id_QuocGia]
-					,[TenQG]
+					[TenQG]
 					,[MaQG]
 					,[MoTa]
 					,[Flag]
 					)
 				VALUES
 					(
-					@IdQuocGia
-					,@TenQg
+					@TenQg
 					,@MaQg
 					,@MoTa
 					,@Flag
 					)
 				
+				-- Get the identity value
+				SET @IdQuocGia = SCOPE_IDENTITY()
 									
 							
 			
@@ -224,8 +224,6 @@ CREATE PROCEDURE dbo.tbl_QuocGia_Update
 
 	@IdQuocGia bigint   ,
 
-	@OriginalIdQuocGia bigint   ,
-
 	@TenQg nvarchar (100)  ,
 
 	@MaQg varchar (50)  ,
@@ -243,13 +241,12 @@ AS
 				UPDATE
 					[dbo].[tbl_QuocGia]
 				SET
-					[id_QuocGia] = @IdQuocGia
-					,[TenQG] = @TenQg
+					[TenQG] = @TenQg
 					,[MaQG] = @MaQg
 					,[MoTa] = @MoTa
 					,[Flag] = @Flag
 				WHERE
-[id_QuocGia] = @OriginalIdQuocGia 
+[id_QuocGia] = @IdQuocGia 
 				
 			
 
@@ -576,7 +573,7 @@ GO
 CREATE PROCEDURE dbo.tbl_Admin_Insert
 (
 
-	@IdAdmin bigint   ,
+	@IdAdmin bigint    OUTPUT,
 
 	@TenDangNhap varchar (50)  ,
 
@@ -584,7 +581,7 @@ CREATE PROCEDURE dbo.tbl_Admin_Insert
 
 	@Password nvarchar (50)  ,
 
-	@HoTen varchar (200)  ,
+	@HoTen nvarchar (200)  ,
 
 	@DienThoai varchar (50)  ,
 
@@ -596,8 +593,7 @@ AS
 					
 				INSERT INTO [dbo].[tbl_Admin]
 					(
-					[id_Admin]
-					,[TenDangNhap]
+					[TenDangNhap]
 					,[Email]
 					,[Password]
 					,[HoTen]
@@ -606,8 +602,7 @@ AS
 					)
 				VALUES
 					(
-					@IdAdmin
-					,@TenDangNhap
+					@TenDangNhap
 					,@Email
 					,@Password
 					,@HoTen
@@ -615,6 +610,8 @@ AS
 					,@Flag
 					)
 				
+				-- Get the identity value
+				SET @IdAdmin = SCOPE_IDENTITY()
 									
 							
 			
@@ -646,15 +643,13 @@ CREATE PROCEDURE dbo.tbl_Admin_Update
 
 	@IdAdmin bigint   ,
 
-	@OriginalIdAdmin bigint   ,
-
 	@TenDangNhap varchar (50)  ,
 
 	@Email varchar (50)  ,
 
 	@Password nvarchar (50)  ,
 
-	@HoTen varchar (200)  ,
+	@HoTen nvarchar (200)  ,
 
 	@DienThoai varchar (50)  ,
 
@@ -669,15 +664,14 @@ AS
 				UPDATE
 					[dbo].[tbl_Admin]
 				SET
-					[id_Admin] = @IdAdmin
-					,[TenDangNhap] = @TenDangNhap
+					[TenDangNhap] = @TenDangNhap
 					,[Email] = @Email
 					,[Password] = @Password
 					,[HoTen] = @HoTen
 					,[DienThoai] = @DienThoai
 					,[Flag] = @Flag
 				WHERE
-[id_Admin] = @OriginalIdAdmin 
+[id_Admin] = @IdAdmin 
 				
 			
 
@@ -798,7 +792,7 @@ CREATE PROCEDURE dbo.tbl_Admin_Find
 
 	@Password nvarchar (50)  = null ,
 
-	@HoTen varchar (200)  = null ,
+	@HoTen nvarchar (200)  = null ,
 
 	@DienThoai varchar (50)  = null ,
 
@@ -1022,7 +1016,7 @@ GO
 CREATE PROCEDURE dbo.tbl_SanPham_Insert
 (
 
-	@IdSanPham bigint   ,
+	@IdSanPham bigint    OUTPUT,
 
 	@IdCongTy bigint   ,
 
@@ -1050,8 +1044,7 @@ AS
 					
 				INSERT INTO [dbo].[tbl_SanPham]
 					(
-					[id_SanPham]
-					,[id_CongTy]
+					[id_CongTy]
 					,[id_LoaiSP]
 					,[id_TuDien]
 					,[TenSP]
@@ -1064,8 +1057,7 @@ AS
 					)
 				VALUES
 					(
-					@IdSanPham
-					,@IdCongTy
+					@IdCongTy
 					,@IdLoaiSp
 					,@IdTuDien
 					,@TenSp
@@ -1077,6 +1069,8 @@ AS
 					,@Flag
 					)
 				
+				-- Get the identity value
+				SET @IdSanPham = SCOPE_IDENTITY()
 									
 							
 			
@@ -1108,8 +1102,6 @@ CREATE PROCEDURE dbo.tbl_SanPham_Update
 
 	@IdSanPham bigint   ,
 
-	@OriginalIdSanPham bigint   ,
-
 	@IdCongTy bigint   ,
 
 	@IdLoaiSp bigint   ,
@@ -1139,8 +1131,7 @@ AS
 				UPDATE
 					[dbo].[tbl_SanPham]
 				SET
-					[id_SanPham] = @IdSanPham
-					,[id_CongTy] = @IdCongTy
+					[id_CongTy] = @IdCongTy
 					,[id_LoaiSP] = @IdLoaiSp
 					,[id_TuDien] = @IdTuDien
 					,[TenSP] = @TenSp
@@ -1151,7 +1142,7 @@ AS
 					,[AnhMinhHoa] = @AnhMinhHoa
 					,[Flag] = @Flag
 				WHERE
-[id_SanPham] = @OriginalIdSanPham 
+[id_SanPham] = @IdSanPham 
 				
 			
 
@@ -1570,7 +1561,7 @@ GO
 CREATE PROCEDURE dbo.tbl_LoaiSP_Insert
 (
 
-	@IdLoaiSp bigint   ,
+	@IdLoaiSp bigint    OUTPUT,
 
 	@IdLoaiSpCha bigint   ,
 
@@ -1588,8 +1579,7 @@ AS
 					
 				INSERT INTO [dbo].[tbl_LoaiSP]
 					(
-					[id_LoaiSP]
-					,[id_LoaiSPCha]
+					[id_LoaiSPCha]
 					,[TenLoaiSP]
 					,[MaLoaiSP]
 					,[MoTa]
@@ -1597,14 +1587,15 @@ AS
 					)
 				VALUES
 					(
-					@IdLoaiSp
-					,@IdLoaiSpCha
+					@IdLoaiSpCha
 					,@TenLoaiSp
 					,@MaLoaiSp
 					,@MoTa
 					,@Flag
 					)
 				
+				-- Get the identity value
+				SET @IdLoaiSp = SCOPE_IDENTITY()
 									
 							
 			
@@ -1636,8 +1627,6 @@ CREATE PROCEDURE dbo.tbl_LoaiSP_Update
 
 	@IdLoaiSp bigint   ,
 
-	@OriginalIdLoaiSp bigint   ,
-
 	@IdLoaiSpCha bigint   ,
 
 	@TenLoaiSp nvarchar (255)  ,
@@ -1657,14 +1646,13 @@ AS
 				UPDATE
 					[dbo].[tbl_LoaiSP]
 				SET
-					[id_LoaiSP] = @IdLoaiSp
-					,[id_LoaiSPCha] = @IdLoaiSpCha
+					[id_LoaiSPCha] = @IdLoaiSpCha
 					,[TenLoaiSP] = @TenLoaiSp
 					,[MaLoaiSP] = @MaLoaiSp
 					,[MoTa] = @MoTa
 					,[Flag] = @Flag
 				WHERE
-[id_LoaiSP] = @OriginalIdLoaiSp 
+[id_LoaiSP] = @IdLoaiSp 
 				
 			
 
@@ -1997,7 +1985,7 @@ GO
 CREATE PROCEDURE dbo.tbl_ThanhPho_Insert
 (
 
-	@IdThanhPho bigint   ,
+	@IdThanhPho bigint    OUTPUT,
 
 	@IdQuocGia bigint   ,
 
@@ -2015,8 +2003,7 @@ AS
 					
 				INSERT INTO [dbo].[tbl_ThanhPho]
 					(
-					[id_ThanhPho]
-					,[id_QuocGia]
+					[id_QuocGia]
 					,[TenTP]
 					,[MaTP]
 					,[Mota]
@@ -2024,14 +2011,15 @@ AS
 					)
 				VALUES
 					(
-					@IdThanhPho
-					,@IdQuocGia
+					@IdQuocGia
 					,@TenTp
 					,@MaTp
 					,@Mota
 					,@Flag
 					)
 				
+				-- Get the identity value
+				SET @IdThanhPho = SCOPE_IDENTITY()
 									
 							
 			
@@ -2063,8 +2051,6 @@ CREATE PROCEDURE dbo.tbl_ThanhPho_Update
 
 	@IdThanhPho bigint   ,
 
-	@OriginalIdThanhPho bigint   ,
-
 	@IdQuocGia bigint   ,
 
 	@TenTp nvarchar (100)  ,
@@ -2084,14 +2070,13 @@ AS
 				UPDATE
 					[dbo].[tbl_ThanhPho]
 				SET
-					[id_ThanhPho] = @IdThanhPho
-					,[id_QuocGia] = @IdQuocGia
+					[id_QuocGia] = @IdQuocGia
 					,[TenTP] = @TenTp
 					,[MaTP] = @MaTp
 					,[Mota] = @Mota
 					,[Flag] = @Flag
 				WHERE
-[id_ThanhPho] = @OriginalIdThanhPho 
+[id_ThanhPho] = @IdThanhPho 
 				
 			
 
@@ -2470,7 +2455,7 @@ GO
 CREATE PROCEDURE dbo.tbl_ThuocTinh_Insert
 (
 
-	@IdThuocTinh bigint   ,
+	@IdThuocTinh bigint    OUTPUT,
 
 	@TenThuocTinh nvarchar (50)  ,
 
@@ -2484,19 +2469,19 @@ AS
 					
 				INSERT INTO [dbo].[tbl_ThuocTinh]
 					(
-					[id_ThuocTinh]
-					,[TenThuocTinh]
+					[TenThuocTinh]
 					,[MaThuocTinh]
 					,[Flag]
 					)
 				VALUES
 					(
-					@IdThuocTinh
-					,@TenThuocTinh
+					@TenThuocTinh
 					,@MaThuocTinh
 					,@Flag
 					)
 				
+				-- Get the identity value
+				SET @IdThuocTinh = SCOPE_IDENTITY()
 									
 							
 			
@@ -2528,8 +2513,6 @@ CREATE PROCEDURE dbo.tbl_ThuocTinh_Update
 
 	@IdThuocTinh bigint   ,
 
-	@OriginalIdThuocTinh bigint   ,
-
 	@TenThuocTinh nvarchar (50)  ,
 
 	@MaThuocTinh varchar (50)  ,
@@ -2545,12 +2528,11 @@ AS
 				UPDATE
 					[dbo].[tbl_ThuocTinh]
 				SET
-					[id_ThuocTinh] = @IdThuocTinh
-					,[TenThuocTinh] = @TenThuocTinh
+					[TenThuocTinh] = @TenThuocTinh
 					,[MaThuocTinh] = @MaThuocTinh
 					,[Flag] = @Flag
 				WHERE
-[id_ThuocTinh] = @OriginalIdThuocTinh 
+[id_ThuocTinh] = @IdThuocTinh 
 				
 			
 
@@ -2870,13 +2852,13 @@ GO
 CREATE PROCEDURE dbo.tbl_TuDien_Insert
 (
 
-	@IdTuDien bigint   ,
+	@IdTuDien bigint    OUTPUT,
 
 	@IdDanhMuc bigint   ,
 
 	@TenTu nvarchar (50)  ,
 
-	@MaTu nchar (10)  ,
+	@MaTu varchar (50)  ,
 
 	@NhomTu varchar (50)  ,
 
@@ -2890,8 +2872,7 @@ AS
 					
 				INSERT INTO [dbo].[tbl_TuDien]
 					(
-					[id_TuDien]
-					,[id_DanhMuc]
+					[id_DanhMuc]
 					,[TenTu]
 					,[MaTu]
 					,[NhomTu]
@@ -2900,8 +2881,7 @@ AS
 					)
 				VALUES
 					(
-					@IdTuDien
-					,@IdDanhMuc
+					@IdDanhMuc
 					,@TenTu
 					,@MaTu
 					,@NhomTu
@@ -2909,6 +2889,8 @@ AS
 					,@Flag
 					)
 				
+				-- Get the identity value
+				SET @IdTuDien = SCOPE_IDENTITY()
 									
 							
 			
@@ -2940,13 +2922,11 @@ CREATE PROCEDURE dbo.tbl_TuDien_Update
 
 	@IdTuDien bigint   ,
 
-	@OriginalIdTuDien bigint   ,
-
 	@IdDanhMuc bigint   ,
 
 	@TenTu nvarchar (50)  ,
 
-	@MaTu nchar (10)  ,
+	@MaTu varchar (50)  ,
 
 	@NhomTu varchar (50)  ,
 
@@ -2963,15 +2943,14 @@ AS
 				UPDATE
 					[dbo].[tbl_TuDien]
 				SET
-					[id_TuDien] = @IdTuDien
-					,[id_DanhMuc] = @IdDanhMuc
+					[id_DanhMuc] = @IdDanhMuc
 					,[TenTu] = @TenTu
 					,[MaTu] = @MaTu
 					,[NhomTu] = @NhomTu
 					,[MoTa] = @MoTa
 					,[Flag] = @Flag
 				WHERE
-[id_TuDien] = @OriginalIdTuDien 
+[id_TuDien] = @IdTuDien 
 				
 			
 
@@ -3090,7 +3069,7 @@ CREATE PROCEDURE dbo.tbl_TuDien_Find
 
 	@TenTu nvarchar (50)  = null ,
 
-	@MaTu nchar (10)  = null ,
+	@MaTu varchar (50)  = null ,
 
 	@NhomTu varchar (50)  = null ,
 
@@ -3311,7 +3290,7 @@ GO
 CREATE PROCEDURE dbo.tbl_Quan_Insert
 (
 
-	@IdQuan bigint   ,
+	@IdQuan bigint    OUTPUT,
 
 	@IdThanhPho bigint   ,
 
@@ -3329,8 +3308,7 @@ AS
 					
 				INSERT INTO [dbo].[tbl_Quan]
 					(
-					[id_Quan]
-					,[id_ThanhPho]
+					[id_ThanhPho]
 					,[TenQuan]
 					,[MaQuan]
 					,[MoTa]
@@ -3338,14 +3316,15 @@ AS
 					)
 				VALUES
 					(
-					@IdQuan
-					,@IdThanhPho
+					@IdThanhPho
 					,@TenQuan
 					,@MaQuan
 					,@MoTa
 					,@Flag
 					)
 				
+				-- Get the identity value
+				SET @IdQuan = SCOPE_IDENTITY()
 									
 							
 			
@@ -3377,8 +3356,6 @@ CREATE PROCEDURE dbo.tbl_Quan_Update
 
 	@IdQuan bigint   ,
 
-	@OriginalIdQuan bigint   ,
-
 	@IdThanhPho bigint   ,
 
 	@TenQuan nvarchar (50)  ,
@@ -3398,14 +3375,13 @@ AS
 				UPDATE
 					[dbo].[tbl_Quan]
 				SET
-					[id_Quan] = @IdQuan
-					,[id_ThanhPho] = @IdThanhPho
+					[id_ThanhPho] = @IdThanhPho
 					,[TenQuan] = @TenQuan
 					,[MaQuan] = @MaQuan
 					,[MoTa] = @MoTa
 					,[Flag] = @Flag
 				WHERE
-[id_Quan] = @OriginalIdQuan 
+[id_Quan] = @IdQuan 
 				
 			
 
@@ -3787,7 +3763,7 @@ GO
 CREATE PROCEDURE dbo.tbl_TinTuc_Insert
 (
 
-	@IdTinTuc bigint   ,
+	@IdTinTuc bigint    OUTPUT,
 
 	@IdCongTy bigint   ,
 
@@ -3807,8 +3783,7 @@ AS
 					
 				INSERT INTO [dbo].[tbl_TinTuc]
 					(
-					[id_TinTuc]
-					,[id_CongTy]
+					[id_CongTy]
 					,[TieuDe]
 					,[MoTaNgan]
 					,[MoTaChiTiet]
@@ -3817,8 +3792,7 @@ AS
 					)
 				VALUES
 					(
-					@IdTinTuc
-					,@IdCongTy
+					@IdCongTy
 					,@TieuDe
 					,@MoTaNgan
 					,@MoTaChiTiet
@@ -3826,6 +3800,8 @@ AS
 					,@Flag
 					)
 				
+				-- Get the identity value
+				SET @IdTinTuc = SCOPE_IDENTITY()
 									
 							
 			
@@ -3857,8 +3833,6 @@ CREATE PROCEDURE dbo.tbl_TinTuc_Update
 
 	@IdTinTuc bigint   ,
 
-	@OriginalIdTinTuc bigint   ,
-
 	@IdCongTy bigint   ,
 
 	@TieuDe nvarchar (200)  ,
@@ -3880,15 +3854,14 @@ AS
 				UPDATE
 					[dbo].[tbl_TinTuc]
 				SET
-					[id_TinTuc] = @IdTinTuc
-					,[id_CongTy] = @IdCongTy
+					[id_CongTy] = @IdCongTy
 					,[TieuDe] = @TieuDe
 					,[MoTaNgan] = @MoTaNgan
 					,[MoTaChiTiet] = @MoTaChiTiet
 					,[KhuyenMai] = @KhuyenMai
 					,[Flag] = @Flag
 				WHERE
-[id_TinTuc] = @OriginalIdTinTuc 
+[id_TinTuc] = @IdTinTuc 
 				
 			
 
@@ -4277,7 +4250,7 @@ GO
 CREATE PROCEDURE dbo.tbl_ThuocTinhSanPham_Insert
 (
 
-	@IdTtsp bigint   ,
+	@IdTtsp bigint    OUTPUT,
 
 	@IdSanPham bigint   ,
 
@@ -4295,8 +4268,7 @@ AS
 					
 				INSERT INTO [dbo].[tbl_ThuocTinhSanPham]
 					(
-					[id_TTSP]
-					,[id_SanPham]
+					[id_SanPham]
 					,[id_ThuocTinh]
 					,[Value1]
 					,[Value2]
@@ -4304,14 +4276,15 @@ AS
 					)
 				VALUES
 					(
-					@IdTtsp
-					,@IdSanPham
+					@IdSanPham
 					,@IdThuocTinh
 					,@Value1
 					,@Value2
 					,@Flag
 					)
 				
+				-- Get the identity value
+				SET @IdTtsp = SCOPE_IDENTITY()
 									
 							
 			
@@ -4343,8 +4316,6 @@ CREATE PROCEDURE dbo.tbl_ThuocTinhSanPham_Update
 
 	@IdTtsp bigint   ,
 
-	@OriginalIdTtsp bigint   ,
-
 	@IdSanPham bigint   ,
 
 	@IdThuocTinh bigint   ,
@@ -4364,14 +4335,13 @@ AS
 				UPDATE
 					[dbo].[tbl_ThuocTinhSanPham]
 				SET
-					[id_TTSP] = @IdTtsp
-					,[id_SanPham] = @IdSanPham
+					[id_SanPham] = @IdSanPham
 					,[id_ThuocTinh] = @IdThuocTinh
 					,[Value1] = @Value1
 					,[Value2] = @Value2
 					,[Flag] = @Flag
 				WHERE
-[id_TTSP] = @OriginalIdTtsp 
+[id_TTSP] = @IdTtsp 
 				
 			
 
@@ -4419,54 +4389,6 @@ GO
 
 	
 
--- Drop the dbo.tbl_ThuocTinhSanPham_GetByIdThuocTinh procedure
-IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = object_id(N'dbo.tbl_ThuocTinhSanPham_GetByIdThuocTinh') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE dbo.tbl_ThuocTinhSanPham_GetByIdThuocTinh
-GO
-
-/*
-----------------------------------------------------------------------------------------------------
-
--- Created By:  ()
--- Purpose: Select records from the tbl_ThuocTinhSanPham table through a foreign key
-----------------------------------------------------------------------------------------------------
-*/
-
-
-CREATE PROCEDURE dbo.tbl_ThuocTinhSanPham_GetByIdThuocTinh
-(
-
-	@IdThuocTinh bigint   
-)
-AS
-
-
-				SET ANSI_NULLS OFF
-				
-				SELECT
-					[id_TTSP],
-					[id_SanPham],
-					[id_ThuocTinh],
-					[Value1],
-					[Value2],
-					[Flag]
-				FROM
-					[dbo].[tbl_ThuocTinhSanPham]
-				WHERE
-					[id_ThuocTinh] = @IdThuocTinh
-				
-				Select @@ROWCOUNT
-				SET ANSI_NULLS ON
-			
-
-GO
-SET QUOTED_IDENTIFIER ON 
-GO
-SET ANSI_NULLS OFF 
-GO
-
-	
-
 -- Drop the dbo.tbl_ThuocTinhSanPham_GetByIdSanPham procedure
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = object_id(N'dbo.tbl_ThuocTinhSanPham_GetByIdSanPham') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
 DROP PROCEDURE dbo.tbl_ThuocTinhSanPham_GetByIdSanPham
@@ -4502,6 +4424,54 @@ AS
 					[dbo].[tbl_ThuocTinhSanPham]
 				WHERE
 					[id_SanPham] = @IdSanPham
+				
+				Select @@ROWCOUNT
+				SET ANSI_NULLS ON
+			
+
+GO
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS OFF 
+GO
+
+	
+
+-- Drop the dbo.tbl_ThuocTinhSanPham_GetByIdThuocTinh procedure
+IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = object_id(N'dbo.tbl_ThuocTinhSanPham_GetByIdThuocTinh') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE dbo.tbl_ThuocTinhSanPham_GetByIdThuocTinh
+GO
+
+/*
+----------------------------------------------------------------------------------------------------
+
+-- Created By:  ()
+-- Purpose: Select records from the tbl_ThuocTinhSanPham table through a foreign key
+----------------------------------------------------------------------------------------------------
+*/
+
+
+CREATE PROCEDURE dbo.tbl_ThuocTinhSanPham_GetByIdThuocTinh
+(
+
+	@IdThuocTinh bigint   
+)
+AS
+
+
+				SET ANSI_NULLS OFF
+				
+				SELECT
+					[id_TTSP],
+					[id_SanPham],
+					[id_ThuocTinh],
+					[Value1],
+					[Value2],
+					[Flag]
+				FROM
+					[dbo].[tbl_ThuocTinhSanPham]
+				WHERE
+					[id_ThuocTinh] = @IdThuocTinh
 				
 				Select @@ROWCOUNT
 				SET ANSI_NULLS ON
@@ -4799,13 +4769,13 @@ GO
 CREATE PROCEDURE dbo.tbl_Language_Insert
 (
 
-	@IdLanguage int   ,
+	@IdLanguage int    OUTPUT,
 
 	@TenNn varchar (50)  ,
 
 	@MaNn varchar (50)  ,
 
-	@Mota varbinary (50)  ,
+	@Mota varchar (50)  ,
 
 	@Flag tinyint   
 )
@@ -4815,21 +4785,21 @@ AS
 					
 				INSERT INTO [dbo].[tbl_Language]
 					(
-					[id_Language]
-					,[TenNN]
+					[TenNN]
 					,[MaNN]
 					,[Mota]
 					,[Flag]
 					)
 				VALUES
 					(
-					@IdLanguage
-					,@TenNn
+					@TenNn
 					,@MaNn
 					,@Mota
 					,@Flag
 					)
 				
+				-- Get the identity value
+				SET @IdLanguage = SCOPE_IDENTITY()
 									
 							
 			
@@ -4861,13 +4831,11 @@ CREATE PROCEDURE dbo.tbl_Language_Update
 
 	@IdLanguage int   ,
 
-	@OriginalIdLanguage int   ,
-
 	@TenNn varchar (50)  ,
 
 	@MaNn varchar (50)  ,
 
-	@Mota varbinary (50)  ,
+	@Mota varchar (50)  ,
 
 	@Flag tinyint   
 )
@@ -4880,13 +4848,12 @@ AS
 				UPDATE
 					[dbo].[tbl_Language]
 				SET
-					[id_Language] = @IdLanguage
-					,[TenNN] = @TenNn
+					[TenNN] = @TenNn
 					,[MaNN] = @MaNn
 					,[Mota] = @Mota
 					,[Flag] = @Flag
 				WHERE
-[id_Language] = @OriginalIdLanguage 
+[id_Language] = @IdLanguage 
 				
 			
 
@@ -5003,7 +4970,7 @@ CREATE PROCEDURE dbo.tbl_Language_Find
 
 	@MaNn varchar (50)  = null ,
 
-	@Mota varbinary (50)  = null ,
+	@Mota varchar (50)  = null ,
 
 	@Flag tinyint   = null 
 )
@@ -5025,6 +4992,7 @@ AS
 	 ([id_Language] = @IdLanguage OR @IdLanguage is null)
 	AND ([TenNN] = @TenNn OR @TenNn is null)
 	AND ([MaNN] = @MaNn OR @MaNn is null)
+	AND ([Mota] = @Mota OR @Mota is null)
 	AND ([Flag] = @Flag OR @Flag is null)
 						
   END
@@ -5042,6 +5010,7 @@ AS
 	 ([id_Language] = @IdLanguage AND @IdLanguage is not null)
 	OR ([TenNN] = @TenNn AND @TenNn is not null)
 	OR ([MaNN] = @MaNn AND @MaNn is not null)
+	OR ([Mota] = @Mota AND @Mota is not null)
 	OR ([Flag] = @Flag AND @Flag is not null)
 	Select @@ROWCOUNT			
   END
@@ -5209,7 +5178,7 @@ GO
 CREATE PROCEDURE dbo.tbl_LabelNN_Insert
 (
 
-	@IdLabel bigint   ,
+	@IdLabel bigint    OUTPUT,
 
 	@MaLabel varchar (50)  ,
 
@@ -5225,21 +5194,21 @@ AS
 					
 				INSERT INTO [dbo].[tbl_LabelNN]
 					(
-					[id_Label]
-					,[MaLabel]
+					[MaLabel]
 					,[TenLabel]
 					,[MoTa]
 					,[Flag]
 					)
 				VALUES
 					(
-					@IdLabel
-					,@MaLabel
+					@MaLabel
 					,@TenLabel
 					,@MoTa
 					,@Flag
 					)
 				
+				-- Get the identity value
+				SET @IdLabel = SCOPE_IDENTITY()
 									
 							
 			
@@ -5271,8 +5240,6 @@ CREATE PROCEDURE dbo.tbl_LabelNN_Update
 
 	@IdLabel bigint   ,
 
-	@OriginalIdLabel bigint   ,
-
 	@MaLabel varchar (50)  ,
 
 	@TenLabel varchar (50)  ,
@@ -5290,13 +5257,12 @@ AS
 				UPDATE
 					[dbo].[tbl_LabelNN]
 				SET
-					[id_Label] = @IdLabel
-					,[MaLabel] = @MaLabel
+					[MaLabel] = @MaLabel
 					,[TenLabel] = @TenLabel
 					,[MoTa] = @MoTa
 					,[Flag] = @Flag
 				WHERE
-[id_Label] = @OriginalIdLabel 
+[id_Label] = @IdLabel 
 				
 			
 
@@ -5622,7 +5588,7 @@ GO
 CREATE PROCEDURE dbo.tbl_DanhMuc_Insert
 (
 
-	@IdDanhMuc bigint   ,
+	@IdDanhMuc bigint    OUTPUT,
 
 	@IdDmCha bigint   ,
 
@@ -5640,8 +5606,7 @@ AS
 					
 				INSERT INTO [dbo].[tbl_DanhMuc]
 					(
-					[id_DanhMuc]
-					,[id_DMCha]
+					[id_DMCha]
 					,[TenDanhMuc]
 					,[MaDanhMuc]
 					,[MoTa]
@@ -5649,14 +5614,15 @@ AS
 					)
 				VALUES
 					(
-					@IdDanhMuc
-					,@IdDmCha
+					@IdDmCha
 					,@TenDanhMuc
 					,@MaDanhMuc
 					,@MoTa
 					,@Flag
 					)
 				
+				-- Get the identity value
+				SET @IdDanhMuc = SCOPE_IDENTITY()
 									
 							
 			
@@ -5688,8 +5654,6 @@ CREATE PROCEDURE dbo.tbl_DanhMuc_Update
 
 	@IdDanhMuc bigint   ,
 
-	@OriginalIdDanhMuc bigint   ,
-
 	@IdDmCha bigint   ,
 
 	@TenDanhMuc nvarchar (50)  ,
@@ -5709,14 +5673,13 @@ AS
 				UPDATE
 					[dbo].[tbl_DanhMuc]
 				SET
-					[id_DanhMuc] = @IdDanhMuc
-					,[id_DMCha] = @IdDmCha
+					[id_DMCha] = @IdDmCha
 					,[TenDanhMuc] = @TenDanhMuc
 					,[MaDanhMuc] = @MaDanhMuc
 					,[MoTa] = @MoTa
 					,[Flag] = @Flag
 				WHERE
-[id_DanhMuc] = @OriginalIdDanhMuc 
+[id_DanhMuc] = @IdDanhMuc 
 				
 			
 
@@ -6054,7 +6017,7 @@ GO
 CREATE PROCEDURE dbo.tbl_ChuCongTy_Insert
 (
 
-	@IdChuCongTy bigint   ,
+	@IdChuCongTy bigint    OUTPUT,
 
 	@TenChuCongTy nvarchar (200)  ,
 
@@ -6082,8 +6045,7 @@ AS
 					
 				INSERT INTO [dbo].[tbl_ChuCongTy]
 					(
-					[id_ChuCongTy]
-					,[TenChuCongTy]
+					[TenChuCongTy]
 					,[TenCongTy]
 					,[TenDangNhap]
 					,[Password]
@@ -6096,8 +6058,7 @@ AS
 					)
 				VALUES
 					(
-					@IdChuCongTy
-					,@TenChuCongTy
+					@TenChuCongTy
 					,@TenCongTy
 					,@TenDangNhap
 					,@Password
@@ -6109,6 +6070,8 @@ AS
 					,@Flag
 					)
 				
+				-- Get the identity value
+				SET @IdChuCongTy = SCOPE_IDENTITY()
 									
 							
 			
@@ -6140,8 +6103,6 @@ CREATE PROCEDURE dbo.tbl_ChuCongTy_Update
 
 	@IdChuCongTy bigint   ,
 
-	@OriginalIdChuCongTy bigint   ,
-
 	@TenChuCongTy nvarchar (200)  ,
 
 	@TenCongTy nvarchar (200)  ,
@@ -6171,8 +6132,7 @@ AS
 				UPDATE
 					[dbo].[tbl_ChuCongTy]
 				SET
-					[id_ChuCongTy] = @IdChuCongTy
-					,[TenChuCongTy] = @TenChuCongTy
+					[TenChuCongTy] = @TenChuCongTy
 					,[TenCongTy] = @TenCongTy
 					,[TenDangNhap] = @TenDangNhap
 					,[Password] = @Password
@@ -6183,7 +6143,7 @@ AS
 					,[NgayKetThuc] = @NgayKetThuc
 					,[Flag] = @Flag
 				WHERE
-[id_ChuCongTy] = @OriginalIdChuCongTy 
+[id_ChuCongTy] = @IdChuCongTy 
 				
 			
 
@@ -6566,7 +6526,7 @@ GO
 CREATE PROCEDURE dbo.tbl_CongTy_Insert
 (
 
-	@IdCongTy bigint   ,
+	@IdCongTy bigint    OUTPUT,
 
 	@IdChuCongTy bigint   ,
 
@@ -6594,9 +6554,9 @@ CREATE PROCEDURE dbo.tbl_CongTy_Insert
 
 	@Website varchar (50)  ,
 
-	@HinhThucTt varchar (50)  ,
+	@HinhThucTt nvarchar (200)  ,
 
-	@ThoiGianPv varchar (50)  ,
+	@ThoiGianPv nvarchar (50)  ,
 
 	@AnhMinhHoa varchar (500)  ,
 
@@ -6614,8 +6574,7 @@ AS
 					
 				INSERT INTO [dbo].[tbl_CongTy]
 					(
-					[id_CongTy]
-					,[id_ChuCongTy]
+					[id_ChuCongTy]
 					,[id_DanhMuc]
 					,[id_QuocGia]
 					,[id_ThanhPho]
@@ -6638,8 +6597,7 @@ AS
 					)
 				VALUES
 					(
-					@IdCongTy
-					,@IdChuCongTy
+					@IdChuCongTy
 					,@IdDanhMuc
 					,@IdQuocGia
 					,@IdThanhPho
@@ -6661,6 +6619,8 @@ AS
 					,@Flag
 					)
 				
+				-- Get the identity value
+				SET @IdCongTy = SCOPE_IDENTITY()
 									
 							
 			
@@ -6692,8 +6652,6 @@ CREATE PROCEDURE dbo.tbl_CongTy_Update
 
 	@IdCongTy bigint   ,
 
-	@OriginalIdCongTy bigint   ,
-
 	@IdChuCongTy bigint   ,
 
 	@IdDanhMuc bigint   ,
@@ -6720,9 +6678,9 @@ CREATE PROCEDURE dbo.tbl_CongTy_Update
 
 	@Website varchar (50)  ,
 
-	@HinhThucTt varchar (50)  ,
+	@HinhThucTt nvarchar (200)  ,
 
-	@ThoiGianPv varchar (50)  ,
+	@ThoiGianPv nvarchar (50)  ,
 
 	@AnhMinhHoa varchar (500)  ,
 
@@ -6743,8 +6701,7 @@ AS
 				UPDATE
 					[dbo].[tbl_CongTy]
 				SET
-					[id_CongTy] = @IdCongTy
-					,[id_ChuCongTy] = @IdChuCongTy
+					[id_ChuCongTy] = @IdChuCongTy
 					,[id_DanhMuc] = @IdDanhMuc
 					,[id_QuocGia] = @IdQuocGia
 					,[id_ThanhPho] = @IdThanhPho
@@ -6765,7 +6722,7 @@ AS
 					,[MoTaChiTiet] = @MoTaChiTiet
 					,[Flag] = @Flag
 				WHERE
-[id_CongTy] = @OriginalIdCongTy 
+[id_CongTy] = @IdCongTy 
 				
 			
 
@@ -7046,9 +7003,9 @@ CREATE PROCEDURE dbo.tbl_CongTy_Find
 
 	@Website varchar (50)  = null ,
 
-	@HinhThucTt varchar (50)  = null ,
+	@HinhThucTt nvarchar (200)  = null ,
 
-	@ThoiGianPv varchar (50)  = null ,
+	@ThoiGianPv nvarchar (50)  = null ,
 
 	@AnhMinhHoa varchar (500)  = null ,
 
@@ -7329,15 +7286,15 @@ GO
 CREATE PROCEDURE dbo.tbl_Comment_Insert
 (
 
-	@IdComment bigint   ,
+	@IdComment bigint    OUTPUT,
 
 	@IdUser bigint   ,
 
 	@IdCongty bigint   ,
 
-	@TieuDe varchar (50)  ,
+	@TieuDe nvarchar (200)  ,
 
-	@NoiDung varchar (50)  ,
+	@NoiDung nvarchar (MAX)  ,
 
 	@Flag tinyint   
 )
@@ -7347,8 +7304,7 @@ AS
 					
 				INSERT INTO [dbo].[tbl_Comment]
 					(
-					[id_Comment]
-					,[id_User]
+					[id_User]
 					,[id_Congty]
 					,[TieuDe]
 					,[NoiDung]
@@ -7356,14 +7312,15 @@ AS
 					)
 				VALUES
 					(
-					@IdComment
-					,@IdUser
+					@IdUser
 					,@IdCongty
 					,@TieuDe
 					,@NoiDung
 					,@Flag
 					)
 				
+				-- Get the identity value
+				SET @IdComment = SCOPE_IDENTITY()
 									
 							
 			
@@ -7395,15 +7352,13 @@ CREATE PROCEDURE dbo.tbl_Comment_Update
 
 	@IdComment bigint   ,
 
-	@OriginalIdComment bigint   ,
-
 	@IdUser bigint   ,
 
 	@IdCongty bigint   ,
 
-	@TieuDe varchar (50)  ,
+	@TieuDe nvarchar (200)  ,
 
-	@NoiDung varchar (50)  ,
+	@NoiDung nvarchar (MAX)  ,
 
 	@Flag tinyint   
 )
@@ -7416,14 +7371,13 @@ AS
 				UPDATE
 					[dbo].[tbl_Comment]
 				SET
-					[id_Comment] = @IdComment
-					,[id_User] = @IdUser
+					[id_User] = @IdUser
 					,[id_Congty] = @IdCongty
 					,[TieuDe] = @TieuDe
 					,[NoiDung] = @NoiDung
 					,[Flag] = @Flag
 				WHERE
-[id_Comment] = @OriginalIdComment 
+[id_Comment] = @IdComment 
 				
 			
 
@@ -7637,9 +7591,9 @@ CREATE PROCEDURE dbo.tbl_Comment_Find
 
 	@IdCongty bigint   = null ,
 
-	@TieuDe varchar (50)  = null ,
+	@TieuDe nvarchar (200)  = null ,
 
-	@NoiDung varchar (50)  = null ,
+	@NoiDung nvarchar (MAX)  = null ,
 
 	@Flag tinyint   = null 
 )
@@ -7853,9 +7807,9 @@ GO
 CREATE PROCEDURE dbo.tbl_DichVu_Insert
 (
 
-	@IdDichVu bigint   ,
+	@IdDichVu bigint    OUTPUT,
 
-	@IdCongTy nchar (10)  ,
+	@IdCongTy bigint   ,
 
 	@TenDv nvarchar (50)  ,
 
@@ -7873,8 +7827,7 @@ AS
 					
 				INSERT INTO [dbo].[tbl_DichVu]
 					(
-					[id_DichVu]
-					,[id_CongTy]
+					[id_CongTy]
 					,[TenDV]
 					,[MaDV]
 					,[MotaNgan]
@@ -7883,8 +7836,7 @@ AS
 					)
 				VALUES
 					(
-					@IdDichVu
-					,@IdCongTy
+					@IdCongTy
 					,@TenDv
 					,@MaDv
 					,@MotaNgan
@@ -7892,6 +7844,8 @@ AS
 					,@Flag
 					)
 				
+				-- Get the identity value
+				SET @IdDichVu = SCOPE_IDENTITY()
 									
 							
 			
@@ -7923,9 +7877,7 @@ CREATE PROCEDURE dbo.tbl_DichVu_Update
 
 	@IdDichVu bigint   ,
 
-	@OriginalIdDichVu bigint   ,
-
-	@IdCongTy nchar (10)  ,
+	@IdCongTy bigint   ,
 
 	@TenDv nvarchar (50)  ,
 
@@ -7946,15 +7898,14 @@ AS
 				UPDATE
 					[dbo].[tbl_DichVu]
 				SET
-					[id_DichVu] = @IdDichVu
-					,[id_CongTy] = @IdCongTy
+					[id_CongTy] = @IdCongTy
 					,[TenDV] = @TenDv
 					,[MaDV] = @MaDv
 					,[MotaNgan] = @MotaNgan
 					,[MotaChiTiet] = @MotaChiTiet
 					,[Flag] = @Flag
 				WHERE
-[id_DichVu] = @OriginalIdDichVu 
+[id_DichVu] = @IdDichVu 
 				
 			
 
@@ -8069,7 +8020,7 @@ CREATE PROCEDURE dbo.tbl_DichVu_Find
 
 	@IdDichVu bigint   = null ,
 
-	@IdCongTy nchar (10)  = null ,
+	@IdCongTy bigint   = null ,
 
 	@TenDv nvarchar (50)  = null ,
 
@@ -8293,7 +8244,7 @@ GO
 CREATE PROCEDURE dbo.tbl_LabelLanguage_Insert
 (
 
-	@IdLabelLanguage bigint   ,
+	@IdLabelLanguage bigint    OUTPUT,
 
 	@IdLanguage int   ,
 
@@ -8309,21 +8260,21 @@ AS
 					
 				INSERT INTO [dbo].[tbl_LabelLanguage]
 					(
-					[id_LabelLanguage]
-					,[id_Language]
+					[id_Language]
 					,[id_Label]
 					,[NoiDung]
 					,[Flag]
 					)
 				VALUES
 					(
-					@IdLabelLanguage
-					,@IdLanguage
+					@IdLanguage
 					,@IdLabel
 					,@NoiDung
 					,@Flag
 					)
 				
+				-- Get the identity value
+				SET @IdLabelLanguage = SCOPE_IDENTITY()
 									
 							
 			
@@ -8355,8 +8306,6 @@ CREATE PROCEDURE dbo.tbl_LabelLanguage_Update
 
 	@IdLabelLanguage bigint   ,
 
-	@OriginalIdLabelLanguage bigint   ,
-
 	@IdLanguage int   ,
 
 	@IdLabel bigint   ,
@@ -8374,13 +8323,12 @@ AS
 				UPDATE
 					[dbo].[tbl_LabelLanguage]
 				SET
-					[id_LabelLanguage] = @IdLabelLanguage
-					,[id_Language] = @IdLanguage
+					[id_Language] = @IdLanguage
 					,[id_Label] = @IdLabel
 					,[NoiDung] = @NoiDung
 					,[Flag] = @Flag
 				WHERE
-[id_LabelLanguage] = @OriginalIdLabelLanguage 
+[id_LabelLanguage] = @IdLabelLanguage 
 				
 			
 
@@ -8800,7 +8748,7 @@ GO
 CREATE PROCEDURE dbo.tbl_Duong_Insert
 (
 
-	@IdDuong bigint   ,
+	@IdDuong bigint    OUTPUT,
 
 	@IdQuan bigint   ,
 
@@ -8818,8 +8766,7 @@ AS
 					
 				INSERT INTO [dbo].[tbl_Duong]
 					(
-					[id_Duong]
-					,[id_Quan]
+					[id_Quan]
 					,[TenDuong]
 					,[MaDuong]
 					,[MoTa]
@@ -8827,14 +8774,15 @@ AS
 					)
 				VALUES
 					(
-					@IdDuong
-					,@IdQuan
+					@IdQuan
 					,@TenDuong
 					,@MaDuong
 					,@MoTa
 					,@Flag
 					)
 				
+				-- Get the identity value
+				SET @IdDuong = SCOPE_IDENTITY()
 									
 							
 			
@@ -8866,8 +8814,6 @@ CREATE PROCEDURE dbo.tbl_Duong_Update
 
 	@IdDuong bigint   ,
 
-	@OriginalIdDuong bigint   ,
-
 	@IdQuan bigint   ,
 
 	@TenDuong nvarchar (50)  ,
@@ -8887,14 +8833,13 @@ AS
 				UPDATE
 					[dbo].[tbl_Duong]
 				SET
-					[id_Duong] = @IdDuong
-					,[id_Quan] = @IdQuan
+					[id_Quan] = @IdQuan
 					,[TenDuong] = @TenDuong
 					,[MaDuong] = @MaDuong
 					,[MoTa] = @MoTa
 					,[Flag] = @Flag
 				WHERE
-[id_Duong] = @OriginalIdDuong 
+[id_Duong] = @IdDuong 
 				
 			
 
@@ -9272,7 +9217,7 @@ GO
 CREATE PROCEDURE dbo.tbl_KhuVuc_Insert
 (
 
-	@IdKhuVuc bigint   ,
+	@IdKhuVuc bigint    OUTPUT,
 
 	@TenKv nvarchar (255)  ,
 
@@ -9288,21 +9233,21 @@ AS
 					
 				INSERT INTO [dbo].[tbl_KhuVuc]
 					(
-					[id_KhuVuc]
-					,[TenKV]
+					[TenKV]
 					,[MaKV]
 					,[MoTa]
 					,[Flag]
 					)
 				VALUES
 					(
-					@IdKhuVuc
-					,@TenKv
+					@TenKv
 					,@MaKv
 					,@MoTa
 					,@Flag
 					)
 				
+				-- Get the identity value
+				SET @IdKhuVuc = SCOPE_IDENTITY()
 									
 							
 			
@@ -9334,8 +9279,6 @@ CREATE PROCEDURE dbo.tbl_KhuVuc_Update
 
 	@IdKhuVuc bigint   ,
 
-	@OriginalIdKhuVuc bigint   ,
-
 	@TenKv nvarchar (255)  ,
 
 	@MaKv varbinary (50)  ,
@@ -9353,13 +9296,12 @@ AS
 				UPDATE
 					[dbo].[tbl_KhuVuc]
 				SET
-					[id_KhuVuc] = @IdKhuVuc
-					,[TenKV] = @TenKv
+					[TenKV] = @TenKv
 					,[MaKV] = @MaKv
 					,[MoTa] = @MoTa
 					,[Flag] = @Flag
 				WHERE
-[id_KhuVuc] = @OriginalIdKhuVuc 
+[id_KhuVuc] = @IdKhuVuc 
 				
 			
 
@@ -9687,9 +9629,9 @@ GO
 CREATE PROCEDURE dbo.tbl_User_Insert
 (
 
-	@IdUser bigint   ,
+	@IdUser bigint    OUTPUT,
 
-	@TenDangNhap varbinary (50)  ,
+	@TenDangNhap varchar (50)  ,
 
 	@Password nvarchar (50)  ,
 
@@ -9699,11 +9641,11 @@ CREATE PROCEDURE dbo.tbl_User_Insert
 
 	@DiaChi nvarchar (255)  ,
 
-	@DienThoai varbinary (50)  ,
+	@DienThoai varchar (50)  ,
 
-	@Website nvarchar (50)  ,
+	@Website varchar (50)  ,
 
-	@Avatar varchar (500)  ,
+	@Avatar nvarchar (500)  ,
 
 	@Flag tinyint   
 )
@@ -9713,8 +9655,7 @@ AS
 					
 				INSERT INTO [dbo].[tbl_User]
 					(
-					[id_User]
-					,[TenDangNhap]
+					[TenDangNhap]
 					,[Password]
 					,[HoTen]
 					,[Email]
@@ -9726,8 +9667,7 @@ AS
 					)
 				VALUES
 					(
-					@IdUser
-					,@TenDangNhap
+					@TenDangNhap
 					,@Password
 					,@HoTen
 					,@Email
@@ -9738,6 +9678,8 @@ AS
 					,@Flag
 					)
 				
+				-- Get the identity value
+				SET @IdUser = SCOPE_IDENTITY()
 									
 							
 			
@@ -9769,9 +9711,7 @@ CREATE PROCEDURE dbo.tbl_User_Update
 
 	@IdUser bigint   ,
 
-	@OriginalIdUser bigint   ,
-
-	@TenDangNhap varbinary (50)  ,
+	@TenDangNhap varchar (50)  ,
 
 	@Password nvarchar (50)  ,
 
@@ -9781,11 +9721,11 @@ CREATE PROCEDURE dbo.tbl_User_Update
 
 	@DiaChi nvarchar (255)  ,
 
-	@DienThoai varbinary (50)  ,
+	@DienThoai varchar (50)  ,
 
-	@Website nvarchar (50)  ,
+	@Website varchar (50)  ,
 
-	@Avatar varchar (500)  ,
+	@Avatar nvarchar (500)  ,
 
 	@Flag tinyint   
 )
@@ -9798,8 +9738,7 @@ AS
 				UPDATE
 					[dbo].[tbl_User]
 				SET
-					[id_User] = @IdUser
-					,[TenDangNhap] = @TenDangNhap
+					[TenDangNhap] = @TenDangNhap
 					,[Password] = @Password
 					,[HoTen] = @HoTen
 					,[Email] = @Email
@@ -9809,7 +9748,7 @@ AS
 					,[Avatar] = @Avatar
 					,[Flag] = @Flag
 				WHERE
-[id_User] = @OriginalIdUser 
+[id_User] = @IdUser 
 				
 			
 
@@ -9927,7 +9866,7 @@ CREATE PROCEDURE dbo.tbl_User_Find
 
 	@IdUser bigint   = null ,
 
-	@TenDangNhap varbinary (50)  = null ,
+	@TenDangNhap varchar (50)  = null ,
 
 	@Password nvarchar (50)  = null ,
 
@@ -9937,11 +9876,11 @@ CREATE PROCEDURE dbo.tbl_User_Find
 
 	@DiaChi nvarchar (255)  = null ,
 
-	@DienThoai varbinary (50)  = null ,
+	@DienThoai varchar (50)  = null ,
 
-	@Website nvarchar (50)  = null ,
+	@Website varchar (50)  = null ,
 
-	@Avatar varchar (500)  = null ,
+	@Avatar nvarchar (500)  = null ,
 
 	@Flag tinyint   = null 
 )
@@ -9966,10 +9905,12 @@ AS
 	[dbo].[tbl_User]
     WHERE 
 	 ([id_User] = @IdUser OR @IdUser is null)
+	AND ([TenDangNhap] = @TenDangNhap OR @TenDangNhap is null)
 	AND ([Password] = @Password OR @Password is null)
 	AND ([HoTen] = @HoTen OR @HoTen is null)
 	AND ([Email] = @Email OR @Email is null)
 	AND ([DiaChi] = @DiaChi OR @DiaChi is null)
+	AND ([DienThoai] = @DienThoai OR @DienThoai is null)
 	AND ([Website] = @Website OR @Website is null)
 	AND ([Avatar] = @Avatar OR @Avatar is null)
 	AND ([Flag] = @Flag OR @Flag is null)
@@ -9992,10 +9933,12 @@ AS
 	[dbo].[tbl_User]
     WHERE 
 	 ([id_User] = @IdUser AND @IdUser is not null)
+	OR ([TenDangNhap] = @TenDangNhap AND @TenDangNhap is not null)
 	OR ([Password] = @Password AND @Password is not null)
 	OR ([HoTen] = @HoTen AND @HoTen is not null)
 	OR ([Email] = @Email AND @Email is not null)
 	OR ([DiaChi] = @DiaChi AND @DiaChi is not null)
+	OR ([DienThoai] = @DienThoai AND @DienThoai is not null)
 	OR ([Website] = @Website AND @Website is not null)
 	OR ([Avatar] = @Avatar AND @Avatar is not null)
 	OR ([Flag] = @Flag AND @Flag is not null)
@@ -10166,7 +10109,7 @@ GO
 CREATE PROCEDURE dbo.tbl_Gallery_Insert
 (
 
-	@IdGallery bigint   ,
+	@IdGallery bigint    OUTPUT,
 
 	@IdCongTy bigint   ,
 
@@ -10184,8 +10127,7 @@ AS
 					
 				INSERT INTO [dbo].[tbl_Gallery]
 					(
-					[id_Gallery]
-					,[id_CongTy]
+					[id_CongTy]
 					,[TenAnh]
 					,[DuongDan]
 					,[MoTa]
@@ -10193,14 +10135,15 @@ AS
 					)
 				VALUES
 					(
-					@IdGallery
-					,@IdCongTy
+					@IdCongTy
 					,@TenAnh
 					,@DuongDan
 					,@MoTa
 					,@Flag
 					)
 				
+				-- Get the identity value
+				SET @IdGallery = SCOPE_IDENTITY()
 									
 							
 			
@@ -10232,8 +10175,6 @@ CREATE PROCEDURE dbo.tbl_Gallery_Update
 
 	@IdGallery bigint   ,
 
-	@OriginalIdGallery bigint   ,
-
 	@IdCongTy bigint   ,
 
 	@TenAnh nvarchar (50)  ,
@@ -10253,14 +10194,13 @@ AS
 				UPDATE
 					[dbo].[tbl_Gallery]
 				SET
-					[id_Gallery] = @IdGallery
-					,[id_CongTy] = @IdCongTy
+					[id_CongTy] = @IdCongTy
 					,[TenAnh] = @TenAnh
 					,[DuongDan] = @DuongDan
 					,[MoTa] = @MoTa
 					,[Flag] = @Flag
 				WHERE
-[id_Gallery] = @OriginalIdGallery 
+[id_Gallery] = @IdGallery 
 				
 			
 
