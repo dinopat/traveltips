@@ -33,7 +33,68 @@ namespace traveltips.Services
 		public ChuCongTyService() : base()
 		{
 		}
-		
+
+        public TList<ChuCongTy> GetChuCongTyInfo()
+        {
+            return DataRepository.ChuCongTyProvider.GetAll();
+        }
+
+        public void DeleteChuCongTyByIdChuCongTy(long idChuCongTy)
+        {
+            DataRepository.ChuCongTyProvider.Delete(idChuCongTy);
+        }
+
+        public ChuCongTy GetChuCongTyInfoByIdChuCongTy(long idChuCongTy)
+        {
+            return DataRepository.ChuCongTyProvider.GetByIdChuCongTy(idChuCongTy);
+        }
+
+        public bool UpdateChuCongTy(ChuCongTy chuCTyInfo)
+        {
+            bool isUpdateChuCongTy = false;
+            try
+            {
+                isUpdateChuCongTy = DataRepository.ChuCongTyProvider.Update(chuCTyInfo);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return isUpdateChuCongTy;
+        }
+
+        public bool BlockChuCongTyByIdChuCongTy(long idChuCongTy)
+        {
+            bool isBlockChuCongTy = false;
+            try
+            {
+                ChuCongTy ct = GetChuCongTyInfoByIdChuCongTy(idChuCongTy);
+                ct.Flag = 1;
+                isBlockChuCongTy = DataRepository.ChuCongTyProvider.Update(ct);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return isBlockChuCongTy;
+        }
+
+        public bool InsertChuCongTy(ChuCongTy chuCongTyInfo)
+        {
+            bool isInsertChuCongTy = false;
+            try
+            {
+                isInsertChuCongTy = DataRepository.ChuCongTyProvider.Insert(chuCongTyInfo);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return isInsertChuCongTy;
+        }
+
+
+
 	}//End Class
 
 
