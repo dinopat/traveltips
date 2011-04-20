@@ -829,7 +829,7 @@ namespace traveltips.DAO.SqlClient
 			SqlDatabase database = new SqlDatabase(this._connectionString);
 			DbCommand commandWrapper = StoredProcedureProvider.GetCommandWrapper(database, "dbo.tbl_SanPham_Insert", _useStoredProcedure);
 			
-			database.AddInParameter(commandWrapper, "@IdSanPham", DbType.Int64, entity.IdSanPham );
+			database.AddOutParameter(commandWrapper, "@IdSanPham", DbType.Int64, 8);
 			database.AddInParameter(commandWrapper, "@IdCongTy", DbType.Int64, (entity.IdCongTy.HasValue ? (object) entity.IdCongTy  : System.DBNull.Value));
 			database.AddInParameter(commandWrapper, "@IdLoaiSp", DbType.Int64, (entity.IdLoaiSp.HasValue ? (object) entity.IdLoaiSp  : System.DBNull.Value));
 			database.AddInParameter(commandWrapper, "@IdTuDien", DbType.Int64, (entity.IdTuDien.HasValue ? (object) entity.IdTuDien  : System.DBNull.Value));
@@ -855,8 +855,9 @@ namespace traveltips.DAO.SqlClient
 				results = Utility.ExecuteNonQuery(database,commandWrapper);
 			}
 					
+
+			entity.IdSanPham = (System.Int64) database.GetParameterValue(commandWrapper, "@IdSanPham");						
 			
-			entity.OriginalIdSanPham = entity.IdSanPham;
 			
 			entity.AcceptChanges();
 	
@@ -888,7 +889,6 @@ namespace traveltips.DAO.SqlClient
 			DbCommand commandWrapper = StoredProcedureProvider.GetCommandWrapper(database, "dbo.tbl_SanPham_Update", _useStoredProcedure);
 			
 			database.AddInParameter(commandWrapper, "@IdSanPham", DbType.Int64, entity.IdSanPham );
-			database.AddInParameter(commandWrapper, "@OriginalIdSanPham", DbType.Int64, entity.OriginalIdSanPham);
 			database.AddInParameter(commandWrapper, "@IdCongTy", DbType.Int64, (entity.IdCongTy.HasValue ? (object) entity.IdCongTy : System.DBNull.Value) );
 			database.AddInParameter(commandWrapper, "@IdLoaiSp", DbType.Int64, (entity.IdLoaiSp.HasValue ? (object) entity.IdLoaiSp : System.DBNull.Value) );
 			database.AddInParameter(commandWrapper, "@IdTuDien", DbType.Int64, (entity.IdTuDien.HasValue ? (object) entity.IdTuDien : System.DBNull.Value) );
@@ -918,7 +918,6 @@ namespace traveltips.DAO.SqlClient
 			if (DataRepository.Provider.EnableEntityTracking)
 				EntityManager.StopTracking(entity.EntityTrackingKey);
 			
-			entity.OriginalIdSanPham = entity.IdSanPham;
 			
 			entity.AcceptChanges();
 			

@@ -700,7 +700,7 @@ namespace traveltips.DAO.SqlClient
 			SqlDatabase database = new SqlDatabase(this._connectionString);
 			DbCommand commandWrapper = StoredProcedureProvider.GetCommandWrapper(database, "dbo.tbl_DanhMuc_Insert", _useStoredProcedure);
 			
-			database.AddInParameter(commandWrapper, "@IdDanhMuc", DbType.Int64, entity.IdDanhMuc );
+			database.AddOutParameter(commandWrapper, "@IdDanhMuc", DbType.Int64, 8);
 			database.AddInParameter(commandWrapper, "@IdDmCha", DbType.Int64, (entity.IdDmCha.HasValue ? (object) entity.IdDmCha  : System.DBNull.Value));
 			database.AddInParameter(commandWrapper, "@TenDanhMuc", DbType.String, entity.TenDanhMuc );
 			database.AddInParameter(commandWrapper, "@MaDanhMuc", DbType.AnsiString, entity.MaDanhMuc );
@@ -721,8 +721,9 @@ namespace traveltips.DAO.SqlClient
 				results = Utility.ExecuteNonQuery(database,commandWrapper);
 			}
 					
+
+			entity.IdDanhMuc = (System.Int64) database.GetParameterValue(commandWrapper, "@IdDanhMuc");						
 			
-			entity.OriginalIdDanhMuc = entity.IdDanhMuc;
 			
 			entity.AcceptChanges();
 	
@@ -754,7 +755,6 @@ namespace traveltips.DAO.SqlClient
 			DbCommand commandWrapper = StoredProcedureProvider.GetCommandWrapper(database, "dbo.tbl_DanhMuc_Update", _useStoredProcedure);
 			
 			database.AddInParameter(commandWrapper, "@IdDanhMuc", DbType.Int64, entity.IdDanhMuc );
-			database.AddInParameter(commandWrapper, "@OriginalIdDanhMuc", DbType.Int64, entity.OriginalIdDanhMuc);
 			database.AddInParameter(commandWrapper, "@IdDmCha", DbType.Int64, (entity.IdDmCha.HasValue ? (object) entity.IdDmCha : System.DBNull.Value) );
 			database.AddInParameter(commandWrapper, "@TenDanhMuc", DbType.String, entity.TenDanhMuc );
 			database.AddInParameter(commandWrapper, "@MaDanhMuc", DbType.AnsiString, entity.MaDanhMuc );
@@ -779,7 +779,6 @@ namespace traveltips.DAO.SqlClient
 			if (DataRepository.Provider.EnableEntityTracking)
 				EntityManager.StopTracking(entity.EntityTrackingKey);
 			
-			entity.OriginalIdDanhMuc = entity.IdDanhMuc;
 			
 			entity.AcceptChanges();
 			

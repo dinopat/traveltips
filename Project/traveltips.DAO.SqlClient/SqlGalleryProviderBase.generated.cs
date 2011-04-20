@@ -764,7 +764,7 @@ namespace traveltips.DAO.SqlClient
 			SqlDatabase database = new SqlDatabase(this._connectionString);
 			DbCommand commandWrapper = StoredProcedureProvider.GetCommandWrapper(database, "dbo.tbl_Gallery_Insert", _useStoredProcedure);
 			
-			database.AddInParameter(commandWrapper, "@IdGallery", DbType.Int64, entity.IdGallery );
+			database.AddOutParameter(commandWrapper, "@IdGallery", DbType.Int64, 8);
 			database.AddInParameter(commandWrapper, "@IdCongTy", DbType.Int64, (entity.IdCongTy.HasValue ? (object) entity.IdCongTy  : System.DBNull.Value));
 			database.AddInParameter(commandWrapper, "@TenAnh", DbType.String, entity.TenAnh );
 			database.AddInParameter(commandWrapper, "@DuongDan", DbType.String, entity.DuongDan );
@@ -785,8 +785,9 @@ namespace traveltips.DAO.SqlClient
 				results = Utility.ExecuteNonQuery(database,commandWrapper);
 			}
 					
+
+			entity.IdGallery = (System.Int64) database.GetParameterValue(commandWrapper, "@IdGallery");						
 			
-			entity.OriginalIdGallery = entity.IdGallery;
 			
 			entity.AcceptChanges();
 	
@@ -818,7 +819,6 @@ namespace traveltips.DAO.SqlClient
 			DbCommand commandWrapper = StoredProcedureProvider.GetCommandWrapper(database, "dbo.tbl_Gallery_Update", _useStoredProcedure);
 			
 			database.AddInParameter(commandWrapper, "@IdGallery", DbType.Int64, entity.IdGallery );
-			database.AddInParameter(commandWrapper, "@OriginalIdGallery", DbType.Int64, entity.OriginalIdGallery);
 			database.AddInParameter(commandWrapper, "@IdCongTy", DbType.Int64, (entity.IdCongTy.HasValue ? (object) entity.IdCongTy : System.DBNull.Value) );
 			database.AddInParameter(commandWrapper, "@TenAnh", DbType.String, entity.TenAnh );
 			database.AddInParameter(commandWrapper, "@DuongDan", DbType.String, entity.DuongDan );
@@ -843,7 +843,6 @@ namespace traveltips.DAO.SqlClient
 			if (DataRepository.Provider.EnableEntityTracking)
 				EntityManager.StopTracking(entity.EntityTrackingKey);
 			
-			entity.OriginalIdGallery = entity.IdGallery;
 			
 			entity.AcceptChanges();
 			

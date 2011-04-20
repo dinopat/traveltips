@@ -764,7 +764,7 @@ namespace traveltips.DAO.SqlClient
 			SqlDatabase database = new SqlDatabase(this._connectionString);
 			DbCommand commandWrapper = StoredProcedureProvider.GetCommandWrapper(database, "dbo.tbl_ThanhPho_Insert", _useStoredProcedure);
 			
-			database.AddInParameter(commandWrapper, "@IdThanhPho", DbType.Int64, entity.IdThanhPho );
+			database.AddOutParameter(commandWrapper, "@IdThanhPho", DbType.Int64, 8);
 			database.AddInParameter(commandWrapper, "@IdQuocGia", DbType.Int64, (entity.IdQuocGia.HasValue ? (object) entity.IdQuocGia  : System.DBNull.Value));
 			database.AddInParameter(commandWrapper, "@TenTp", DbType.String, entity.TenTp );
 			database.AddInParameter(commandWrapper, "@MaTp", DbType.AnsiString, entity.MaTp );
@@ -785,8 +785,9 @@ namespace traveltips.DAO.SqlClient
 				results = Utility.ExecuteNonQuery(database,commandWrapper);
 			}
 					
+
+			entity.IdThanhPho = (System.Int64) database.GetParameterValue(commandWrapper, "@IdThanhPho");						
 			
-			entity.OriginalIdThanhPho = entity.IdThanhPho;
 			
 			entity.AcceptChanges();
 	
@@ -818,7 +819,6 @@ namespace traveltips.DAO.SqlClient
 			DbCommand commandWrapper = StoredProcedureProvider.GetCommandWrapper(database, "dbo.tbl_ThanhPho_Update", _useStoredProcedure);
 			
 			database.AddInParameter(commandWrapper, "@IdThanhPho", DbType.Int64, entity.IdThanhPho );
-			database.AddInParameter(commandWrapper, "@OriginalIdThanhPho", DbType.Int64, entity.OriginalIdThanhPho);
 			database.AddInParameter(commandWrapper, "@IdQuocGia", DbType.Int64, (entity.IdQuocGia.HasValue ? (object) entity.IdQuocGia : System.DBNull.Value) );
 			database.AddInParameter(commandWrapper, "@TenTp", DbType.String, entity.TenTp );
 			database.AddInParameter(commandWrapper, "@MaTp", DbType.AnsiString, entity.MaTp );
@@ -843,7 +843,6 @@ namespace traveltips.DAO.SqlClient
 			if (DataRepository.Provider.EnableEntityTracking)
 				EntityManager.StopTracking(entity.EntityTrackingKey);
 			
-			entity.OriginalIdThanhPho = entity.IdThanhPho;
 			
 			entity.AcceptChanges();
 			

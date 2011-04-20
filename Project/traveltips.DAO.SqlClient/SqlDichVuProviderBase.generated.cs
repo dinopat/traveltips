@@ -181,7 +181,7 @@ namespace traveltips.DAO.SqlClient
 		database.AddInParameter(commandWrapper, "@SearchUsingOR", DbType.Boolean, searchUsingOR);
 		
 		database.AddInParameter(commandWrapper, "@IdDichVu", DbType.Int64, DBNull.Value);
-		database.AddInParameter(commandWrapper, "@IdCongTy", DbType.StringFixedLength, DBNull.Value);
+		database.AddInParameter(commandWrapper, "@IdCongTy", DbType.Int64, DBNull.Value);
 		database.AddInParameter(commandWrapper, "@TenDv", DbType.String, DBNull.Value);
 		database.AddInParameter(commandWrapper, "@MaDv", DbType.AnsiString, DBNull.Value);
 		database.AddInParameter(commandWrapper, "@MotaNgan", DbType.String, DBNull.Value);
@@ -630,7 +630,7 @@ namespace traveltips.DAO.SqlClient
 			DataTable dataTable = new DataTable();
 			DataColumn col0 = dataTable.Columns.Add("id_DichVu", typeof(System.Int64));
 			col0.AllowDBNull = false;		
-			DataColumn col1 = dataTable.Columns.Add("id_CongTy", typeof(System.String));
+			DataColumn col1 = dataTable.Columns.Add("id_CongTy", typeof(System.Int64));
 			col1.AllowDBNull = true;		
 			DataColumn col2 = dataTable.Columns.Add("TenDV", typeof(System.String));
 			col2.AllowDBNull = true;		
@@ -661,7 +661,7 @@ namespace traveltips.DAO.SqlClient
 					row["id_DichVu"] = entity.IdDichVu;
 							
 				
-					row["id_CongTy"] = entity.IdCongTy;
+					row["id_CongTy"] = entity.IdCongTy.HasValue ? (object) entity.IdCongTy  : System.DBNull.Value;
 							
 				
 					row["TenDV"] = entity.TenDv;
@@ -713,8 +713,8 @@ namespace traveltips.DAO.SqlClient
 			SqlDatabase database = new SqlDatabase(this._connectionString);
 			DbCommand commandWrapper = StoredProcedureProvider.GetCommandWrapper(database, "dbo.tbl_DichVu_Insert", _useStoredProcedure);
 			
-			database.AddInParameter(commandWrapper, "@IdDichVu", DbType.Int64, entity.IdDichVu );
-			database.AddInParameter(commandWrapper, "@IdCongTy", DbType.StringFixedLength, entity.IdCongTy );
+			database.AddOutParameter(commandWrapper, "@IdDichVu", DbType.Int64, 8);
+			database.AddInParameter(commandWrapper, "@IdCongTy", DbType.Int64, (entity.IdCongTy.HasValue ? (object) entity.IdCongTy  : System.DBNull.Value));
 			database.AddInParameter(commandWrapper, "@TenDv", DbType.String, entity.TenDv );
 			database.AddInParameter(commandWrapper, "@MaDv", DbType.AnsiString, entity.MaDv );
 			database.AddInParameter(commandWrapper, "@MotaNgan", DbType.String, entity.MotaNgan );
@@ -735,8 +735,9 @@ namespace traveltips.DAO.SqlClient
 				results = Utility.ExecuteNonQuery(database,commandWrapper);
 			}
 					
+
+			entity.IdDichVu = (System.Int64) database.GetParameterValue(commandWrapper, "@IdDichVu");						
 			
-			entity.OriginalIdDichVu = entity.IdDichVu;
 			
 			entity.AcceptChanges();
 	
@@ -768,8 +769,7 @@ namespace traveltips.DAO.SqlClient
 			DbCommand commandWrapper = StoredProcedureProvider.GetCommandWrapper(database, "dbo.tbl_DichVu_Update", _useStoredProcedure);
 			
 			database.AddInParameter(commandWrapper, "@IdDichVu", DbType.Int64, entity.IdDichVu );
-			database.AddInParameter(commandWrapper, "@OriginalIdDichVu", DbType.Int64, entity.OriginalIdDichVu);
-			database.AddInParameter(commandWrapper, "@IdCongTy", DbType.StringFixedLength, entity.IdCongTy );
+			database.AddInParameter(commandWrapper, "@IdCongTy", DbType.Int64, (entity.IdCongTy.HasValue ? (object) entity.IdCongTy : System.DBNull.Value) );
 			database.AddInParameter(commandWrapper, "@TenDv", DbType.String, entity.TenDv );
 			database.AddInParameter(commandWrapper, "@MaDv", DbType.AnsiString, entity.MaDv );
 			database.AddInParameter(commandWrapper, "@MotaNgan", DbType.String, entity.MotaNgan );
@@ -794,7 +794,6 @@ namespace traveltips.DAO.SqlClient
 			if (DataRepository.Provider.EnableEntityTracking)
 				EntityManager.StopTracking(entity.EntityTrackingKey);
 			
-			entity.OriginalIdDichVu = entity.IdDichVu;
 			
 			entity.AcceptChanges();
 			

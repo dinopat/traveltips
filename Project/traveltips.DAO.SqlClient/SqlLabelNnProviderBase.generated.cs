@@ -687,7 +687,7 @@ namespace traveltips.DAO.SqlClient
 			SqlDatabase database = new SqlDatabase(this._connectionString);
 			DbCommand commandWrapper = StoredProcedureProvider.GetCommandWrapper(database, "dbo.tbl_LabelNN_Insert", _useStoredProcedure);
 			
-			database.AddInParameter(commandWrapper, "@IdLabel", DbType.Int64, entity.IdLabel );
+			database.AddOutParameter(commandWrapper, "@IdLabel", DbType.Int64, 8);
 			database.AddInParameter(commandWrapper, "@MaLabel", DbType.AnsiString, entity.MaLabel );
 			database.AddInParameter(commandWrapper, "@TenLabel", DbType.AnsiString, entity.TenLabel );
 			database.AddInParameter(commandWrapper, "@MoTa", DbType.AnsiString, entity.MoTa );
@@ -707,8 +707,9 @@ namespace traveltips.DAO.SqlClient
 				results = Utility.ExecuteNonQuery(database,commandWrapper);
 			}
 					
+
+			entity.IdLabel = (System.Int64) database.GetParameterValue(commandWrapper, "@IdLabel");						
 			
-			entity.OriginalIdLabel = entity.IdLabel;
 			
 			entity.AcceptChanges();
 	
@@ -740,7 +741,6 @@ namespace traveltips.DAO.SqlClient
 			DbCommand commandWrapper = StoredProcedureProvider.GetCommandWrapper(database, "dbo.tbl_LabelNN_Update", _useStoredProcedure);
 			
 			database.AddInParameter(commandWrapper, "@IdLabel", DbType.Int64, entity.IdLabel );
-			database.AddInParameter(commandWrapper, "@OriginalIdLabel", DbType.Int64, entity.OriginalIdLabel);
 			database.AddInParameter(commandWrapper, "@MaLabel", DbType.AnsiString, entity.MaLabel );
 			database.AddInParameter(commandWrapper, "@TenLabel", DbType.AnsiString, entity.TenLabel );
 			database.AddInParameter(commandWrapper, "@MoTa", DbType.AnsiString, entity.MoTa );
@@ -764,7 +764,6 @@ namespace traveltips.DAO.SqlClient
 			if (DataRepository.Provider.EnableEntityTracking)
 				EntityManager.StopTracking(entity.EntityTrackingKey);
 			
-			entity.OriginalIdLabel = entity.IdLabel;
 			
 			entity.AcceptChanges();
 			

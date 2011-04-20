@@ -194,8 +194,8 @@ namespace traveltips.DAO.SqlClient
 		database.AddInParameter(commandWrapper, "@Fax", DbType.AnsiString, DBNull.Value);
 		database.AddInParameter(commandWrapper, "@Email", DbType.AnsiString, DBNull.Value);
 		database.AddInParameter(commandWrapper, "@Website", DbType.AnsiString, DBNull.Value);
-		database.AddInParameter(commandWrapper, "@HinhThucTt", DbType.AnsiString, DBNull.Value);
-		database.AddInParameter(commandWrapper, "@ThoiGianPv", DbType.AnsiString, DBNull.Value);
+		database.AddInParameter(commandWrapper, "@HinhThucTt", DbType.String, DBNull.Value);
+		database.AddInParameter(commandWrapper, "@ThoiGianPv", DbType.String, DBNull.Value);
 		database.AddInParameter(commandWrapper, "@AnhMinhHoa", DbType.AnsiString, DBNull.Value);
 		database.AddInParameter(commandWrapper, "@GhiChu", DbType.String, DBNull.Value);
 		database.AddInParameter(commandWrapper, "@MoTaNgan", DbType.String, DBNull.Value);
@@ -1023,7 +1023,7 @@ namespace traveltips.DAO.SqlClient
 			SqlDatabase database = new SqlDatabase(this._connectionString);
 			DbCommand commandWrapper = StoredProcedureProvider.GetCommandWrapper(database, "dbo.tbl_CongTy_Insert", _useStoredProcedure);
 			
-			database.AddInParameter(commandWrapper, "@IdCongTy", DbType.Int64, entity.IdCongTy );
+			database.AddOutParameter(commandWrapper, "@IdCongTy", DbType.Int64, 8);
 			database.AddInParameter(commandWrapper, "@IdChuCongTy", DbType.Int64, (entity.IdChuCongTy.HasValue ? (object) entity.IdChuCongTy  : System.DBNull.Value));
 			database.AddInParameter(commandWrapper, "@IdDanhMuc", DbType.Int64, (entity.IdDanhMuc.HasValue ? (object) entity.IdDanhMuc  : System.DBNull.Value));
 			database.AddInParameter(commandWrapper, "@IdQuocGia", DbType.Int64, (entity.IdQuocGia.HasValue ? (object) entity.IdQuocGia  : System.DBNull.Value));
@@ -1037,8 +1037,8 @@ namespace traveltips.DAO.SqlClient
 			database.AddInParameter(commandWrapper, "@Fax", DbType.AnsiString, entity.Fax );
 			database.AddInParameter(commandWrapper, "@Email", DbType.AnsiString, entity.Email );
 			database.AddInParameter(commandWrapper, "@Website", DbType.AnsiString, entity.Website );
-			database.AddInParameter(commandWrapper, "@HinhThucTt", DbType.AnsiString, entity.HinhThucTt );
-			database.AddInParameter(commandWrapper, "@ThoiGianPv", DbType.AnsiString, entity.ThoiGianPv );
+			database.AddInParameter(commandWrapper, "@HinhThucTt", DbType.String, entity.HinhThucTt );
+			database.AddInParameter(commandWrapper, "@ThoiGianPv", DbType.String, entity.ThoiGianPv );
 			database.AddInParameter(commandWrapper, "@AnhMinhHoa", DbType.AnsiString, entity.AnhMinhHoa );
 			database.AddInParameter(commandWrapper, "@GhiChu", DbType.String, entity.GhiChu );
 			database.AddInParameter(commandWrapper, "@MoTaNgan", DbType.String, entity.MoTaNgan );
@@ -1059,8 +1059,9 @@ namespace traveltips.DAO.SqlClient
 				results = Utility.ExecuteNonQuery(database,commandWrapper);
 			}
 					
+
+			entity.IdCongTy = (System.Int64) database.GetParameterValue(commandWrapper, "@IdCongTy");						
 			
-			entity.OriginalIdCongTy = entity.IdCongTy;
 			
 			entity.AcceptChanges();
 	
@@ -1092,7 +1093,6 @@ namespace traveltips.DAO.SqlClient
 			DbCommand commandWrapper = StoredProcedureProvider.GetCommandWrapper(database, "dbo.tbl_CongTy_Update", _useStoredProcedure);
 			
 			database.AddInParameter(commandWrapper, "@IdCongTy", DbType.Int64, entity.IdCongTy );
-			database.AddInParameter(commandWrapper, "@OriginalIdCongTy", DbType.Int64, entity.OriginalIdCongTy);
 			database.AddInParameter(commandWrapper, "@IdChuCongTy", DbType.Int64, (entity.IdChuCongTy.HasValue ? (object) entity.IdChuCongTy : System.DBNull.Value) );
 			database.AddInParameter(commandWrapper, "@IdDanhMuc", DbType.Int64, (entity.IdDanhMuc.HasValue ? (object) entity.IdDanhMuc : System.DBNull.Value) );
 			database.AddInParameter(commandWrapper, "@IdQuocGia", DbType.Int64, (entity.IdQuocGia.HasValue ? (object) entity.IdQuocGia : System.DBNull.Value) );
@@ -1106,8 +1106,8 @@ namespace traveltips.DAO.SqlClient
 			database.AddInParameter(commandWrapper, "@Fax", DbType.AnsiString, entity.Fax );
 			database.AddInParameter(commandWrapper, "@Email", DbType.AnsiString, entity.Email );
 			database.AddInParameter(commandWrapper, "@Website", DbType.AnsiString, entity.Website );
-			database.AddInParameter(commandWrapper, "@HinhThucTt", DbType.AnsiString, entity.HinhThucTt );
-			database.AddInParameter(commandWrapper, "@ThoiGianPv", DbType.AnsiString, entity.ThoiGianPv );
+			database.AddInParameter(commandWrapper, "@HinhThucTt", DbType.String, entity.HinhThucTt );
+			database.AddInParameter(commandWrapper, "@ThoiGianPv", DbType.String, entity.ThoiGianPv );
 			database.AddInParameter(commandWrapper, "@AnhMinhHoa", DbType.AnsiString, entity.AnhMinhHoa );
 			database.AddInParameter(commandWrapper, "@GhiChu", DbType.String, entity.GhiChu );
 			database.AddInParameter(commandWrapper, "@MoTaNgan", DbType.String, entity.MoTaNgan );
@@ -1132,7 +1132,6 @@ namespace traveltips.DAO.SqlClient
 			if (DataRepository.Provider.EnableEntityTracking)
 				EntityManager.StopTracking(entity.EntityTrackingKey);
 			
-			entity.OriginalIdCongTy = entity.IdCongTy;
 			
 			entity.AcceptChanges();
 			

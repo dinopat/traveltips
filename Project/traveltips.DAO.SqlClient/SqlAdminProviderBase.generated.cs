@@ -184,7 +184,7 @@ namespace traveltips.DAO.SqlClient
 		database.AddInParameter(commandWrapper, "@TenDangNhap", DbType.AnsiString, DBNull.Value);
 		database.AddInParameter(commandWrapper, "@Email", DbType.AnsiString, DBNull.Value);
 		database.AddInParameter(commandWrapper, "@Password", DbType.String, DBNull.Value);
-		database.AddInParameter(commandWrapper, "@HoTen", DbType.AnsiString, DBNull.Value);
+		database.AddInParameter(commandWrapper, "@HoTen", DbType.String, DBNull.Value);
 		database.AddInParameter(commandWrapper, "@DienThoai", DbType.AnsiString, DBNull.Value);
 		database.AddInParameter(commandWrapper, "@Flag", DbType.Byte, DBNull.Value);
 	
@@ -713,11 +713,11 @@ namespace traveltips.DAO.SqlClient
 			SqlDatabase database = new SqlDatabase(this._connectionString);
 			DbCommand commandWrapper = StoredProcedureProvider.GetCommandWrapper(database, "dbo.tbl_Admin_Insert", _useStoredProcedure);
 			
-			database.AddInParameter(commandWrapper, "@IdAdmin", DbType.Int64, entity.IdAdmin );
+			database.AddOutParameter(commandWrapper, "@IdAdmin", DbType.Int64, 8);
 			database.AddInParameter(commandWrapper, "@TenDangNhap", DbType.AnsiString, entity.TenDangNhap );
 			database.AddInParameter(commandWrapper, "@Email", DbType.AnsiString, entity.Email );
 			database.AddInParameter(commandWrapper, "@Password", DbType.String, entity.Password );
-			database.AddInParameter(commandWrapper, "@HoTen", DbType.AnsiString, entity.HoTen );
+			database.AddInParameter(commandWrapper, "@HoTen", DbType.String, entity.HoTen );
 			database.AddInParameter(commandWrapper, "@DienThoai", DbType.AnsiString, entity.DienThoai );
 			database.AddInParameter(commandWrapper, "@Flag", DbType.Byte, (entity.Flag.HasValue ? (object) entity.Flag  : System.DBNull.Value));
 			
@@ -735,8 +735,9 @@ namespace traveltips.DAO.SqlClient
 				results = Utility.ExecuteNonQuery(database,commandWrapper);
 			}
 					
+
+			entity.IdAdmin = (System.Int64) database.GetParameterValue(commandWrapper, "@IdAdmin");						
 			
-			entity.OriginalIdAdmin = entity.IdAdmin;
 			
 			entity.AcceptChanges();
 	
@@ -768,11 +769,10 @@ namespace traveltips.DAO.SqlClient
 			DbCommand commandWrapper = StoredProcedureProvider.GetCommandWrapper(database, "dbo.tbl_Admin_Update", _useStoredProcedure);
 			
 			database.AddInParameter(commandWrapper, "@IdAdmin", DbType.Int64, entity.IdAdmin );
-			database.AddInParameter(commandWrapper, "@OriginalIdAdmin", DbType.Int64, entity.OriginalIdAdmin);
 			database.AddInParameter(commandWrapper, "@TenDangNhap", DbType.AnsiString, entity.TenDangNhap );
 			database.AddInParameter(commandWrapper, "@Email", DbType.AnsiString, entity.Email );
 			database.AddInParameter(commandWrapper, "@Password", DbType.String, entity.Password );
-			database.AddInParameter(commandWrapper, "@HoTen", DbType.AnsiString, entity.HoTen );
+			database.AddInParameter(commandWrapper, "@HoTen", DbType.String, entity.HoTen );
 			database.AddInParameter(commandWrapper, "@DienThoai", DbType.AnsiString, entity.DienThoai );
 			database.AddInParameter(commandWrapper, "@Flag", DbType.Byte, (entity.Flag.HasValue ? (object) entity.Flag : System.DBNull.Value) );
 			
@@ -794,7 +794,6 @@ namespace traveltips.DAO.SqlClient
 			if (DataRepository.Provider.EnableEntityTracking)
 				EntityManager.StopTracking(entity.EntityTrackingKey);
 			
-			entity.OriginalIdAdmin = entity.IdAdmin;
 			
 			entity.AcceptChanges();
 			

@@ -118,7 +118,7 @@
 */
 ]]></comment>
 			<parameters>
-				<parameter name="@IdQuocGia" type="bigint" direction="Input" size="8" precision="19" scale="0" param="" nulldefault=""/>
+				<parameter name="@IdQuocGia" type="bigint" direction="Output" size="8" precision="19" scale="0" param="" nulldefault=""/>
 				<parameter name="@TenQg" type="nvarchar" direction="Input" size="100" precision="0" scale="0" param="(100)" nulldefault=""/>
 				<parameter name="@MaQg" type="varchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
 				<parameter name="@MoTa" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
@@ -128,21 +128,21 @@
 					
 				INSERT INTO [dbo].[tbl_QuocGia]
 					(
-					[id_QuocGia]
-					,[TenQG]
+					[TenQG]
 					,[MaQG]
 					,[MoTa]
 					,[Flag]
 					)
 				VALUES
 					(
-					@IdQuocGia
-					,@TenQg
+					@TenQg
 					,@MaQg
 					,@MoTa
 					,@Flag
 					)
 				
+				-- Get the identity value
+				SET @IdQuocGia = SCOPE_IDENTITY()
 									
 							
 			]]></body>
@@ -158,7 +158,6 @@
 ]]></comment>
 			<parameters>
 				<parameter name="@IdQuocGia" type="bigint" direction="Input" size="8" precision="19" scale="0" param="" nulldefault=""/>
-				<parameter name="@OriginalIdQuocGia" type="bigint" direction="Input" size="8" precision="19" scale="0" param="" nulldefault=""/>
 				<parameter name="@TenQg" type="nvarchar" direction="Input" size="100" precision="0" scale="0" param="(100)" nulldefault=""/>
 				<parameter name="@MaQg" type="varchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
 				<parameter name="@MoTa" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
@@ -171,13 +170,12 @@
 				UPDATE
 					[dbo].[tbl_QuocGia]
 				SET
-					[id_QuocGia] = @IdQuocGia
-					,[TenQG] = @TenQg
+					[TenQG] = @TenQg
 					,[MaQG] = @MaQg
 					,[MoTa] = @MoTa
 					,[Flag] = @Flag
 				WHERE
-[id_QuocGia] = @OriginalIdQuocGia 
+[id_QuocGia] = @IdQuocGia 
 				
 			]]></body>
 		</procedure>
@@ -450,11 +448,11 @@
 */
 ]]></comment>
 			<parameters>
-				<parameter name="@IdAdmin" type="bigint" direction="Input" size="8" precision="19" scale="0" param="" nulldefault=""/>
+				<parameter name="@IdAdmin" type="bigint" direction="Output" size="8" precision="19" scale="0" param="" nulldefault=""/>
 				<parameter name="@TenDangNhap" type="varchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
 				<parameter name="@Email" type="varchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
 				<parameter name="@Password" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
-				<parameter name="@HoTen" type="varchar" direction="Input" size="200" precision="0" scale="0" param="(200)" nulldefault=""/>
+				<parameter name="@HoTen" type="nvarchar" direction="Input" size="200" precision="0" scale="0" param="(200)" nulldefault=""/>
 				<parameter name="@DienThoai" type="varchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
 				<parameter name="@Flag" type="tinyint" direction="Input" size="1" precision="3" scale="0" param="" nulldefault=""/>
 			</parameters>
@@ -462,8 +460,7 @@
 					
 				INSERT INTO [dbo].[tbl_Admin]
 					(
-					[id_Admin]
-					,[TenDangNhap]
+					[TenDangNhap]
 					,[Email]
 					,[Password]
 					,[HoTen]
@@ -472,8 +469,7 @@
 					)
 				VALUES
 					(
-					@IdAdmin
-					,@TenDangNhap
+					@TenDangNhap
 					,@Email
 					,@Password
 					,@HoTen
@@ -481,6 +477,8 @@
 					,@Flag
 					)
 				
+				-- Get the identity value
+				SET @IdAdmin = SCOPE_IDENTITY()
 									
 							
 			]]></body>
@@ -496,11 +494,10 @@
 ]]></comment>
 			<parameters>
 				<parameter name="@IdAdmin" type="bigint" direction="Input" size="8" precision="19" scale="0" param="" nulldefault=""/>
-				<parameter name="@OriginalIdAdmin" type="bigint" direction="Input" size="8" precision="19" scale="0" param="" nulldefault=""/>
 				<parameter name="@TenDangNhap" type="varchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
 				<parameter name="@Email" type="varchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
 				<parameter name="@Password" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
-				<parameter name="@HoTen" type="varchar" direction="Input" size="200" precision="0" scale="0" param="(200)" nulldefault=""/>
+				<parameter name="@HoTen" type="nvarchar" direction="Input" size="200" precision="0" scale="0" param="(200)" nulldefault=""/>
 				<parameter name="@DienThoai" type="varchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
 				<parameter name="@Flag" type="tinyint" direction="Input" size="1" precision="3" scale="0" param="" nulldefault=""/>
 			</parameters>
@@ -511,15 +508,14 @@
 				UPDATE
 					[dbo].[tbl_Admin]
 				SET
-					[id_Admin] = @IdAdmin
-					,[TenDangNhap] = @TenDangNhap
+					[TenDangNhap] = @TenDangNhap
 					,[Email] = @Email
 					,[Password] = @Password
 					,[HoTen] = @HoTen
 					,[DienThoai] = @DienThoai
 					,[Flag] = @Flag
 				WHERE
-[id_Admin] = @OriginalIdAdmin 
+[id_Admin] = @IdAdmin 
 				
 			]]></body>
 		</procedure>
@@ -587,7 +583,7 @@
 				<parameter name="@TenDangNhap" type="varchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault="null"/>
 				<parameter name="@Email" type="varchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault="null"/>
 				<parameter name="@Password" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault="null"/>
-				<parameter name="@HoTen" type="varchar" direction="Input" size="200" precision="0" scale="0" param="(200)" nulldefault="null"/>
+				<parameter name="@HoTen" type="nvarchar" direction="Input" size="200" precision="0" scale="0" param="(200)" nulldefault="null"/>
 				<parameter name="@DienThoai" type="varchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault="null"/>
 				<parameter name="@Flag" type="tinyint" direction="Input" size="1" precision="3" scale="0" param="" nulldefault="null"/>
 			</parameters>
@@ -808,7 +804,7 @@
 */
 ]]></comment>
 			<parameters>
-				<parameter name="@IdSanPham" type="bigint" direction="Input" size="8" precision="19" scale="0" param="" nulldefault=""/>
+				<parameter name="@IdSanPham" type="bigint" direction="Output" size="8" precision="19" scale="0" param="" nulldefault=""/>
 				<parameter name="@IdCongTy" type="bigint" direction="Input" size="8" precision="19" scale="0" param="" nulldefault=""/>
 				<parameter name="@IdLoaiSp" type="bigint" direction="Input" size="8" precision="19" scale="0" param="" nulldefault=""/>
 				<parameter name="@IdTuDien" type="bigint" direction="Input" size="8" precision="19" scale="0" param="" nulldefault=""/>
@@ -824,8 +820,7 @@
 					
 				INSERT INTO [dbo].[tbl_SanPham]
 					(
-					[id_SanPham]
-					,[id_CongTy]
+					[id_CongTy]
 					,[id_LoaiSP]
 					,[id_TuDien]
 					,[TenSP]
@@ -838,8 +833,7 @@
 					)
 				VALUES
 					(
-					@IdSanPham
-					,@IdCongTy
+					@IdCongTy
 					,@IdLoaiSp
 					,@IdTuDien
 					,@TenSp
@@ -851,6 +845,8 @@
 					,@Flag
 					)
 				
+				-- Get the identity value
+				SET @IdSanPham = SCOPE_IDENTITY()
 									
 							
 			]]></body>
@@ -866,7 +862,6 @@
 ]]></comment>
 			<parameters>
 				<parameter name="@IdSanPham" type="bigint" direction="Input" size="8" precision="19" scale="0" param="" nulldefault=""/>
-				<parameter name="@OriginalIdSanPham" type="bigint" direction="Input" size="8" precision="19" scale="0" param="" nulldefault=""/>
 				<parameter name="@IdCongTy" type="bigint" direction="Input" size="8" precision="19" scale="0" param="" nulldefault=""/>
 				<parameter name="@IdLoaiSp" type="bigint" direction="Input" size="8" precision="19" scale="0" param="" nulldefault=""/>
 				<parameter name="@IdTuDien" type="bigint" direction="Input" size="8" precision="19" scale="0" param="" nulldefault=""/>
@@ -885,8 +880,7 @@
 				UPDATE
 					[dbo].[tbl_SanPham]
 				SET
-					[id_SanPham] = @IdSanPham
-					,[id_CongTy] = @IdCongTy
+					[id_CongTy] = @IdCongTy
 					,[id_LoaiSP] = @IdLoaiSp
 					,[id_TuDien] = @IdTuDien
 					,[TenSP] = @TenSp
@@ -897,7 +891,7 @@
 					,[AnhMinhHoa] = @AnhMinhHoa
 					,[Flag] = @Flag
 				WHERE
-[id_SanPham] = @OriginalIdSanPham 
+[id_SanPham] = @IdSanPham 
 				
 			]]></body>
 		</procedure>
@@ -1239,7 +1233,7 @@
 */
 ]]></comment>
 			<parameters>
-				<parameter name="@IdLoaiSp" type="bigint" direction="Input" size="8" precision="19" scale="0" param="" nulldefault=""/>
+				<parameter name="@IdLoaiSp" type="bigint" direction="Output" size="8" precision="19" scale="0" param="" nulldefault=""/>
 				<parameter name="@IdLoaiSpCha" type="bigint" direction="Input" size="8" precision="19" scale="0" param="" nulldefault=""/>
 				<parameter name="@TenLoaiSp" type="nvarchar" direction="Input" size="255" precision="0" scale="0" param="(255)" nulldefault=""/>
 				<parameter name="@MaLoaiSp" type="varchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
@@ -1250,8 +1244,7 @@
 					
 				INSERT INTO [dbo].[tbl_LoaiSP]
 					(
-					[id_LoaiSP]
-					,[id_LoaiSPCha]
+					[id_LoaiSPCha]
 					,[TenLoaiSP]
 					,[MaLoaiSP]
 					,[MoTa]
@@ -1259,14 +1252,15 @@
 					)
 				VALUES
 					(
-					@IdLoaiSp
-					,@IdLoaiSpCha
+					@IdLoaiSpCha
 					,@TenLoaiSp
 					,@MaLoaiSp
 					,@MoTa
 					,@Flag
 					)
 				
+				-- Get the identity value
+				SET @IdLoaiSp = SCOPE_IDENTITY()
 									
 							
 			]]></body>
@@ -1282,7 +1276,6 @@
 ]]></comment>
 			<parameters>
 				<parameter name="@IdLoaiSp" type="bigint" direction="Input" size="8" precision="19" scale="0" param="" nulldefault=""/>
-				<parameter name="@OriginalIdLoaiSp" type="bigint" direction="Input" size="8" precision="19" scale="0" param="" nulldefault=""/>
 				<parameter name="@IdLoaiSpCha" type="bigint" direction="Input" size="8" precision="19" scale="0" param="" nulldefault=""/>
 				<parameter name="@TenLoaiSp" type="nvarchar" direction="Input" size="255" precision="0" scale="0" param="(255)" nulldefault=""/>
 				<parameter name="@MaLoaiSp" type="varchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
@@ -1296,14 +1289,13 @@
 				UPDATE
 					[dbo].[tbl_LoaiSP]
 				SET
-					[id_LoaiSP] = @IdLoaiSp
-					,[id_LoaiSPCha] = @IdLoaiSpCha
+					[id_LoaiSPCha] = @IdLoaiSpCha
 					,[TenLoaiSP] = @TenLoaiSp
 					,[MaLoaiSP] = @MaLoaiSp
 					,[MoTa] = @MoTa
 					,[Flag] = @Flag
 				WHERE
-[id_LoaiSP] = @OriginalIdLoaiSp 
+[id_LoaiSP] = @IdLoaiSp 
 				
 			]]></body>
 		</procedure>
@@ -1581,7 +1573,7 @@
 */
 ]]></comment>
 			<parameters>
-				<parameter name="@IdThanhPho" type="bigint" direction="Input" size="8" precision="19" scale="0" param="" nulldefault=""/>
+				<parameter name="@IdThanhPho" type="bigint" direction="Output" size="8" precision="19" scale="0" param="" nulldefault=""/>
 				<parameter name="@IdQuocGia" type="bigint" direction="Input" size="8" precision="19" scale="0" param="" nulldefault=""/>
 				<parameter name="@TenTp" type="nvarchar" direction="Input" size="100" precision="0" scale="0" param="(100)" nulldefault=""/>
 				<parameter name="@MaTp" type="varchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
@@ -1592,8 +1584,7 @@
 					
 				INSERT INTO [dbo].[tbl_ThanhPho]
 					(
-					[id_ThanhPho]
-					,[id_QuocGia]
+					[id_QuocGia]
 					,[TenTP]
 					,[MaTP]
 					,[Mota]
@@ -1601,14 +1592,15 @@
 					)
 				VALUES
 					(
-					@IdThanhPho
-					,@IdQuocGia
+					@IdQuocGia
 					,@TenTp
 					,@MaTp
 					,@Mota
 					,@Flag
 					)
 				
+				-- Get the identity value
+				SET @IdThanhPho = SCOPE_IDENTITY()
 									
 							
 			]]></body>
@@ -1624,7 +1616,6 @@
 ]]></comment>
 			<parameters>
 				<parameter name="@IdThanhPho" type="bigint" direction="Input" size="8" precision="19" scale="0" param="" nulldefault=""/>
-				<parameter name="@OriginalIdThanhPho" type="bigint" direction="Input" size="8" precision="19" scale="0" param="" nulldefault=""/>
 				<parameter name="@IdQuocGia" type="bigint" direction="Input" size="8" precision="19" scale="0" param="" nulldefault=""/>
 				<parameter name="@TenTp" type="nvarchar" direction="Input" size="100" precision="0" scale="0" param="(100)" nulldefault=""/>
 				<parameter name="@MaTp" type="varchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
@@ -1638,14 +1629,13 @@
 				UPDATE
 					[dbo].[tbl_ThanhPho]
 				SET
-					[id_ThanhPho] = @IdThanhPho
-					,[id_QuocGia] = @IdQuocGia
+					[id_QuocGia] = @IdQuocGia
 					,[TenTP] = @TenTp
 					,[MaTP] = @MaTp
 					,[Mota] = @Mota
 					,[Flag] = @Flag
 				WHERE
-[id_ThanhPho] = @OriginalIdThanhPho 
+[id_ThanhPho] = @IdThanhPho 
 				
 			]]></body>
 		</procedure>
@@ -1952,7 +1942,7 @@
 */
 ]]></comment>
 			<parameters>
-				<parameter name="@IdThuocTinh" type="bigint" direction="Input" size="8" precision="19" scale="0" param="" nulldefault=""/>
+				<parameter name="@IdThuocTinh" type="bigint" direction="Output" size="8" precision="19" scale="0" param="" nulldefault=""/>
 				<parameter name="@TenThuocTinh" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
 				<parameter name="@MaThuocTinh" type="varchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
 				<parameter name="@Flag" type="tinyint" direction="Input" size="1" precision="3" scale="0" param="" nulldefault=""/>
@@ -1961,19 +1951,19 @@
 					
 				INSERT INTO [dbo].[tbl_ThuocTinh]
 					(
-					[id_ThuocTinh]
-					,[TenThuocTinh]
+					[TenThuocTinh]
 					,[MaThuocTinh]
 					,[Flag]
 					)
 				VALUES
 					(
-					@IdThuocTinh
-					,@TenThuocTinh
+					@TenThuocTinh
 					,@MaThuocTinh
 					,@Flag
 					)
 				
+				-- Get the identity value
+				SET @IdThuocTinh = SCOPE_IDENTITY()
 									
 							
 			]]></body>
@@ -1989,7 +1979,6 @@
 ]]></comment>
 			<parameters>
 				<parameter name="@IdThuocTinh" type="bigint" direction="Input" size="8" precision="19" scale="0" param="" nulldefault=""/>
-				<parameter name="@OriginalIdThuocTinh" type="bigint" direction="Input" size="8" precision="19" scale="0" param="" nulldefault=""/>
 				<parameter name="@TenThuocTinh" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
 				<parameter name="@MaThuocTinh" type="varchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
 				<parameter name="@Flag" type="tinyint" direction="Input" size="1" precision="3" scale="0" param="" nulldefault=""/>
@@ -2001,12 +1990,11 @@
 				UPDATE
 					[dbo].[tbl_ThuocTinh]
 				SET
-					[id_ThuocTinh] = @IdThuocTinh
-					,[TenThuocTinh] = @TenThuocTinh
+					[TenThuocTinh] = @TenThuocTinh
 					,[MaThuocTinh] = @MaThuocTinh
 					,[Flag] = @Flag
 				WHERE
-[id_ThuocTinh] = @OriginalIdThuocTinh 
+[id_ThuocTinh] = @IdThuocTinh 
 				
 			]]></body>
 		</procedure>
@@ -2273,10 +2261,10 @@
 */
 ]]></comment>
 			<parameters>
-				<parameter name="@IdTuDien" type="bigint" direction="Input" size="8" precision="19" scale="0" param="" nulldefault=""/>
+				<parameter name="@IdTuDien" type="bigint" direction="Output" size="8" precision="19" scale="0" param="" nulldefault=""/>
 				<parameter name="@IdDanhMuc" type="bigint" direction="Input" size="8" precision="19" scale="0" param="" nulldefault=""/>
 				<parameter name="@TenTu" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
-				<parameter name="@MaTu" type="nchar" direction="Input" size="10" precision="0" scale="0" param="(10)" nulldefault=""/>
+				<parameter name="@MaTu" type="varchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
 				<parameter name="@NhomTu" type="varchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
 				<parameter name="@MoTa" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
 				<parameter name="@Flag" type="tinyint" direction="Input" size="1" precision="3" scale="0" param="" nulldefault=""/>
@@ -2285,8 +2273,7 @@
 					
 				INSERT INTO [dbo].[tbl_TuDien]
 					(
-					[id_TuDien]
-					,[id_DanhMuc]
+					[id_DanhMuc]
 					,[TenTu]
 					,[MaTu]
 					,[NhomTu]
@@ -2295,8 +2282,7 @@
 					)
 				VALUES
 					(
-					@IdTuDien
-					,@IdDanhMuc
+					@IdDanhMuc
 					,@TenTu
 					,@MaTu
 					,@NhomTu
@@ -2304,6 +2290,8 @@
 					,@Flag
 					)
 				
+				-- Get the identity value
+				SET @IdTuDien = SCOPE_IDENTITY()
 									
 							
 			]]></body>
@@ -2319,10 +2307,9 @@
 ]]></comment>
 			<parameters>
 				<parameter name="@IdTuDien" type="bigint" direction="Input" size="8" precision="19" scale="0" param="" nulldefault=""/>
-				<parameter name="@OriginalIdTuDien" type="bigint" direction="Input" size="8" precision="19" scale="0" param="" nulldefault=""/>
 				<parameter name="@IdDanhMuc" type="bigint" direction="Input" size="8" precision="19" scale="0" param="" nulldefault=""/>
 				<parameter name="@TenTu" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
-				<parameter name="@MaTu" type="nchar" direction="Input" size="10" precision="0" scale="0" param="(10)" nulldefault=""/>
+				<parameter name="@MaTu" type="varchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
 				<parameter name="@NhomTu" type="varchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
 				<parameter name="@MoTa" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
 				<parameter name="@Flag" type="tinyint" direction="Input" size="1" precision="3" scale="0" param="" nulldefault=""/>
@@ -2334,15 +2321,14 @@
 				UPDATE
 					[dbo].[tbl_TuDien]
 				SET
-					[id_TuDien] = @IdTuDien
-					,[id_DanhMuc] = @IdDanhMuc
+					[id_DanhMuc] = @IdDanhMuc
 					,[TenTu] = @TenTu
 					,[MaTu] = @MaTu
 					,[NhomTu] = @NhomTu
 					,[MoTa] = @MoTa
 					,[Flag] = @Flag
 				WHERE
-[id_TuDien] = @OriginalIdTuDien 
+[id_TuDien] = @IdTuDien 
 				
 			]]></body>
 		</procedure>
@@ -2409,7 +2395,7 @@
 				<parameter name="@IdTuDien" type="bigint" direction="Input" size="8" precision="19" scale="0" param="" nulldefault="null"/>
 				<parameter name="@IdDanhMuc" type="bigint" direction="Input" size="8" precision="19" scale="0" param="" nulldefault="null"/>
 				<parameter name="@TenTu" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault="null"/>
-				<parameter name="@MaTu" type="nchar" direction="Input" size="10" precision="0" scale="0" param="(10)" nulldefault="null"/>
+				<parameter name="@MaTu" type="varchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault="null"/>
 				<parameter name="@NhomTu" type="varchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault="null"/>
 				<parameter name="@MoTa" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault="null"/>
 				<parameter name="@Flag" type="tinyint" direction="Input" size="1" precision="3" scale="0" param="" nulldefault="null"/>
@@ -2626,7 +2612,7 @@
 */
 ]]></comment>
 			<parameters>
-				<parameter name="@IdQuan" type="bigint" direction="Input" size="8" precision="19" scale="0" param="" nulldefault=""/>
+				<parameter name="@IdQuan" type="bigint" direction="Output" size="8" precision="19" scale="0" param="" nulldefault=""/>
 				<parameter name="@IdThanhPho" type="bigint" direction="Input" size="8" precision="19" scale="0" param="" nulldefault=""/>
 				<parameter name="@TenQuan" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
 				<parameter name="@MaQuan" type="varchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
@@ -2637,8 +2623,7 @@
 					
 				INSERT INTO [dbo].[tbl_Quan]
 					(
-					[id_Quan]
-					,[id_ThanhPho]
+					[id_ThanhPho]
 					,[TenQuan]
 					,[MaQuan]
 					,[MoTa]
@@ -2646,14 +2631,15 @@
 					)
 				VALUES
 					(
-					@IdQuan
-					,@IdThanhPho
+					@IdThanhPho
 					,@TenQuan
 					,@MaQuan
 					,@MoTa
 					,@Flag
 					)
 				
+				-- Get the identity value
+				SET @IdQuan = SCOPE_IDENTITY()
 									
 							
 			]]></body>
@@ -2669,7 +2655,6 @@
 ]]></comment>
 			<parameters>
 				<parameter name="@IdQuan" type="bigint" direction="Input" size="8" precision="19" scale="0" param="" nulldefault=""/>
-				<parameter name="@OriginalIdQuan" type="bigint" direction="Input" size="8" precision="19" scale="0" param="" nulldefault=""/>
 				<parameter name="@IdThanhPho" type="bigint" direction="Input" size="8" precision="19" scale="0" param="" nulldefault=""/>
 				<parameter name="@TenQuan" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
 				<parameter name="@MaQuan" type="varchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
@@ -2683,14 +2668,13 @@
 				UPDATE
 					[dbo].[tbl_Quan]
 				SET
-					[id_Quan] = @IdQuan
-					,[id_ThanhPho] = @IdThanhPho
+					[id_ThanhPho] = @IdThanhPho
 					,[TenQuan] = @TenQuan
 					,[MaQuan] = @MaQuan
 					,[MoTa] = @MoTa
 					,[Flag] = @Flag
 				WHERE
-[id_Quan] = @OriginalIdQuan 
+[id_Quan] = @IdQuan 
 				
 			]]></body>
 		</procedure>
@@ -3000,7 +2984,7 @@
 */
 ]]></comment>
 			<parameters>
-				<parameter name="@IdTinTuc" type="bigint" direction="Input" size="8" precision="19" scale="0" param="" nulldefault=""/>
+				<parameter name="@IdTinTuc" type="bigint" direction="Output" size="8" precision="19" scale="0" param="" nulldefault=""/>
 				<parameter name="@IdCongTy" type="bigint" direction="Input" size="8" precision="19" scale="0" param="" nulldefault=""/>
 				<parameter name="@TieuDe" type="nvarchar" direction="Input" size="200" precision="0" scale="0" param="(200)" nulldefault=""/>
 				<parameter name="@MoTaNgan" type="nvarchar" direction="Input" size="500" precision="0" scale="0" param="(500)" nulldefault=""/>
@@ -3012,8 +2996,7 @@
 					
 				INSERT INTO [dbo].[tbl_TinTuc]
 					(
-					[id_TinTuc]
-					,[id_CongTy]
+					[id_CongTy]
 					,[TieuDe]
 					,[MoTaNgan]
 					,[MoTaChiTiet]
@@ -3022,8 +3005,7 @@
 					)
 				VALUES
 					(
-					@IdTinTuc
-					,@IdCongTy
+					@IdCongTy
 					,@TieuDe
 					,@MoTaNgan
 					,@MoTaChiTiet
@@ -3031,6 +3013,8 @@
 					,@Flag
 					)
 				
+				-- Get the identity value
+				SET @IdTinTuc = SCOPE_IDENTITY()
 									
 							
 			]]></body>
@@ -3046,7 +3030,6 @@
 ]]></comment>
 			<parameters>
 				<parameter name="@IdTinTuc" type="bigint" direction="Input" size="8" precision="19" scale="0" param="" nulldefault=""/>
-				<parameter name="@OriginalIdTinTuc" type="bigint" direction="Input" size="8" precision="19" scale="0" param="" nulldefault=""/>
 				<parameter name="@IdCongTy" type="bigint" direction="Input" size="8" precision="19" scale="0" param="" nulldefault=""/>
 				<parameter name="@TieuDe" type="nvarchar" direction="Input" size="200" precision="0" scale="0" param="(200)" nulldefault=""/>
 				<parameter name="@MoTaNgan" type="nvarchar" direction="Input" size="500" precision="0" scale="0" param="(500)" nulldefault=""/>
@@ -3061,15 +3044,14 @@
 				UPDATE
 					[dbo].[tbl_TinTuc]
 				SET
-					[id_TinTuc] = @IdTinTuc
-					,[id_CongTy] = @IdCongTy
+					[id_CongTy] = @IdCongTy
 					,[TieuDe] = @TieuDe
 					,[MoTaNgan] = @MoTaNgan
 					,[MoTaChiTiet] = @MoTaChiTiet
 					,[KhuyenMai] = @KhuyenMai
 					,[Flag] = @Flag
 				WHERE
-[id_TinTuc] = @OriginalIdTinTuc 
+[id_TinTuc] = @IdTinTuc 
 				
 			]]></body>
 		</procedure>
@@ -3385,7 +3367,7 @@
 */
 ]]></comment>
 			<parameters>
-				<parameter name="@IdTtsp" type="bigint" direction="Input" size="8" precision="19" scale="0" param="" nulldefault=""/>
+				<parameter name="@IdTtsp" type="bigint" direction="Output" size="8" precision="19" scale="0" param="" nulldefault=""/>
 				<parameter name="@IdSanPham" type="bigint" direction="Input" size="8" precision="19" scale="0" param="" nulldefault=""/>
 				<parameter name="@IdThuocTinh" type="bigint" direction="Input" size="8" precision="19" scale="0" param="" nulldefault=""/>
 				<parameter name="@Value1" type="nvarchar" direction="Input" size="255" precision="0" scale="0" param="(255)" nulldefault=""/>
@@ -3396,8 +3378,7 @@
 					
 				INSERT INTO [dbo].[tbl_ThuocTinhSanPham]
 					(
-					[id_TTSP]
-					,[id_SanPham]
+					[id_SanPham]
 					,[id_ThuocTinh]
 					,[Value1]
 					,[Value2]
@@ -3405,14 +3386,15 @@
 					)
 				VALUES
 					(
-					@IdTtsp
-					,@IdSanPham
+					@IdSanPham
 					,@IdThuocTinh
 					,@Value1
 					,@Value2
 					,@Flag
 					)
 				
+				-- Get the identity value
+				SET @IdTtsp = SCOPE_IDENTITY()
 									
 							
 			]]></body>
@@ -3428,7 +3410,6 @@
 ]]></comment>
 			<parameters>
 				<parameter name="@IdTtsp" type="bigint" direction="Input" size="8" precision="19" scale="0" param="" nulldefault=""/>
-				<parameter name="@OriginalIdTtsp" type="bigint" direction="Input" size="8" precision="19" scale="0" param="" nulldefault=""/>
 				<parameter name="@IdSanPham" type="bigint" direction="Input" size="8" precision="19" scale="0" param="" nulldefault=""/>
 				<parameter name="@IdThuocTinh" type="bigint" direction="Input" size="8" precision="19" scale="0" param="" nulldefault=""/>
 				<parameter name="@Value1" type="nvarchar" direction="Input" size="255" precision="0" scale="0" param="(255)" nulldefault=""/>
@@ -3442,14 +3423,13 @@
 				UPDATE
 					[dbo].[tbl_ThuocTinhSanPham]
 				SET
-					[id_TTSP] = @IdTtsp
-					,[id_SanPham] = @IdSanPham
+					[id_SanPham] = @IdSanPham
 					,[id_ThuocTinh] = @IdThuocTinh
 					,[Value1] = @Value1
 					,[Value2] = @Value2
 					,[Flag] = @Flag
 				WHERE
-[id_TTSP] = @OriginalIdTtsp 
+[id_TTSP] = @IdTtsp 
 				
 			]]></body>
 		</procedure>
@@ -3470,37 +3450,6 @@
 				WHERE
 					[id_TTSP] = @IdTtsp
 					
-			]]></body>
-		</procedure>
-		<procedure owner="dbo" name="tbl_ThuocTinhSanPham_GetByIdThuocTinh" grant="">
-			<comment><![CDATA[/*
-----------------------------------------------------------------------------------------------------
-
--- Created By:  ()
--- Purpose: Select records from the tbl_ThuocTinhSanPham table through a foreign key
-----------------------------------------------------------------------------------------------------
-*/
-]]></comment>
-			<parameters>
-				<parameter name="@IdThuocTinh" type="bigint" direction="Input" size="8" precision="19" scale="0" param="" nulldefault=""/>
-			</parameters>
-			<body><![CDATA[
-				SET ANSI_NULLS OFF
-				
-				SELECT
-					[id_TTSP],
-					[id_SanPham],
-					[id_ThuocTinh],
-					[Value1],
-					[Value2],
-					[Flag]
-				FROM
-					[dbo].[tbl_ThuocTinhSanPham]
-				WHERE
-					[id_ThuocTinh] = @IdThuocTinh
-				
-				Select @@ROWCOUNT
-				SET ANSI_NULLS ON
 			]]></body>
 		</procedure>
 		<procedure owner="dbo" name="tbl_ThuocTinhSanPham_GetByIdSanPham" grant="">
@@ -3529,6 +3478,37 @@
 					[dbo].[tbl_ThuocTinhSanPham]
 				WHERE
 					[id_SanPham] = @IdSanPham
+				
+				Select @@ROWCOUNT
+				SET ANSI_NULLS ON
+			]]></body>
+		</procedure>
+		<procedure owner="dbo" name="tbl_ThuocTinhSanPham_GetByIdThuocTinh" grant="">
+			<comment><![CDATA[/*
+----------------------------------------------------------------------------------------------------
+
+-- Created By:  ()
+-- Purpose: Select records from the tbl_ThuocTinhSanPham table through a foreign key
+----------------------------------------------------------------------------------------------------
+*/
+]]></comment>
+			<parameters>
+				<parameter name="@IdThuocTinh" type="bigint" direction="Input" size="8" precision="19" scale="0" param="" nulldefault=""/>
+			</parameters>
+			<body><![CDATA[
+				SET ANSI_NULLS OFF
+				
+				SELECT
+					[id_TTSP],
+					[id_SanPham],
+					[id_ThuocTinh],
+					[Value1],
+					[Value2],
+					[Flag]
+				FROM
+					[dbo].[tbl_ThuocTinhSanPham]
+				WHERE
+					[id_ThuocTinh] = @IdThuocTinh
 				
 				Select @@ROWCOUNT
 				SET ANSI_NULLS ON
@@ -3788,31 +3768,31 @@
 */
 ]]></comment>
 			<parameters>
-				<parameter name="@IdLanguage" type="int" direction="Input" size="4" precision="10" scale="0" param="" nulldefault=""/>
+				<parameter name="@IdLanguage" type="int" direction="Output" size="4" precision="10" scale="0" param="" nulldefault=""/>
 				<parameter name="@TenNn" type="varchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
 				<parameter name="@MaNn" type="varchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
-				<parameter name="@Mota" type="varbinary" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
+				<parameter name="@Mota" type="varchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
 				<parameter name="@Flag" type="tinyint" direction="Input" size="1" precision="3" scale="0" param="" nulldefault=""/>
 			</parameters>
 			<body><![CDATA[
 					
 				INSERT INTO [dbo].[tbl_Language]
 					(
-					[id_Language]
-					,[TenNN]
+					[TenNN]
 					,[MaNN]
 					,[Mota]
 					,[Flag]
 					)
 				VALUES
 					(
-					@IdLanguage
-					,@TenNn
+					@TenNn
 					,@MaNn
 					,@Mota
 					,@Flag
 					)
 				
+				-- Get the identity value
+				SET @IdLanguage = SCOPE_IDENTITY()
 									
 							
 			]]></body>
@@ -3828,10 +3808,9 @@
 ]]></comment>
 			<parameters>
 				<parameter name="@IdLanguage" type="int" direction="Input" size="4" precision="10" scale="0" param="" nulldefault=""/>
-				<parameter name="@OriginalIdLanguage" type="int" direction="Input" size="4" precision="10" scale="0" param="" nulldefault=""/>
 				<parameter name="@TenNn" type="varchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
 				<parameter name="@MaNn" type="varchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
-				<parameter name="@Mota" type="varbinary" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
+				<parameter name="@Mota" type="varchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
 				<parameter name="@Flag" type="tinyint" direction="Input" size="1" precision="3" scale="0" param="" nulldefault=""/>
 			</parameters>
 			<body><![CDATA[
@@ -3841,13 +3820,12 @@
 				UPDATE
 					[dbo].[tbl_Language]
 				SET
-					[id_Language] = @IdLanguage
-					,[TenNN] = @TenNn
+					[TenNN] = @TenNn
 					,[MaNN] = @MaNn
 					,[Mota] = @Mota
 					,[Flag] = @Flag
 				WHERE
-[id_Language] = @OriginalIdLanguage 
+[id_Language] = @IdLanguage 
 				
 			]]></body>
 		</procedure>
@@ -3912,7 +3890,7 @@
 				<parameter name="@IdLanguage" type="int" direction="Input" size="4" precision="10" scale="0" param="" nulldefault="null"/>
 				<parameter name="@TenNn" type="varchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault="null"/>
 				<parameter name="@MaNn" type="varchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault="null"/>
-				<parameter name="@Mota" type="varbinary" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault="null"/>
+				<parameter name="@Mota" type="varchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault="null"/>
 				<parameter name="@Flag" type="tinyint" direction="Input" size="1" precision="3" scale="0" param="" nulldefault="null"/>
 			</parameters>
 			<body><![CDATA[
@@ -3931,6 +3909,7 @@
 	 ([id_Language] = @IdLanguage OR @IdLanguage is null)
 	AND ([TenNN] = @TenNn OR @TenNn is null)
 	AND ([MaNN] = @MaNn OR @MaNn is null)
+	AND ([Mota] = @Mota OR @Mota is null)
 	AND ([Flag] = @Flag OR @Flag is null)
 						
   END
@@ -3948,6 +3927,7 @@
 	 ([id_Language] = @IdLanguage AND @IdLanguage is not null)
 	OR ([TenNN] = @TenNn AND @TenNn is not null)
 	OR ([MaNN] = @MaNn AND @MaNn is not null)
+	OR ([Mota] = @Mota AND @Mota is not null)
 	OR ([Flag] = @Flag AND @Flag is not null)
 	Select @@ROWCOUNT			
   END
@@ -4116,7 +4096,7 @@
 */
 ]]></comment>
 			<parameters>
-				<parameter name="@IdLabel" type="bigint" direction="Input" size="8" precision="19" scale="0" param="" nulldefault=""/>
+				<parameter name="@IdLabel" type="bigint" direction="Output" size="8" precision="19" scale="0" param="" nulldefault=""/>
 				<parameter name="@MaLabel" type="varchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
 				<parameter name="@TenLabel" type="varchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
 				<parameter name="@MoTa" type="varchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
@@ -4126,21 +4106,21 @@
 					
 				INSERT INTO [dbo].[tbl_LabelNN]
 					(
-					[id_Label]
-					,[MaLabel]
+					[MaLabel]
 					,[TenLabel]
 					,[MoTa]
 					,[Flag]
 					)
 				VALUES
 					(
-					@IdLabel
-					,@MaLabel
+					@MaLabel
 					,@TenLabel
 					,@MoTa
 					,@Flag
 					)
 				
+				-- Get the identity value
+				SET @IdLabel = SCOPE_IDENTITY()
 									
 							
 			]]></body>
@@ -4156,7 +4136,6 @@
 ]]></comment>
 			<parameters>
 				<parameter name="@IdLabel" type="bigint" direction="Input" size="8" precision="19" scale="0" param="" nulldefault=""/>
-				<parameter name="@OriginalIdLabel" type="bigint" direction="Input" size="8" precision="19" scale="0" param="" nulldefault=""/>
 				<parameter name="@MaLabel" type="varchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
 				<parameter name="@TenLabel" type="varchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
 				<parameter name="@MoTa" type="varchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
@@ -4169,13 +4148,12 @@
 				UPDATE
 					[dbo].[tbl_LabelNN]
 				SET
-					[id_Label] = @IdLabel
-					,[MaLabel] = @MaLabel
+					[MaLabel] = @MaLabel
 					,[TenLabel] = @TenLabel
 					,[MoTa] = @MoTa
 					,[Flag] = @Flag
 				WHERE
-[id_Label] = @OriginalIdLabel 
+[id_Label] = @IdLabel 
 				
 			]]></body>
 		</procedure>
@@ -4447,7 +4425,7 @@
 */
 ]]></comment>
 			<parameters>
-				<parameter name="@IdDanhMuc" type="bigint" direction="Input" size="8" precision="19" scale="0" param="" nulldefault=""/>
+				<parameter name="@IdDanhMuc" type="bigint" direction="Output" size="8" precision="19" scale="0" param="" nulldefault=""/>
 				<parameter name="@IdDmCha" type="bigint" direction="Input" size="8" precision="19" scale="0" param="" nulldefault=""/>
 				<parameter name="@TenDanhMuc" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
 				<parameter name="@MaDanhMuc" type="varchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
@@ -4458,8 +4436,7 @@
 					
 				INSERT INTO [dbo].[tbl_DanhMuc]
 					(
-					[id_DanhMuc]
-					,[id_DMCha]
+					[id_DMCha]
 					,[TenDanhMuc]
 					,[MaDanhMuc]
 					,[MoTa]
@@ -4467,14 +4444,15 @@
 					)
 				VALUES
 					(
-					@IdDanhMuc
-					,@IdDmCha
+					@IdDmCha
 					,@TenDanhMuc
 					,@MaDanhMuc
 					,@MoTa
 					,@Flag
 					)
 				
+				-- Get the identity value
+				SET @IdDanhMuc = SCOPE_IDENTITY()
 									
 							
 			]]></body>
@@ -4490,7 +4468,6 @@
 ]]></comment>
 			<parameters>
 				<parameter name="@IdDanhMuc" type="bigint" direction="Input" size="8" precision="19" scale="0" param="" nulldefault=""/>
-				<parameter name="@OriginalIdDanhMuc" type="bigint" direction="Input" size="8" precision="19" scale="0" param="" nulldefault=""/>
 				<parameter name="@IdDmCha" type="bigint" direction="Input" size="8" precision="19" scale="0" param="" nulldefault=""/>
 				<parameter name="@TenDanhMuc" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
 				<parameter name="@MaDanhMuc" type="varchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
@@ -4504,14 +4481,13 @@
 				UPDATE
 					[dbo].[tbl_DanhMuc]
 				SET
-					[id_DanhMuc] = @IdDanhMuc
-					,[id_DMCha] = @IdDmCha
+					[id_DMCha] = @IdDmCha
 					,[TenDanhMuc] = @TenDanhMuc
 					,[MaDanhMuc] = @MaDanhMuc
 					,[MoTa] = @MoTa
 					,[Flag] = @Flag
 				WHERE
-[id_DanhMuc] = @OriginalIdDanhMuc 
+[id_DanhMuc] = @IdDanhMuc 
 				
 			]]></body>
 		</procedure>
@@ -4794,7 +4770,7 @@
 */
 ]]></comment>
 			<parameters>
-				<parameter name="@IdChuCongTy" type="bigint" direction="Input" size="8" precision="19" scale="0" param="" nulldefault=""/>
+				<parameter name="@IdChuCongTy" type="bigint" direction="Output" size="8" precision="19" scale="0" param="" nulldefault=""/>
 				<parameter name="@TenChuCongTy" type="nvarchar" direction="Input" size="200" precision="0" scale="0" param="(200)" nulldefault=""/>
 				<parameter name="@TenCongTy" type="nvarchar" direction="Input" size="200" precision="0" scale="0" param="(200)" nulldefault=""/>
 				<parameter name="@TenDangNhap" type="varchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
@@ -4810,8 +4786,7 @@
 					
 				INSERT INTO [dbo].[tbl_ChuCongTy]
 					(
-					[id_ChuCongTy]
-					,[TenChuCongTy]
+					[TenChuCongTy]
 					,[TenCongTy]
 					,[TenDangNhap]
 					,[Password]
@@ -4824,8 +4799,7 @@
 					)
 				VALUES
 					(
-					@IdChuCongTy
-					,@TenChuCongTy
+					@TenChuCongTy
 					,@TenCongTy
 					,@TenDangNhap
 					,@Password
@@ -4837,6 +4811,8 @@
 					,@Flag
 					)
 				
+				-- Get the identity value
+				SET @IdChuCongTy = SCOPE_IDENTITY()
 									
 							
 			]]></body>
@@ -4852,7 +4828,6 @@
 ]]></comment>
 			<parameters>
 				<parameter name="@IdChuCongTy" type="bigint" direction="Input" size="8" precision="19" scale="0" param="" nulldefault=""/>
-				<parameter name="@OriginalIdChuCongTy" type="bigint" direction="Input" size="8" precision="19" scale="0" param="" nulldefault=""/>
 				<parameter name="@TenChuCongTy" type="nvarchar" direction="Input" size="200" precision="0" scale="0" param="(200)" nulldefault=""/>
 				<parameter name="@TenCongTy" type="nvarchar" direction="Input" size="200" precision="0" scale="0" param="(200)" nulldefault=""/>
 				<parameter name="@TenDangNhap" type="varchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
@@ -4871,8 +4846,7 @@
 				UPDATE
 					[dbo].[tbl_ChuCongTy]
 				SET
-					[id_ChuCongTy] = @IdChuCongTy
-					,[TenChuCongTy] = @TenChuCongTy
+					[TenChuCongTy] = @TenChuCongTy
 					,[TenCongTy] = @TenCongTy
 					,[TenDangNhap] = @TenDangNhap
 					,[Password] = @Password
@@ -4883,7 +4857,7 @@
 					,[NgayKetThuc] = @NgayKetThuc
 					,[Flag] = @Flag
 				WHERE
-[id_ChuCongTy] = @OriginalIdChuCongTy 
+[id_ChuCongTy] = @IdChuCongTy 
 				
 			]]></body>
 		</procedure>
@@ -5206,7 +5180,7 @@
 */
 ]]></comment>
 			<parameters>
-				<parameter name="@IdCongTy" type="bigint" direction="Input" size="8" precision="19" scale="0" param="" nulldefault=""/>
+				<parameter name="@IdCongTy" type="bigint" direction="Output" size="8" precision="19" scale="0" param="" nulldefault=""/>
 				<parameter name="@IdChuCongTy" type="bigint" direction="Input" size="8" precision="19" scale="0" param="" nulldefault=""/>
 				<parameter name="@IdDanhMuc" type="bigint" direction="Input" size="8" precision="19" scale="0" param="" nulldefault=""/>
 				<parameter name="@IdQuocGia" type="bigint" direction="Input" size="8" precision="19" scale="0" param="" nulldefault=""/>
@@ -5220,8 +5194,8 @@
 				<parameter name="@Fax" type="varchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
 				<parameter name="@Email" type="varchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
 				<parameter name="@Website" type="varchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
-				<parameter name="@HinhThucTt" type="varchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
-				<parameter name="@ThoiGianPv" type="varchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
+				<parameter name="@HinhThucTt" type="nvarchar" direction="Input" size="200" precision="0" scale="0" param="(200)" nulldefault=""/>
+				<parameter name="@ThoiGianPv" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
 				<parameter name="@AnhMinhHoa" type="varchar" direction="Input" size="500" precision="0" scale="0" param="(500)" nulldefault=""/>
 				<parameter name="@GhiChu" type="nvarchar" direction="Input" size="1000" precision="0" scale="0" param="(1000)" nulldefault=""/>
 				<parameter name="@MoTaNgan" type="nvarchar" direction="Input" size="500" precision="0" scale="0" param="(500)" nulldefault=""/>
@@ -5232,8 +5206,7 @@
 					
 				INSERT INTO [dbo].[tbl_CongTy]
 					(
-					[id_CongTy]
-					,[id_ChuCongTy]
+					[id_ChuCongTy]
 					,[id_DanhMuc]
 					,[id_QuocGia]
 					,[id_ThanhPho]
@@ -5256,8 +5229,7 @@
 					)
 				VALUES
 					(
-					@IdCongTy
-					,@IdChuCongTy
+					@IdChuCongTy
 					,@IdDanhMuc
 					,@IdQuocGia
 					,@IdThanhPho
@@ -5279,6 +5251,8 @@
 					,@Flag
 					)
 				
+				-- Get the identity value
+				SET @IdCongTy = SCOPE_IDENTITY()
 									
 							
 			]]></body>
@@ -5294,7 +5268,6 @@
 ]]></comment>
 			<parameters>
 				<parameter name="@IdCongTy" type="bigint" direction="Input" size="8" precision="19" scale="0" param="" nulldefault=""/>
-				<parameter name="@OriginalIdCongTy" type="bigint" direction="Input" size="8" precision="19" scale="0" param="" nulldefault=""/>
 				<parameter name="@IdChuCongTy" type="bigint" direction="Input" size="8" precision="19" scale="0" param="" nulldefault=""/>
 				<parameter name="@IdDanhMuc" type="bigint" direction="Input" size="8" precision="19" scale="0" param="" nulldefault=""/>
 				<parameter name="@IdQuocGia" type="bigint" direction="Input" size="8" precision="19" scale="0" param="" nulldefault=""/>
@@ -5308,8 +5281,8 @@
 				<parameter name="@Fax" type="varchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
 				<parameter name="@Email" type="varchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
 				<parameter name="@Website" type="varchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
-				<parameter name="@HinhThucTt" type="varchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
-				<parameter name="@ThoiGianPv" type="varchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
+				<parameter name="@HinhThucTt" type="nvarchar" direction="Input" size="200" precision="0" scale="0" param="(200)" nulldefault=""/>
+				<parameter name="@ThoiGianPv" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
 				<parameter name="@AnhMinhHoa" type="varchar" direction="Input" size="500" precision="0" scale="0" param="(500)" nulldefault=""/>
 				<parameter name="@GhiChu" type="nvarchar" direction="Input" size="1000" precision="0" scale="0" param="(1000)" nulldefault=""/>
 				<parameter name="@MoTaNgan" type="nvarchar" direction="Input" size="500" precision="0" scale="0" param="(500)" nulldefault=""/>
@@ -5323,8 +5296,7 @@
 				UPDATE
 					[dbo].[tbl_CongTy]
 				SET
-					[id_CongTy] = @IdCongTy
-					,[id_ChuCongTy] = @IdChuCongTy
+					[id_ChuCongTy] = @IdChuCongTy
 					,[id_DanhMuc] = @IdDanhMuc
 					,[id_QuocGia] = @IdQuocGia
 					,[id_ThanhPho] = @IdThanhPho
@@ -5345,7 +5317,7 @@
 					,[MoTaChiTiet] = @MoTaChiTiet
 					,[Flag] = @Flag
 				WHERE
-[id_CongTy] = @OriginalIdCongTy 
+[id_CongTy] = @IdCongTy 
 				
 			]]></body>
 		</procedure>
@@ -5529,8 +5501,8 @@
 				<parameter name="@Fax" type="varchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault="null"/>
 				<parameter name="@Email" type="varchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault="null"/>
 				<parameter name="@Website" type="varchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault="null"/>
-				<parameter name="@HinhThucTt" type="varchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault="null"/>
-				<parameter name="@ThoiGianPv" type="varchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault="null"/>
+				<parameter name="@HinhThucTt" type="nvarchar" direction="Input" size="200" precision="0" scale="0" param="(200)" nulldefault="null"/>
+				<parameter name="@ThoiGianPv" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault="null"/>
 				<parameter name="@AnhMinhHoa" type="varchar" direction="Input" size="500" precision="0" scale="0" param="(500)" nulldefault="null"/>
 				<parameter name="@GhiChu" type="nvarchar" direction="Input" size="1000" precision="0" scale="0" param="(1000)" nulldefault="null"/>
 				<parameter name="@MoTaNgan" type="nvarchar" direction="Input" size="500" precision="0" scale="0" param="(500)" nulldefault="null"/>
@@ -5805,19 +5777,18 @@
 */
 ]]></comment>
 			<parameters>
-				<parameter name="@IdComment" type="bigint" direction="Input" size="8" precision="19" scale="0" param="" nulldefault=""/>
+				<parameter name="@IdComment" type="bigint" direction="Output" size="8" precision="19" scale="0" param="" nulldefault=""/>
 				<parameter name="@IdUser" type="bigint" direction="Input" size="8" precision="19" scale="0" param="" nulldefault=""/>
 				<parameter name="@IdCongty" type="bigint" direction="Input" size="8" precision="19" scale="0" param="" nulldefault=""/>
-				<parameter name="@TieuDe" type="varchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
-				<parameter name="@NoiDung" type="varchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
+				<parameter name="@TieuDe" type="nvarchar" direction="Input" size="200" precision="0" scale="0" param="(200)" nulldefault=""/>
+				<parameter name="@NoiDung" type="nvarchar" direction="Input" size="-1" precision="0" scale="0" param="(MAX)" nulldefault=""/>
 				<parameter name="@Flag" type="tinyint" direction="Input" size="1" precision="3" scale="0" param="" nulldefault=""/>
 			</parameters>
 			<body><![CDATA[
 					
 				INSERT INTO [dbo].[tbl_Comment]
 					(
-					[id_Comment]
-					,[id_User]
+					[id_User]
 					,[id_Congty]
 					,[TieuDe]
 					,[NoiDung]
@@ -5825,14 +5796,15 @@
 					)
 				VALUES
 					(
-					@IdComment
-					,@IdUser
+					@IdUser
 					,@IdCongty
 					,@TieuDe
 					,@NoiDung
 					,@Flag
 					)
 				
+				-- Get the identity value
+				SET @IdComment = SCOPE_IDENTITY()
 									
 							
 			]]></body>
@@ -5848,11 +5820,10 @@
 ]]></comment>
 			<parameters>
 				<parameter name="@IdComment" type="bigint" direction="Input" size="8" precision="19" scale="0" param="" nulldefault=""/>
-				<parameter name="@OriginalIdComment" type="bigint" direction="Input" size="8" precision="19" scale="0" param="" nulldefault=""/>
 				<parameter name="@IdUser" type="bigint" direction="Input" size="8" precision="19" scale="0" param="" nulldefault=""/>
 				<parameter name="@IdCongty" type="bigint" direction="Input" size="8" precision="19" scale="0" param="" nulldefault=""/>
-				<parameter name="@TieuDe" type="varchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
-				<parameter name="@NoiDung" type="varchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
+				<parameter name="@TieuDe" type="nvarchar" direction="Input" size="200" precision="0" scale="0" param="(200)" nulldefault=""/>
+				<parameter name="@NoiDung" type="nvarchar" direction="Input" size="-1" precision="0" scale="0" param="(MAX)" nulldefault=""/>
 				<parameter name="@Flag" type="tinyint" direction="Input" size="1" precision="3" scale="0" param="" nulldefault=""/>
 			</parameters>
 			<body><![CDATA[
@@ -5862,14 +5833,13 @@
 				UPDATE
 					[dbo].[tbl_Comment]
 				SET
-					[id_Comment] = @IdComment
-					,[id_User] = @IdUser
+					[id_User] = @IdUser
 					,[id_Congty] = @IdCongty
 					,[TieuDe] = @TieuDe
 					,[NoiDung] = @NoiDung
 					,[Flag] = @Flag
 				WHERE
-[id_Comment] = @OriginalIdComment 
+[id_Comment] = @IdComment 
 				
 			]]></body>
 		</procedure>
@@ -5997,8 +5967,8 @@
 				<parameter name="@IdComment" type="bigint" direction="Input" size="8" precision="19" scale="0" param="" nulldefault="null"/>
 				<parameter name="@IdUser" type="bigint" direction="Input" size="8" precision="19" scale="0" param="" nulldefault="null"/>
 				<parameter name="@IdCongty" type="bigint" direction="Input" size="8" precision="19" scale="0" param="" nulldefault="null"/>
-				<parameter name="@TieuDe" type="varchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault="null"/>
-				<parameter name="@NoiDung" type="varchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault="null"/>
+				<parameter name="@TieuDe" type="nvarchar" direction="Input" size="200" precision="0" scale="0" param="(200)" nulldefault="null"/>
+				<parameter name="@NoiDung" type="nvarchar" direction="Input" size="-1" precision="0" scale="0" param="(MAX)" nulldefault="null"/>
 				<parameter name="@Flag" type="tinyint" direction="Input" size="1" precision="3" scale="0" param="" nulldefault="null"/>
 			</parameters>
 			<body><![CDATA[
@@ -6210,8 +6180,8 @@
 */
 ]]></comment>
 			<parameters>
-				<parameter name="@IdDichVu" type="bigint" direction="Input" size="8" precision="19" scale="0" param="" nulldefault=""/>
-				<parameter name="@IdCongTy" type="nchar" direction="Input" size="10" precision="0" scale="0" param="(10)" nulldefault=""/>
+				<parameter name="@IdDichVu" type="bigint" direction="Output" size="8" precision="19" scale="0" param="" nulldefault=""/>
+				<parameter name="@IdCongTy" type="bigint" direction="Input" size="8" precision="19" scale="0" param="" nulldefault=""/>
 				<parameter name="@TenDv" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
 				<parameter name="@MaDv" type="varchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
 				<parameter name="@MotaNgan" type="nvarchar" direction="Input" size="200" precision="0" scale="0" param="(200)" nulldefault=""/>
@@ -6222,8 +6192,7 @@
 					
 				INSERT INTO [dbo].[tbl_DichVu]
 					(
-					[id_DichVu]
-					,[id_CongTy]
+					[id_CongTy]
 					,[TenDV]
 					,[MaDV]
 					,[MotaNgan]
@@ -6232,8 +6201,7 @@
 					)
 				VALUES
 					(
-					@IdDichVu
-					,@IdCongTy
+					@IdCongTy
 					,@TenDv
 					,@MaDv
 					,@MotaNgan
@@ -6241,6 +6209,8 @@
 					,@Flag
 					)
 				
+				-- Get the identity value
+				SET @IdDichVu = SCOPE_IDENTITY()
 									
 							
 			]]></body>
@@ -6256,8 +6226,7 @@
 ]]></comment>
 			<parameters>
 				<parameter name="@IdDichVu" type="bigint" direction="Input" size="8" precision="19" scale="0" param="" nulldefault=""/>
-				<parameter name="@OriginalIdDichVu" type="bigint" direction="Input" size="8" precision="19" scale="0" param="" nulldefault=""/>
-				<parameter name="@IdCongTy" type="nchar" direction="Input" size="10" precision="0" scale="0" param="(10)" nulldefault=""/>
+				<parameter name="@IdCongTy" type="bigint" direction="Input" size="8" precision="19" scale="0" param="" nulldefault=""/>
 				<parameter name="@TenDv" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
 				<parameter name="@MaDv" type="varchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
 				<parameter name="@MotaNgan" type="nvarchar" direction="Input" size="200" precision="0" scale="0" param="(200)" nulldefault=""/>
@@ -6271,15 +6240,14 @@
 				UPDATE
 					[dbo].[tbl_DichVu]
 				SET
-					[id_DichVu] = @IdDichVu
-					,[id_CongTy] = @IdCongTy
+					[id_CongTy] = @IdCongTy
 					,[TenDV] = @TenDv
 					,[MaDV] = @MaDv
 					,[MotaNgan] = @MotaNgan
 					,[MotaChiTiet] = @MotaChiTiet
 					,[Flag] = @Flag
 				WHERE
-[id_DichVu] = @OriginalIdDichVu 
+[id_DichVu] = @IdDichVu 
 				
 			]]></body>
 		</procedure>
@@ -6344,7 +6312,7 @@
 			<parameters>
 				<parameter name="@SearchUsingOR" type="bit" direction="Input" size="0" precision="1" scale="0" param="" nulldefault="null"/>
 				<parameter name="@IdDichVu" type="bigint" direction="Input" size="8" precision="19" scale="0" param="" nulldefault="null"/>
-				<parameter name="@IdCongTy" type="nchar" direction="Input" size="10" precision="0" scale="0" param="(10)" nulldefault="null"/>
+				<parameter name="@IdCongTy" type="bigint" direction="Input" size="8" precision="19" scale="0" param="" nulldefault="null"/>
 				<parameter name="@TenDv" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault="null"/>
 				<parameter name="@MaDv" type="varchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault="null"/>
 				<parameter name="@MotaNgan" type="nvarchar" direction="Input" size="200" precision="0" scale="0" param="(200)" nulldefault="null"/>
@@ -6562,7 +6530,7 @@
 */
 ]]></comment>
 			<parameters>
-				<parameter name="@IdLabelLanguage" type="bigint" direction="Input" size="8" precision="19" scale="0" param="" nulldefault=""/>
+				<parameter name="@IdLabelLanguage" type="bigint" direction="Output" size="8" precision="19" scale="0" param="" nulldefault=""/>
 				<parameter name="@IdLanguage" type="int" direction="Input" size="4" precision="10" scale="0" param="" nulldefault=""/>
 				<parameter name="@IdLabel" type="bigint" direction="Input" size="8" precision="19" scale="0" param="" nulldefault=""/>
 				<parameter name="@NoiDung" type="nvarchar" direction="Input" size="-1" precision="0" scale="0" param="(MAX)" nulldefault=""/>
@@ -6572,21 +6540,21 @@
 					
 				INSERT INTO [dbo].[tbl_LabelLanguage]
 					(
-					[id_LabelLanguage]
-					,[id_Language]
+					[id_Language]
 					,[id_Label]
 					,[NoiDung]
 					,[Flag]
 					)
 				VALUES
 					(
-					@IdLabelLanguage
-					,@IdLanguage
+					@IdLanguage
 					,@IdLabel
 					,@NoiDung
 					,@Flag
 					)
 				
+				-- Get the identity value
+				SET @IdLabelLanguage = SCOPE_IDENTITY()
 									
 							
 			]]></body>
@@ -6602,7 +6570,6 @@
 ]]></comment>
 			<parameters>
 				<parameter name="@IdLabelLanguage" type="bigint" direction="Input" size="8" precision="19" scale="0" param="" nulldefault=""/>
-				<parameter name="@OriginalIdLabelLanguage" type="bigint" direction="Input" size="8" precision="19" scale="0" param="" nulldefault=""/>
 				<parameter name="@IdLanguage" type="int" direction="Input" size="4" precision="10" scale="0" param="" nulldefault=""/>
 				<parameter name="@IdLabel" type="bigint" direction="Input" size="8" precision="19" scale="0" param="" nulldefault=""/>
 				<parameter name="@NoiDung" type="nvarchar" direction="Input" size="-1" precision="0" scale="0" param="(MAX)" nulldefault=""/>
@@ -6615,13 +6582,12 @@
 				UPDATE
 					[dbo].[tbl_LabelLanguage]
 				SET
-					[id_LabelLanguage] = @IdLabelLanguage
-					,[id_Language] = @IdLanguage
+					[id_Language] = @IdLanguage
 					,[id_Label] = @IdLabel
 					,[NoiDung] = @NoiDung
 					,[Flag] = @Flag
 				WHERE
-[id_LabelLanguage] = @OriginalIdLabelLanguage 
+[id_LabelLanguage] = @IdLabelLanguage 
 				
 			]]></body>
 		</procedure>
@@ -6953,7 +6919,7 @@
 */
 ]]></comment>
 			<parameters>
-				<parameter name="@IdDuong" type="bigint" direction="Input" size="8" precision="19" scale="0" param="" nulldefault=""/>
+				<parameter name="@IdDuong" type="bigint" direction="Output" size="8" precision="19" scale="0" param="" nulldefault=""/>
 				<parameter name="@IdQuan" type="bigint" direction="Input" size="8" precision="19" scale="0" param="" nulldefault=""/>
 				<parameter name="@TenDuong" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
 				<parameter name="@MaDuong" type="varbinary" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
@@ -6964,8 +6930,7 @@
 					
 				INSERT INTO [dbo].[tbl_Duong]
 					(
-					[id_Duong]
-					,[id_Quan]
+					[id_Quan]
 					,[TenDuong]
 					,[MaDuong]
 					,[MoTa]
@@ -6973,14 +6938,15 @@
 					)
 				VALUES
 					(
-					@IdDuong
-					,@IdQuan
+					@IdQuan
 					,@TenDuong
 					,@MaDuong
 					,@MoTa
 					,@Flag
 					)
 				
+				-- Get the identity value
+				SET @IdDuong = SCOPE_IDENTITY()
 									
 							
 			]]></body>
@@ -6996,7 +6962,6 @@
 ]]></comment>
 			<parameters>
 				<parameter name="@IdDuong" type="bigint" direction="Input" size="8" precision="19" scale="0" param="" nulldefault=""/>
-				<parameter name="@OriginalIdDuong" type="bigint" direction="Input" size="8" precision="19" scale="0" param="" nulldefault=""/>
 				<parameter name="@IdQuan" type="bigint" direction="Input" size="8" precision="19" scale="0" param="" nulldefault=""/>
 				<parameter name="@TenDuong" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
 				<parameter name="@MaDuong" type="varbinary" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
@@ -7010,14 +6975,13 @@
 				UPDATE
 					[dbo].[tbl_Duong]
 				SET
-					[id_Duong] = @IdDuong
-					,[id_Quan] = @IdQuan
+					[id_Quan] = @IdQuan
 					,[TenDuong] = @TenDuong
 					,[MaDuong] = @MaDuong
 					,[MoTa] = @MoTa
 					,[Flag] = @Flag
 				WHERE
-[id_Duong] = @OriginalIdDuong 
+[id_Duong] = @IdDuong 
 				
 			]]></body>
 		</procedure>
@@ -7323,7 +7287,7 @@
 */
 ]]></comment>
 			<parameters>
-				<parameter name="@IdKhuVuc" type="bigint" direction="Input" size="8" precision="19" scale="0" param="" nulldefault=""/>
+				<parameter name="@IdKhuVuc" type="bigint" direction="Output" size="8" precision="19" scale="0" param="" nulldefault=""/>
 				<parameter name="@TenKv" type="nvarchar" direction="Input" size="255" precision="0" scale="0" param="(255)" nulldefault=""/>
 				<parameter name="@MaKv" type="varbinary" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
 				<parameter name="@MoTa" type="nvarchar" direction="Input" size="1000" precision="0" scale="0" param="(1000)" nulldefault=""/>
@@ -7333,21 +7297,21 @@
 					
 				INSERT INTO [dbo].[tbl_KhuVuc]
 					(
-					[id_KhuVuc]
-					,[TenKV]
+					[TenKV]
 					,[MaKV]
 					,[MoTa]
 					,[Flag]
 					)
 				VALUES
 					(
-					@IdKhuVuc
-					,@TenKv
+					@TenKv
 					,@MaKv
 					,@MoTa
 					,@Flag
 					)
 				
+				-- Get the identity value
+				SET @IdKhuVuc = SCOPE_IDENTITY()
 									
 							
 			]]></body>
@@ -7363,7 +7327,6 @@
 ]]></comment>
 			<parameters>
 				<parameter name="@IdKhuVuc" type="bigint" direction="Input" size="8" precision="19" scale="0" param="" nulldefault=""/>
-				<parameter name="@OriginalIdKhuVuc" type="bigint" direction="Input" size="8" precision="19" scale="0" param="" nulldefault=""/>
 				<parameter name="@TenKv" type="nvarchar" direction="Input" size="255" precision="0" scale="0" param="(255)" nulldefault=""/>
 				<parameter name="@MaKv" type="varbinary" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
 				<parameter name="@MoTa" type="nvarchar" direction="Input" size="1000" precision="0" scale="0" param="(1000)" nulldefault=""/>
@@ -7376,13 +7339,12 @@
 				UPDATE
 					[dbo].[tbl_KhuVuc]
 				SET
-					[id_KhuVuc] = @IdKhuVuc
-					,[TenKV] = @TenKv
+					[TenKV] = @TenKv
 					,[MaKV] = @MaKv
 					,[MoTa] = @MoTa
 					,[Flag] = @Flag
 				WHERE
-[id_KhuVuc] = @OriginalIdKhuVuc 
+[id_KhuVuc] = @IdKhuVuc 
 				
 			]]></body>
 		</procedure>
@@ -7656,23 +7618,22 @@
 */
 ]]></comment>
 			<parameters>
-				<parameter name="@IdUser" type="bigint" direction="Input" size="8" precision="19" scale="0" param="" nulldefault=""/>
-				<parameter name="@TenDangNhap" type="varbinary" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
+				<parameter name="@IdUser" type="bigint" direction="Output" size="8" precision="19" scale="0" param="" nulldefault=""/>
+				<parameter name="@TenDangNhap" type="varchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
 				<parameter name="@Password" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
 				<parameter name="@HoTen" type="nvarchar" direction="Input" size="255" precision="0" scale="0" param="(255)" nulldefault=""/>
 				<parameter name="@Email" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
 				<parameter name="@DiaChi" type="nvarchar" direction="Input" size="255" precision="0" scale="0" param="(255)" nulldefault=""/>
-				<parameter name="@DienThoai" type="varbinary" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
-				<parameter name="@Website" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
-				<parameter name="@Avatar" type="varchar" direction="Input" size="500" precision="0" scale="0" param="(500)" nulldefault=""/>
+				<parameter name="@DienThoai" type="varchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
+				<parameter name="@Website" type="varchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
+				<parameter name="@Avatar" type="nvarchar" direction="Input" size="500" precision="0" scale="0" param="(500)" nulldefault=""/>
 				<parameter name="@Flag" type="tinyint" direction="Input" size="1" precision="3" scale="0" param="" nulldefault=""/>
 			</parameters>
 			<body><![CDATA[
 					
 				INSERT INTO [dbo].[tbl_User]
 					(
-					[id_User]
-					,[TenDangNhap]
+					[TenDangNhap]
 					,[Password]
 					,[HoTen]
 					,[Email]
@@ -7684,8 +7645,7 @@
 					)
 				VALUES
 					(
-					@IdUser
-					,@TenDangNhap
+					@TenDangNhap
 					,@Password
 					,@HoTen
 					,@Email
@@ -7696,6 +7656,8 @@
 					,@Flag
 					)
 				
+				-- Get the identity value
+				SET @IdUser = SCOPE_IDENTITY()
 									
 							
 			]]></body>
@@ -7711,15 +7673,14 @@
 ]]></comment>
 			<parameters>
 				<parameter name="@IdUser" type="bigint" direction="Input" size="8" precision="19" scale="0" param="" nulldefault=""/>
-				<parameter name="@OriginalIdUser" type="bigint" direction="Input" size="8" precision="19" scale="0" param="" nulldefault=""/>
-				<parameter name="@TenDangNhap" type="varbinary" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
+				<parameter name="@TenDangNhap" type="varchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
 				<parameter name="@Password" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
 				<parameter name="@HoTen" type="nvarchar" direction="Input" size="255" precision="0" scale="0" param="(255)" nulldefault=""/>
 				<parameter name="@Email" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
 				<parameter name="@DiaChi" type="nvarchar" direction="Input" size="255" precision="0" scale="0" param="(255)" nulldefault=""/>
-				<parameter name="@DienThoai" type="varbinary" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
-				<parameter name="@Website" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
-				<parameter name="@Avatar" type="varchar" direction="Input" size="500" precision="0" scale="0" param="(500)" nulldefault=""/>
+				<parameter name="@DienThoai" type="varchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
+				<parameter name="@Website" type="varchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
+				<parameter name="@Avatar" type="nvarchar" direction="Input" size="500" precision="0" scale="0" param="(500)" nulldefault=""/>
 				<parameter name="@Flag" type="tinyint" direction="Input" size="1" precision="3" scale="0" param="" nulldefault=""/>
 			</parameters>
 			<body><![CDATA[
@@ -7729,8 +7690,7 @@
 				UPDATE
 					[dbo].[tbl_User]
 				SET
-					[id_User] = @IdUser
-					,[TenDangNhap] = @TenDangNhap
+					[TenDangNhap] = @TenDangNhap
 					,[Password] = @Password
 					,[HoTen] = @HoTen
 					,[Email] = @Email
@@ -7740,7 +7700,7 @@
 					,[Avatar] = @Avatar
 					,[Flag] = @Flag
 				WHERE
-[id_User] = @OriginalIdUser 
+[id_User] = @IdUser 
 				
 			]]></body>
 		</procedure>
@@ -7808,14 +7768,14 @@
 			<parameters>
 				<parameter name="@SearchUsingOR" type="bit" direction="Input" size="0" precision="1" scale="0" param="" nulldefault="null"/>
 				<parameter name="@IdUser" type="bigint" direction="Input" size="8" precision="19" scale="0" param="" nulldefault="null"/>
-				<parameter name="@TenDangNhap" type="varbinary" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault="null"/>
+				<parameter name="@TenDangNhap" type="varchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault="null"/>
 				<parameter name="@Password" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault="null"/>
 				<parameter name="@HoTen" type="nvarchar" direction="Input" size="255" precision="0" scale="0" param="(255)" nulldefault="null"/>
 				<parameter name="@Email" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault="null"/>
 				<parameter name="@DiaChi" type="nvarchar" direction="Input" size="255" precision="0" scale="0" param="(255)" nulldefault="null"/>
-				<parameter name="@DienThoai" type="varbinary" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault="null"/>
-				<parameter name="@Website" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault="null"/>
-				<parameter name="@Avatar" type="varchar" direction="Input" size="500" precision="0" scale="0" param="(500)" nulldefault="null"/>
+				<parameter name="@DienThoai" type="varchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault="null"/>
+				<parameter name="@Website" type="varchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault="null"/>
+				<parameter name="@Avatar" type="nvarchar" direction="Input" size="500" precision="0" scale="0" param="(500)" nulldefault="null"/>
 				<parameter name="@Flag" type="tinyint" direction="Input" size="1" precision="3" scale="0" param="" nulldefault="null"/>
 			</parameters>
 			<body><![CDATA[
@@ -7837,10 +7797,12 @@
 	[dbo].[tbl_User]
     WHERE 
 	 ([id_User] = @IdUser OR @IdUser is null)
+	AND ([TenDangNhap] = @TenDangNhap OR @TenDangNhap is null)
 	AND ([Password] = @Password OR @Password is null)
 	AND ([HoTen] = @HoTen OR @HoTen is null)
 	AND ([Email] = @Email OR @Email is null)
 	AND ([DiaChi] = @DiaChi OR @DiaChi is null)
+	AND ([DienThoai] = @DienThoai OR @DienThoai is null)
 	AND ([Website] = @Website OR @Website is null)
 	AND ([Avatar] = @Avatar OR @Avatar is null)
 	AND ([Flag] = @Flag OR @Flag is null)
@@ -7863,10 +7825,12 @@
 	[dbo].[tbl_User]
     WHERE 
 	 ([id_User] = @IdUser AND @IdUser is not null)
+	OR ([TenDangNhap] = @TenDangNhap AND @TenDangNhap is not null)
 	OR ([Password] = @Password AND @Password is not null)
 	OR ([HoTen] = @HoTen AND @HoTen is not null)
 	OR ([Email] = @Email AND @Email is not null)
 	OR ([DiaChi] = @DiaChi AND @DiaChi is not null)
+	OR ([DienThoai] = @DienThoai AND @DienThoai is not null)
 	OR ([Website] = @Website AND @Website is not null)
 	OR ([Avatar] = @Avatar AND @Avatar is not null)
 	OR ([Flag] = @Flag AND @Flag is not null)
@@ -8038,7 +8002,7 @@
 */
 ]]></comment>
 			<parameters>
-				<parameter name="@IdGallery" type="bigint" direction="Input" size="8" precision="19" scale="0" param="" nulldefault=""/>
+				<parameter name="@IdGallery" type="bigint" direction="Output" size="8" precision="19" scale="0" param="" nulldefault=""/>
 				<parameter name="@IdCongTy" type="bigint" direction="Input" size="8" precision="19" scale="0" param="" nulldefault=""/>
 				<parameter name="@TenAnh" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
 				<parameter name="@DuongDan" type="nvarchar" direction="Input" size="500" precision="0" scale="0" param="(500)" nulldefault=""/>
@@ -8049,8 +8013,7 @@
 					
 				INSERT INTO [dbo].[tbl_Gallery]
 					(
-					[id_Gallery]
-					,[id_CongTy]
+					[id_CongTy]
 					,[TenAnh]
 					,[DuongDan]
 					,[MoTa]
@@ -8058,14 +8021,15 @@
 					)
 				VALUES
 					(
-					@IdGallery
-					,@IdCongTy
+					@IdCongTy
 					,@TenAnh
 					,@DuongDan
 					,@MoTa
 					,@Flag
 					)
 				
+				-- Get the identity value
+				SET @IdGallery = SCOPE_IDENTITY()
 									
 							
 			]]></body>
@@ -8081,7 +8045,6 @@
 ]]></comment>
 			<parameters>
 				<parameter name="@IdGallery" type="bigint" direction="Input" size="8" precision="19" scale="0" param="" nulldefault=""/>
-				<parameter name="@OriginalIdGallery" type="bigint" direction="Input" size="8" precision="19" scale="0" param="" nulldefault=""/>
 				<parameter name="@IdCongTy" type="bigint" direction="Input" size="8" precision="19" scale="0" param="" nulldefault=""/>
 				<parameter name="@TenAnh" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
 				<parameter name="@DuongDan" type="nvarchar" direction="Input" size="500" precision="0" scale="0" param="(500)" nulldefault=""/>
@@ -8095,14 +8058,13 @@
 				UPDATE
 					[dbo].[tbl_Gallery]
 				SET
-					[id_Gallery] = @IdGallery
-					,[id_CongTy] = @IdCongTy
+					[id_CongTy] = @IdCongTy
 					,[TenAnh] = @TenAnh
 					,[DuongDan] = @DuongDan
 					,[MoTa] = @MoTa
 					,[Flag] = @Flag
 				WHERE
-[id_Gallery] = @OriginalIdGallery 
+[id_Gallery] = @IdGallery 
 				
 			]]></body>
 		</procedure>

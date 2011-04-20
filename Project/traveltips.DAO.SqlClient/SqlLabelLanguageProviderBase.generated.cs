@@ -815,7 +815,7 @@ namespace traveltips.DAO.SqlClient
 			SqlDatabase database = new SqlDatabase(this._connectionString);
 			DbCommand commandWrapper = StoredProcedureProvider.GetCommandWrapper(database, "dbo.tbl_LabelLanguage_Insert", _useStoredProcedure);
 			
-			database.AddInParameter(commandWrapper, "@IdLabelLanguage", DbType.Int64, entity.IdLabelLanguage );
+			database.AddOutParameter(commandWrapper, "@IdLabelLanguage", DbType.Int64, 8);
 			database.AddInParameter(commandWrapper, "@IdLanguage", DbType.Int32, (entity.IdLanguage.HasValue ? (object) entity.IdLanguage  : System.DBNull.Value));
 			database.AddInParameter(commandWrapper, "@IdLabel", DbType.Int64, (entity.IdLabel.HasValue ? (object) entity.IdLabel  : System.DBNull.Value));
 			database.AddInParameter(commandWrapper, "@NoiDung", DbType.String, entity.NoiDung );
@@ -835,8 +835,9 @@ namespace traveltips.DAO.SqlClient
 				results = Utility.ExecuteNonQuery(database,commandWrapper);
 			}
 					
+
+			entity.IdLabelLanguage = (System.Int64) database.GetParameterValue(commandWrapper, "@IdLabelLanguage");						
 			
-			entity.OriginalIdLabelLanguage = entity.IdLabelLanguage;
 			
 			entity.AcceptChanges();
 	
@@ -868,7 +869,6 @@ namespace traveltips.DAO.SqlClient
 			DbCommand commandWrapper = StoredProcedureProvider.GetCommandWrapper(database, "dbo.tbl_LabelLanguage_Update", _useStoredProcedure);
 			
 			database.AddInParameter(commandWrapper, "@IdLabelLanguage", DbType.Int64, entity.IdLabelLanguage );
-			database.AddInParameter(commandWrapper, "@OriginalIdLabelLanguage", DbType.Int64, entity.OriginalIdLabelLanguage);
 			database.AddInParameter(commandWrapper, "@IdLanguage", DbType.Int32, (entity.IdLanguage.HasValue ? (object) entity.IdLanguage : System.DBNull.Value) );
 			database.AddInParameter(commandWrapper, "@IdLabel", DbType.Int64, (entity.IdLabel.HasValue ? (object) entity.IdLabel : System.DBNull.Value) );
 			database.AddInParameter(commandWrapper, "@NoiDung", DbType.String, entity.NoiDung );
@@ -892,7 +892,6 @@ namespace traveltips.DAO.SqlClient
 			if (DataRepository.Provider.EnableEntityTracking)
 				EntityManager.StopTracking(entity.EntityTrackingKey);
 			
-			entity.OriginalIdLabelLanguage = entity.IdLabelLanguage;
 			
 			entity.AcceptChanges();
 			

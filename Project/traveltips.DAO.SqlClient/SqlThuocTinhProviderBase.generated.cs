@@ -674,7 +674,7 @@ namespace traveltips.DAO.SqlClient
 			SqlDatabase database = new SqlDatabase(this._connectionString);
 			DbCommand commandWrapper = StoredProcedureProvider.GetCommandWrapper(database, "dbo.tbl_ThuocTinh_Insert", _useStoredProcedure);
 			
-			database.AddInParameter(commandWrapper, "@IdThuocTinh", DbType.Int64, entity.IdThuocTinh );
+			database.AddOutParameter(commandWrapper, "@IdThuocTinh", DbType.Int64, 8);
 			database.AddInParameter(commandWrapper, "@TenThuocTinh", DbType.String, entity.TenThuocTinh );
 			database.AddInParameter(commandWrapper, "@MaThuocTinh", DbType.AnsiString, entity.MaThuocTinh );
 			database.AddInParameter(commandWrapper, "@Flag", DbType.Byte, (entity.Flag.HasValue ? (object) entity.Flag  : System.DBNull.Value));
@@ -693,8 +693,9 @@ namespace traveltips.DAO.SqlClient
 				results = Utility.ExecuteNonQuery(database,commandWrapper);
 			}
 					
+
+			entity.IdThuocTinh = (System.Int64) database.GetParameterValue(commandWrapper, "@IdThuocTinh");						
 			
-			entity.OriginalIdThuocTinh = entity.IdThuocTinh;
 			
 			entity.AcceptChanges();
 	
@@ -726,7 +727,6 @@ namespace traveltips.DAO.SqlClient
 			DbCommand commandWrapper = StoredProcedureProvider.GetCommandWrapper(database, "dbo.tbl_ThuocTinh_Update", _useStoredProcedure);
 			
 			database.AddInParameter(commandWrapper, "@IdThuocTinh", DbType.Int64, entity.IdThuocTinh );
-			database.AddInParameter(commandWrapper, "@OriginalIdThuocTinh", DbType.Int64, entity.OriginalIdThuocTinh);
 			database.AddInParameter(commandWrapper, "@TenThuocTinh", DbType.String, entity.TenThuocTinh );
 			database.AddInParameter(commandWrapper, "@MaThuocTinh", DbType.AnsiString, entity.MaThuocTinh );
 			database.AddInParameter(commandWrapper, "@Flag", DbType.Byte, (entity.Flag.HasValue ? (object) entity.Flag : System.DBNull.Value) );
@@ -749,7 +749,6 @@ namespace traveltips.DAO.SqlClient
 			if (DataRepository.Provider.EnableEntityTracking)
 				EntityManager.StopTracking(entity.EntityTrackingKey);
 			
-			entity.OriginalIdThuocTinh = entity.IdThuocTinh;
 			
 			entity.AcceptChanges();
 			
