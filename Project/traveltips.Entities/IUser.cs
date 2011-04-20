@@ -17,17 +17,12 @@ namespace traveltips.Entities
 		/// <remarks>Member of the primary key of the underlying table "tbl_User"</remarks>
 		System.Int64 IdUser { get; set; }
 				
-		/// <summary>
-		/// keep a copy of the original so it can be used for editable primary keys.
-		/// </summary>
-		System.Int64 OriginalIdUser { get; set; }
-			
 		
 		
 		/// <summary>
 		/// TenDangNhap : 
 		/// </summary>
-		System.Byte[]  TenDangNhap  { get; set; }
+		System.String  TenDangNhap  { get; set; }
 		
 		/// <summary>
 		/// Password : 
@@ -52,7 +47,7 @@ namespace traveltips.Entities
 		/// <summary>
 		/// DienThoai : 
 		/// </summary>
-		System.Byte[]  DienThoai  { get; set; }
+		System.String  DienThoai  { get; set; }
 		
 		/// <summary>
 		/// Website : 

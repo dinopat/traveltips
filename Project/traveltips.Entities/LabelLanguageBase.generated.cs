@@ -81,18 +81,16 @@ namespace traveltips.Entities
 		///<summary>
 		/// Creates a new <see cref="LabelLanguageBase"/> instance.
 		///</summary>
-		///<param name="idLabelLanguage"></param>
 		///<param name="idLanguage"></param>
 		///<param name="idLabel"></param>
 		///<param name="noiDung"></param>
 		///<param name="flag"></param>
-		public LabelLanguageBase(System.Int64 idLabelLanguage, System.Int32? idLanguage, 
-			System.Int64? idLabel, System.String noiDung, System.Byte? flag)
+		public LabelLanguageBase(System.Int32? idLanguage, System.Int64? idLabel, 
+			System.String noiDung, System.Byte? flag)
 		{
 			this.entityData = new LabelLanguageEntityData();
 			this.backupData = null;
 
-			this.IdLabelLanguage = idLabelLanguage;
 			this.IdLanguage = idLanguage;
 			this.IdLabel = idLabel;
 			this.NoiDung = noiDung;
@@ -102,16 +100,14 @@ namespace traveltips.Entities
 		///<summary>
 		/// A simple factory method to create a new <see cref="LabelLanguage"/> instance.
 		///</summary>
-		///<param name="idLabelLanguage"></param>
 		///<param name="idLanguage"></param>
 		///<param name="idLabel"></param>
 		///<param name="noiDung"></param>
 		///<param name="flag"></param>
-		public static LabelLanguage CreateLabelLanguage(System.Int64 idLabelLanguage, System.Int32? idLanguage, 
-			System.Int64? idLabel, System.String noiDung, System.Byte? flag)
+		public static LabelLanguage CreateLabelLanguage(System.Int32? idLanguage, System.Int64? idLabel, 
+			System.String noiDung, System.Byte? flag)
 		{
 			LabelLanguage newLabelLanguage = new LabelLanguage();
-			newLabelLanguage.IdLabelLanguage = idLabelLanguage;
 			newLabelLanguage.IdLanguage = idLanguage;
 			newLabelLanguage.IdLabel = idLabel;
 			newLabelLanguage.NoiDung = noiDung;
@@ -132,8 +128,8 @@ namespace traveltips.Entities
 		/// <remarks>
 		/// This property can not be set to null. 
 		/// </remarks>
-		[DescriptionAttribute(""), System.ComponentModel.Bindable( System.ComponentModel.BindableSupport.Yes)]
-		[DataObjectField(true, false, false)]
+		[ReadOnlyAttribute(false)/*, XmlIgnoreAttribute()*/, DescriptionAttribute(""), System.ComponentModel.Bindable( System.ComponentModel.BindableSupport.Yes)]
+		[DataObjectField(true, true, false)]
 		public virtual System.Int64 IdLabelLanguage
 		{
 			get
@@ -154,19 +150,6 @@ namespace traveltips.Entities
 				OnColumnChanged(LabelLanguageColumn.IdLabelLanguage, this.entityData.IdLabelLanguage);
 				OnPropertyChanged("IdLabelLanguage");
 			}
-		}
-		
-		/// <summary>
-		/// 	Get the original value of the id_LabelLanguage property.
-		///		
-		/// </summary>
-		/// <remarks>This is the original value of the id_LabelLanguage property.</remarks>
-		/// <value>This type is bigint</value>
-		[BrowsableAttribute(false)/*, XmlIgnoreAttribute()*/]
-		public  virtual System.Int64 OriginalIdLabelLanguage
-		{
-			get { return this.entityData.OriginalIdLabelLanguage; }
-			set { this.entityData.OriginalIdLabelLanguage = value; }
 		}
 		
 		/// <summary>
@@ -504,7 +487,6 @@ namespace traveltips.Entities
 			LabelLanguage copy = new LabelLanguage();
 			copy.SuppressEntityEvents = true;
 			copy.IdLabelLanguage = this.IdLabelLanguage;
-			copy.OriginalIdLabelLanguage = this.OriginalIdLabelLanguage;
 			copy.IdLanguage = this.IdLanguage;
 			copy.IdLabel = this.IdLabel;
 			copy.NoiDung = this.NoiDung;
@@ -968,11 +950,6 @@ namespace traveltips.Entities
 			/// <remarks>Member of the primary key of the underlying table "tbl_LabelLanguage"</remarks>
 			public System.Int64 IdLabelLanguage;
 				
-			/// <summary>
-			/// keep a copy of the original so it can be used for editable primary keys.
-			/// </summary>
-			public System.Int64 OriginalIdLabelLanguage;
-			
 		#endregion
 		
 		#region Non Primary key(s)
@@ -1045,7 +1022,6 @@ namespace traveltips.Entities
 			LabelLanguageEntityData _tmp = new LabelLanguageEntityData();
 						
 			_tmp.IdLabelLanguage = this.IdLabelLanguage;
-			_tmp.OriginalIdLabelLanguage = this.OriginalIdLabelLanguage;
 			
 			_tmp.IdLanguage = this.IdLanguage;
 			_tmp.IdLabel = this.IdLabel;
@@ -1424,7 +1400,7 @@ namespace traveltips.Entities
 		/// IdLabelLanguage : 
 		/// </summary>
 		[EnumTextValue("id_LabelLanguage")]
-		[ColumnEnum("id_LabelLanguage", typeof(System.Int64), System.Data.DbType.Int64, true, false, false)]
+		[ColumnEnum("id_LabelLanguage", typeof(System.Int64), System.Data.DbType.Int64, true, true, false)]
 		IdLabelLanguage = 1,
 		/// <summary>
 		/// IdLanguage : 

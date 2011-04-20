@@ -81,20 +81,18 @@ namespace traveltips.Entities
 		///<summary>
 		/// Creates a new <see cref="TinTucBase"/> instance.
 		///</summary>
-		///<param name="idTinTuc"></param>
 		///<param name="idCongTy"></param>
 		///<param name="tieuDe"></param>
 		///<param name="moTaNgan"></param>
 		///<param name="moTaChiTiet"></param>
 		///<param name="khuyenMai"></param>
 		///<param name="flag"></param>
-		public TinTucBase(System.Int64 idTinTuc, System.Int64? idCongTy, System.String tieuDe, 
-			System.String moTaNgan, System.String moTaChiTiet, System.Boolean? khuyenMai, System.Byte? flag)
+		public TinTucBase(System.Int64? idCongTy, System.String tieuDe, System.String moTaNgan, 
+			System.String moTaChiTiet, System.Boolean? khuyenMai, System.Byte? flag)
 		{
 			this.entityData = new TinTucEntityData();
 			this.backupData = null;
 
-			this.IdTinTuc = idTinTuc;
 			this.IdCongTy = idCongTy;
 			this.TieuDe = tieuDe;
 			this.MoTaNgan = moTaNgan;
@@ -106,18 +104,16 @@ namespace traveltips.Entities
 		///<summary>
 		/// A simple factory method to create a new <see cref="TinTuc"/> instance.
 		///</summary>
-		///<param name="idTinTuc"></param>
 		///<param name="idCongTy"></param>
 		///<param name="tieuDe"></param>
 		///<param name="moTaNgan"></param>
 		///<param name="moTaChiTiet"></param>
 		///<param name="khuyenMai"></param>
 		///<param name="flag"></param>
-		public static TinTuc CreateTinTuc(System.Int64 idTinTuc, System.Int64? idCongTy, System.String tieuDe, 
-			System.String moTaNgan, System.String moTaChiTiet, System.Boolean? khuyenMai, System.Byte? flag)
+		public static TinTuc CreateTinTuc(System.Int64? idCongTy, System.String tieuDe, System.String moTaNgan, 
+			System.String moTaChiTiet, System.Boolean? khuyenMai, System.Byte? flag)
 		{
 			TinTuc newTinTuc = new TinTuc();
-			newTinTuc.IdTinTuc = idTinTuc;
 			newTinTuc.IdCongTy = idCongTy;
 			newTinTuc.TieuDe = tieuDe;
 			newTinTuc.MoTaNgan = moTaNgan;
@@ -140,8 +136,8 @@ namespace traveltips.Entities
 		/// <remarks>
 		/// This property can not be set to null. 
 		/// </remarks>
-		[DescriptionAttribute(""), System.ComponentModel.Bindable( System.ComponentModel.BindableSupport.Yes)]
-		[DataObjectField(true, false, false)]
+		[ReadOnlyAttribute(false)/*, XmlIgnoreAttribute()*/, DescriptionAttribute(""), System.ComponentModel.Bindable( System.ComponentModel.BindableSupport.Yes)]
+		[DataObjectField(true, true, false)]
 		public virtual System.Int64 IdTinTuc
 		{
 			get
@@ -162,19 +158,6 @@ namespace traveltips.Entities
 				OnColumnChanged(TinTucColumn.IdTinTuc, this.entityData.IdTinTuc);
 				OnPropertyChanged("IdTinTuc");
 			}
-		}
-		
-		/// <summary>
-		/// 	Get the original value of the id_TinTuc property.
-		///		
-		/// </summary>
-		/// <remarks>This is the original value of the id_TinTuc property.</remarks>
-		/// <value>This type is bigint</value>
-		[BrowsableAttribute(false)/*, XmlIgnoreAttribute()*/]
-		public  virtual System.Int64 OriginalIdTinTuc
-		{
-			get { return this.entityData.OriginalIdTinTuc; }
-			set { this.entityData.OriginalIdTinTuc = value; }
 		}
 		
 		/// <summary>
@@ -569,7 +552,6 @@ namespace traveltips.Entities
 			TinTuc copy = new TinTuc();
 			copy.SuppressEntityEvents = true;
 			copy.IdTinTuc = this.IdTinTuc;
-			copy.OriginalIdTinTuc = this.OriginalIdTinTuc;
 			copy.IdCongTy = this.IdCongTy;
 			copy.TieuDe = this.TieuDe;
 			copy.MoTaNgan = this.MoTaNgan;
@@ -1074,11 +1056,6 @@ namespace traveltips.Entities
 			/// <remarks>Member of the primary key of the underlying table "tbl_TinTuc"</remarks>
 			public System.Int64 IdTinTuc;
 				
-			/// <summary>
-			/// keep a copy of the original so it can be used for editable primary keys.
-			/// </summary>
-			public System.Int64 OriginalIdTinTuc;
-			
 		#endregion
 		
 		#region Non Primary key(s)
@@ -1148,7 +1125,6 @@ namespace traveltips.Entities
 			TinTucEntityData _tmp = new TinTucEntityData();
 						
 			_tmp.IdTinTuc = this.IdTinTuc;
-			_tmp.OriginalIdTinTuc = this.OriginalIdTinTuc;
 			
 			_tmp.IdCongTy = this.IdCongTy;
 			_tmp.TieuDe = this.TieuDe;
@@ -1527,7 +1503,7 @@ namespace traveltips.Entities
 		/// IdTinTuc : 
 		/// </summary>
 		[EnumTextValue("id_TinTuc")]
-		[ColumnEnum("id_TinTuc", typeof(System.Int64), System.Data.DbType.Int64, true, false, false)]
+		[ColumnEnum("id_TinTuc", typeof(System.Int64), System.Data.DbType.Int64, true, true, false)]
 		IdTinTuc = 1,
 		/// <summary>
 		/// IdCongTy : 

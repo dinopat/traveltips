@@ -81,20 +81,18 @@ namespace traveltips.Entities
 		///<summary>
 		/// Creates a new <see cref="DichVuBase"/> instance.
 		///</summary>
-		///<param name="idDichVu"></param>
 		///<param name="idCongTy"></param>
 		///<param name="tenDv"></param>
 		///<param name="maDv"></param>
 		///<param name="motaNgan"></param>
 		///<param name="motaChiTiet"></param>
 		///<param name="flag"></param>
-		public DichVuBase(System.Int64 idDichVu, System.String idCongTy, System.String tenDv, 
-			System.String maDv, System.String motaNgan, System.String motaChiTiet, System.Byte? flag)
+		public DichVuBase(System.Int64? idCongTy, System.String tenDv, System.String maDv, 
+			System.String motaNgan, System.String motaChiTiet, System.Byte? flag)
 		{
 			this.entityData = new DichVuEntityData();
 			this.backupData = null;
 
-			this.IdDichVu = idDichVu;
 			this.IdCongTy = idCongTy;
 			this.TenDv = tenDv;
 			this.MaDv = maDv;
@@ -106,18 +104,16 @@ namespace traveltips.Entities
 		///<summary>
 		/// A simple factory method to create a new <see cref="DichVu"/> instance.
 		///</summary>
-		///<param name="idDichVu"></param>
 		///<param name="idCongTy"></param>
 		///<param name="tenDv"></param>
 		///<param name="maDv"></param>
 		///<param name="motaNgan"></param>
 		///<param name="motaChiTiet"></param>
 		///<param name="flag"></param>
-		public static DichVu CreateDichVu(System.Int64 idDichVu, System.String idCongTy, System.String tenDv, 
-			System.String maDv, System.String motaNgan, System.String motaChiTiet, System.Byte? flag)
+		public static DichVu CreateDichVu(System.Int64? idCongTy, System.String tenDv, System.String maDv, 
+			System.String motaNgan, System.String motaChiTiet, System.Byte? flag)
 		{
 			DichVu newDichVu = new DichVu();
-			newDichVu.IdDichVu = idDichVu;
 			newDichVu.IdCongTy = idCongTy;
 			newDichVu.TenDv = tenDv;
 			newDichVu.MaDv = maDv;
@@ -140,8 +136,8 @@ namespace traveltips.Entities
 		/// <remarks>
 		/// This property can not be set to null. 
 		/// </remarks>
-		[DescriptionAttribute(""), System.ComponentModel.Bindable( System.ComponentModel.BindableSupport.Yes)]
-		[DataObjectField(true, false, false)]
+		[ReadOnlyAttribute(false)/*, XmlIgnoreAttribute()*/, DescriptionAttribute(""), System.ComponentModel.Bindable( System.ComponentModel.BindableSupport.Yes)]
+		[DataObjectField(true, true, false)]
 		public virtual System.Int64 IdDichVu
 		{
 			get
@@ -165,29 +161,18 @@ namespace traveltips.Entities
 		}
 		
 		/// <summary>
-		/// 	Get the original value of the id_DichVu property.
-		///		
-		/// </summary>
-		/// <remarks>This is the original value of the id_DichVu property.</remarks>
-		/// <value>This type is bigint</value>
-		[BrowsableAttribute(false)/*, XmlIgnoreAttribute()*/]
-		public  virtual System.Int64 OriginalIdDichVu
-		{
-			get { return this.entityData.OriginalIdDichVu; }
-			set { this.entityData.OriginalIdDichVu = value; }
-		}
-		
-		/// <summary>
 		/// 	Gets or sets the IdCongTy property. 
 		///		
 		/// </summary>
-		/// <value>This type is nchar.</value>
+		/// <value>This type is bigint.</value>
 		/// <remarks>
 		/// This property can be set to null. 
+		/// If this column is null, this property will return (long)0. It is up to the developer
+		/// to check the value of IsIdCongTyNull() and perform business logic appropriately.
 		/// </remarks>
 		[DescriptionAttribute(""), System.ComponentModel.Bindable( System.ComponentModel.BindableSupport.Yes)]
-		[DataObjectField(false, false, true, 10)]
-		public virtual System.String IdCongTy
+		[DataObjectField(false, false, true)]
+		public virtual System.Int64? IdCongTy
 		{
 			get
 			{
@@ -398,9 +383,6 @@ namespace traveltips.Entities
 			//Validation rules based on database schema.
 			ValidationRules.AddRule(
 				Validation.CommonRules.StringMaxLength, 
-				new Validation.CommonRules.MaxLengthRuleArgs("IdCongTy", "Id Cong Ty", 10));
-			ValidationRules.AddRule(
-				Validation.CommonRules.StringMaxLength, 
 				new Validation.CommonRules.MaxLengthRuleArgs("TenDv", "Ten Dv", 50));
 			ValidationRules.AddRule(
 				Validation.CommonRules.StringMaxLength, 
@@ -571,7 +553,6 @@ namespace traveltips.Entities
 			DichVu copy = new DichVu();
 			copy.SuppressEntityEvents = true;
 			copy.IdDichVu = this.IdDichVu;
-			copy.OriginalIdDichVu = this.OriginalIdDichVu;
 			copy.IdCongTy = this.IdCongTy;
 			copy.TenDv = this.TenDv;
 			copy.MaDv = this.MaDv;
@@ -873,7 +854,7 @@ namespace traveltips.Entities
             	
             	
             	case DichVuColumn.IdCongTy:
-            		return this.IdCongTy.CompareTo(rhs.IdCongTy);
+            		return this.IdCongTy.Value.CompareTo(rhs.IdCongTy.Value);
             		
             		                 
             	
@@ -1076,11 +1057,6 @@ namespace traveltips.Entities
 			/// <remarks>Member of the primary key of the underlying table "tbl_DichVu"</remarks>
 			public System.Int64 IdDichVu;
 				
-			/// <summary>
-			/// keep a copy of the original so it can be used for editable primary keys.
-			/// </summary>
-			public System.Int64 OriginalIdDichVu;
-			
 		#endregion
 		
 		#region Non Primary key(s)
@@ -1089,7 +1065,7 @@ namespace traveltips.Entities
 		/// <summary>
 		/// id_CongTy : 
 		/// </summary>
-		public System.String		  IdCongTy = null;
+		public System.Int64?		  IdCongTy = null;
 		
 		/// <summary>
 		/// TenDV : 
@@ -1150,7 +1126,6 @@ namespace traveltips.Entities
 			DichVuEntityData _tmp = new DichVuEntityData();
 						
 			_tmp.IdDichVu = this.IdDichVu;
-			_tmp.OriginalIdDichVu = this.OriginalIdDichVu;
 			
 			_tmp.IdCongTy = this.IdCongTy;
 			_tmp.TenDv = this.TenDv;
@@ -1529,13 +1504,13 @@ namespace traveltips.Entities
 		/// IdDichVu : 
 		/// </summary>
 		[EnumTextValue("id_DichVu")]
-		[ColumnEnum("id_DichVu", typeof(System.Int64), System.Data.DbType.Int64, true, false, false)]
+		[ColumnEnum("id_DichVu", typeof(System.Int64), System.Data.DbType.Int64, true, true, false)]
 		IdDichVu = 1,
 		/// <summary>
 		/// IdCongTy : 
 		/// </summary>
 		[EnumTextValue("id_CongTy")]
-		[ColumnEnum("id_CongTy", typeof(System.String), System.Data.DbType.StringFixedLength, false, false, true, 10)]
+		[ColumnEnum("id_CongTy", typeof(System.Int64), System.Data.DbType.Int64, false, false, true)]
 		IdCongTy = 2,
 		/// <summary>
 		/// TenDv : 

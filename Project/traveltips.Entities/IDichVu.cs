@@ -17,17 +17,12 @@ namespace traveltips.Entities
 		/// <remarks>Member of the primary key of the underlying table "tbl_DichVu"</remarks>
 		System.Int64 IdDichVu { get; set; }
 				
-		/// <summary>
-		/// keep a copy of the original so it can be used for editable primary keys.
-		/// </summary>
-		System.Int64 OriginalIdDichVu { get; set; }
-			
 		
 		
 		/// <summary>
 		/// id_CongTy : 
 		/// </summary>
-		System.String  IdCongTy  { get; set; }
+		System.Int64?  IdCongTy  { get; set; }
 		
 		/// <summary>
 		/// TenDV : 

@@ -81,19 +81,17 @@ namespace traveltips.Entities
 		///<summary>
 		/// Creates a new <see cref="CommentBase"/> instance.
 		///</summary>
-		///<param name="idComment"></param>
 		///<param name="idUser"></param>
 		///<param name="idCongty"></param>
 		///<param name="tieuDe">Id trong table Label</param>
 		///<param name="noiDung">id truy xuat trong bang Label</param>
 		///<param name="flag"></param>
-		public CommentBase(System.Int64 idComment, System.Int64? idUser, System.Int64? idCongty, 
-			System.String tieuDe, System.String noiDung, System.Byte? flag)
+		public CommentBase(System.Int64? idUser, System.Int64? idCongty, System.String tieuDe, 
+			System.String noiDung, System.Byte? flag)
 		{
 			this.entityData = new CommentEntityData();
 			this.backupData = null;
 
-			this.IdComment = idComment;
 			this.IdUser = idUser;
 			this.IdCongty = idCongty;
 			this.TieuDe = tieuDe;
@@ -104,17 +102,15 @@ namespace traveltips.Entities
 		///<summary>
 		/// A simple factory method to create a new <see cref="Comment"/> instance.
 		///</summary>
-		///<param name="idComment"></param>
 		///<param name="idUser"></param>
 		///<param name="idCongty"></param>
 		///<param name="tieuDe">Id trong table Label</param>
 		///<param name="noiDung">id truy xuat trong bang Label</param>
 		///<param name="flag"></param>
-		public static Comment CreateComment(System.Int64 idComment, System.Int64? idUser, System.Int64? idCongty, 
-			System.String tieuDe, System.String noiDung, System.Byte? flag)
+		public static Comment CreateComment(System.Int64? idUser, System.Int64? idCongty, System.String tieuDe, 
+			System.String noiDung, System.Byte? flag)
 		{
 			Comment newComment = new Comment();
-			newComment.IdComment = idComment;
 			newComment.IdUser = idUser;
 			newComment.IdCongty = idCongty;
 			newComment.TieuDe = tieuDe;
@@ -136,8 +132,8 @@ namespace traveltips.Entities
 		/// <remarks>
 		/// This property can not be set to null. 
 		/// </remarks>
-		[DescriptionAttribute(""), System.ComponentModel.Bindable( System.ComponentModel.BindableSupport.Yes)]
-		[DataObjectField(true, false, false)]
+		[ReadOnlyAttribute(false)/*, XmlIgnoreAttribute()*/, DescriptionAttribute(""), System.ComponentModel.Bindable( System.ComponentModel.BindableSupport.Yes)]
+		[DataObjectField(true, true, false)]
 		public virtual System.Int64 IdComment
 		{
 			get
@@ -158,19 +154,6 @@ namespace traveltips.Entities
 				OnColumnChanged(CommentColumn.IdComment, this.entityData.IdComment);
 				OnPropertyChanged("IdComment");
 			}
-		}
-		
-		/// <summary>
-		/// 	Get the original value of the id_Comment property.
-		///		
-		/// </summary>
-		/// <remarks>This is the original value of the id_Comment property.</remarks>
-		/// <value>This type is bigint</value>
-		[BrowsableAttribute(false)/*, XmlIgnoreAttribute()*/]
-		public  virtual System.Int64 OriginalIdComment
-		{
-			get { return this.entityData.OriginalIdComment; }
-			set { this.entityData.OriginalIdComment = value; }
 		}
 		
 		/// <summary>
@@ -243,12 +226,12 @@ namespace traveltips.Entities
 		/// 	Gets or sets the TieuDe property. 
 		///		Id trong table Label
 		/// </summary>
-		/// <value>This type is varchar.</value>
+		/// <value>This type is nvarchar.</value>
 		/// <remarks>
 		/// This property can be set to null. 
 		/// </remarks>
 		[DescriptionAttribute("Id trong table Label"), System.ComponentModel.Bindable( System.ComponentModel.BindableSupport.Yes)]
-		[DataObjectField(false, false, true, 50)]
+		[DataObjectField(false, false, true, 200)]
 		public virtual System.String TieuDe
 		{
 			get
@@ -274,12 +257,12 @@ namespace traveltips.Entities
 		/// 	Gets or sets the NoiDung property. 
 		///		id truy xuat trong bang Label
 		/// </summary>
-		/// <value>This type is varchar.</value>
+		/// <value>This type is nvarchar.</value>
 		/// <remarks>
 		/// This property can be set to null. 
 		/// </remarks>
 		[DescriptionAttribute("id truy xuat trong bang Label"), System.ComponentModel.Bindable( System.ComponentModel.BindableSupport.Yes)]
-		[DataObjectField(false, false, true, 50)]
+		[DataObjectField(false, false, true)]
 		public virtual System.String NoiDung
 		{
 			get
@@ -378,10 +361,7 @@ namespace traveltips.Entities
 			//Validation rules based on database schema.
 			ValidationRules.AddRule(
 				Validation.CommonRules.StringMaxLength, 
-				new Validation.CommonRules.MaxLengthRuleArgs("TieuDe", "Tieu De", 50));
-			ValidationRules.AddRule(
-				Validation.CommonRules.StringMaxLength, 
-				new Validation.CommonRules.MaxLengthRuleArgs("NoiDung", "Noi Dung", 50));
+				new Validation.CommonRules.MaxLengthRuleArgs("TieuDe", "Tieu De", 200));
 		}
    		#endregion
 		
@@ -545,7 +525,6 @@ namespace traveltips.Entities
 			Comment copy = new Comment();
 			copy.SuppressEntityEvents = true;
 			copy.IdComment = this.IdComment;
-			copy.OriginalIdComment = this.OriginalIdComment;
 			copy.IdUser = this.IdUser;
 			copy.IdCongty = this.IdCongty;
 			copy.TieuDe = this.TieuDe;
@@ -1030,11 +1009,6 @@ namespace traveltips.Entities
 			/// <remarks>Member of the primary key of the underlying table "tbl_Comment"</remarks>
 			public System.Int64 IdComment;
 				
-			/// <summary>
-			/// keep a copy of the original so it can be used for editable primary keys.
-			/// </summary>
-			public System.Int64 OriginalIdComment;
-			
 		#endregion
 		
 		#region Non Primary key(s)
@@ -1112,7 +1086,6 @@ namespace traveltips.Entities
 			CommentEntityData _tmp = new CommentEntityData();
 						
 			_tmp.IdComment = this.IdComment;
-			_tmp.OriginalIdComment = this.OriginalIdComment;
 			
 			_tmp.IdUser = this.IdUser;
 			_tmp.IdCongty = this.IdCongty;
@@ -1492,7 +1465,7 @@ namespace traveltips.Entities
 		/// IdComment : 
 		/// </summary>
 		[EnumTextValue("id_Comment")]
-		[ColumnEnum("id_Comment", typeof(System.Int64), System.Data.DbType.Int64, true, false, false)]
+		[ColumnEnum("id_Comment", typeof(System.Int64), System.Data.DbType.Int64, true, true, false)]
 		IdComment = 1,
 		/// <summary>
 		/// IdUser : 
@@ -1510,13 +1483,13 @@ namespace traveltips.Entities
 		/// TieuDe : Id trong table Label
 		/// </summary>
 		[EnumTextValue("TieuDe")]
-		[ColumnEnum("TieuDe", typeof(System.String), System.Data.DbType.AnsiString, false, false, true, 50)]
+		[ColumnEnum("TieuDe", typeof(System.String), System.Data.DbType.String, false, false, true, 200)]
 		TieuDe = 4,
 		/// <summary>
 		/// NoiDung : id truy xuat trong bang Label
 		/// </summary>
 		[EnumTextValue("NoiDung")]
-		[ColumnEnum("NoiDung", typeof(System.String), System.Data.DbType.AnsiString, false, false, true, 50)]
+		[ColumnEnum("NoiDung", typeof(System.String), System.Data.DbType.String, false, false, true)]
 		NoiDung = 5,
 		/// <summary>
 		/// Flag : 

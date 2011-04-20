@@ -81,17 +81,15 @@ namespace traveltips.Entities
 		///<summary>
 		/// Creates a new <see cref="ThuocTinhBase"/> instance.
 		///</summary>
-		///<param name="idThuocTinh"></param>
 		///<param name="tenThuocTinh"></param>
 		///<param name="maThuocTinh"></param>
 		///<param name="flag"></param>
-		public ThuocTinhBase(System.Int64 idThuocTinh, System.String tenThuocTinh, 
-			System.String maThuocTinh, System.Byte? flag)
+		public ThuocTinhBase(System.String tenThuocTinh, System.String maThuocTinh, 
+			System.Byte? flag)
 		{
 			this.entityData = new ThuocTinhEntityData();
 			this.backupData = null;
 
-			this.IdThuocTinh = idThuocTinh;
 			this.TenThuocTinh = tenThuocTinh;
 			this.MaThuocTinh = maThuocTinh;
 			this.Flag = flag;
@@ -100,15 +98,13 @@ namespace traveltips.Entities
 		///<summary>
 		/// A simple factory method to create a new <see cref="ThuocTinh"/> instance.
 		///</summary>
-		///<param name="idThuocTinh"></param>
 		///<param name="tenThuocTinh"></param>
 		///<param name="maThuocTinh"></param>
 		///<param name="flag"></param>
-		public static ThuocTinh CreateThuocTinh(System.Int64 idThuocTinh, System.String tenThuocTinh, 
-			System.String maThuocTinh, System.Byte? flag)
+		public static ThuocTinh CreateThuocTinh(System.String tenThuocTinh, System.String maThuocTinh, 
+			System.Byte? flag)
 		{
 			ThuocTinh newThuocTinh = new ThuocTinh();
-			newThuocTinh.IdThuocTinh = idThuocTinh;
 			newThuocTinh.TenThuocTinh = tenThuocTinh;
 			newThuocTinh.MaThuocTinh = maThuocTinh;
 			newThuocTinh.Flag = flag;
@@ -128,8 +124,8 @@ namespace traveltips.Entities
 		/// <remarks>
 		/// This property can not be set to null. 
 		/// </remarks>
-		[DescriptionAttribute(""), System.ComponentModel.Bindable( System.ComponentModel.BindableSupport.Yes)]
-		[DataObjectField(true, false, false)]
+		[ReadOnlyAttribute(false)/*, XmlIgnoreAttribute()*/, DescriptionAttribute(""), System.ComponentModel.Bindable( System.ComponentModel.BindableSupport.Yes)]
+		[DataObjectField(true, true, false)]
 		public virtual System.Int64 IdThuocTinh
 		{
 			get
@@ -150,19 +146,6 @@ namespace traveltips.Entities
 				OnColumnChanged(ThuocTinhColumn.IdThuocTinh, this.entityData.IdThuocTinh);
 				OnPropertyChanged("IdThuocTinh");
 			}
-		}
-		
-		/// <summary>
-		/// 	Get the original value of the id_ThuocTinh property.
-		///		
-		/// </summary>
-		/// <remarks>This is the original value of the id_ThuocTinh property.</remarks>
-		/// <value>This type is bigint</value>
-		[BrowsableAttribute(false)/*, XmlIgnoreAttribute()*/]
-		public  virtual System.Int64 OriginalIdThuocTinh
-		{
-			get { return this.entityData.OriginalIdThuocTinh; }
-			set { this.entityData.OriginalIdThuocTinh = value; }
 		}
 		
 		/// <summary>
@@ -460,7 +443,6 @@ namespace traveltips.Entities
 			ThuocTinh copy = new ThuocTinh();
 			copy.SuppressEntityEvents = true;
 			copy.IdThuocTinh = this.IdThuocTinh;
-			copy.OriginalIdThuocTinh = this.OriginalIdThuocTinh;
 			copy.TenThuocTinh = this.TenThuocTinh;
 			copy.MaThuocTinh = this.MaThuocTinh;
 			copy.Flag = this.Flag;
@@ -903,11 +885,6 @@ namespace traveltips.Entities
 			/// <remarks>Member of the primary key of the underlying table "tbl_ThuocTinh"</remarks>
 			public System.Int64 IdThuocTinh;
 				
-			/// <summary>
-			/// keep a copy of the original so it can be used for editable primary keys.
-			/// </summary>
-			public System.Int64 OriginalIdThuocTinh;
-			
 		#endregion
 		
 		#region Non Primary key(s)
@@ -973,7 +950,6 @@ namespace traveltips.Entities
 			ThuocTinhEntityData _tmp = new ThuocTinhEntityData();
 						
 			_tmp.IdThuocTinh = this.IdThuocTinh;
-			_tmp.OriginalIdThuocTinh = this.OriginalIdThuocTinh;
 			
 			_tmp.TenThuocTinh = this.TenThuocTinh;
 			_tmp.MaThuocTinh = this.MaThuocTinh;
@@ -1350,7 +1326,7 @@ namespace traveltips.Entities
 		/// IdThuocTinh : 
 		/// </summary>
 		[EnumTextValue("id_ThuocTinh")]
-		[ColumnEnum("id_ThuocTinh", typeof(System.Int64), System.Data.DbType.Int64, true, false, false)]
+		[ColumnEnum("id_ThuocTinh", typeof(System.Int64), System.Data.DbType.Int64, true, true, false)]
 		IdThuocTinh = 1,
 		/// <summary>
 		/// TenThuocTinh : 

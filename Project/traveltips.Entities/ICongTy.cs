@@ -17,11 +17,6 @@ namespace traveltips.Entities
 		/// <remarks>Member of the primary key of the underlying table "tbl_CongTy"</remarks>
 		System.Int64 IdCongTy { get; set; }
 				
-		/// <summary>
-		/// keep a copy of the original so it can be used for editable primary keys.
-		/// </summary>
-		System.Int64 OriginalIdCongTy { get; set; }
-			
 		
 		
 		/// <summary>
@@ -148,6 +143,13 @@ namespace traveltips.Entities
 	
 
 		/// <summary>
+		///	Holds a  SanPham entity object
+		///	which is related to this object through the relation sanPhamIdSanPham
+		/// </summary>
+		SanPham SanPham { get; set; }
+	
+
+		/// <summary>
 		///	Holds a  DichVu entity object
 		///	which is related to this object through the relation dichVuIdDichVu
 		/// </summary>
@@ -159,13 +161,6 @@ namespace traveltips.Entities
 		///	which are related to this object through the relation commentIdCongty
 		/// </summary>	
 		TList<Comment> CommentCollection {  get;  set;}	
-	
-
-		/// <summary>
-		///	Holds a  SanPham entity object
-		///	which is related to this object through the relation sanPhamIdSanPham
-		/// </summary>
-		SanPham SanPham { get; set; }
 
 		#endregion Data Properties
 

@@ -81,18 +81,16 @@ namespace traveltips.Entities
 		///<summary>
 		/// Creates a new <see cref="LanguageBase"/> instance.
 		///</summary>
-		///<param name="idLanguage"></param>
 		///<param name="tenNn"></param>
 		///<param name="maNn"></param>
 		///<param name="mota"></param>
 		///<param name="flag"></param>
-		public LanguageBase(System.Int32 idLanguage, System.String tenNn, System.String maNn, 
-			System.Byte[] mota, System.Byte? flag)
+		public LanguageBase(System.String tenNn, System.String maNn, System.String mota, 
+			System.Byte? flag)
 		{
 			this.entityData = new LanguageEntityData();
 			this.backupData = null;
 
-			this.IdLanguage = idLanguage;
 			this.TenNn = tenNn;
 			this.MaNn = maNn;
 			this.Mota = mota;
@@ -102,16 +100,14 @@ namespace traveltips.Entities
 		///<summary>
 		/// A simple factory method to create a new <see cref="Language"/> instance.
 		///</summary>
-		///<param name="idLanguage"></param>
 		///<param name="tenNn"></param>
 		///<param name="maNn"></param>
 		///<param name="mota"></param>
 		///<param name="flag"></param>
-		public static Language CreateLanguage(System.Int32 idLanguage, System.String tenNn, System.String maNn, 
-			System.Byte[] mota, System.Byte? flag)
+		public static Language CreateLanguage(System.String tenNn, System.String maNn, System.String mota, 
+			System.Byte? flag)
 		{
 			Language newLanguage = new Language();
-			newLanguage.IdLanguage = idLanguage;
 			newLanguage.TenNn = tenNn;
 			newLanguage.MaNn = maNn;
 			newLanguage.Mota = mota;
@@ -132,8 +128,8 @@ namespace traveltips.Entities
 		/// <remarks>
 		/// This property can not be set to null. 
 		/// </remarks>
-		[DescriptionAttribute(""), System.ComponentModel.Bindable( System.ComponentModel.BindableSupport.Yes)]
-		[DataObjectField(true, false, false)]
+		[ReadOnlyAttribute(false)/*, XmlIgnoreAttribute()*/, DescriptionAttribute(""), System.ComponentModel.Bindable( System.ComponentModel.BindableSupport.Yes)]
+		[DataObjectField(true, true, false)]
 		public virtual System.Int32 IdLanguage
 		{
 			get
@@ -154,19 +150,6 @@ namespace traveltips.Entities
 				OnColumnChanged(LanguageColumn.IdLanguage, this.entityData.IdLanguage);
 				OnPropertyChanged("IdLanguage");
 			}
-		}
-		
-		/// <summary>
-		/// 	Get the original value of the id_Language property.
-		///		
-		/// </summary>
-		/// <remarks>This is the original value of the id_Language property.</remarks>
-		/// <value>This type is int</value>
-		[BrowsableAttribute(false)/*, XmlIgnoreAttribute()*/]
-		public  virtual System.Int32 OriginalIdLanguage
-		{
-			get { return this.entityData.OriginalIdLanguage; }
-			set { this.entityData.OriginalIdLanguage = value; }
 		}
 		
 		/// <summary>
@@ -235,13 +218,13 @@ namespace traveltips.Entities
 		/// 	Gets or sets the Mota property. 
 		///		
 		/// </summary>
-		/// <value>This type is varbinary.</value>
+		/// <value>This type is varchar.</value>
 		/// <remarks>
 		/// This property can be set to null. 
 		/// </remarks>
 		[DescriptionAttribute(""), System.ComponentModel.Bindable( System.ComponentModel.BindableSupport.Yes)]
-		[DataObjectField(false, false, true)]
-		public virtual System.Byte[] Mota
+		[DataObjectField(false, false, true, 50)]
+		public virtual System.String Mota
 		{
 			get
 			{
@@ -332,6 +315,9 @@ namespace traveltips.Entities
 			ValidationRules.AddRule(
 				Validation.CommonRules.StringMaxLength, 
 				new Validation.CommonRules.MaxLengthRuleArgs("MaNn", "Ma Nn", 50));
+			ValidationRules.AddRule(
+				Validation.CommonRules.StringMaxLength, 
+				new Validation.CommonRules.MaxLengthRuleArgs("Mota", "Mota", 50));
 		}
    		#endregion
 		
@@ -495,7 +481,6 @@ namespace traveltips.Entities
 			Language copy = new Language();
 			copy.SuppressEntityEvents = true;
 			copy.IdLanguage = this.IdLanguage;
-			copy.OriginalIdLanguage = this.OriginalIdLanguage;
 			copy.TenNn = this.TenNn;
 			copy.MaNn = this.MaNn;
 			copy.Mota = this.Mota;
@@ -780,6 +765,10 @@ namespace traveltips.Entities
             		
             		                 
             	
+            	
+            	case LanguageColumn.Mota:
+            		return this.Mota.CompareTo(rhs.Mota);
+            		
             		                 
             	
             	
@@ -955,11 +944,6 @@ namespace traveltips.Entities
 			/// <remarks>Member of the primary key of the underlying table "tbl_Language"</remarks>
 			public System.Int32 IdLanguage;
 				
-			/// <summary>
-			/// keep a copy of the original so it can be used for editable primary keys.
-			/// </summary>
-			public System.Int32 OriginalIdLanguage;
-			
 		#endregion
 		
 		#region Non Primary key(s)
@@ -978,7 +962,7 @@ namespace traveltips.Entities
 		/// <summary>
 		/// Mota : 
 		/// </summary>
-		public System.Byte[]		  Mota = null;
+		public System.String		  Mota = null;
 		
 		/// <summary>
 		/// Flag : 
@@ -1030,7 +1014,6 @@ namespace traveltips.Entities
 			LanguageEntityData _tmp = new LanguageEntityData();
 						
 			_tmp.IdLanguage = this.IdLanguage;
-			_tmp.OriginalIdLanguage = this.OriginalIdLanguage;
 			
 			_tmp.TenNn = this.TenNn;
 			_tmp.MaNn = this.MaNn;
@@ -1408,7 +1391,7 @@ namespace traveltips.Entities
 		/// IdLanguage : 
 		/// </summary>
 		[EnumTextValue("id_Language")]
-		[ColumnEnum("id_Language", typeof(System.Int32), System.Data.DbType.Int32, true, false, false)]
+		[ColumnEnum("id_Language", typeof(System.Int32), System.Data.DbType.Int32, true, true, false)]
 		IdLanguage = 1,
 		/// <summary>
 		/// TenNn : 
@@ -1426,7 +1409,7 @@ namespace traveltips.Entities
 		/// Mota : 
 		/// </summary>
 		[EnumTextValue("Mota")]
-		[ColumnEnum("Mota", typeof(System.Byte[]), System.Data.DbType.Binary, false, false, true)]
+		[ColumnEnum("Mota", typeof(System.String), System.Data.DbType.AnsiString, false, false, true, 50)]
 		Mota = 4,
 		/// <summary>
 		/// Flag : 

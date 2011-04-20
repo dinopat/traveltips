@@ -81,19 +81,17 @@ namespace traveltips.Entities
 		///<summary>
 		/// Creates a new <see cref="LoaiSpBase"/> instance.
 		///</summary>
-		///<param name="idLoaiSp"></param>
 		///<param name="idLoaiSpCha"></param>
 		///<param name="tenLoaiSp"></param>
 		///<param name="maLoaiSp"></param>
 		///<param name="moTa"></param>
 		///<param name="flag"></param>
-		public LoaiSpBase(System.Int64 idLoaiSp, System.Int64? idLoaiSpCha, System.String tenLoaiSp, 
-			System.String maLoaiSp, System.String moTa, System.Byte? flag)
+		public LoaiSpBase(System.Int64? idLoaiSpCha, System.String tenLoaiSp, System.String maLoaiSp, 
+			System.String moTa, System.Byte? flag)
 		{
 			this.entityData = new LoaiSpEntityData();
 			this.backupData = null;
 
-			this.IdLoaiSp = idLoaiSp;
 			this.IdLoaiSpCha = idLoaiSpCha;
 			this.TenLoaiSp = tenLoaiSp;
 			this.MaLoaiSp = maLoaiSp;
@@ -104,17 +102,15 @@ namespace traveltips.Entities
 		///<summary>
 		/// A simple factory method to create a new <see cref="LoaiSp"/> instance.
 		///</summary>
-		///<param name="idLoaiSp"></param>
 		///<param name="idLoaiSpCha"></param>
 		///<param name="tenLoaiSp"></param>
 		///<param name="maLoaiSp"></param>
 		///<param name="moTa"></param>
 		///<param name="flag"></param>
-		public static LoaiSp CreateLoaiSp(System.Int64 idLoaiSp, System.Int64? idLoaiSpCha, System.String tenLoaiSp, 
-			System.String maLoaiSp, System.String moTa, System.Byte? flag)
+		public static LoaiSp CreateLoaiSp(System.Int64? idLoaiSpCha, System.String tenLoaiSp, System.String maLoaiSp, 
+			System.String moTa, System.Byte? flag)
 		{
 			LoaiSp newLoaiSp = new LoaiSp();
-			newLoaiSp.IdLoaiSp = idLoaiSp;
 			newLoaiSp.IdLoaiSpCha = idLoaiSpCha;
 			newLoaiSp.TenLoaiSp = tenLoaiSp;
 			newLoaiSp.MaLoaiSp = maLoaiSp;
@@ -136,8 +132,8 @@ namespace traveltips.Entities
 		/// <remarks>
 		/// This property can not be set to null. 
 		/// </remarks>
-		[DescriptionAttribute(""), System.ComponentModel.Bindable( System.ComponentModel.BindableSupport.Yes)]
-		[DataObjectField(true, false, false)]
+		[ReadOnlyAttribute(false)/*, XmlIgnoreAttribute()*/, DescriptionAttribute(""), System.ComponentModel.Bindable( System.ComponentModel.BindableSupport.Yes)]
+		[DataObjectField(true, true, false)]
 		public virtual System.Int64 IdLoaiSp
 		{
 			get
@@ -158,19 +154,6 @@ namespace traveltips.Entities
 				OnColumnChanged(LoaiSpColumn.IdLoaiSp, this.entityData.IdLoaiSp);
 				OnPropertyChanged("IdLoaiSp");
 			}
-		}
-		
-		/// <summary>
-		/// 	Get the original value of the id_LoaiSP property.
-		///		
-		/// </summary>
-		/// <remarks>This is the original value of the id_LoaiSP property.</remarks>
-		/// <value>This type is bigint</value>
-		[BrowsableAttribute(false)/*, XmlIgnoreAttribute()*/]
-		public  virtual System.Int64 OriginalIdLoaiSp
-		{
-			get { return this.entityData.OriginalIdLoaiSp; }
-			set { this.entityData.OriginalIdLoaiSp = value; }
 		}
 		
 		/// <summary>
@@ -535,7 +518,6 @@ namespace traveltips.Entities
 			LoaiSp copy = new LoaiSp();
 			copy.SuppressEntityEvents = true;
 			copy.IdLoaiSp = this.IdLoaiSp;
-			copy.OriginalIdLoaiSp = this.OriginalIdLoaiSp;
 			copy.IdLoaiSpCha = this.IdLoaiSpCha;
 			copy.TenLoaiSp = this.TenLoaiSp;
 			copy.MaLoaiSp = this.MaLoaiSp;
@@ -1020,11 +1002,6 @@ namespace traveltips.Entities
 			/// <remarks>Member of the primary key of the underlying table "tbl_LoaiSP"</remarks>
 			public System.Int64 IdLoaiSp;
 				
-			/// <summary>
-			/// keep a copy of the original so it can be used for editable primary keys.
-			/// </summary>
-			public System.Int64 OriginalIdLoaiSp;
-			
 		#endregion
 		
 		#region Non Primary key(s)
@@ -1100,7 +1077,6 @@ namespace traveltips.Entities
 			LoaiSpEntityData _tmp = new LoaiSpEntityData();
 						
 			_tmp.IdLoaiSp = this.IdLoaiSp;
-			_tmp.OriginalIdLoaiSp = this.OriginalIdLoaiSp;
 			
 			_tmp.IdLoaiSpCha = this.IdLoaiSpCha;
 			_tmp.TenLoaiSp = this.TenLoaiSp;
@@ -1479,7 +1455,7 @@ namespace traveltips.Entities
 		/// IdLoaiSp : 
 		/// </summary>
 		[EnumTextValue("id_LoaiSP")]
-		[ColumnEnum("id_LoaiSP", typeof(System.Int64), System.Data.DbType.Int64, true, false, false)]
+		[ColumnEnum("id_LoaiSP", typeof(System.Int64), System.Data.DbType.Int64, true, true, false)]
 		IdLoaiSp = 1,
 		/// <summary>
 		/// IdLoaiSpCha : 

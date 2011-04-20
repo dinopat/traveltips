@@ -81,20 +81,18 @@ namespace traveltips.Entities
 		///<summary>
 		/// Creates a new <see cref="TuDienBase"/> instance.
 		///</summary>
-		///<param name="idTuDien"></param>
 		///<param name="idDanhMuc"></param>
 		///<param name="tenTu"></param>
 		///<param name="maTu"></param>
 		///<param name="nhomTu">NhomTu: Dai dien cho mot nhom nhat dinh phai co tu dien (phuc vu cho viec Load len theo nhom). Vi du: Mon An, Thuc Uong, Quoc Gia, Tinh, Thanh Pho,......</param>
 		///<param name="moTa"></param>
 		///<param name="flag"></param>
-		public TuDienBase(System.Int64 idTuDien, System.Int64? idDanhMuc, System.String tenTu, 
-			System.String maTu, System.String nhomTu, System.String moTa, System.Byte? flag)
+		public TuDienBase(System.Int64? idDanhMuc, System.String tenTu, System.String maTu, 
+			System.String nhomTu, System.String moTa, System.Byte? flag)
 		{
 			this.entityData = new TuDienEntityData();
 			this.backupData = null;
 
-			this.IdTuDien = idTuDien;
 			this.IdDanhMuc = idDanhMuc;
 			this.TenTu = tenTu;
 			this.MaTu = maTu;
@@ -106,18 +104,16 @@ namespace traveltips.Entities
 		///<summary>
 		/// A simple factory method to create a new <see cref="TuDien"/> instance.
 		///</summary>
-		///<param name="idTuDien"></param>
 		///<param name="idDanhMuc"></param>
 		///<param name="tenTu"></param>
 		///<param name="maTu"></param>
 		///<param name="nhomTu">NhomTu: Dai dien cho mot nhom nhat dinh phai co tu dien (phuc vu cho viec Load len theo nhom). Vi du: Mon An, Thuc Uong, Quoc Gia, Tinh, Thanh Pho,......</param>
 		///<param name="moTa"></param>
 		///<param name="flag"></param>
-		public static TuDien CreateTuDien(System.Int64 idTuDien, System.Int64? idDanhMuc, System.String tenTu, 
-			System.String maTu, System.String nhomTu, System.String moTa, System.Byte? flag)
+		public static TuDien CreateTuDien(System.Int64? idDanhMuc, System.String tenTu, System.String maTu, 
+			System.String nhomTu, System.String moTa, System.Byte? flag)
 		{
 			TuDien newTuDien = new TuDien();
-			newTuDien.IdTuDien = idTuDien;
 			newTuDien.IdDanhMuc = idDanhMuc;
 			newTuDien.TenTu = tenTu;
 			newTuDien.MaTu = maTu;
@@ -140,8 +136,8 @@ namespace traveltips.Entities
 		/// <remarks>
 		/// This property can not be set to null. 
 		/// </remarks>
-		[DescriptionAttribute(""), System.ComponentModel.Bindable( System.ComponentModel.BindableSupport.Yes)]
-		[DataObjectField(true, false, false)]
+		[ReadOnlyAttribute(false)/*, XmlIgnoreAttribute()*/, DescriptionAttribute(""), System.ComponentModel.Bindable( System.ComponentModel.BindableSupport.Yes)]
+		[DataObjectField(true, true, false)]
 		public virtual System.Int64 IdTuDien
 		{
 			get
@@ -162,19 +158,6 @@ namespace traveltips.Entities
 				OnColumnChanged(TuDienColumn.IdTuDien, this.entityData.IdTuDien);
 				OnPropertyChanged("IdTuDien");
 			}
-		}
-		
-		/// <summary>
-		/// 	Get the original value of the id_TuDien property.
-		///		
-		/// </summary>
-		/// <remarks>This is the original value of the id_TuDien property.</remarks>
-		/// <value>This type is bigint</value>
-		[BrowsableAttribute(false)/*, XmlIgnoreAttribute()*/]
-		public  virtual System.Int64 OriginalIdTuDien
-		{
-			get { return this.entityData.OriginalIdTuDien; }
-			set { this.entityData.OriginalIdTuDien = value; }
 		}
 		
 		/// <summary>
@@ -245,12 +228,12 @@ namespace traveltips.Entities
 		/// 	Gets or sets the MaTu property. 
 		///		
 		/// </summary>
-		/// <value>This type is nchar.</value>
+		/// <value>This type is varchar.</value>
 		/// <remarks>
 		/// This property can be set to null. 
 		/// </remarks>
 		[DescriptionAttribute(""), System.ComponentModel.Bindable( System.ComponentModel.BindableSupport.Yes)]
-		[DataObjectField(false, false, true, 10)]
+		[DataObjectField(false, false, true, 50)]
 		public virtual System.String MaTu
 		{
 			get
@@ -392,7 +375,7 @@ namespace traveltips.Entities
 				new Validation.CommonRules.MaxLengthRuleArgs("TenTu", "Ten Tu", 50));
 			ValidationRules.AddRule(
 				Validation.CommonRules.StringMaxLength, 
-				new Validation.CommonRules.MaxLengthRuleArgs("MaTu", "Ma Tu", 10));
+				new Validation.CommonRules.MaxLengthRuleArgs("MaTu", "Ma Tu", 50));
 			ValidationRules.AddRule(
 				Validation.CommonRules.StringMaxLength, 
 				new Validation.CommonRules.MaxLengthRuleArgs("NhomTu", "Nhom Tu", 50));
@@ -562,7 +545,6 @@ namespace traveltips.Entities
 			TuDien copy = new TuDien();
 			copy.SuppressEntityEvents = true;
 			copy.IdTuDien = this.IdTuDien;
-			copy.OriginalIdTuDien = this.OriginalIdTuDien;
 			copy.IdDanhMuc = this.IdDanhMuc;
 			copy.TenTu = this.TenTu;
 			copy.MaTu = this.MaTu;
@@ -1066,11 +1048,6 @@ namespace traveltips.Entities
 			/// <remarks>Member of the primary key of the underlying table "tbl_TuDien"</remarks>
 			public System.Int64 IdTuDien;
 				
-			/// <summary>
-			/// keep a copy of the original so it can be used for editable primary keys.
-			/// </summary>
-			public System.Int64 OriginalIdTuDien;
-			
 		#endregion
 		
 		#region Non Primary key(s)
@@ -1127,7 +1104,6 @@ namespace traveltips.Entities
 			TuDienEntityData _tmp = new TuDienEntityData();
 						
 			_tmp.IdTuDien = this.IdTuDien;
-			_tmp.OriginalIdTuDien = this.OriginalIdTuDien;
 			
 			_tmp.IdDanhMuc = this.IdDanhMuc;
 			_tmp.TenTu = this.TenTu;
@@ -1504,7 +1480,7 @@ namespace traveltips.Entities
 		/// IdTuDien : 
 		/// </summary>
 		[EnumTextValue("id_TuDien")]
-		[ColumnEnum("id_TuDien", typeof(System.Int64), System.Data.DbType.Int64, true, false, false)]
+		[ColumnEnum("id_TuDien", typeof(System.Int64), System.Data.DbType.Int64, true, true, false)]
 		IdTuDien = 1,
 		/// <summary>
 		/// IdDanhMuc : 
@@ -1522,7 +1498,7 @@ namespace traveltips.Entities
 		/// MaTu : 
 		/// </summary>
 		[EnumTextValue("MaTu")]
-		[ColumnEnum("MaTu", typeof(System.String), System.Data.DbType.StringFixedLength, false, false, true, 10)]
+		[ColumnEnum("MaTu", typeof(System.String), System.Data.DbType.AnsiString, false, false, true, 50)]
 		MaTu = 4,
 		/// <summary>
 		/// NhomTu : NhomTu: Dai dien cho mot nhom nhat dinh phai co tu dien (phuc vu cho viec Load len theo nhom). Vi du: Mon An, Thuc Uong, Quoc Gia, Tinh, Thanh Pho,......

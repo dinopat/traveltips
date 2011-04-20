@@ -81,7 +81,6 @@ namespace traveltips.Entities
 		///<summary>
 		/// Creates a new <see cref="ChuCongTyBase"/> instance.
 		///</summary>
-		///<param name="idChuCongTy"></param>
 		///<param name="tenChuCongTy"></param>
 		///<param name="tenCongTy"></param>
 		///<param name="tenDangNhap"></param>
@@ -92,15 +91,13 @@ namespace traveltips.Entities
 		///<param name="ngayTao"></param>
 		///<param name="ngayKetThuc"></param>
 		///<param name="flag"></param>
-		public ChuCongTyBase(System.Int64 idChuCongTy, System.String tenChuCongTy, 
-			System.String tenCongTy, System.String tenDangNhap, System.String password, System.String diaChi, 
-			System.String dienThoaiCd, System.String dienThoaiDd, System.DateTime? ngayTao, 
-			System.DateTime? ngayKetThuc, System.Byte? flag)
+		public ChuCongTyBase(System.String tenChuCongTy, System.String tenCongTy, System.String tenDangNhap, 
+			System.String password, System.String diaChi, System.String dienThoaiCd, System.String dienThoaiDd, 
+			System.DateTime? ngayTao, System.DateTime? ngayKetThuc, System.Byte? flag)
 		{
 			this.entityData = new ChuCongTyEntityData();
 			this.backupData = null;
 
-			this.IdChuCongTy = idChuCongTy;
 			this.TenChuCongTy = tenChuCongTy;
 			this.TenCongTy = tenCongTy;
 			this.TenDangNhap = tenDangNhap;
@@ -116,7 +113,6 @@ namespace traveltips.Entities
 		///<summary>
 		/// A simple factory method to create a new <see cref="ChuCongTy"/> instance.
 		///</summary>
-		///<param name="idChuCongTy"></param>
 		///<param name="tenChuCongTy"></param>
 		///<param name="tenCongTy"></param>
 		///<param name="tenDangNhap"></param>
@@ -127,13 +123,11 @@ namespace traveltips.Entities
 		///<param name="ngayTao"></param>
 		///<param name="ngayKetThuc"></param>
 		///<param name="flag"></param>
-		public static ChuCongTy CreateChuCongTy(System.Int64 idChuCongTy, System.String tenChuCongTy, 
-			System.String tenCongTy, System.String tenDangNhap, System.String password, System.String diaChi, 
-			System.String dienThoaiCd, System.String dienThoaiDd, System.DateTime? ngayTao, 
-			System.DateTime? ngayKetThuc, System.Byte? flag)
+		public static ChuCongTy CreateChuCongTy(System.String tenChuCongTy, System.String tenCongTy, System.String tenDangNhap, 
+			System.String password, System.String diaChi, System.String dienThoaiCd, System.String dienThoaiDd, 
+			System.DateTime? ngayTao, System.DateTime? ngayKetThuc, System.Byte? flag)
 		{
 			ChuCongTy newChuCongTy = new ChuCongTy();
-			newChuCongTy.IdChuCongTy = idChuCongTy;
 			newChuCongTy.TenChuCongTy = tenChuCongTy;
 			newChuCongTy.TenCongTy = tenCongTy;
 			newChuCongTy.TenDangNhap = tenDangNhap;
@@ -160,8 +154,8 @@ namespace traveltips.Entities
 		/// <remarks>
 		/// This property can not be set to null. 
 		/// </remarks>
-		[DescriptionAttribute(""), System.ComponentModel.Bindable( System.ComponentModel.BindableSupport.Yes)]
-		[DataObjectField(true, false, false)]
+		[ReadOnlyAttribute(false)/*, XmlIgnoreAttribute()*/, DescriptionAttribute(""), System.ComponentModel.Bindable( System.ComponentModel.BindableSupport.Yes)]
+		[DataObjectField(true, true, false)]
 		public virtual System.Int64 IdChuCongTy
 		{
 			get
@@ -182,19 +176,6 @@ namespace traveltips.Entities
 				OnColumnChanged(ChuCongTyColumn.IdChuCongTy, this.entityData.IdChuCongTy);
 				OnPropertyChanged("IdChuCongTy");
 			}
-		}
-		
-		/// <summary>
-		/// 	Get the original value of the id_ChuCongTy property.
-		///		
-		/// </summary>
-		/// <remarks>This is the original value of the id_ChuCongTy property.</remarks>
-		/// <value>This type is bigint</value>
-		[BrowsableAttribute(false)/*, XmlIgnoreAttribute()*/]
-		public  virtual System.Int64 OriginalIdChuCongTy
-		{
-			get { return this.entityData.OriginalIdChuCongTy; }
-			set { this.entityData.OriginalIdChuCongTy = value; }
 		}
 		
 		/// <summary>
@@ -728,7 +709,6 @@ namespace traveltips.Entities
 			ChuCongTy copy = new ChuCongTy();
 			copy.SuppressEntityEvents = true;
 			copy.IdChuCongTy = this.IdChuCongTy;
-			copy.OriginalIdChuCongTy = this.OriginalIdChuCongTy;
 			copy.TenChuCongTy = this.TenChuCongTy;
 			copy.TenCongTy = this.TenCongTy;
 			copy.TenDangNhap = this.TenDangNhap;
@@ -1318,11 +1298,6 @@ namespace traveltips.Entities
 			/// <remarks>Member of the primary key of the underlying table "tbl_ChuCongTy"</remarks>
 			public System.Int64 IdChuCongTy;
 				
-			/// <summary>
-			/// keep a copy of the original so it can be used for editable primary keys.
-			/// </summary>
-			public System.Int64 OriginalIdChuCongTy;
-			
 		#endregion
 		
 		#region Non Primary key(s)
@@ -1423,7 +1398,6 @@ namespace traveltips.Entities
 			ChuCongTyEntityData _tmp = new ChuCongTyEntityData();
 						
 			_tmp.IdChuCongTy = this.IdChuCongTy;
-			_tmp.OriginalIdChuCongTy = this.OriginalIdChuCongTy;
 			
 			_tmp.TenChuCongTy = this.TenChuCongTy;
 			_tmp.TenCongTy = this.TenCongTy;
@@ -1807,7 +1781,7 @@ namespace traveltips.Entities
 		/// IdChuCongTy : 
 		/// </summary>
 		[EnumTextValue("id_ChuCongTy")]
-		[ColumnEnum("id_ChuCongTy", typeof(System.Int64), System.Data.DbType.Int64, true, false, false)]
+		[ColumnEnum("id_ChuCongTy", typeof(System.Int64), System.Data.DbType.Int64, true, true, false)]
 		IdChuCongTy = 1,
 		/// <summary>
 		/// TenChuCongTy : 

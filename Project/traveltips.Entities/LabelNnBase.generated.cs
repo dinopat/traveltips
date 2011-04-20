@@ -81,18 +81,16 @@ namespace traveltips.Entities
 		///<summary>
 		/// Creates a new <see cref="LabelNnBase"/> instance.
 		///</summary>
-		///<param name="idLabel"></param>
 		///<param name="maLabel"></param>
 		///<param name="tenLabel"></param>
 		///<param name="moTa"></param>
 		///<param name="flag"></param>
-		public LabelNnBase(System.Int64 idLabel, System.String maLabel, System.String tenLabel, 
-			System.String moTa, System.Byte? flag)
+		public LabelNnBase(System.String maLabel, System.String tenLabel, System.String moTa, 
+			System.Byte? flag)
 		{
 			this.entityData = new LabelNnEntityData();
 			this.backupData = null;
 
-			this.IdLabel = idLabel;
 			this.MaLabel = maLabel;
 			this.TenLabel = tenLabel;
 			this.MoTa = moTa;
@@ -102,16 +100,14 @@ namespace traveltips.Entities
 		///<summary>
 		/// A simple factory method to create a new <see cref="LabelNn"/> instance.
 		///</summary>
-		///<param name="idLabel"></param>
 		///<param name="maLabel"></param>
 		///<param name="tenLabel"></param>
 		///<param name="moTa"></param>
 		///<param name="flag"></param>
-		public static LabelNn CreateLabelNn(System.Int64 idLabel, System.String maLabel, System.String tenLabel, 
-			System.String moTa, System.Byte? flag)
+		public static LabelNn CreateLabelNn(System.String maLabel, System.String tenLabel, System.String moTa, 
+			System.Byte? flag)
 		{
 			LabelNn newLabelNn = new LabelNn();
-			newLabelNn.IdLabel = idLabel;
 			newLabelNn.MaLabel = maLabel;
 			newLabelNn.TenLabel = tenLabel;
 			newLabelNn.MoTa = moTa;
@@ -132,8 +128,8 @@ namespace traveltips.Entities
 		/// <remarks>
 		/// This property can not be set to null. 
 		/// </remarks>
-		[DescriptionAttribute(""), System.ComponentModel.Bindable( System.ComponentModel.BindableSupport.Yes)]
-		[DataObjectField(true, false, false)]
+		[ReadOnlyAttribute(false)/*, XmlIgnoreAttribute()*/, DescriptionAttribute(""), System.ComponentModel.Bindable( System.ComponentModel.BindableSupport.Yes)]
+		[DataObjectField(true, true, false)]
 		public virtual System.Int64 IdLabel
 		{
 			get
@@ -154,19 +150,6 @@ namespace traveltips.Entities
 				OnColumnChanged(LabelNnColumn.IdLabel, this.entityData.IdLabel);
 				OnPropertyChanged("IdLabel");
 			}
-		}
-		
-		/// <summary>
-		/// 	Get the original value of the id_Label property.
-		///		
-		/// </summary>
-		/// <remarks>This is the original value of the id_Label property.</remarks>
-		/// <value>This type is bigint</value>
-		[BrowsableAttribute(false)/*, XmlIgnoreAttribute()*/]
-		public  virtual System.Int64 OriginalIdLabel
-		{
-			get { return this.entityData.OriginalIdLabel; }
-			set { this.entityData.OriginalIdLabel = value; }
 		}
 		
 		/// <summary>
@@ -498,7 +481,6 @@ namespace traveltips.Entities
 			LabelNn copy = new LabelNn();
 			copy.SuppressEntityEvents = true;
 			copy.IdLabel = this.IdLabel;
-			copy.OriginalIdLabel = this.OriginalIdLabel;
 			copy.MaLabel = this.MaLabel;
 			copy.TenLabel = this.TenLabel;
 			copy.MoTa = this.MoTa;
@@ -962,11 +944,6 @@ namespace traveltips.Entities
 			/// <remarks>Member of the primary key of the underlying table "tbl_LabelNN"</remarks>
 			public System.Int64 IdLabel;
 				
-			/// <summary>
-			/// keep a copy of the original so it can be used for editable primary keys.
-			/// </summary>
-			public System.Int64 OriginalIdLabel;
-			
 		#endregion
 		
 		#region Non Primary key(s)
@@ -1037,7 +1014,6 @@ namespace traveltips.Entities
 			LabelNnEntityData _tmp = new LabelNnEntityData();
 						
 			_tmp.IdLabel = this.IdLabel;
-			_tmp.OriginalIdLabel = this.OriginalIdLabel;
 			
 			_tmp.MaLabel = this.MaLabel;
 			_tmp.TenLabel = this.TenLabel;
@@ -1415,7 +1391,7 @@ namespace traveltips.Entities
 		/// IdLabel : 
 		/// </summary>
 		[EnumTextValue("id_Label")]
-		[ColumnEnum("id_Label", typeof(System.Int64), System.Data.DbType.Int64, true, false, false)]
+		[ColumnEnum("id_Label", typeof(System.Int64), System.Data.DbType.Int64, true, true, false)]
 		IdLabel = 1,
 		/// <summary>
 		/// MaLabel : 

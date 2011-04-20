@@ -81,19 +81,17 @@ namespace traveltips.Entities
 		///<summary>
 		/// Creates a new <see cref="DanhMucBase"/> instance.
 		///</summary>
-		///<param name="idDanhMuc"></param>
 		///<param name="idDmCha"></param>
 		///<param name="tenDanhMuc"></param>
 		///<param name="maDanhMuc"></param>
 		///<param name="moTa"></param>
 		///<param name="flag"></param>
-		public DanhMucBase(System.Int64 idDanhMuc, System.Int64? idDmCha, System.String tenDanhMuc, 
-			System.String maDanhMuc, System.String moTa, System.Byte? flag)
+		public DanhMucBase(System.Int64? idDmCha, System.String tenDanhMuc, System.String maDanhMuc, 
+			System.String moTa, System.Byte? flag)
 		{
 			this.entityData = new DanhMucEntityData();
 			this.backupData = null;
 
-			this.IdDanhMuc = idDanhMuc;
 			this.IdDmCha = idDmCha;
 			this.TenDanhMuc = tenDanhMuc;
 			this.MaDanhMuc = maDanhMuc;
@@ -104,17 +102,15 @@ namespace traveltips.Entities
 		///<summary>
 		/// A simple factory method to create a new <see cref="DanhMuc"/> instance.
 		///</summary>
-		///<param name="idDanhMuc"></param>
 		///<param name="idDmCha"></param>
 		///<param name="tenDanhMuc"></param>
 		///<param name="maDanhMuc"></param>
 		///<param name="moTa"></param>
 		///<param name="flag"></param>
-		public static DanhMuc CreateDanhMuc(System.Int64 idDanhMuc, System.Int64? idDmCha, System.String tenDanhMuc, 
-			System.String maDanhMuc, System.String moTa, System.Byte? flag)
+		public static DanhMuc CreateDanhMuc(System.Int64? idDmCha, System.String tenDanhMuc, System.String maDanhMuc, 
+			System.String moTa, System.Byte? flag)
 		{
 			DanhMuc newDanhMuc = new DanhMuc();
-			newDanhMuc.IdDanhMuc = idDanhMuc;
 			newDanhMuc.IdDmCha = idDmCha;
 			newDanhMuc.TenDanhMuc = tenDanhMuc;
 			newDanhMuc.MaDanhMuc = maDanhMuc;
@@ -136,8 +132,8 @@ namespace traveltips.Entities
 		/// <remarks>
 		/// This property can not be set to null. 
 		/// </remarks>
-		[DescriptionAttribute(""), System.ComponentModel.Bindable( System.ComponentModel.BindableSupport.Yes)]
-		[DataObjectField(true, false, false)]
+		[ReadOnlyAttribute(false)/*, XmlIgnoreAttribute()*/, DescriptionAttribute(""), System.ComponentModel.Bindable( System.ComponentModel.BindableSupport.Yes)]
+		[DataObjectField(true, true, false)]
 		public virtual System.Int64 IdDanhMuc
 		{
 			get
@@ -158,19 +154,6 @@ namespace traveltips.Entities
 				OnColumnChanged(DanhMucColumn.IdDanhMuc, this.entityData.IdDanhMuc);
 				OnPropertyChanged("IdDanhMuc");
 			}
-		}
-		
-		/// <summary>
-		/// 	Get the original value of the id_DanhMuc property.
-		///		
-		/// </summary>
-		/// <remarks>This is the original value of the id_DanhMuc property.</remarks>
-		/// <value>This type is bigint</value>
-		[BrowsableAttribute(false)/*, XmlIgnoreAttribute()*/]
-		public  virtual System.Int64 OriginalIdDanhMuc
-		{
-			get { return this.entityData.OriginalIdDanhMuc; }
-			set { this.entityData.OriginalIdDanhMuc = value; }
 		}
 		
 		/// <summary>
@@ -535,7 +518,6 @@ namespace traveltips.Entities
 			DanhMuc copy = new DanhMuc();
 			copy.SuppressEntityEvents = true;
 			copy.IdDanhMuc = this.IdDanhMuc;
-			copy.OriginalIdDanhMuc = this.OriginalIdDanhMuc;
 			copy.IdDmCha = this.IdDmCha;
 			copy.TenDanhMuc = this.TenDanhMuc;
 			copy.MaDanhMuc = this.MaDanhMuc;
@@ -1020,11 +1002,6 @@ namespace traveltips.Entities
 			/// <remarks>Member of the primary key of the underlying table "tbl_DanhMuc"</remarks>
 			public System.Int64 IdDanhMuc;
 				
-			/// <summary>
-			/// keep a copy of the original so it can be used for editable primary keys.
-			/// </summary>
-			public System.Int64 OriginalIdDanhMuc;
-			
 		#endregion
 		
 		#region Non Primary key(s)
@@ -1100,7 +1077,6 @@ namespace traveltips.Entities
 			DanhMucEntityData _tmp = new DanhMucEntityData();
 						
 			_tmp.IdDanhMuc = this.IdDanhMuc;
-			_tmp.OriginalIdDanhMuc = this.OriginalIdDanhMuc;
 			
 			_tmp.IdDmCha = this.IdDmCha;
 			_tmp.TenDanhMuc = this.TenDanhMuc;
@@ -1479,7 +1455,7 @@ namespace traveltips.Entities
 		/// IdDanhMuc : 
 		/// </summary>
 		[EnumTextValue("id_DanhMuc")]
-		[ColumnEnum("id_DanhMuc", typeof(System.Int64), System.Data.DbType.Int64, true, false, false)]
+		[ColumnEnum("id_DanhMuc", typeof(System.Int64), System.Data.DbType.Int64, true, true, false)]
 		IdDanhMuc = 1,
 		/// <summary>
 		/// IdDmCha : 
