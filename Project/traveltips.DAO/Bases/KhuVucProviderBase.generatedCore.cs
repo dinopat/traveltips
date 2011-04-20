@@ -210,7 +210,6 @@ namespace traveltips.DAO.Bases
 						{
 			c.SuppressEntityEvents = true;
 			c.IdKhuVuc = (System.Int64)reader["id_KhuVuc"];
-			c.OriginalIdKhuVuc = c.IdKhuVuc;
 			c.TenKv = reader.IsDBNull(reader.GetOrdinal("TenKV")) ? null : (System.String)reader["TenKV"];
 			c.MaKv = reader.IsDBNull(reader.GetOrdinal("MaKV")) ? null : (System.Byte[])reader["MaKV"];
 			c.MoTa = reader.IsDBNull(reader.GetOrdinal("MoTa")) ? null : (System.String)reader["MoTa"];
@@ -233,7 +232,6 @@ namespace traveltips.DAO.Bases
 			if (!reader.Read()) return;
 			
 			entity.IdKhuVuc = (System.Int64)reader["id_KhuVuc"];
-			entity.OriginalIdKhuVuc = (System.Int64)reader["id_KhuVuc"];
 			entity.TenKv = reader.IsDBNull(reader.GetOrdinal("TenKV")) ? null : (System.String)reader["TenKV"];
 			entity.MaKv = reader.IsDBNull(reader.GetOrdinal("MaKV")) ? null : (System.Byte[])reader["MaKV"];
 			entity.MoTa = reader.IsDBNull(reader.GetOrdinal("MoTa")) ? null : (System.String)reader["MoTa"];
@@ -251,7 +249,6 @@ namespace traveltips.DAO.Bases
 			DataRow dataRow = dataSet.Tables[0].Rows[0];
 			
 			entity.IdKhuVuc = (System.Int64)dataRow["id_KhuVuc"];
-			entity.OriginalIdKhuVuc = (System.Int64)dataRow["id_KhuVuc"];
 			entity.TenKv = Convert.IsDBNull(dataRow["TenKV"]) ? null : (System.String)dataRow["TenKV"];
 			entity.MaKv = Convert.IsDBNull(dataRow["MaKV"]) ? null : (System.Byte[])dataRow["MaKV"];
 			entity.MoTa = Convert.IsDBNull(dataRow["MoTa"]) ? null : (System.String)dataRow["MoTa"];

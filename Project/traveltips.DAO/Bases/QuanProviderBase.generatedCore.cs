@@ -295,7 +295,6 @@ namespace traveltips.DAO.Bases
 						{
 			c.SuppressEntityEvents = true;
 			c.IdQuan = (System.Int64)reader["id_Quan"];
-			c.OriginalIdQuan = c.IdQuan;
 			c.IdThanhPho = reader.IsDBNull(reader.GetOrdinal("id_ThanhPho")) ? null : (System.Int64?)reader["id_ThanhPho"];
 			c.TenQuan = reader.IsDBNull(reader.GetOrdinal("TenQuan")) ? null : (System.String)reader["TenQuan"];
 			c.MaQuan = reader.IsDBNull(reader.GetOrdinal("MaQuan")) ? null : (System.String)reader["MaQuan"];
@@ -319,7 +318,6 @@ namespace traveltips.DAO.Bases
 			if (!reader.Read()) return;
 			
 			entity.IdQuan = (System.Int64)reader["id_Quan"];
-			entity.OriginalIdQuan = (System.Int64)reader["id_Quan"];
 			entity.IdThanhPho = reader.IsDBNull(reader.GetOrdinal("id_ThanhPho")) ? null : (System.Int64?)reader["id_ThanhPho"];
 			entity.TenQuan = reader.IsDBNull(reader.GetOrdinal("TenQuan")) ? null : (System.String)reader["TenQuan"];
 			entity.MaQuan = reader.IsDBNull(reader.GetOrdinal("MaQuan")) ? null : (System.String)reader["MaQuan"];
@@ -338,7 +336,6 @@ namespace traveltips.DAO.Bases
 			DataRow dataRow = dataSet.Tables[0].Rows[0];
 			
 			entity.IdQuan = (System.Int64)dataRow["id_Quan"];
-			entity.OriginalIdQuan = (System.Int64)dataRow["id_Quan"];
 			entity.IdThanhPho = Convert.IsDBNull(dataRow["id_ThanhPho"]) ? null : (System.Int64?)dataRow["id_ThanhPho"];
 			entity.TenQuan = Convert.IsDBNull(dataRow["TenQuan"]) ? null : (System.String)dataRow["TenQuan"];
 			entity.MaQuan = Convert.IsDBNull(dataRow["MaQuan"]) ? null : (System.String)dataRow["MaQuan"];

@@ -380,7 +380,6 @@ namespace traveltips.DAO.Bases
 						{
 			c.SuppressEntityEvents = true;
 			c.IdLabelLanguage = (System.Int64)reader["id_LabelLanguage"];
-			c.OriginalIdLabelLanguage = c.IdLabelLanguage;
 			c.IdLanguage = reader.IsDBNull(reader.GetOrdinal("id_Language")) ? null : (System.Int32?)reader["id_Language"];
 			c.IdLabel = reader.IsDBNull(reader.GetOrdinal("id_Label")) ? null : (System.Int64?)reader["id_Label"];
 			c.NoiDung = reader.IsDBNull(reader.GetOrdinal("NoiDung")) ? null : (System.String)reader["NoiDung"];
@@ -403,7 +402,6 @@ namespace traveltips.DAO.Bases
 			if (!reader.Read()) return;
 			
 			entity.IdLabelLanguage = (System.Int64)reader["id_LabelLanguage"];
-			entity.OriginalIdLabelLanguage = (System.Int64)reader["id_LabelLanguage"];
 			entity.IdLanguage = reader.IsDBNull(reader.GetOrdinal("id_Language")) ? null : (System.Int32?)reader["id_Language"];
 			entity.IdLabel = reader.IsDBNull(reader.GetOrdinal("id_Label")) ? null : (System.Int64?)reader["id_Label"];
 			entity.NoiDung = reader.IsDBNull(reader.GetOrdinal("NoiDung")) ? null : (System.String)reader["NoiDung"];
@@ -421,7 +419,6 @@ namespace traveltips.DAO.Bases
 			DataRow dataRow = dataSet.Tables[0].Rows[0];
 			
 			entity.IdLabelLanguage = (System.Int64)dataRow["id_LabelLanguage"];
-			entity.OriginalIdLabelLanguage = (System.Int64)dataRow["id_LabelLanguage"];
 			entity.IdLanguage = Convert.IsDBNull(dataRow["id_Language"]) ? null : (System.Int32?)dataRow["id_Language"];
 			entity.IdLabel = Convert.IsDBNull(dataRow["id_Label"]) ? null : (System.Int64?)dataRow["id_Label"];
 			entity.NoiDung = Convert.IsDBNull(dataRow["NoiDung"]) ? null : (System.String)dataRow["NoiDung"];

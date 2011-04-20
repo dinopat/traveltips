@@ -60,91 +60,6 @@ namespace traveltips.DAO.Bases
 		#region Get By Foreign Key Functions
 	
 		/// <summary>
-		/// 	Gets rows from the datasource based on the FK_tbl_ThuocTinhSanPham_tbl_ThuocTinh key.
-		///		FK_tbl_ThuocTinhSanPham_tbl_ThuocTinh Description: 
-		/// </summary>
-		/// <param name="idThuocTinh"></param>
-		/// <returns>Returns a typed collection of traveltips.Entities.ThuocTinhSanPham objects.</returns>
-		public traveltips.Entities.TList<ThuocTinhSanPham> GetByIdThuocTinh(System.Int64? idThuocTinh)
-		{
-			int count = -1;
-			return GetByIdThuocTinh(idThuocTinh, 0,int.MaxValue, out count);
-		}
-		
-		/// <summary>
-		/// 	Gets rows from the datasource based on the FK_tbl_ThuocTinhSanPham_tbl_ThuocTinh key.
-		///		FK_tbl_ThuocTinhSanPham_tbl_ThuocTinh Description: 
-		/// </summary>
-		/// <param name="transactionManager"><see cref="TransactionManager"/> object</param>
-		/// <param name="idThuocTinh"></param>
-		/// <returns>Returns a typed collection of traveltips.Entities.ThuocTinhSanPham objects.</returns>
-		/// <remarks></remarks>
-		public traveltips.Entities.TList<ThuocTinhSanPham> GetByIdThuocTinh(TransactionManager transactionManager, System.Int64? idThuocTinh)
-		{
-			int count = -1;
-			return GetByIdThuocTinh(transactionManager, idThuocTinh, 0, int.MaxValue, out count);
-		}
-		
-			/// <summary>
-		/// 	Gets rows from the datasource based on the FK_tbl_ThuocTinhSanPham_tbl_ThuocTinh key.
-		///		FK_tbl_ThuocTinhSanPham_tbl_ThuocTinh Description: 
-		/// </summary>
-		/// <param name="transactionManager"><see cref="TransactionManager"/> object</param>
-		/// <param name="idThuocTinh"></param>
-		/// <param name="start">Row number at which to start reading, the first row is 0.</param>
-		///  <param name="pageLength">Number of rows to return.</param>
-		/// <remarks></remarks>
-		/// <returns>Returns a typed collection of traveltips.Entities.ThuocTinhSanPham objects.</returns>
-		public traveltips.Entities.TList<ThuocTinhSanPham> GetByIdThuocTinh(TransactionManager transactionManager, System.Int64? idThuocTinh, int start, int pageLength)
-		{
-			int count = -1;
-			return GetByIdThuocTinh(transactionManager, idThuocTinh, start, pageLength, out count);
-		}
-		
-		/// <summary>
-		/// 	Gets rows from the datasource based on the FK_tbl_ThuocTinhSanPham_tbl_ThuocTinh key.
-		///		fkTblThuocTinhSanPhamTblThuocTinh Description: 
-		/// </summary>
-		/// <param name="start">Row number at which to start reading, the first row is 0.</param>
-		/// <param name="pageLength">Number of rows to return.</param>
-		/// <param name="idThuocTinh"></param>
-		/// <remarks></remarks>
-		/// <returns>Returns a typed collection of traveltips.Entities.ThuocTinhSanPham objects.</returns>
-		public traveltips.Entities.TList<ThuocTinhSanPham> GetByIdThuocTinh(System.Int64? idThuocTinh, int start, int pageLength)
-		{
-			int count =  -1;
-			return GetByIdThuocTinh(null, idThuocTinh, start, pageLength,out count);	
-		}
-		
-		/// <summary>
-		/// 	Gets rows from the datasource based on the FK_tbl_ThuocTinhSanPham_tbl_ThuocTinh key.
-		///		fkTblThuocTinhSanPhamTblThuocTinh Description: 
-		/// </summary>
-		/// <param name="start">Row number at which to start reading, the first row is 0.</param>
-		/// <param name="pageLength">Number of rows to return.</param>
-		/// <param name="idThuocTinh"></param>
-		/// <param name="count">out parameter to get total records for query</param>
-		/// <remarks></remarks>
-		/// <returns>Returns a typed collection of traveltips.Entities.ThuocTinhSanPham objects.</returns>
-		public traveltips.Entities.TList<ThuocTinhSanPham> GetByIdThuocTinh(System.Int64? idThuocTinh, int start, int pageLength,out int count)
-		{
-			return GetByIdThuocTinh(null, idThuocTinh, start, pageLength, out count);	
-		}
-						
-		/// <summary>
-		/// 	Gets rows from the datasource based on the FK_tbl_ThuocTinhSanPham_tbl_ThuocTinh key.
-		///		FK_tbl_ThuocTinhSanPham_tbl_ThuocTinh Description: 
-		/// </summary>
-		/// <param name="transactionManager"><see cref="TransactionManager"/> object</param>
-		/// <param name="idThuocTinh"></param>
-		/// <param name="start">Row number at which to start reading, the first row is 0.</param>
-		/// <param name="pageLength">Number of rows to return.</param>
-		/// <param name="count">The total number of records.</param>
-		/// <returns>Returns a typed collection of traveltips.Entities.ThuocTinhSanPham objects.</returns>
-		public abstract traveltips.Entities.TList<ThuocTinhSanPham> GetByIdThuocTinh(TransactionManager transactionManager, System.Int64? idThuocTinh, int start, int pageLength, out int count);
-		
-	
-		/// <summary>
 		/// 	Gets rows from the datasource based on the FK_tbl_ThuocTinhSanPham_tbl_SanPham key.
 		///		FK_tbl_ThuocTinhSanPham_tbl_SanPham Description: 
 		/// </summary>
@@ -227,6 +142,91 @@ namespace traveltips.DAO.Bases
 		/// <param name="count">The total number of records.</param>
 		/// <returns>Returns a typed collection of traveltips.Entities.ThuocTinhSanPham objects.</returns>
 		public abstract traveltips.Entities.TList<ThuocTinhSanPham> GetByIdSanPham(TransactionManager transactionManager, System.Int64? idSanPham, int start, int pageLength, out int count);
+		
+	
+		/// <summary>
+		/// 	Gets rows from the datasource based on the FK_tbl_ThuocTinhSanPham_tbl_ThuocTinh key.
+		///		FK_tbl_ThuocTinhSanPham_tbl_ThuocTinh Description: 
+		/// </summary>
+		/// <param name="idThuocTinh"></param>
+		/// <returns>Returns a typed collection of traveltips.Entities.ThuocTinhSanPham objects.</returns>
+		public traveltips.Entities.TList<ThuocTinhSanPham> GetByIdThuocTinh(System.Int64? idThuocTinh)
+		{
+			int count = -1;
+			return GetByIdThuocTinh(idThuocTinh, 0,int.MaxValue, out count);
+		}
+		
+		/// <summary>
+		/// 	Gets rows from the datasource based on the FK_tbl_ThuocTinhSanPham_tbl_ThuocTinh key.
+		///		FK_tbl_ThuocTinhSanPham_tbl_ThuocTinh Description: 
+		/// </summary>
+		/// <param name="transactionManager"><see cref="TransactionManager"/> object</param>
+		/// <param name="idThuocTinh"></param>
+		/// <returns>Returns a typed collection of traveltips.Entities.ThuocTinhSanPham objects.</returns>
+		/// <remarks></remarks>
+		public traveltips.Entities.TList<ThuocTinhSanPham> GetByIdThuocTinh(TransactionManager transactionManager, System.Int64? idThuocTinh)
+		{
+			int count = -1;
+			return GetByIdThuocTinh(transactionManager, idThuocTinh, 0, int.MaxValue, out count);
+		}
+		
+			/// <summary>
+		/// 	Gets rows from the datasource based on the FK_tbl_ThuocTinhSanPham_tbl_ThuocTinh key.
+		///		FK_tbl_ThuocTinhSanPham_tbl_ThuocTinh Description: 
+		/// </summary>
+		/// <param name="transactionManager"><see cref="TransactionManager"/> object</param>
+		/// <param name="idThuocTinh"></param>
+		/// <param name="start">Row number at which to start reading, the first row is 0.</param>
+		///  <param name="pageLength">Number of rows to return.</param>
+		/// <remarks></remarks>
+		/// <returns>Returns a typed collection of traveltips.Entities.ThuocTinhSanPham objects.</returns>
+		public traveltips.Entities.TList<ThuocTinhSanPham> GetByIdThuocTinh(TransactionManager transactionManager, System.Int64? idThuocTinh, int start, int pageLength)
+		{
+			int count = -1;
+			return GetByIdThuocTinh(transactionManager, idThuocTinh, start, pageLength, out count);
+		}
+		
+		/// <summary>
+		/// 	Gets rows from the datasource based on the FK_tbl_ThuocTinhSanPham_tbl_ThuocTinh key.
+		///		fkTblThuocTinhSanPhamTblThuocTinh Description: 
+		/// </summary>
+		/// <param name="start">Row number at which to start reading, the first row is 0.</param>
+		/// <param name="pageLength">Number of rows to return.</param>
+		/// <param name="idThuocTinh"></param>
+		/// <remarks></remarks>
+		/// <returns>Returns a typed collection of traveltips.Entities.ThuocTinhSanPham objects.</returns>
+		public traveltips.Entities.TList<ThuocTinhSanPham> GetByIdThuocTinh(System.Int64? idThuocTinh, int start, int pageLength)
+		{
+			int count =  -1;
+			return GetByIdThuocTinh(null, idThuocTinh, start, pageLength,out count);	
+		}
+		
+		/// <summary>
+		/// 	Gets rows from the datasource based on the FK_tbl_ThuocTinhSanPham_tbl_ThuocTinh key.
+		///		fkTblThuocTinhSanPhamTblThuocTinh Description: 
+		/// </summary>
+		/// <param name="start">Row number at which to start reading, the first row is 0.</param>
+		/// <param name="pageLength">Number of rows to return.</param>
+		/// <param name="idThuocTinh"></param>
+		/// <param name="count">out parameter to get total records for query</param>
+		/// <remarks></remarks>
+		/// <returns>Returns a typed collection of traveltips.Entities.ThuocTinhSanPham objects.</returns>
+		public traveltips.Entities.TList<ThuocTinhSanPham> GetByIdThuocTinh(System.Int64? idThuocTinh, int start, int pageLength,out int count)
+		{
+			return GetByIdThuocTinh(null, idThuocTinh, start, pageLength, out count);	
+		}
+						
+		/// <summary>
+		/// 	Gets rows from the datasource based on the FK_tbl_ThuocTinhSanPham_tbl_ThuocTinh key.
+		///		FK_tbl_ThuocTinhSanPham_tbl_ThuocTinh Description: 
+		/// </summary>
+		/// <param name="transactionManager"><see cref="TransactionManager"/> object</param>
+		/// <param name="idThuocTinh"></param>
+		/// <param name="start">Row number at which to start reading, the first row is 0.</param>
+		/// <param name="pageLength">Number of rows to return.</param>
+		/// <param name="count">The total number of records.</param>
+		/// <returns>Returns a typed collection of traveltips.Entities.ThuocTinhSanPham objects.</returns>
+		public abstract traveltips.Entities.TList<ThuocTinhSanPham> GetByIdThuocTinh(TransactionManager transactionManager, System.Int64? idThuocTinh, int start, int pageLength, out int count);
 		
 		#endregion
 
@@ -380,7 +380,6 @@ namespace traveltips.DAO.Bases
 						{
 			c.SuppressEntityEvents = true;
 			c.IdTtsp = (System.Int64)reader["id_TTSP"];
-			c.OriginalIdTtsp = c.IdTtsp;
 			c.IdSanPham = reader.IsDBNull(reader.GetOrdinal("id_SanPham")) ? null : (System.Int64?)reader["id_SanPham"];
 			c.IdThuocTinh = reader.IsDBNull(reader.GetOrdinal("id_ThuocTinh")) ? null : (System.Int64?)reader["id_ThuocTinh"];
 			c.Value1 = reader.IsDBNull(reader.GetOrdinal("Value1")) ? null : (System.String)reader["Value1"];
@@ -404,7 +403,6 @@ namespace traveltips.DAO.Bases
 			if (!reader.Read()) return;
 			
 			entity.IdTtsp = (System.Int64)reader["id_TTSP"];
-			entity.OriginalIdTtsp = (System.Int64)reader["id_TTSP"];
 			entity.IdSanPham = reader.IsDBNull(reader.GetOrdinal("id_SanPham")) ? null : (System.Int64?)reader["id_SanPham"];
 			entity.IdThuocTinh = reader.IsDBNull(reader.GetOrdinal("id_ThuocTinh")) ? null : (System.Int64?)reader["id_ThuocTinh"];
 			entity.Value1 = reader.IsDBNull(reader.GetOrdinal("Value1")) ? null : (System.String)reader["Value1"];
@@ -423,7 +421,6 @@ namespace traveltips.DAO.Bases
 			DataRow dataRow = dataSet.Tables[0].Rows[0];
 			
 			entity.IdTtsp = (System.Int64)dataRow["id_TTSP"];
-			entity.OriginalIdTtsp = (System.Int64)dataRow["id_TTSP"];
 			entity.IdSanPham = Convert.IsDBNull(dataRow["id_SanPham"]) ? null : (System.Int64?)dataRow["id_SanPham"];
 			entity.IdThuocTinh = Convert.IsDBNull(dataRow["id_ThuocTinh"]) ? null : (System.Int64?)dataRow["id_ThuocTinh"];
 			entity.Value1 = Convert.IsDBNull(dataRow["Value1"]) ? null : (System.String)dataRow["Value1"];
@@ -454,32 +451,6 @@ namespace traveltips.DAO.Bases
 			if(entity == null)
 				return;
 
-			#region IdThuocTinhSource	
-			if (CanDeepLoad(entity, "ThuocTinh|IdThuocTinhSource", deepLoadType, innerList) 
-				&& entity.IdThuocTinhSource == null)
-			{
-				object[] pkItems = new object[1];
-				pkItems[0] = (entity.IdThuocTinh ?? (long)0);
-				ThuocTinh tmpEntity = EntityManager.LocateEntity<ThuocTinh>(EntityLocator.ConstructKeyFromPkItems(typeof(ThuocTinh), pkItems), DataRepository.Provider.EnableEntityTracking);
-				if (tmpEntity != null)
-					entity.IdThuocTinhSource = tmpEntity;
-				else
-					entity.IdThuocTinhSource = DataRepository.ThuocTinhProvider.GetByIdThuocTinh(transactionManager, (entity.IdThuocTinh ?? (long)0));		
-				
-				#if NETTIERS_DEBUG
-				System.Diagnostics.Debug.WriteLine("- property 'IdThuocTinhSource' loaded. key " + entity.EntityTrackingKey);
-				#endif 
-				
-				if (deep && entity.IdThuocTinhSource != null)
-				{
-					innerList.SkipChildren = true;
-					DataRepository.ThuocTinhProvider.DeepLoad(transactionManager, entity.IdThuocTinhSource, deep, deepLoadType, childTypes, innerList);
-					innerList.SkipChildren = false;
-				}
-					
-			}
-			#endregion IdThuocTinhSource
-
 			#region IdSanPhamSource	
 			if (CanDeepLoad(entity, "SanPham|IdSanPhamSource", deepLoadType, innerList) 
 				&& entity.IdSanPhamSource == null)
@@ -505,6 +476,32 @@ namespace traveltips.DAO.Bases
 					
 			}
 			#endregion IdSanPhamSource
+
+			#region IdThuocTinhSource	
+			if (CanDeepLoad(entity, "ThuocTinh|IdThuocTinhSource", deepLoadType, innerList) 
+				&& entity.IdThuocTinhSource == null)
+			{
+				object[] pkItems = new object[1];
+				pkItems[0] = (entity.IdThuocTinh ?? (long)0);
+				ThuocTinh tmpEntity = EntityManager.LocateEntity<ThuocTinh>(EntityLocator.ConstructKeyFromPkItems(typeof(ThuocTinh), pkItems), DataRepository.Provider.EnableEntityTracking);
+				if (tmpEntity != null)
+					entity.IdThuocTinhSource = tmpEntity;
+				else
+					entity.IdThuocTinhSource = DataRepository.ThuocTinhProvider.GetByIdThuocTinh(transactionManager, (entity.IdThuocTinh ?? (long)0));		
+				
+				#if NETTIERS_DEBUG
+				System.Diagnostics.Debug.WriteLine("- property 'IdThuocTinhSource' loaded. key " + entity.EntityTrackingKey);
+				#endif 
+				
+				if (deep && entity.IdThuocTinhSource != null)
+				{
+					innerList.SkipChildren = true;
+					DataRepository.ThuocTinhProvider.DeepLoad(transactionManager, entity.IdThuocTinhSource, deep, deepLoadType, childTypes, innerList);
+					innerList.SkipChildren = false;
+				}
+					
+			}
+			#endregion IdThuocTinhSource
 			
 			//used to hold DeepLoad method delegates and fire after all the local children have been loaded.
 			Dictionary<string, KeyValuePair<Delegate, object>> deepHandles = new Dictionary<string, KeyValuePair<Delegate, object>>();
@@ -539,21 +536,21 @@ namespace traveltips.DAO.Bases
 			//Save Source Composite Properties, however, don't call deep save on them.  
 			//So they only get saved a single level deep.
 			
-			#region IdThuocTinhSource
-			if (CanDeepSave(entity, "ThuocTinh|IdThuocTinhSource", deepSaveType, innerList) 
-				&& entity.IdThuocTinhSource != null)
-			{
-				DataRepository.ThuocTinhProvider.Save(transactionManager, entity.IdThuocTinhSource);
-				entity.IdThuocTinh = entity.IdThuocTinhSource.IdThuocTinh;
-			}
-			#endregion 
-			
 			#region IdSanPhamSource
 			if (CanDeepSave(entity, "SanPham|IdSanPhamSource", deepSaveType, innerList) 
 				&& entity.IdSanPhamSource != null)
 			{
 				DataRepository.SanPhamProvider.Save(transactionManager, entity.IdSanPhamSource);
 				entity.IdSanPham = entity.IdSanPhamSource.IdSanPham;
+			}
+			#endregion 
+			
+			#region IdThuocTinhSource
+			if (CanDeepSave(entity, "ThuocTinh|IdThuocTinhSource", deepSaveType, innerList) 
+				&& entity.IdThuocTinhSource != null)
+			{
+				DataRepository.ThuocTinhProvider.Save(transactionManager, entity.IdThuocTinhSource);
+				entity.IdThuocTinh = entity.IdThuocTinhSource.IdThuocTinh;
 			}
 			#endregion 
 			#endregion Composite Parent Properties
@@ -592,16 +589,16 @@ namespace traveltips.DAO.Bases
 	{
 		
 		///<summary>
-		/// Composite Property for <c>ThuocTinh</c> at IdThuocTinhSource
-		///</summary>
-		[ChildEntityType(typeof(ThuocTinh))]
-		ThuocTinh,
-			
-		///<summary>
 		/// Composite Property for <c>SanPham</c> at IdSanPhamSource
 		///</summary>
 		[ChildEntityType(typeof(SanPham))]
 		SanPham,
+			
+		///<summary>
+		/// Composite Property for <c>ThuocTinh</c> at IdThuocTinhSource
+		///</summary>
+		[ChildEntityType(typeof(ThuocTinh))]
+		ThuocTinh,
 		}
 	
 	#endregion ThuocTinhSanPhamChildEntityTypes

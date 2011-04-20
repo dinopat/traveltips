@@ -210,10 +210,9 @@ namespace traveltips.DAO.Bases
 						{
 			c.SuppressEntityEvents = true;
 			c.IdLanguage = (System.Int32)reader["id_Language"];
-			c.OriginalIdLanguage = c.IdLanguage;
 			c.TenNn = reader.IsDBNull(reader.GetOrdinal("TenNN")) ? null : (System.String)reader["TenNN"];
 			c.MaNn = reader.IsDBNull(reader.GetOrdinal("MaNN")) ? null : (System.String)reader["MaNN"];
-			c.Mota = reader.IsDBNull(reader.GetOrdinal("Mota")) ? null : (System.Byte[])reader["Mota"];
+			c.Mota = reader.IsDBNull(reader.GetOrdinal("Mota")) ? null : (System.String)reader["Mota"];
 			c.Flag = reader.IsDBNull(reader.GetOrdinal("Flag")) ? null : (System.Byte?)reader["Flag"];
 			c.EntityTrackingKey = key;
 			c.AcceptChanges();
@@ -233,10 +232,9 @@ namespace traveltips.DAO.Bases
 			if (!reader.Read()) return;
 			
 			entity.IdLanguage = (System.Int32)reader["id_Language"];
-			entity.OriginalIdLanguage = (System.Int32)reader["id_Language"];
 			entity.TenNn = reader.IsDBNull(reader.GetOrdinal("TenNN")) ? null : (System.String)reader["TenNN"];
 			entity.MaNn = reader.IsDBNull(reader.GetOrdinal("MaNN")) ? null : (System.String)reader["MaNN"];
-			entity.Mota = reader.IsDBNull(reader.GetOrdinal("Mota")) ? null : (System.Byte[])reader["Mota"];
+			entity.Mota = reader.IsDBNull(reader.GetOrdinal("Mota")) ? null : (System.String)reader["Mota"];
 			entity.Flag = reader.IsDBNull(reader.GetOrdinal("Flag")) ? null : (System.Byte?)reader["Flag"];
 			entity.AcceptChanges();
 		}
@@ -251,10 +249,9 @@ namespace traveltips.DAO.Bases
 			DataRow dataRow = dataSet.Tables[0].Rows[0];
 			
 			entity.IdLanguage = (System.Int32)dataRow["id_Language"];
-			entity.OriginalIdLanguage = (System.Int32)dataRow["id_Language"];
 			entity.TenNn = Convert.IsDBNull(dataRow["TenNN"]) ? null : (System.String)dataRow["TenNN"];
 			entity.MaNn = Convert.IsDBNull(dataRow["MaNN"]) ? null : (System.String)dataRow["MaNN"];
-			entity.Mota = Convert.IsDBNull(dataRow["Mota"]) ? null : (System.Byte[])dataRow["Mota"];
+			entity.Mota = Convert.IsDBNull(dataRow["Mota"]) ? null : (System.String)dataRow["Mota"];
 			entity.Flag = Convert.IsDBNull(dataRow["Flag"]) ? null : (System.Byte?)dataRow["Flag"];
 			entity.AcceptChanges();
 		}

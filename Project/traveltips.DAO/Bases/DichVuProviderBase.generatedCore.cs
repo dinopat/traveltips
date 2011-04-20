@@ -210,8 +210,7 @@ namespace traveltips.DAO.Bases
 						{
 			c.SuppressEntityEvents = true;
 			c.IdDichVu = (System.Int64)reader["id_DichVu"];
-			c.OriginalIdDichVu = c.IdDichVu;
-			c.IdCongTy = reader.IsDBNull(reader.GetOrdinal("id_CongTy")) ? null : (System.String)reader["id_CongTy"];
+			c.IdCongTy = reader.IsDBNull(reader.GetOrdinal("id_CongTy")) ? null : (System.Int64?)reader["id_CongTy"];
 			c.TenDv = reader.IsDBNull(reader.GetOrdinal("TenDV")) ? null : (System.String)reader["TenDV"];
 			c.MaDv = reader.IsDBNull(reader.GetOrdinal("MaDV")) ? null : (System.String)reader["MaDV"];
 			c.MotaNgan = reader.IsDBNull(reader.GetOrdinal("MotaNgan")) ? null : (System.String)reader["MotaNgan"];
@@ -235,8 +234,7 @@ namespace traveltips.DAO.Bases
 			if (!reader.Read()) return;
 			
 			entity.IdDichVu = (System.Int64)reader["id_DichVu"];
-			entity.OriginalIdDichVu = (System.Int64)reader["id_DichVu"];
-			entity.IdCongTy = reader.IsDBNull(reader.GetOrdinal("id_CongTy")) ? null : (System.String)reader["id_CongTy"];
+			entity.IdCongTy = reader.IsDBNull(reader.GetOrdinal("id_CongTy")) ? null : (System.Int64?)reader["id_CongTy"];
 			entity.TenDv = reader.IsDBNull(reader.GetOrdinal("TenDV")) ? null : (System.String)reader["TenDV"];
 			entity.MaDv = reader.IsDBNull(reader.GetOrdinal("MaDV")) ? null : (System.String)reader["MaDV"];
 			entity.MotaNgan = reader.IsDBNull(reader.GetOrdinal("MotaNgan")) ? null : (System.String)reader["MotaNgan"];
@@ -255,8 +253,7 @@ namespace traveltips.DAO.Bases
 			DataRow dataRow = dataSet.Tables[0].Rows[0];
 			
 			entity.IdDichVu = (System.Int64)dataRow["id_DichVu"];
-			entity.OriginalIdDichVu = (System.Int64)dataRow["id_DichVu"];
-			entity.IdCongTy = Convert.IsDBNull(dataRow["id_CongTy"]) ? null : (System.String)dataRow["id_CongTy"];
+			entity.IdCongTy = Convert.IsDBNull(dataRow["id_CongTy"]) ? null : (System.Int64?)dataRow["id_CongTy"];
 			entity.TenDv = Convert.IsDBNull(dataRow["TenDV"]) ? null : (System.String)dataRow["TenDV"];
 			entity.MaDv = Convert.IsDBNull(dataRow["MaDV"]) ? null : (System.String)dataRow["MaDV"];
 			entity.MotaNgan = Convert.IsDBNull(dataRow["MotaNgan"]) ? null : (System.String)dataRow["MotaNgan"];

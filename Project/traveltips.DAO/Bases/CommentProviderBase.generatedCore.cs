@@ -380,7 +380,6 @@ namespace traveltips.DAO.Bases
 						{
 			c.SuppressEntityEvents = true;
 			c.IdComment = (System.Int64)reader["id_Comment"];
-			c.OriginalIdComment = c.IdComment;
 			c.IdUser = reader.IsDBNull(reader.GetOrdinal("id_User")) ? null : (System.Int64?)reader["id_User"];
 			c.IdCongty = reader.IsDBNull(reader.GetOrdinal("id_Congty")) ? null : (System.Int64?)reader["id_Congty"];
 			c.TieuDe = reader.IsDBNull(reader.GetOrdinal("TieuDe")) ? null : (System.String)reader["TieuDe"];
@@ -404,7 +403,6 @@ namespace traveltips.DAO.Bases
 			if (!reader.Read()) return;
 			
 			entity.IdComment = (System.Int64)reader["id_Comment"];
-			entity.OriginalIdComment = (System.Int64)reader["id_Comment"];
 			entity.IdUser = reader.IsDBNull(reader.GetOrdinal("id_User")) ? null : (System.Int64?)reader["id_User"];
 			entity.IdCongty = reader.IsDBNull(reader.GetOrdinal("id_Congty")) ? null : (System.Int64?)reader["id_Congty"];
 			entity.TieuDe = reader.IsDBNull(reader.GetOrdinal("TieuDe")) ? null : (System.String)reader["TieuDe"];
@@ -423,7 +421,6 @@ namespace traveltips.DAO.Bases
 			DataRow dataRow = dataSet.Tables[0].Rows[0];
 			
 			entity.IdComment = (System.Int64)dataRow["id_Comment"];
-			entity.OriginalIdComment = (System.Int64)dataRow["id_Comment"];
 			entity.IdUser = Convert.IsDBNull(dataRow["id_User"]) ? null : (System.Int64?)dataRow["id_User"];
 			entity.IdCongty = Convert.IsDBNull(dataRow["id_Congty"]) ? null : (System.Int64?)dataRow["id_Congty"];
 			entity.TieuDe = Convert.IsDBNull(dataRow["TieuDe"]) ? null : (System.String)dataRow["TieuDe"];
