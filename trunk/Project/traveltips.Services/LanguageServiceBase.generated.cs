@@ -52,15 +52,13 @@ namespace traveltips.Services
 		///<summary>
 		/// A simple factory method to create a new <see cref="Language"/> instance.
 		///</summary>
-		///<param name="idLanguage"></param>
 		///<param name="tenNn"></param>
 		///<param name="maNn"></param>
 		///<param name="mota"></param>
 		///<param name="flag"></param>
-		public static Language CreateLanguage(System.Int32 idLanguage, System.String tenNn, System.String maNn, System.Byte[] mota, System.Byte? flag)
+		public static Language CreateLanguage(System.String tenNn, System.String maNn, System.String mota, System.Byte? flag)
 		{
 			Language newEntityLanguage = new Language();
-			newEntityLanguage.IdLanguage  = idLanguage;
 			newEntityLanguage.TenNn  = tenNn;
 			newEntityLanguage.MaNn  = maNn;
 			newEntityLanguage.Mota  = mota;

@@ -52,16 +52,14 @@ namespace traveltips.Services
 		///<summary>
 		/// A simple factory method to create a new <see cref="DanhMuc"/> instance.
 		///</summary>
-		///<param name="idDanhMuc"></param>
 		///<param name="idDmCha"></param>
 		///<param name="tenDanhMuc"></param>
 		///<param name="maDanhMuc"></param>
 		///<param name="moTa"></param>
 		///<param name="flag"></param>
-		public static DanhMuc CreateDanhMuc(System.Int64 idDanhMuc, System.Int64? idDmCha, System.String tenDanhMuc, System.String maDanhMuc, System.String moTa, System.Byte? flag)
+		public static DanhMuc CreateDanhMuc(System.Int64? idDmCha, System.String tenDanhMuc, System.String maDanhMuc, System.String moTa, System.Byte? flag)
 		{
 			DanhMuc newEntityDanhMuc = new DanhMuc();
-			newEntityDanhMuc.IdDanhMuc  = idDanhMuc;
 			newEntityDanhMuc.IdDmCha  = idDmCha;
 			newEntityDanhMuc.TenDanhMuc  = tenDanhMuc;
 			newEntityDanhMuc.MaDanhMuc  = maDanhMuc;

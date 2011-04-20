@@ -52,7 +52,6 @@ namespace traveltips.Services
 		///<summary>
 		/// A simple factory method to create a new <see cref="User"/> instance.
 		///</summary>
-		///<param name="idUser"></param>
 		///<param name="tenDangNhap"></param>
 		///<param name="password"></param>
 		///<param name="hoTen"></param>
@@ -62,10 +61,9 @@ namespace traveltips.Services
 		///<param name="website"></param>
 		///<param name="avatar"></param>
 		///<param name="flag"></param>
-		public static User CreateUser(System.Int64 idUser, System.Byte[] tenDangNhap, System.String password, System.String hoTen, System.String email, System.String diaChi, System.Byte[] dienThoai, System.String website, System.String avatar, System.Byte? flag)
+		public static User CreateUser(System.String tenDangNhap, System.String password, System.String hoTen, System.String email, System.String diaChi, System.String dienThoai, System.String website, System.String avatar, System.Byte? flag)
 		{
 			User newEntityUser = new User();
-			newEntityUser.IdUser  = idUser;
 			newEntityUser.TenDangNhap  = tenDangNhap;
 			newEntityUser.Password  = password;
 			newEntityUser.HoTen  = hoTen;

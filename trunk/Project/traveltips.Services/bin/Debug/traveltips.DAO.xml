@@ -2870,71 +2870,6 @@
             <remarks>Deletes based on primary key(s).</remarks>
             <returns>Returns true if operation suceeded.</returns>
         </member>
-        <member name="M:traveltips.DAO.Bases.ThuocTinhSanPhamProviderBaseCore.GetByIdThuocTinh(System.Nullable{System.Int64})">
-            <summary>
-            	Gets rows from the datasource based on the FK_tbl_ThuocTinhSanPham_tbl_ThuocTinh key.
-            	FK_tbl_ThuocTinhSanPham_tbl_ThuocTinh Description: 
-            </summary>
-            <param name="idThuocTinh"></param>
-            <returns>Returns a typed collection of traveltips.Entities.ThuocTinhSanPham objects.</returns>
-        </member>
-        <member name="M:traveltips.DAO.Bases.ThuocTinhSanPhamProviderBaseCore.GetByIdThuocTinh(traveltips.DAO.TransactionManager,System.Nullable{System.Int64})">
-            <summary>
-            	Gets rows from the datasource based on the FK_tbl_ThuocTinhSanPham_tbl_ThuocTinh key.
-            	FK_tbl_ThuocTinhSanPham_tbl_ThuocTinh Description: 
-            </summary>
-            <param name="transactionManager"><see cref="T:traveltips.DAO.TransactionManager"/> object</param>
-            <param name="idThuocTinh"></param>
-            <returns>Returns a typed collection of traveltips.Entities.ThuocTinhSanPham objects.</returns>
-            <remarks></remarks>
-        </member>
-        <member name="M:traveltips.DAO.Bases.ThuocTinhSanPhamProviderBaseCore.GetByIdThuocTinh(traveltips.DAO.TransactionManager,System.Nullable{System.Int64},System.Int32,System.Int32)">
-            <summary>
-            	Gets rows from the datasource based on the FK_tbl_ThuocTinhSanPham_tbl_ThuocTinh key.
-            	FK_tbl_ThuocTinhSanPham_tbl_ThuocTinh Description: 
-            </summary>
-            <param name="transactionManager"><see cref="T:traveltips.DAO.TransactionManager"/> object</param>
-            <param name="idThuocTinh"></param>
-            <param name="start">Row number at which to start reading, the first row is 0.</param>
-             <param name="pageLength">Number of rows to return.</param>
-            <remarks></remarks>
-            <returns>Returns a typed collection of traveltips.Entities.ThuocTinhSanPham objects.</returns>
-        </member>
-        <member name="M:traveltips.DAO.Bases.ThuocTinhSanPhamProviderBaseCore.GetByIdThuocTinh(System.Nullable{System.Int64},System.Int32,System.Int32)">
-            <summary>
-            	Gets rows from the datasource based on the FK_tbl_ThuocTinhSanPham_tbl_ThuocTinh key.
-            	fkTblThuocTinhSanPhamTblThuocTinh Description: 
-            </summary>
-            <param name="start">Row number at which to start reading, the first row is 0.</param>
-            <param name="pageLength">Number of rows to return.</param>
-            <param name="idThuocTinh"></param>
-            <remarks></remarks>
-            <returns>Returns a typed collection of traveltips.Entities.ThuocTinhSanPham objects.</returns>
-        </member>
-        <member name="M:traveltips.DAO.Bases.ThuocTinhSanPhamProviderBaseCore.GetByIdThuocTinh(System.Nullable{System.Int64},System.Int32,System.Int32,System.Int32@)">
-            <summary>
-            	Gets rows from the datasource based on the FK_tbl_ThuocTinhSanPham_tbl_ThuocTinh key.
-            	fkTblThuocTinhSanPhamTblThuocTinh Description: 
-            </summary>
-            <param name="start">Row number at which to start reading, the first row is 0.</param>
-            <param name="pageLength">Number of rows to return.</param>
-            <param name="idThuocTinh"></param>
-            <param name="count">out parameter to get total records for query</param>
-            <remarks></remarks>
-            <returns>Returns a typed collection of traveltips.Entities.ThuocTinhSanPham objects.</returns>
-        </member>
-        <member name="M:traveltips.DAO.Bases.ThuocTinhSanPhamProviderBaseCore.GetByIdThuocTinh(traveltips.DAO.TransactionManager,System.Nullable{System.Int64},System.Int32,System.Int32,System.Int32@)">
-            <summary>
-            	Gets rows from the datasource based on the FK_tbl_ThuocTinhSanPham_tbl_ThuocTinh key.
-            	FK_tbl_ThuocTinhSanPham_tbl_ThuocTinh Description: 
-            </summary>
-            <param name="transactionManager"><see cref="T:traveltips.DAO.TransactionManager"/> object</param>
-            <param name="idThuocTinh"></param>
-            <param name="start">Row number at which to start reading, the first row is 0.</param>
-            <param name="pageLength">Number of rows to return.</param>
-            <param name="count">The total number of records.</param>
-            <returns>Returns a typed collection of traveltips.Entities.ThuocTinhSanPham objects.</returns>
-        </member>
         <member name="M:traveltips.DAO.Bases.ThuocTinhSanPhamProviderBaseCore.GetByIdSanPham(System.Nullable{System.Int64})">
             <summary>
             	Gets rows from the datasource based on the FK_tbl_ThuocTinhSanPham_tbl_SanPham key.
@@ -2995,6 +2930,71 @@
             </summary>
             <param name="transactionManager"><see cref="T:traveltips.DAO.TransactionManager"/> object</param>
             <param name="idSanPham"></param>
+            <param name="start">Row number at which to start reading, the first row is 0.</param>
+            <param name="pageLength">Number of rows to return.</param>
+            <param name="count">The total number of records.</param>
+            <returns>Returns a typed collection of traveltips.Entities.ThuocTinhSanPham objects.</returns>
+        </member>
+        <member name="M:traveltips.DAO.Bases.ThuocTinhSanPhamProviderBaseCore.GetByIdThuocTinh(System.Nullable{System.Int64})">
+            <summary>
+            	Gets rows from the datasource based on the FK_tbl_ThuocTinhSanPham_tbl_ThuocTinh key.
+            	FK_tbl_ThuocTinhSanPham_tbl_ThuocTinh Description: 
+            </summary>
+            <param name="idThuocTinh"></param>
+            <returns>Returns a typed collection of traveltips.Entities.ThuocTinhSanPham objects.</returns>
+        </member>
+        <member name="M:traveltips.DAO.Bases.ThuocTinhSanPhamProviderBaseCore.GetByIdThuocTinh(traveltips.DAO.TransactionManager,System.Nullable{System.Int64})">
+            <summary>
+            	Gets rows from the datasource based on the FK_tbl_ThuocTinhSanPham_tbl_ThuocTinh key.
+            	FK_tbl_ThuocTinhSanPham_tbl_ThuocTinh Description: 
+            </summary>
+            <param name="transactionManager"><see cref="T:traveltips.DAO.TransactionManager"/> object</param>
+            <param name="idThuocTinh"></param>
+            <returns>Returns a typed collection of traveltips.Entities.ThuocTinhSanPham objects.</returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:traveltips.DAO.Bases.ThuocTinhSanPhamProviderBaseCore.GetByIdThuocTinh(traveltips.DAO.TransactionManager,System.Nullable{System.Int64},System.Int32,System.Int32)">
+            <summary>
+            	Gets rows from the datasource based on the FK_tbl_ThuocTinhSanPham_tbl_ThuocTinh key.
+            	FK_tbl_ThuocTinhSanPham_tbl_ThuocTinh Description: 
+            </summary>
+            <param name="transactionManager"><see cref="T:traveltips.DAO.TransactionManager"/> object</param>
+            <param name="idThuocTinh"></param>
+            <param name="start">Row number at which to start reading, the first row is 0.</param>
+             <param name="pageLength">Number of rows to return.</param>
+            <remarks></remarks>
+            <returns>Returns a typed collection of traveltips.Entities.ThuocTinhSanPham objects.</returns>
+        </member>
+        <member name="M:traveltips.DAO.Bases.ThuocTinhSanPhamProviderBaseCore.GetByIdThuocTinh(System.Nullable{System.Int64},System.Int32,System.Int32)">
+            <summary>
+            	Gets rows from the datasource based on the FK_tbl_ThuocTinhSanPham_tbl_ThuocTinh key.
+            	fkTblThuocTinhSanPhamTblThuocTinh Description: 
+            </summary>
+            <param name="start">Row number at which to start reading, the first row is 0.</param>
+            <param name="pageLength">Number of rows to return.</param>
+            <param name="idThuocTinh"></param>
+            <remarks></remarks>
+            <returns>Returns a typed collection of traveltips.Entities.ThuocTinhSanPham objects.</returns>
+        </member>
+        <member name="M:traveltips.DAO.Bases.ThuocTinhSanPhamProviderBaseCore.GetByIdThuocTinh(System.Nullable{System.Int64},System.Int32,System.Int32,System.Int32@)">
+            <summary>
+            	Gets rows from the datasource based on the FK_tbl_ThuocTinhSanPham_tbl_ThuocTinh key.
+            	fkTblThuocTinhSanPhamTblThuocTinh Description: 
+            </summary>
+            <param name="start">Row number at which to start reading, the first row is 0.</param>
+            <param name="pageLength">Number of rows to return.</param>
+            <param name="idThuocTinh"></param>
+            <param name="count">out parameter to get total records for query</param>
+            <remarks></remarks>
+            <returns>Returns a typed collection of traveltips.Entities.ThuocTinhSanPham objects.</returns>
+        </member>
+        <member name="M:traveltips.DAO.Bases.ThuocTinhSanPhamProviderBaseCore.GetByIdThuocTinh(traveltips.DAO.TransactionManager,System.Nullable{System.Int64},System.Int32,System.Int32,System.Int32@)">
+            <summary>
+            	Gets rows from the datasource based on the FK_tbl_ThuocTinhSanPham_tbl_ThuocTinh key.
+            	FK_tbl_ThuocTinhSanPham_tbl_ThuocTinh Description: 
+            </summary>
+            <param name="transactionManager"><see cref="T:traveltips.DAO.TransactionManager"/> object</param>
+            <param name="idThuocTinh"></param>
             <param name="start">Row number at which to start reading, the first row is 0.</param>
             <param name="pageLength">Number of rows to return.</param>
             <param name="count">The total number of records.</param>
@@ -3127,14 +3127,14 @@
              for child properties in <c>traveltips.Entities.ThuocTinhSanPham</c>
             </summary>
         </member>
-        <member name="F:traveltips.DAO.Bases.ThuocTinhSanPhamChildEntityTypes.ThuocTinh">
-            <summary>
-             Composite Property for <c>ThuocTinh</c> at IdThuocTinhSource
-            </summary>
-        </member>
         <member name="F:traveltips.DAO.Bases.ThuocTinhSanPhamChildEntityTypes.SanPham">
             <summary>
              Composite Property for <c>SanPham</c> at IdSanPhamSource
+            </summary>
+        </member>
+        <member name="F:traveltips.DAO.Bases.ThuocTinhSanPhamChildEntityTypes.ThuocTinh">
+            <summary>
+             Composite Property for <c>ThuocTinh</c> at IdThuocTinhSource
             </summary>
         </member>
         <member name="T:traveltips.DAO.Bases.ThuocTinhSanPhamFilterBuilder">
@@ -6141,6 +6141,11 @@
              Collection of <c>CongTy</c> as OneToMany for TinTucCollection
             </summary>
         </member>
+        <member name="F:traveltips.DAO.Bases.CongTyChildEntityTypes.SanPham">
+            <summary>
+             Entity <c>SanPham</c> as OneToOne for SanPham
+            </summary>
+        </member>
         <member name="F:traveltips.DAO.Bases.CongTyChildEntityTypes.DichVu">
             <summary>
              Entity <c>DichVu</c> as OneToOne for DichVu
@@ -6149,11 +6154,6 @@
         <member name="F:traveltips.DAO.Bases.CongTyChildEntityTypes.CommentCollection">
             <summary>
              Collection of <c>CongTy</c> as OneToMany for CommentCollection
-            </summary>
-        </member>
-        <member name="F:traveltips.DAO.Bases.CongTyChildEntityTypes.SanPham">
-            <summary>
-             Entity <c>SanPham</c> as OneToOne for SanPham
             </summary>
         </member>
         <member name="T:traveltips.DAO.Bases.CongTyFilterBuilder">

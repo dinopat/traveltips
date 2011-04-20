@@ -52,7 +52,6 @@ namespace traveltips.Services
 		///<summary>
 		/// A simple factory method to create a new <see cref="ChuCongTy"/> instance.
 		///</summary>
-		///<param name="idChuCongTy"></param>
 		///<param name="tenChuCongTy"></param>
 		///<param name="tenCongTy"></param>
 		///<param name="tenDangNhap"></param>
@@ -63,10 +62,9 @@ namespace traveltips.Services
 		///<param name="ngayTao"></param>
 		///<param name="ngayKetThuc"></param>
 		///<param name="flag"></param>
-		public static ChuCongTy CreateChuCongTy(System.Int64 idChuCongTy, System.String tenChuCongTy, System.String tenCongTy, System.String tenDangNhap, System.String password, System.String diaChi, System.String dienThoaiCd, System.String dienThoaiDd, System.DateTime? ngayTao, System.DateTime? ngayKetThuc, System.Byte? flag)
+		public static ChuCongTy CreateChuCongTy(System.String tenChuCongTy, System.String tenCongTy, System.String tenDangNhap, System.String password, System.String diaChi, System.String dienThoaiCd, System.String dienThoaiDd, System.DateTime? ngayTao, System.DateTime? ngayKetThuc, System.Byte? flag)
 		{
 			ChuCongTy newEntityChuCongTy = new ChuCongTy();
-			newEntityChuCongTy.IdChuCongTy  = idChuCongTy;
 			newEntityChuCongTy.TenChuCongTy  = tenChuCongTy;
 			newEntityChuCongTy.TenCongTy  = tenCongTy;
 			newEntityChuCongTy.TenDangNhap  = tenDangNhap;

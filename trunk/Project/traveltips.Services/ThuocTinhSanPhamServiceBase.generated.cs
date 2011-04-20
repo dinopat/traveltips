@@ -52,16 +52,14 @@ namespace traveltips.Services
 		///<summary>
 		/// A simple factory method to create a new <see cref="ThuocTinhSanPham"/> instance.
 		///</summary>
-		///<param name="idTtsp"></param>
 		///<param name="idSanPham"></param>
 		///<param name="idThuocTinh"></param>
 		///<param name="value1"></param>
 		///<param name="value2"></param>
 		///<param name="flag"></param>
-		public static ThuocTinhSanPham CreateThuocTinhSanPham(System.Int64 idTtsp, System.Int64? idSanPham, System.Int64? idThuocTinh, System.String value1, System.String value2, System.Byte? flag)
+		public static ThuocTinhSanPham CreateThuocTinhSanPham(System.Int64? idSanPham, System.Int64? idThuocTinh, System.String value1, System.String value2, System.Byte? flag)
 		{
 			ThuocTinhSanPham newEntityThuocTinhSanPham = new ThuocTinhSanPham();
-			newEntityThuocTinhSanPham.IdTtsp  = idTtsp;
 			newEntityThuocTinhSanPham.IdSanPham  = idSanPham;
 			newEntityThuocTinhSanPham.IdThuocTinh  = idThuocTinh;
 			newEntityThuocTinhSanPham.Value1  = value1;
@@ -96,64 +94,6 @@ namespace traveltips.Services
 		#region Data Access Methods
 		
 		#region GetByForeignKey Methods
-		/// <summary>
-		/// 	public virtual method that Gets rows in a <see cref="TList{ThuocTinhSanPham}" /> from the datasource based on the FK_tbl_ThuocTinhSanPham_tbl_ThuocTinh key.
-		///		FK_tbl_ThuocTinhSanPham_tbl_ThuocTinh Description: 
-		/// </summary>
-		/// <param name="idThuocTinh"></param>
-		/// <returns>Returns a generic collection of ThuocTinhSanPham objects.</returns>
-		[DataObjectMethod(DataObjectMethodType.Select)]
-		public virtual TList<ThuocTinhSanPham> GetByIdThuocTinh(System.Int64? idThuocTinh)
-		{
-			int totalCount = -1;
-			return GetByIdThuocTinh(idThuocTinh, 0, defaultMaxRecords, out totalCount);
-		}
-		
-		/// <summary>
-		/// 	public virtual method that Gets rows in a <see cref="TList{ThuocTinhSanPham}" /> from the datasource based on the FK_tbl_ThuocTinhSanPham_tbl_ThuocTinh key.
-		///		FK_tbl_ThuocTinhSanPham_tbl_ThuocTinh Description: 
-		/// </summary>
-		/// <param name="idThuocTinh"></param>
-		/// <param name="start">Row number at which to start reading.</param>
-		/// <param name="pageLength">Page length of records you would like to retrieve</param>
-		/// <param name="totalCount">Out parameter, number of total rows in given query.</param>
-		/// <returns>Returns a collection <see cref="TList{ThuocTinhSanPham}" /> of <c>ThuocTinhSanPham</c> objects.</returns>
-		[DataObjectMethod(DataObjectMethodType.Select)]
-		public virtual TList<ThuocTinhSanPham> GetByIdThuocTinh(System.Int64? idThuocTinh, int start, int pageLength, out int totalCount)
-		{
-			// throws security exception if not authorized
-			SecurityContext.IsAuthorized("GetByIdThuocTinh");
-			
-			// get this data
-			TList<ThuocTinhSanPham> list = null;
-			totalCount = -1;
-			TransactionManager transactionManager = null; 
-
-			try
-            {					
-				//since this is a read operation, don't create a tran by default, only use tran if provided to us for custom isolation level
-				transactionManager = ConnectionScope.ValidateOrCreateTransaction(noTranByDefault);
-				NetTiersProvider dataProvider = ConnectionScope.Current.DataProvider;
-				
-				//Access repository
-				list = new TList<ThuocTinhSanPham>(dataProvider.ThuocTinhSanPhamProvider.GetByIdThuocTinh(transactionManager, idThuocTinh, start, pageLength, out totalCount));
-				
-				//intentionally leave transaction open on a read operation.
-				
-			}
-            catch (Exception exc)
-            {
-				//if open, rollback, it's possible this is part of a larger commit
-                if (transactionManager != null && transactionManager.IsOpen) 
-					transactionManager.Rollback();
-				
-				//Handle exception based on policy
-                if (DomainUtil.HandleException(exc, layerExceptionPolicy)) 
-					throw;
-			}
-			return list;
-		}
-		
 		/// <summary>
 		/// 	public virtual method that Gets rows in a <see cref="TList{ThuocTinhSanPham}" /> from the datasource based on the FK_tbl_ThuocTinhSanPham_tbl_SanPham key.
 		///		FK_tbl_ThuocTinhSanPham_tbl_SanPham Description: 
@@ -195,6 +135,64 @@ namespace traveltips.Services
 				
 				//Access repository
 				list = new TList<ThuocTinhSanPham>(dataProvider.ThuocTinhSanPhamProvider.GetByIdSanPham(transactionManager, idSanPham, start, pageLength, out totalCount));
+				
+				//intentionally leave transaction open on a read operation.
+				
+			}
+            catch (Exception exc)
+            {
+				//if open, rollback, it's possible this is part of a larger commit
+                if (transactionManager != null && transactionManager.IsOpen) 
+					transactionManager.Rollback();
+				
+				//Handle exception based on policy
+                if (DomainUtil.HandleException(exc, layerExceptionPolicy)) 
+					throw;
+			}
+			return list;
+		}
+		
+		/// <summary>
+		/// 	public virtual method that Gets rows in a <see cref="TList{ThuocTinhSanPham}" /> from the datasource based on the FK_tbl_ThuocTinhSanPham_tbl_ThuocTinh key.
+		///		FK_tbl_ThuocTinhSanPham_tbl_ThuocTinh Description: 
+		/// </summary>
+		/// <param name="idThuocTinh"></param>
+		/// <returns>Returns a generic collection of ThuocTinhSanPham objects.</returns>
+		[DataObjectMethod(DataObjectMethodType.Select)]
+		public virtual TList<ThuocTinhSanPham> GetByIdThuocTinh(System.Int64? idThuocTinh)
+		{
+			int totalCount = -1;
+			return GetByIdThuocTinh(idThuocTinh, 0, defaultMaxRecords, out totalCount);
+		}
+		
+		/// <summary>
+		/// 	public virtual method that Gets rows in a <see cref="TList{ThuocTinhSanPham}" /> from the datasource based on the FK_tbl_ThuocTinhSanPham_tbl_ThuocTinh key.
+		///		FK_tbl_ThuocTinhSanPham_tbl_ThuocTinh Description: 
+		/// </summary>
+		/// <param name="idThuocTinh"></param>
+		/// <param name="start">Row number at which to start reading.</param>
+		/// <param name="pageLength">Page length of records you would like to retrieve</param>
+		/// <param name="totalCount">Out parameter, number of total rows in given query.</param>
+		/// <returns>Returns a collection <see cref="TList{ThuocTinhSanPham}" /> of <c>ThuocTinhSanPham</c> objects.</returns>
+		[DataObjectMethod(DataObjectMethodType.Select)]
+		public virtual TList<ThuocTinhSanPham> GetByIdThuocTinh(System.Int64? idThuocTinh, int start, int pageLength, out int totalCount)
+		{
+			// throws security exception if not authorized
+			SecurityContext.IsAuthorized("GetByIdThuocTinh");
+			
+			// get this data
+			TList<ThuocTinhSanPham> list = null;
+			totalCount = -1;
+			TransactionManager transactionManager = null; 
+
+			try
+            {					
+				//since this is a read operation, don't create a tran by default, only use tran if provided to us for custom isolation level
+				transactionManager = ConnectionScope.ValidateOrCreateTransaction(noTranByDefault);
+				NetTiersProvider dataProvider = ConnectionScope.Current.DataProvider;
+				
+				//Access repository
+				list = new TList<ThuocTinhSanPham>(dataProvider.ThuocTinhSanPhamProvider.GetByIdThuocTinh(transactionManager, idThuocTinh, start, pageLength, out totalCount));
 				
 				//intentionally leave transaction open on a read operation.
 				

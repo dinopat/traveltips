@@ -52,7 +52,6 @@ namespace traveltips.Services
 		///<summary>
 		/// A simple factory method to create a new <see cref="SanPham"/> instance.
 		///</summary>
-		///<param name="idSanPham"></param>
 		///<param name="idCongTy"></param>
 		///<param name="idLoaiSp"></param>
 		///<param name="idTuDien">MaSP, TenSP duoc lay tu bang Tu Dien</param>
@@ -63,10 +62,9 @@ namespace traveltips.Services
 		///<param name="moTaChiTiet"></param>
 		///<param name="anhMinhHoa"></param>
 		///<param name="flag"></param>
-		public static SanPham CreateSanPham(System.Int64 idSanPham, System.Int64? idCongTy, System.Int64? idLoaiSp, System.Int64? idTuDien, System.String tenSp, System.String maSp, System.Decimal? gia, System.String moTaNgan, System.String moTaChiTiet, System.Byte[] anhMinhHoa, System.Byte? flag)
+		public static SanPham CreateSanPham(System.Int64? idCongTy, System.Int64? idLoaiSp, System.Int64? idTuDien, System.String tenSp, System.String maSp, System.Decimal? gia, System.String moTaNgan, System.String moTaChiTiet, System.Byte[] anhMinhHoa, System.Byte? flag)
 		{
 			SanPham newEntitySanPham = new SanPham();
-			newEntitySanPham.IdSanPham  = idSanPham;
 			newEntitySanPham.IdCongTy  = idCongTy;
 			newEntitySanPham.IdLoaiSp  = idLoaiSp;
 			newEntitySanPham.IdTuDien  = idTuDien;

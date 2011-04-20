@@ -52,16 +52,14 @@ namespace traveltips.Services
 		///<summary>
 		/// A simple factory method to create a new <see cref="Duong"/> instance.
 		///</summary>
-		///<param name="idDuong"></param>
 		///<param name="idQuan"></param>
 		///<param name="tenDuong"></param>
 		///<param name="maDuong"></param>
 		///<param name="moTa"></param>
 		///<param name="flag"></param>
-		public static Duong CreateDuong(System.Int64 idDuong, System.Int64? idQuan, System.String tenDuong, System.Byte[] maDuong, System.String moTa, System.Byte? flag)
+		public static Duong CreateDuong(System.Int64? idQuan, System.String tenDuong, System.Byte[] maDuong, System.String moTa, System.Byte? flag)
 		{
 			Duong newEntityDuong = new Duong();
-			newEntityDuong.IdDuong  = idDuong;
 			newEntityDuong.IdQuan  = idQuan;
 			newEntityDuong.TenDuong  = tenDuong;
 			newEntityDuong.MaDuong  = maDuong;

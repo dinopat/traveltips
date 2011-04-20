@@ -52,15 +52,13 @@ namespace traveltips.Services
 		///<summary>
 		/// A simple factory method to create a new <see cref="LabelLanguage"/> instance.
 		///</summary>
-		///<param name="idLabelLanguage"></param>
 		///<param name="idLanguage"></param>
 		///<param name="idLabel"></param>
 		///<param name="noiDung"></param>
 		///<param name="flag"></param>
-		public static LabelLanguage CreateLabelLanguage(System.Int64 idLabelLanguage, System.Int32? idLanguage, System.Int64? idLabel, System.String noiDung, System.Byte? flag)
+		public static LabelLanguage CreateLabelLanguage(System.Int32? idLanguage, System.Int64? idLabel, System.String noiDung, System.Byte? flag)
 		{
 			LabelLanguage newEntityLabelLanguage = new LabelLanguage();
-			newEntityLabelLanguage.IdLabelLanguage  = idLabelLanguage;
 			newEntityLabelLanguage.IdLanguage  = idLanguage;
 			newEntityLabelLanguage.IdLabel  = idLabel;
 			newEntityLabelLanguage.NoiDung  = noiDung;

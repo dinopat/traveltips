@@ -52,16 +52,14 @@ namespace traveltips.Services
 		///<summary>
 		/// A simple factory method to create a new <see cref="LoaiSp"/> instance.
 		///</summary>
-		///<param name="idLoaiSp"></param>
 		///<param name="idLoaiSpCha"></param>
 		///<param name="tenLoaiSp"></param>
 		///<param name="maLoaiSp"></param>
 		///<param name="moTa"></param>
 		///<param name="flag"></param>
-		public static LoaiSp CreateLoaiSp(System.Int64 idLoaiSp, System.Int64? idLoaiSpCha, System.String tenLoaiSp, System.String maLoaiSp, System.String moTa, System.Byte? flag)
+		public static LoaiSp CreateLoaiSp(System.Int64? idLoaiSpCha, System.String tenLoaiSp, System.String maLoaiSp, System.String moTa, System.Byte? flag)
 		{
 			LoaiSp newEntityLoaiSp = new LoaiSp();
-			newEntityLoaiSp.IdLoaiSp  = idLoaiSp;
 			newEntityLoaiSp.IdLoaiSpCha  = idLoaiSpCha;
 			newEntityLoaiSp.TenLoaiSp  = tenLoaiSp;
 			newEntityLoaiSp.MaLoaiSp  = maLoaiSp;

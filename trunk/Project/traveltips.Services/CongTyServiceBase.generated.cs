@@ -52,7 +52,6 @@ namespace traveltips.Services
 		///<summary>
 		/// A simple factory method to create a new <see cref="CongTy"/> instance.
 		///</summary>
-		///<param name="idCongTy"></param>
 		///<param name="idChuCongTy"></param>
 		///<param name="idDanhMuc"></param>
 		///<param name="idQuocGia"></param>
@@ -73,10 +72,9 @@ namespace traveltips.Services
 		///<param name="moTaNgan"></param>
 		///<param name="moTaChiTiet"></param>
 		///<param name="flag"></param>
-		public static CongTy CreateCongTy(System.Int64 idCongTy, System.Int64? idChuCongTy, System.Int64? idDanhMuc, System.Int64? idQuocGia, System.Int64? idThanhPho, System.Int64? idQuan, System.Int64? idDuong, System.Int64? idKhuVuc, System.String soNha, System.String dienThoaiCd, System.String dienThoaiDd, System.String fax, System.String email, System.String website, System.String hinhThucTt, System.String thoiGianPv, System.String anhMinhHoa, System.String ghiChu, System.String moTaNgan, System.String moTaChiTiet, System.Byte? flag)
+		public static CongTy CreateCongTy(System.Int64? idChuCongTy, System.Int64? idDanhMuc, System.Int64? idQuocGia, System.Int64? idThanhPho, System.Int64? idQuan, System.Int64? idDuong, System.Int64? idKhuVuc, System.String soNha, System.String dienThoaiCd, System.String dienThoaiDd, System.String fax, System.String email, System.String website, System.String hinhThucTt, System.String thoiGianPv, System.String anhMinhHoa, System.String ghiChu, System.String moTaNgan, System.String moTaChiTiet, System.Byte? flag)
 		{
 			CongTy newEntityCongTy = new CongTy();
-			newEntityCongTy.IdCongTy  = idCongTy;
 			newEntityCongTy.IdChuCongTy  = idChuCongTy;
 			newEntityCongTy.IdDanhMuc  = idDanhMuc;
 			newEntityCongTy.IdQuocGia  = idQuocGia;
