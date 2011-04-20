@@ -343,7 +343,7 @@ namespace traveltips.Web.UI
         /// </summary>
         /// <value>The IdCongTy.</value>
 		[System.ComponentModel.Bindable(true)]
-		public System.String IdCongTy
+		public System.Int64? IdCongTy
 		{
 			get { return _entity.IdCongTy; }
 		}

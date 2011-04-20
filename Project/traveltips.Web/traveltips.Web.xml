@@ -9832,14 +9832,14 @@
             Represents the GetByIdTtsp method.
             </summary>
         </member>
-        <member name="F:traveltips.Web.Data.ThuocTinhSanPhamSelectMethod.GetByIdThuocTinh">
-            <summary>
-            Represents the GetByIdThuocTinh method.
-            </summary>
-        </member>
         <member name="F:traveltips.Web.Data.ThuocTinhSanPhamSelectMethod.GetByIdSanPham">
             <summary>
             Represents the GetByIdSanPham method.
+            </summary>
+        </member>
+        <member name="F:traveltips.Web.Data.ThuocTinhSanPhamSelectMethod.GetByIdThuocTinh">
+            <summary>
+            Represents the GetByIdThuocTinh method.
             </summary>
         </member>
         <member name="T:traveltips.Web.Data.ThuocTinhSanPhamFilter">

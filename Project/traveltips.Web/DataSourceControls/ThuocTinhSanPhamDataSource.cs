@@ -161,8 +161,8 @@ namespace traveltips.Web.Data
 			count = 0;
 			
 			System.Int64 idTtsp;
-			System.Int64? idThuocTinh_nullable;
 			System.Int64? idSanPham_nullable;
+			System.Int64? idThuocTinh_nullable;
 
 			switch ( SelectMethod )
 			{
@@ -196,13 +196,13 @@ namespace traveltips.Web.Data
 					break;
 				// IX
 				// FK
-				case ThuocTinhSanPhamSelectMethod.GetByIdThuocTinh:
-					idThuocTinh_nullable = (System.Int64?) EntityUtil.ChangeType(values["IdThuocTinh"], typeof(System.Int64?));
-					results = ThuocTinhSanPhamProvider.GetByIdThuocTinh(idThuocTinh_nullable, this.StartIndex, this.PageSize, out count);
-					break;
 				case ThuocTinhSanPhamSelectMethod.GetByIdSanPham:
 					idSanPham_nullable = (System.Int64?) EntityUtil.ChangeType(values["IdSanPham"], typeof(System.Int64?));
 					results = ThuocTinhSanPhamProvider.GetByIdSanPham(idSanPham_nullable, this.StartIndex, this.PageSize, out count);
+					break;
+				case ThuocTinhSanPhamSelectMethod.GetByIdThuocTinh:
+					idThuocTinh_nullable = (System.Int64?) EntityUtil.ChangeType(values["IdThuocTinh"], typeof(System.Int64?));
+					results = ThuocTinhSanPhamProvider.GetByIdThuocTinh(idThuocTinh_nullable, this.StartIndex, this.PageSize, out count);
 					break;
 				// M:M
 				// Custom
@@ -389,13 +389,13 @@ namespace traveltips.Web.Data
 		/// </summary>
 		GetByIdTtsp,
 		/// <summary>
-		/// Represents the GetByIdThuocTinh method.
-		/// </summary>
-		GetByIdThuocTinh,
-		/// <summary>
 		/// Represents the GetByIdSanPham method.
 		/// </summary>
-		GetByIdSanPham
+		GetByIdSanPham,
+		/// <summary>
+		/// Represents the GetByIdThuocTinh method.
+		/// </summary>
+		GetByIdThuocTinh
 	}
 	
 	#endregion ThuocTinhSanPhamSelectMethod

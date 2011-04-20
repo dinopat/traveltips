@@ -343,7 +343,7 @@ namespace traveltips.Web.UI
         /// </summary>
         /// <value>The TenDangNhap.</value>
 		[System.ComponentModel.Bindable(true)]
-		public System.Byte[] TenDangNhap
+		public System.String TenDangNhap
 		{
 			get { return _entity.TenDangNhap; }
 		}
@@ -388,7 +388,7 @@ namespace traveltips.Web.UI
         /// </summary>
         /// <value>The DienThoai.</value>
 		[System.ComponentModel.Bindable(true)]
-		public System.Byte[] DienThoai
+		public System.String DienThoai
 		{
 			get { return _entity.DienThoai; }
 		}

@@ -361,7 +361,7 @@ namespace traveltips.Web.UI
         /// </summary>
         /// <value>The Mota.</value>
 		[System.ComponentModel.Bindable(true)]
-		public System.Byte[] Mota
+		public System.String Mota
 		{
 			get { return _entity.Mota; }
 		}
