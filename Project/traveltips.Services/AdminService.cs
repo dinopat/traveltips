@@ -35,6 +35,7 @@ namespace traveltips.Services
 		{
 		}
 
+
         public bool Insert(Admin adminEntity)
         {
             try
