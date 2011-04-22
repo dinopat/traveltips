@@ -123,6 +123,9 @@
   <data name="blockOwnerSuccessfully" xml:space="preserve">
     <value>Đã block chủ công ty</value>
   </data>
+  <data name="confirmPasswordNotRight" xml:space="preserve">
+    <value>Nhập lại password mới không trùng khớp</value>
+  </data>
   <data name="createAdminSuccessfully" xml:space="preserve">
     <value>Tạo tài khoản Admin thành công</value>
   </data>
