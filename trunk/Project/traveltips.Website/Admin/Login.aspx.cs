@@ -9,6 +9,7 @@ using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Web.UI.HtmlControls;
 using traveltips.Services;
+using traveltips.Entities;
 
 public partial class Admin_LoginAdmin : System.Web.UI.Page
 {
@@ -59,7 +60,10 @@ public partial class Admin_LoginAdmin : System.Web.UI.Page
         bool checkInput = this.CheckLogin();
         if (checkInput)
         {
-            Response.Redirect("RegisterAdmin.aspx");
+            AdminService adminService = new AdminService();
+            Admin currentAdmin = adminService.GetByEmail(txtEmail.Text.Trim());
+            Session["AdminID"]=currentAdmin.IdAdmin;
+            Response.Redirect("Profile.aspx");
         }
     }
 }
