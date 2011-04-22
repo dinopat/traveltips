@@ -85,7 +85,7 @@
  </td>
                                 <td class="html7magic">
                                     </td>
-                           
+                           </tr>
                             <tr>
                                 <td class="html7magic">
                                     <label for="email">
